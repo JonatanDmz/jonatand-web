@@ -799,3 +799,42 @@ p  { color: var(--ni-white-dim); line-height: 1.7; }
     justify-content: center;
   }
 }
+
+/* === Grid 2 columns (Servicios) === */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2xl, 3rem);
+}
+
+@media (max-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === Comparto list === */
+.comparto-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl, 2rem);
+  max-width: 700px;
+  margin-top: var(--space-2xl, 3rem);
+}
+
+.comparto-item {
+  padding-left: 1.5rem;
+  border-left: 3px solid #FF8200;
+}
+
+.comparto-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.comparto-item p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  margin: 0;
+}
