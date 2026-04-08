@@ -26,3 +26,4 @@ Web personal de Jonatan Domínguez. Consultor de IA y Automatización.
 - [ ] Añadir lead magnets individuales con su propia landing
 - [ ] CTA al curso de WhatsApp cuando esté listo
 - [ ] Conectar dominio jonatand.com en Vercel
+
