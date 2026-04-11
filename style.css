@@ -677,7 +677,7 @@ p  { color: var(--ni-white-dim); line-height: 1.7; }
 .footer {
   background: var(--ni-black-soft);
   border-top: 1px solid var(--ni-border-dark);
-  padding: var(--space-xl) 0;
+  padding: var(--space-lg) 0;
   position: relative;
 }
 
@@ -692,13 +692,13 @@ p  { color: var(--ni-white-dim); line-height: 1.7; }
 }
 
 .footer .container { text-align: center; }
-.footer .nav-logo { display: block; margin-bottom: var(--space-lg); height: 24px; }
+.footer .nav-logo { display: block; margin-bottom: var(--space-md); height: 24px; }
 .footer-links { 
   display: flex; 
   gap: var(--space-xl); 
   justify-content: center; 
   flex-wrap: wrap; 
-  margin-bottom: var(--space-lg); 
+  margin-bottom: var(--space-md); 
 }
 
 .footer-links a { 
