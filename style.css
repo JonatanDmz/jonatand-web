@@ -386,6 +386,7 @@ p  { color: var(--ni-white-dim); line-height: 1.7; }
 
 .grid-3 .card .btn-primary {
   margin-top: auto !important;
+  padding-top: 1.5rem;
 }
 
 /* Split layout — generous spacing */
