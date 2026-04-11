@@ -379,6 +379,15 @@ p  { color: var(--ni-white-dim); line-height: 1.7; }
   margin-top: var(--space-xl);
 }
 
+.grid-3 .card {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-3 .card .btn-primary {
+  margin-top: auto !important;
+}
+
 /* Split layout — generous spacing */
 .split-layout {
   display: grid;
