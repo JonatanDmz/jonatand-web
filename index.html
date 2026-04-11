@@ -156,19 +156,51 @@
     </div>
   </section>
 
-  <!-- NEWSLETTER -->
-  <section class="section-dark" id="newsletter">
-    <div class="container container-narrow" style="text-align:center;">
-      <span class="section-label animate-fade-in" style="color:#fff; border-color:rgba(255,255,255,0.3);">Newsletter</span>
-      <h2 class="animate-fade-in-up delay-1">Todo lo que aprendo en el barro, <em class="serif-accent">en tu email</em></h2>
-      <p class="animate-fade-in-up delay-2" style="color:var(--ni-white-dim); margin-bottom:2.5rem; font-size:1.1rem;">Casos reales de clientes, sistemas que funcionan, errores que me han costado dinero. Y lo que aprendo de todo eso. Sin teoría. Sin gurús.</p>
-      <form class="newsletter-form animate-fade-in-up delay-3">
-        <input type="email" placeholder="tu@email.com" required />
-        <button type="submit" class="btn-primary">Recibe estas ideas gratis →</button>
+  <!-- NEWSLETTER POPUP -->
+  <div id="newsletter-popup" class="popup-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:9999;align-items:center;justify-content:center;backdrop-filter:blur(4px);">
+    <div class="popup-card" style="background:#fff;border-radius:16px;max-width:440px;width:90%;padding:40px 32px;position:relative;margin:auto;">
+      <button id="popup-close" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#888;line-height:1;" aria-label="Cerrar">&times;</button>
+      <span class="section-label" style="color:var(--ni-orange);">Newsletter</span>
+      <h2 style="font-size:1.5rem;margin:12px 0 8px;color:var(--ni-black);">Todo lo que aprendo en el barro, <em class="serif-accent">en tu email</em></h2>
+      <p style="color:#555;font-size:0.95rem;line-height:1.6;margin-bottom:20px;">Casos reales de clientes, sistemas que funcionan, errores que me han costado dinero. Sin teoría. Sin gurús.</p>
+      <div style="background:#f7f7f5;border-radius:8px;padding:16px;margin-bottom:24px;display:flex;align-items:center;gap:12px;">
+        <span style="font-size:1.5rem;">🎁</span>
+        <div>
+          <p style="font-size:0.8rem;color:var(--ni-orange);font-weight:600;margin:0 0 4px;">Al suscribirte recibes gratis:</p>
+          <p style="font-size:0.9rem;font-weight:600;color:var(--ni-black);margin:0;">Guía: Sistema de cualificación de leads por WhatsApp IA</p>
+        </div>
+      </div>
+      <form id="popup-form" style="display:flex;flex-direction:column;gap:10px;">
+        <input type="text" name="nombre" placeholder="Tu nombre" required style="padding:14px 16px;border:1px solid #ddd;border-radius:6px;font-size:0.95rem;font-family:inherit;" />
+        <input type="email" name="email" placeholder="tu@email.com" required style="padding:14px 16px;border:1px solid #ddd;border-radius:6px;font-size:0.95rem;font-family:inherit;" />
+        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:16px;border-radius:6px;">Me apunto</button>
       </form>
-      <p class="animate-fade-in delay-4" style="color:var(--ni-gray-meta); font-size:0.8rem; margin-top:1.5rem;">Sin spam. Te puedes dar de baja cuando quieras.</p>
+      <p style="color:var(--ni-gray-meta);font-size:0.75rem;margin-top:14px;text-align:center;">Cero spam. Si no te sirve, te borras y listo.</p>
     </div>
-  </section>
+  </div>
+
+  <script>
+  (function(){
+    var popup = document.getElementById('newsletter-popup');
+    var close = document.getElementById('popup-close');
+    function openPopup(e){
+      if(e) e.preventDefault();
+      popup.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closePopup(){
+      popup.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('a[href="#newsletter"]').forEach(function(a){
+      a.addEventListener('click', openPopup);
+    });
+    close.addEventListener('click', closePopup);
+    popup.addEventListener('click', function(e){
+      if(e.target === popup) closePopup();
+    });
+  })();
+  </script>
 
   <!-- FOOTER -->
   <footer class="footer">
