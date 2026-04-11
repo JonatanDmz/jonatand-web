@@ -789,6 +789,12 @@ p  { color: var(--ni-white-dim); line-height: 1.7; }
     padding: 14px 24px;
     justify-content: center;
   }
+
+  .nav .btn-primary {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
 }
 
 /* === Grid 2 columns (Servicios) === */
