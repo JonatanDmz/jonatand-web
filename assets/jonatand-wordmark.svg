@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 70" width="380" height="70">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@700&amp;family=Instrument+Serif:ital@1&amp;display=swap');
+    </style>
+  </defs>
+  <text y="56" letter-spacing="-1.5">
+    <tspan
+      font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif"
+      font-weight="700"
+      font-size="60"
+      fill="#ffffff">jonatan</tspan><tspan
+      font-family="'Instrument Serif', Georgia, serif"
+      font-style="italic"
+      font-weight="400"
+      font-size="68"
+      fill="#FF8200"
+      dy="4"
+      dx="-1">d</tspan>
+  </text>
+</svg>

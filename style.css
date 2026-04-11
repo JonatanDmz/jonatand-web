@@ -531,10 +531,8 @@ p  { color: var(--ni-white-dim); line-height: 1.7; }
 }
 
 .nav-logo {
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: var(--ni-orange);
-  letter-spacing: 0.05em;
+  height: 28px;
+  width: auto;
   transition: transform 0.2s ease;
 }
 
@@ -694,7 +692,7 @@ p  { color: var(--ni-white-dim); line-height: 1.7; }
 }
 
 .footer .container { text-align: center; }
-.footer .nav-logo { display: block; margin-bottom: var(--space-lg); font-size: 1.4rem; }
+.footer .nav-logo { display: block; margin-bottom: var(--space-lg); height: 24px; }
 .footer-links { 
   display: flex; 
   gap: var(--space-xl); 

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@700&amp;family=Instrument+Serif:ital@1&amp;display=swap');
+    </style>
+  </defs>
+  <rect width="64" height="64" rx="10" fill="#0a0a0a"/>
+  <rect width="64" height="64" rx="10" fill="none" stroke="#FF8200" stroke-width="2.5"/>
+  <text
+    text-anchor="middle"
+    x="32"
+    y="42"
+    letter-spacing="2">
+    <tspan
+      font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif"
+      font-weight="700"
+      font-size="28"
+      fill="#ffffff">j</tspan><tspan
+      font-family="'Instrument Serif', Georgia, serif"
+      font-style="italic"
+      font-weight="400"
+      font-size="32"
+      fill="#FF8200"
+      dy="3"
+      dx="3">d</tspan>
+  </text>
+</svg>
