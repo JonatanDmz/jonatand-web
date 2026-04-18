@@ -32,13 +32,22 @@
   <!-- NAV -->
   <nav class="nav">
     <div class="nav-inner">
-      <img src="assets/jonatand-wordmark.svg" alt="Jonatan Domínguez" class="nav-logo" />
-      <div class="nav-links">
+      <a href="/"><img src="assets/jonatand-wordmark.svg" alt="Jonatan Domínguez" class="nav-logo" /></a>
+      <div class="nav-links" id="nav-links">
         <a href="#sobre-mi">Sobre mí</a>
         <a href="/recursos/">Recursos</a>
         <a href="#newsletter">Newsletter</a>
       </div>
-      <a href="#newsletter" class="btn-primary">Suscríbete gratis →</a>
+      <a href="#newsletter" class="btn-primary nav-cta-desktop">Suscríbete gratis →</a>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile-dropdown" id="nav-dropdown">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="/recursos/">Recursos</a>
+      <a href="#newsletter">Newsletter</a>
+      <a href="#newsletter" class="btn-primary" style="margin-top:8px;text-align:center;">Suscríbete gratis →</a>
     </div>
   </nav>
 
