@@ -231,6 +231,24 @@
       if(e.target === popup) closePopup();
     });
   })();
+
+  // Hamburger menu
+  (function(){
+    var btn = document.getElementById('hamburger');
+    var dropdown = document.getElementById('nav-dropdown');
+    if(btn && dropdown){
+      btn.addEventListener('click', function(){
+        dropdown.classList.toggle('open');
+        btn.classList.toggle('open');
+      });
+      dropdown.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          dropdown.classList.remove('open');
+          btn.classList.remove('open');
+        });
+      });
+    }
+  })();
   </script>
 
   <!-- FOOTER -->
