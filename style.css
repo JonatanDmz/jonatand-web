@@ -824,10 +824,15 @@ p  { color: var(--ni-white-dim); line-height: 1.7; }
 .nav-mobile-dropdown {
   display: none;
   flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
   padding: 0 var(--space-lg) var(--space-md);
-  background: rgba(10,10,10,0.95);
+  background: rgba(10,10,10,0.97);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  z-index: 100;
 }
 .nav-mobile-dropdown a {
   color: var(--ni-white-dim);
@@ -850,6 +855,9 @@ p  { color: var(--ni-white-dim); line-height: 1.7; }
     filter: blur(4px);
     pointer-events: none;
     user-select: none;
+  }
+  body.menu-open {
+    overflow: hidden;
   }
 }
 
