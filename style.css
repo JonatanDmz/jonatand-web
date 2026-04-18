@@ -825,7 +825,9 @@ p  { color: var(--ni-white-dim); line-height: 1.7; }
   display: none;
   flex-direction: column;
   padding: 0 var(--space-lg) var(--space-md);
-  background: var(--ni-black);
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 .nav-mobile-dropdown a {
   color: var(--ni-white-dim);
