@@ -1,7 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 70" width="380" height="70">
   <defs>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@700&amp;family=Instrument+Serif:ital@1&amp;display=swap');
+      @font-face {
+        font-family: 'Instrument Sans';
+        font-style: normal;
+        font-weight: 700;
+        src: url(https://fonts.gstatic.com/s/instrumentsans/v4/pximypc9vsFDm051Uf6KVwgkfoSxQ0GsQv8ToedPibnr-yp2JGEJOH9npSQi_gf1.ttf) format('truetype');
+      }
+      @font-face {
+        font-family: 'Instrument Serif';
+        font-style: italic;
+        font-weight: 400;
+        src: url(https://fonts.gstatic.com/s/instrumentserif/v5/jizHRFtNs2ka5fXjeivQ4LroWlx-6zATiw.ttf) format('truetype');
+      }
     </style>
   </defs>
   <text y="56" letter-spacing="-1.5">
