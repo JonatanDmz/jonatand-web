@@ -238,13 +238,15 @@
     var dropdown = document.getElementById('nav-dropdown');
     if(btn && dropdown){
       btn.addEventListener('click', function(){
-        dropdown.classList.toggle('open');
+        var isOpen = dropdown.classList.toggle('open');
         btn.classList.toggle('open');
+        document.body.classList.toggle('menu-open', isOpen);
       });
       dropdown.querySelectorAll('a').forEach(function(a){
         a.addEventListener('click', function(){
           dropdown.classList.remove('open');
           btn.classList.remove('open');
+          document.body.classList.remove('menu-open');
         });
       });
     }

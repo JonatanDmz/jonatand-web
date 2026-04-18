@@ -846,6 +846,11 @@ p  { color: var(--ni-white-dim); line-height: 1.7; }
 @media (max-width: 768px) {
   .hamburger { display: flex; }
   .nav-cta-desktop { display: none !important; }
+  body.menu-open > *:not(.nav) {
+    filter: blur(4px);
+    pointer-events: none;
+    user-select: none;
+  }
 }
 
 /* === Grid 2 columns (Servicios) === */
