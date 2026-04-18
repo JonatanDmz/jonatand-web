@@ -14,10 +14,10 @@
   <!-- NAV -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="/"><img src="/assets/jonatand-wordmark.png" alt="Jonatan Domínguez" style="height:28px;width:auto;" /></a>
+      <a href="/"><img src="/assets/jonatand-wordmark.png" alt="Jonatan Domínguez" class="nav-logo" /></a>
       <div class="nav-links" id="nav-links">
         <a href="/#sobre-mi">Sobre mí</a>
-        <a href="/recursos/">Recursos</a>
+        <a href="/recursos.html">Recursos</a>
         <a href="/#newsletter">Newsletter</a>
       </div>
       <a href="/#newsletter" class="btn-primary nav-cta-desktop">Suscríbete gratis →</a>
@@ -25,57 +25,79 @@
         <span></span><span></span><span></span>
       </button>
     </div>
-    <!-- Mobile dropdown -->
     <div class="nav-mobile-dropdown" id="nav-dropdown">
       <a href="/#sobre-mi">Sobre mí</a>
-      <a href="/recursos/">Recursos</a>
+      <a href="/recursos.html">Recursos</a>
       <a href="/#newsletter">Newsletter</a>
       <a href="/#newsletter" class="btn-primary" style="margin-top:8px;text-align:center;">Suscríbete gratis →</a>
     </div>
   </nav>
 
-  <!-- HEADER -->
+  <!-- HERO -->
   <section class="section-dark" style="padding:var(--space-lg) 0 var(--space-lg);">
-    <div class="container">
+    <div class="container container-narrow" style="text-align:center;">
       <span class="section-label" style="color:#fff; border-color:rgba(255,255,255,0.3);">Recursos</span>
       <h1 style="color:#fff;font-size:var(--type-h1);margin-top:12px;">Lo que me hubiera gustado tener <em class="serif-accent">cuando empecé</em></h1>
-      <p style="color:var(--ni-white-dim);max-width:600px;margin-top:16px;font-size:1.05rem;">Guías, plantillas y herramientas para implementar IA en negocios. Sin teoría. Solo lo que funciona en la realidad.</p>
+      <p style="color:var(--ni-white-dim);max-width:600px;margin:16px auto 0;font-size:1.05rem;">Guías, plantillas y herramientas para implementar IA en negocios. Sin teoría. Solo lo que funciona en la realidad.</p>
     </div>
   </section>
 
   <!-- RECURSOS -->
   <section class="section-light" style="padding:var(--space-lg) 0 var(--space-xl);">
     <div class="container">
-      <div class="grid-2">
+      <div class="grid-2" style="gap:var(--space-lg);">
 
-        <div class="card">
-          <span style="color:var(--ni-orange);font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;">Guía</span>
-          <h3 style="margin-top:8px;">Sistema de cualificación de leads por WhatsApp IA</h3>
-          <p>Cómo montar un agente de WhatsApp que cualifica leads automáticamente con n8n y YCloud. El mismo sistema que vendo como servicio a mis clientes, explicado paso a paso.</p>
-          <a href="https://app.funnels.top/v2/preview/hghyFukOr23AgbMa97He" class="btn-primary" style="display:inline-block;margin-top:1.5rem;">Descargar gratis →</a>
+        <div class="card" style="display:flex;flex-direction:column;">
+          <div style="font-size:2.5rem;margin-bottom:12px;">🤖</div>
+          <span style="color:var(--ni-orange);font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Gratis</span>
+          <h3 style="margin-top:4px;">Sistema de cualificación de leads por WhatsApp IA</h3>
+          <p style="flex:1;">Cómo montar un agente de WhatsApp que cualifica leads automáticamente con n8n y YCloud. El mismo sistema que vendo como servicio a mis clientes.</p>
+          <div style="margin-top:auto;padding-top:1rem;">
+            <span style="color:var(--ni-gray-meta);font-size:0.8rem;">Guía completa · Paso a paso</span>
+            <a href="https://app.funnels.top/v2/preview/hghyFukOr23AgbMa97He" class="btn-primary" style="display:inline-block;margin-top:8px;">Acceder →</a>
+          </div>
         </div>
 
-        <div class="card">
-          <span style="color:var(--ni-orange);font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;">Newsletter</span>
-          <h3 style="margin-top:8px;">Ideas semanales desde el barro</h3>
-          <p>Cada semana te mando un email con casos reales, sistemas que funcionan y errores que me han costado dinero. Sin teoría. Sin gurús. Solo lo que me hubiera gustado saber cuando empecé.</p>
-          <a href="/#newsletter" class="btn-primary" style="display:inline-block;margin-top:1.5rem;">Suscribirme →</a>
+        <div class="card" style="display:flex;flex-direction:column;">
+          <div style="font-size:2.5rem;margin-bottom:12px;">📋</div>
+          <span style="color:var(--ni-orange);font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Gratis</span>
+          <h3 style="margin-top:4px;">10 preguntas para detectar oportunidades de IA</h3>
+          <p style="flex:1;">Checklist para identificar brechas de automatización en cualquier negocio en 15 minutos. Lo que uso en mis primeras reuniones con clientes.</p>
+          <div style="margin-top:auto;padding-top:1rem;">
+            <span style="color:var(--ni-gray-meta);font-size:0.8rem;">Checklist · 15 min</span>
+            <a href="/#newsletter" class="btn-primary" style="display:inline-block;margin-top:8px;">Próximamente</a>
+          </div>
         </div>
 
-        <div class="card">
-          <span style="color:var(--ni-orange);font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;">Formación</span>
-          <h3 style="margin-top:8px;">Curso: Monta y vende sistemas de WhatsApp con IA</h3>
-          <p>Aprende a montar el sistema de cualificación de leads, empaquetarlo como servicio y venderlo a tus clientes. El sistema que montas una vez y vendes mil veces.</p>
-          <a href="https://app.funnels.top/v2/preview/hghyFukOr23AgbMa97He" class="btn-primary" style="display:inline-block;margin-top:1.5rem;">Más información →</a>
+        <div class="card" style="display:flex;flex-direction:column;">
+          <div style="font-size:2.5rem;margin-bottom:12px;">💰</div>
+          <span style="color:var(--ni-orange);font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Gratis</span>
+          <h3 style="margin-top:4px;">4 departamentos que puede automatizar la IA</h3>
+          <p style="flex:1;">Ventas, marketing, atención al cliente y operaciones. Dónde empezar, qué automatizar primero y cómo medir el impacto real.</p>
+          <div style="margin-top:auto;padding-top:1rem;">
+            <span style="color:var(--ni-gray-meta);font-size:0.8rem;">Guía · PDF</span>
+            <a href="/#newsletter" class="btn-primary" style="display:inline-block;margin-top:8px;">Próximamente</a>
+          </div>
         </div>
 
-        <div class="card">
-          <span style="color:var(--ni-orange);font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;">Comunidad</span>
-          <h3 style="margin-top:8px;">Consultizadores Club</h3>
-          <p>+10h de formación grabada, comunidad de automatizadores y sesiones mensuales. Para el que quiere dar el salto de "sé usar herramientas" a "vendo servicios de IA".</p>
-          <a href="https://consultizadores.com/club" class="btn-primary" style="display:inline-block;margin-top:1.5rem;">Más información →</a>
+        <div class="card" style="display:flex;flex-direction:column;">
+          <div style="font-size:2.5rem;margin-bottom:12px;">📧</div>
+          <span style="color:var(--ni-orange);font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Gratis</span>
+          <h3 style="margin-top:4px;">Newsletter: ideas desde el barro</h3>
+          <p style="flex:1;">Cada semana: casos reales, sistemas que funcionan y errores que me han costado dinero. Sin teoría. Sin gurús. Directo a tu email.</p>
+          <div style="margin-top:auto;padding-top:1rem;">
+            <span style="color:var(--ni-gray-meta);font-size:0.8rem;">Semanal · 600+ suscriptores</span>
+            <a href="/#newsletter" class="btn-primary" style="display:inline-block;margin-top:8px;">Suscribirme →</a>
+          </div>
         </div>
 
+      </div>
+
+      <!-- Próximos recursos -->
+      <div style="text-align:center;margin-top:var(--space-xl);padding:var(--space-lg);background:var(--ni-gray-section);border-radius:var(--radius-lg);">
+        <h3 style="font-size:var(--type-h3);">Más recursos en camino</h3>
+        <p style="color:var(--ni-gray-meta);margin-top:8px;max-width:400px;margin-left:auto;margin-right:auto;">Cada semana creo recursos para automatizadores que quieren vender servicios de IA. Suscríbete y te aviso.</p>
+        <a href="/#newsletter" class="btn-primary" style="display:inline-block;margin-top:20px;">Suscribirme gratis →</a>
       </div>
     </div>
   </section>
@@ -83,7 +105,7 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
-      <a href="/"><img src="/assets/jonatand-wordmark.png" alt="Jonatan Domínguez" style="height:28px;width:auto;" /></a>
+      <a href="/"><img src="/assets/jonatand-wordmark.png" alt="Jonatan Domínguez" class="nav-logo" style="margin-bottom:0;" /></a>
       <p style="color:var(--ni-gray-meta); font-size:0.8rem;margin:0;">© 2026 Jonatan Domínguez</p>
     </div>
   </footer>
