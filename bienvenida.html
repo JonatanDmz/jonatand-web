@@ -55,24 +55,7 @@
       .mini-stats { grid-template-columns: 1fr; }
     }
 
-    .card p strong { color: #111; }
-
-    .system-title {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .system-title .n {
-      font-family: 'Instrument Serif', Georgia, serif;
-      font-style: italic;
-      font-weight: 400;
-      color: var(--ni-orange);
-      font-size: 1.6rem;
-      line-height: 1;
-    }
-
+    /* CTA inline */
     .inline-cta {
       margin-top: var(--space-lg);
       border: 1px solid rgba(255,130,0,0.25);
@@ -98,7 +81,31 @@
       text-align: center;
     }
 
-    /* Lista de sistemas más escaneable */
+    /* Sistemas: estructura escaneable con subtítulos */
+    .toc {
+      margin-top: var(--space-xl);
+      border: 1px solid var(--ni-border-dark);
+      background: rgba(255,255,255,0.02);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      max-width: 760px;
+    }
+
+    .toc h3 {
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .toc a {
+      display: block;
+      color: rgba(255,255,255,0.78);
+      padding: 6px 0;
+      font-size: var(--type-small);
+    }
+
+    .toc a:hover { color: #fff; }
+
     .systems-list {
       display: flex;
       flex-direction: column;
@@ -110,26 +117,53 @@
     .systems-list .block {
       padding-left: 1.5rem;
       border-left: 3px solid var(--ni-orange);
+      scroll-margin-top: 96px;
+    }
+
+    .system-title {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+
+    .system-title .n {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--ni-orange);
+      font-size: 1.6rem;
+      line-height: 1;
     }
 
     .systems-list h3 {
       color: #fff;
-      margin-bottom: 6px;
+      margin: 0;
     }
 
-    .systems-list .tagline {
+    .tagline {
       color: rgba(255,255,255,0.7);
       font-size: 0.95rem;
       margin: 0 0 14px;
     }
 
-    .systems-list p {
-      color: rgba(255,255,255,0.7);
-      margin: 0 0 16px;
+    .sys-section { margin-top: 14px; }
+
+    .sys-label {
+      display: inline-block;
+      font-size: var(--type-tiny);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: var(--radius-pill);
+      padding: 4px 12px;
+      margin-bottom: 10px;
     }
 
     .cases {
-      margin-top: 10px;
+      margin-top: 6px;
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 10px;
@@ -146,6 +180,39 @@
 
     @media (max-width: 768px) {
       .cases { grid-template-columns: 1fr; }
+    }
+
+    .benefits {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .benefits li {
+      border: 1px solid var(--ni-border-dark);
+      background: rgba(255,255,255,0.02);
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+      font-size: var(--type-small);
+      color: rgba(255,255,255,0.75);
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .benefits li::before {
+      content: "✓";
+      color: var(--ni-orange);
+      font-weight: 700;
+      position: absolute;
+      left: 12px;
+      top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .benefits { grid-template-columns: 1fr; }
     }
 
     .diagnosis {
@@ -222,9 +289,9 @@
           <div class="card-number"><span class="serif-accent">01</span></div>
           <h3>El proyecto a medida te da pasta, pero no te deja escalar</h3>
           <p>
-            Montas algo espectacular para un cliente. Lo personalizas hasta el milímetro. Te pagan bien.
-            Y cuando llega el siguiente cliente con una necesidad parecida, vuelves a empezar desde cero.
-            <strong>Estás cambiando tiempo por dinero, no construyendo nada que crezca solo.</strong>
+            Montas algo espectacular para un cliente. Te pagan bien.
+            Y cuando llega el siguiente con una necesidad parecida, vuelves a empezar.
+            <strong>Tiempo por dinero, no escalabilidad.</strong>
           </p>
         </div>
 
@@ -232,9 +299,9 @@
           <div class="card-number"><span class="serif-accent">02</span></div>
           <h3>Empieza por marketing y ventas, no por operaciones internas</h3>
           <p>
-            Automatizar lo interno suena bien, pero es difícil venderlo al principio.
-            <strong>Lo que ayuda a captar clientes o cerrar ventas se vende en la primera conversación.</strong>
-            Lo interno requiere confianza, acceso y decisiones que implican a más gente.
+            Lo interno es difícil de vender al principio.
+            <strong>Lo que impacta en ventas se vende en la primera conversación.</strong>
+            Lo interno requiere confianza, acceso y más decisiones.
           </p>
         </div>
 
@@ -243,44 +310,70 @@
           <h3>Un añadido, no una transformación</h3>
           <p>
             Nadie te contrata para cambiar cómo trabaja su empresa.
-            <strong>Sí te contratan para ponerte encima de lo que ya usan.</strong>
-            Cuanto menos toques sus procesos, menos fricción para cerrar y menos problemas al ejecutar.
+            <strong>Sí para ponerte encima de lo que ya usa.</strong>
+            Menos fricción, más cierres.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SISTEMAS (escaneable, estilo home) -->
+  <!-- SISTEMAS (subtítulos, estilo Pablo pero con tu diseño) -->
   <section class="section-dark">
     <div class="container">
       <span class="section-label animate-fade-in" style="color:#fff; border-color:rgba(255,255,255,0.3);">Los 5 sistemas</span>
       <h2 class="animate-fade-in-up delay-1">Montas uno, lo replicas <em class="serif-accent">donde quieras</em></h2>
       <p class="lead animate-fade-in-up delay-2" style="max-width:760px;">
-        Cada sistema comparte una base. Lo que cambia es el sector, el cliente y cuatro configuraciones.
-        El trabajo duro lo haces una vez.
+        Aquí tienes los 5 en formato escaneable: descripción, casos, y el beneficio por el que te pagan.
       </p>
+
+      <div class="toc animate-fade-in-up delay-3">
+        <h3>Índice</h3>
+        <a href="#s1">01 · El portero de WhatsApp</a>
+        <a href="#s2">02 · El anfitrión que nunca duerme</a>
+        <a href="#s3">03 · El destilador</a>
+        <a href="#s4">04 · El soporte que no factura horas</a>
+        <a href="#s5">05 · El cazador de bajas</a>
+      </div>
 
       <div class="systems-list">
 
-        <div class="block">
+        <!-- SISTEMA 1 -->
+        <div class="block" id="s1">
           <div class="system-title">
             <span class="n">01</span>
             <h3>El portero de WhatsApp</h3>
           </div>
           <div class="tagline">Cualificación automática de leads por el canal donde ya están</div>
-          <p>
-            Un lead llega. El sistema hace las preguntas correctas, evalúa si encaja y decide qué pasa después: agenda una llamada, manda información, lo pone en seguimiento o lo descarta.
-            <strong style="color:#fff;">El cliente deja de perder horas en leads que no van a comprar.</strong>
-          </p>
 
-          <div class="cases">
-            <div class="case">Clínica dental con consultas a todas horas</div>
-            <div class="case">Formador que filtra antes de una llamada</div>
-            <div class="case">Agencia que cualifica leads de campañas</div>
-            <div class="case">Inmobiliaria con solicitudes de visita</div>
-            <div class="case">Centro de formación que evalúa encaje</div>
-            <div class="case">SaaS que recibe demos sin cualificar</div>
+          <div class="sys-section">
+            <span class="sys-label">Descripción</span>
+            <p>
+              Un lead llega. El sistema hace las preguntas correctas, evalúa si encaja y decide qué pasa después: agenda una llamada, manda información, lo pone en seguimiento o lo descarta.
+              <strong style="color:#fff;">Tu cliente deja de perder horas en leads que no van a comprar.</strong>
+            </p>
+          </div>
+
+          <div class="sys-section">
+            <span class="sys-label">Casos de uso</span>
+            <div class="cases">
+              <div class="case">Clínica dental (presupuestos 24/7)</div>
+              <div class="case">Agencia (leads de campañas)</div>
+              <div class="case">Inmobiliaria (visitas)</div>
+              <div class="case">Academia (nivel + disponibilidad)</div>
+              <div class="case">SaaS (demos)</div>
+              <div class="case">Consultor (leads fríos de web/LinkedIn)</div>
+            </div>
+          </div>
+
+          <div class="sys-section">
+            <span class="sys-label">Beneficio por el que te pagan</span>
+            <ul class="benefits">
+              <li>Ahorra horas de WhatsApp cada semana</li>
+              <li>Sube la tasa de reunión con leads buenos</li>
+              <li>Responde rápido sin contratar a nadie</li>
+              <li>Deja trazabilidad (quién, qué, cuándo)</li>
+            </ul>
           </div>
 
           <div class="diagnosis">
@@ -288,29 +381,47 @@
           </div>
 
           <div class="inline-cta">
-            <h4>¿Quieres empezar a montar tu primer sistema?</h4>
-            <p>He preparado un curso donde montas este sistema paso a paso (y lo dejas listo para replicarlo).</p>
+            <h4>¿Quieres empezar por este?</h4>
+            <p>He preparado un curso donde montas el Sistema 01 paso a paso (y lo dejas listo para replicarlo).</p>
             <!-- TODO: sustituir por la URL real del curso -->
             <a class="btn-primary" href="#">Quiero montarlo esta semana →</a>
           </div>
         </div>
 
-        <div class="block">
+        <!-- SISTEMA 2 -->
+        <div class="block" id="s2">
           <div class="system-title">
             <span class="n">02</span>
             <h3>El anfitrión que nunca duerme</h3>
           </div>
           <div class="tagline">Onboarding personalizado para que nadie se pierda al entrar</div>
-          <p>
-            Una persona entra a un curso, comunidad o servicio. El sistema la recibe, hace 2-3 preguntas y la lleva exactamente donde necesita ir.
-            <strong style="color:#fff;">Los primeros 10-15 días deciden si se queda o desaparece.</strong>
-          </p>
 
-          <div class="cases">
-            <div class="case">Membresías con abandono en las 2 primeras semanas</div>
-            <div class="case">Academias con alumnos perdidos al entrar</div>
-            <div class="case">SaaS que necesita activar usuarios nuevos</div>
-            <div class="case">Agencias con onboarding caótico</div>
+          <div class="sys-section">
+            <span class="sys-label">Descripción</span>
+            <p>
+              Una persona entra a un curso, comunidad o servicio. El sistema la recibe, hace 2-3 preguntas y la guía.
+              <strong style="color:#fff;">Los primeros 10-15 días deciden si se queda o desaparece.</strong>
+            </p>
+          </div>
+
+          <div class="sys-section">
+            <span class="sys-label">Casos de uso</span>
+            <div class="cases">
+              <div class="case">Membresías con abandono en 2 semanas</div>
+              <div class="case">Academias con alumnos perdidos</div>
+              <div class="case">SaaS que necesita activación</div>
+              <div class="case">Agencias con onboarding caótico</div>
+            </div>
+          </div>
+
+          <div class="sys-section">
+            <span class="sys-label">Beneficio por el que te pagan</span>
+            <ul class="benefits">
+              <li>Sube activación (menos gente perdida)</li>
+              <li>Baja churn inicial</li>
+              <li>Menos soporte repetitivo al principio</li>
+              <li>Experiencia premium sin equipo extra</li>
+            </ul>
           </div>
 
           <div class="diagnosis">
@@ -318,22 +429,40 @@
           </div>
         </div>
 
-        <div class="block">
+        <!-- SISTEMA 3 -->
+        <div class="block" id="s3">
           <div class="system-title">
             <span class="n">03</span>
             <h3>El destilador</h3>
           </div>
           <div class="tagline">De audio/vídeo/texto a entregables útiles (con la estructura del cliente)</div>
-          <p>
-            Entra una reunión grabada o un documento largo. Sale un acta, una propuesta, un artículo o un informe.
-            <strong style="color:#fff;">No es un resumen genérico, está estructurado según las reglas del negocio.</strong>
-          </p>
 
-          <div class="cases">
-            <div class="case">Actas de reunión listas para mandar</div>
-            <div class="case">Propuestas comerciales desde el briefing</div>
-            <div class="case">Show notes para podcasts o YouTube</div>
-            <div class="case">Documentación interna desde grabaciones</div>
+          <div class="sys-section">
+            <span class="sys-label">Descripción</span>
+            <p>
+              Entra una reunión grabada o un documento largo. Sale un acta, una propuesta, un artículo o un informe.
+              <strong style="color:#fff;">No es un resumen genérico, está estructurado según las reglas del negocio.</strong>
+            </p>
+          </div>
+
+          <div class="sys-section">
+            <span class="sys-label">Casos de uso</span>
+            <div class="cases">
+              <div class="case">Actas de reunión listas para enviar</div>
+              <div class="case">Propuestas desde un briefing</div>
+              <div class="case">Show notes (podcast / YouTube)</div>
+              <div class="case">Documentación interna</div>
+            </div>
+          </div>
+
+          <div class="sys-section">
+            <span class="sys-label">Beneficio por el que te pagan</span>
+            <ul class="benefits">
+              <li>Ahorra horas de redacción</li>
+              <li>Mejora consistencia y calidad</li>
+              <li>Entrega más rápido (y cobras mejor)</li>
+              <li>Reduce errores por “me dejé esto”</li>
+            </ul>
           </div>
 
           <div class="diagnosis">
@@ -341,22 +470,40 @@
           </div>
         </div>
 
-        <div class="block">
+        <!-- SISTEMA 4 -->
+        <div class="block" id="s4">
           <div class="system-title">
             <span class="n">04</span>
             <h3>El soporte que no factura horas</h3>
           </div>
           <div class="tagline">Respuestas consistentes con el conocimiento del negocio</div>
-          <p>
-            El sistema responde dudas entrenado con documentación, FAQs y contenido del cliente.
-            <strong style="color:#fff;">Reduce soporte, baja tiempos de respuesta y quita cuello de botella.</strong>
-          </p>
 
-          <div class="cases">
-            <div class="case">Cursos con las mismas preguntas cada semana</div>
-            <div class="case">SaaS con documentación y soporte desbordado</div>
-            <div class="case">E-commerce con precompra repetitiva</div>
-            <div class="case">Clínicas con preguntas frecuentes</div>
+          <div class="sys-section">
+            <span class="sys-label">Descripción</span>
+            <p>
+              El sistema responde dudas entrenado con documentación, FAQs y contenido del cliente.
+              <strong style="color:#fff;">Reduce soporte, baja tiempos de respuesta y quita cuello de botella.</strong>
+            </p>
+          </div>
+
+          <div class="sys-section">
+            <span class="sys-label">Casos de uso</span>
+            <div class="cases">
+              <div class="case">Cursos con dudas repetitivas</div>
+              <div class="case">SaaS con soporte desbordado</div>
+              <div class="case">E-commerce precompra</div>
+              <div class="case">Clínicas con FAQs</div>
+            </div>
+          </div>
+
+          <div class="sys-section">
+            <span class="sys-label">Beneficio por el que te pagan</span>
+            <ul class="benefits">
+              <li>Respuesta inmediata (24/7)</li>
+              <li>Menos tickets y menos carga</li>
+              <li>Usuario más satisfecho</li>
+              <li>Menos “te respondo mañana”</li>
+            </ul>
           </div>
 
           <div class="diagnosis">
@@ -364,22 +511,40 @@
           </div>
         </div>
 
-        <div class="block">
+        <!-- SISTEMA 5 -->
+        <div class="block" id="s5">
           <div class="system-title">
             <span class="n">05</span>
             <h3>El cazador de bajas</h3>
           </div>
           <div class="tagline">Detecta señales de churn y re-activa antes de que cancelen</div>
-          <p>
-            Monitoriza actividad (aperturas, compras, accesos). Si alguien se enfría, dispara el mensaje correcto en el momento correcto.
-            <strong style="color:#fff;">No es un blast, es seguimiento inteligente.</strong>
-          </p>
 
-          <div class="cases">
-            <div class="case">Membresías con churn silencioso</div>
-            <div class="case">SaaS con usuarios dormidos</div>
-            <div class="case">Academias con abandono a mitad</div>
-            <div class="case">Newsletters con suscriptores fríos</div>
+          <div class="sys-section">
+            <span class="sys-label">Descripción</span>
+            <p>
+              Monitoriza actividad (aperturas, compras, accesos). Si alguien se enfría, dispara el mensaje correcto en el momento correcto.
+              <strong style="color:#fff;">No es un blast, es seguimiento inteligente.</strong>
+            </p>
+          </div>
+
+          <div class="sys-section">
+            <span class="sys-label">Casos de uso</span>
+            <div class="cases">
+              <div class="case">Membresías con churn silencioso</div>
+              <div class="case">SaaS con usuarios dormidos</div>
+              <div class="case">Academias con abandono a mitad</div>
+              <div class="case">Newsletters con fríos</div>
+            </div>
+          </div>
+
+          <div class="sys-section">
+            <span class="sys-label">Beneficio por el que te pagan</span>
+            <ul class="benefits">
+              <li>Recupera gente antes de cancelar</li>
+              <li>Sube LTV sin más adquisición</li>
+              <li>Automatiza seguimiento “imposible”</li>
+              <li>Reduce pérdidas invisibles</li>
+            </ul>
           </div>
 
           <div class="diagnosis">
@@ -391,13 +556,13 @@
     </div>
   </section>
 
-  <!-- CTA FINAL (sin fugas, CTA solo al curso) -->
+  <!-- CTA FINAL -->
   <section class="section-light" style="text-align:center;">
     <div class="container container-narrow">
       <span class="section-label animate-fade-in">El siguiente paso</span>
       <h2 class="animate-fade-in-up delay-1">¿Quieres empezar a montar tu <em class="serif-accent">primer sistema</em>?</h2>
       <p class="animate-fade-in-up delay-2" style="margin-bottom:24px;">
-        Si el sistema 1 te encaja, tengo un curso donde lo montas paso a paso y lo dejas listo para replicarlo en distintos clientes.
+        Si el Sistema 01 te encaja, tengo un curso donde lo montas paso a paso y lo dejas listo para replicarlo en distintos clientes.
       </p>
       <!-- TODO: sustituir por la URL real del curso -->
       <a href="#" class="btn-primary animate-fade-in-up delay-3" style="font-size:1.05rem;padding:18px 40px;justify-content:center;">Quiero verlo →</a>
