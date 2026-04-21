@@ -1,866 +1,416 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>5 sistemas de IA que montas una vez y vendes mil veces — Negocios Inquietos</title>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@1&family=JetBrains+Mono&display=swap" rel="stylesheet">
-<style>
- :root {
- --ni-black: #0a0a0a;
- --ni-black-soft: #111111;
- --ni-white: #ffffff;
- --ni-white-dim: #c8c8c4;
- --ni-gray-section: #f2f2f0;
- --ni-gray-card: #ffffff;
- --ni-orange: #FF8200;
- --ni-orange-deep: #d96e00;
- --ni-orange-muted: #7a3a08;
- --ni-border-dark: #1e1e1e;
- --ni-border-light: #e0e0dc;
- --ni-gray-meta: #888884;
-
- --type-hero: clamp(2.2rem, 5vw, 3.5rem);
- --type-h1: clamp(1.8rem, 4vw, 2.8rem);
- --type-h2: clamp(1.4rem, 3vw, 2rem);
- --type-h3: clamp(1rem, 2vw, 1.3rem);
- --type-body: 1rem;
- --type-small: 0.875rem;
- --type-tiny: 0.75rem;
-
- --space-xs: 4px; --space-sm: 8px; --space-md: 16px;
- --space-lg: 32px; --space-xl: 64px; --space-2xl: 96px;
-
- --radius-sm: 4px; --radius-md: 8px;
- --radius-lg: 16px; --radius-pill: 999px;
- --content-width: 720px;
- }
-
- *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
- body {
- font-family: 'Instrument Sans', sans-serif;
- font-size: var(--type-body);
- line-height: 1.65;
- background: var(--ni-black);
- color: var(--ni-white);
- -webkit-font-smoothing: antialiased;
- }
-
- .serif-accent {
- font-family: 'Instrument Serif', Georgia, serif;
- font-style: italic;
- font-weight: 400;
- color: var(--ni-orange);
- }
-
- .section-label {
- display: inline-block;
- border: 1px solid currentColor;
- border-radius: var(--radius-pill);
- font-size: var(--type-tiny);
- font-weight: 500;
- padding: 4px 14px;
- opacity: 0.5;
- margin-bottom: var(--space-md);
- letter-spacing: 0.05em;
- text-transform: uppercase;
- }
-
- .container {
- max-width: var(--content-width);
- margin: 0 auto;
- padding: 0 var(--space-lg);
- }
-
- /* NAV */
- nav {
- background: var(--ni-black);
- border-bottom: 1px solid var(--ni-border-dark);
- padding: var(--space-md) var(--space-lg);
- display: flex;
- align-items: center;
- justify-content: space-between;
- position: sticky;
- top: 0;
- z-index: 100;
- }
-
- .logo {
- display: flex;
- align-items: center;
- gap: 10px;
- }
-
- .logo-mark {
- width: 32px;
- height: 32px;
- background: var(--ni-orange);
- border-radius: 50%;
- display: flex;
- align-items: center;
- justify-content: center;
- font-weight: 700;
- font-size: 0.8rem;
- color: #000;
- flex-shrink: 0;
- }
-
- .logo-text {
- font-size: var(--type-tiny);
- font-weight: 600;
- color: var(--ni-white);
- letter-spacing: 0.08em;
- text-transform: uppercase;
- }
-
- /* HERO */
- .hero {
- background: var(--ni-black);
- padding: var(--space-2xl) 0 var(--space-xl);
- border-bottom: 1px solid var(--ni-border-dark);
- }
-
- .hero .container { text-align: center; }
-
- .hero h1 {
- font-size: var(--type-hero);
- font-weight: 700;
- line-height: 1.15;
- letter-spacing: -0.02em;
- margin-bottom: var(--space-lg);
- }
-
- .hero p {
- font-size: 1.1rem;
- color: var(--ni-white-dim);
- max-width: 560px;
- margin: 0 auto var(--space-xl);
- line-height: 1.7;
- }
-
- .stats-row {
- display: flex;
- justify-content: center;
- gap: var(--space-xl);
- flex-wrap: wrap;
- padding-top: var(--space-xl);
- border-top: 1px solid var(--ni-border-dark);
- }
-
- .stat { text-align: center; }
-
- .stat-number {
- font-family: 'Instrument Serif', Georgia, serif;
- font-style: italic;
- font-size: 2.5rem;
- color: var(--ni-orange);
- line-height: 1;
- display: block;
- }
-
- .stat-label {
- font-size: var(--type-small);
- color: var(--ni-white-dim);
- margin-top: 4px;
- }
-
- /* ERRORES — sección clara */
- .errores {
- background: var(--ni-gray-section);
- padding: var(--space-2xl) 0;
- color: var(--ni-black);
- }
-
- .errores .section-label { color: var(--ni-black); }
-
- .errores h2 {
- font-size: var(--type-h1);
- font-weight: 700;
- line-height: 1.2;
- letter-spacing: -0.02em;
- margin-bottom: var(--space-xl);
- }
-
- .error-item {
- background: var(--ni-white);
- border: 1px solid var(--ni-border-light);
- border-radius: var(--radius-lg);
- padding: var(--space-lg);
- margin-bottom: var(--space-md);
- box-shadow: 0 2px 8px rgba(0,0,0,0.06);
- display: grid;
- grid-template-columns: 48px 1fr;
- gap: var(--space-md);
- align-items: start;
- }
-
- .error-num {
- font-family: 'Instrument Serif', Georgia, serif;
- font-style: italic;
- font-size: 2rem;
- color: var(--ni-orange);
- line-height: 1;
- padding-top: 2px;
- }
-
- .error-content h3 {
- font-size: var(--type-h3);
- font-weight: 700;
- margin-bottom: var(--space-sm);
- line-height: 1.3;
- color: var(--ni-black);
- }
-
- .error-content p {
- font-size: var(--type-small);
- color: #444;
- line-height: 1.7;
- }
-
- .error-content p strong { color: var(--ni-black); }
-
- /* SISTEMAS — sección oscura */
- .sistemas {
- background: var(--ni-black);
- padding: var(--space-2xl) 0;
- }
-
- .sistemas h2 {
- font-size: var(--type-h1);
- font-weight: 700;
- line-height: 1.2;
- letter-spacing: -0.02em;
- margin-bottom: var(--space-sm);
- }
-
- .sistemas > .container > p {
- color: var(--ni-white-dim);
- margin-bottom: var(--space-xl);
- max-width: 540px;
- }
-
- .resumen {
- background: var(--ni-black-soft);
- border: 1px solid var(--ni-border-dark);
- border-radius: var(--radius-lg);
- padding: var(--space-lg);
- margin-bottom: var(--space-2xl);
- }
-
- .resumen h3 {
- font-size: var(--type-h3);
- font-weight: 700;
- margin-bottom: var(--space-md);
- }
-
- .resumen-list {
- list-style: none;
- display: grid;
- grid-template-columns: 1fr;
- gap: var(--space-sm);
- }
-
- .resumen-list li {
- color: var(--ni-white-dim);
- font-size: var(--type-small);
- line-height: 1.6;
- padding-left: 1.2rem;
- position: relative;
- }
-
- .resumen-list li::before {
- content: "→";
- position: absolute;
- left: 0;
- color: var(--ni-orange);
- }
-
- .sistema-block {
- margin-bottom: var(--space-xl);
- padding-bottom: var(--space-xl);
- border-bottom: 1px solid var(--ni-border-dark);
- }
-
- .sistema-block:last-child {
- border-bottom: none;
- margin-bottom: 0;
- }
-
- .sistema-header {
- display: flex;
- align-items: flex-start;
- gap: var(--space-md);
- margin-bottom: var(--space-lg);
- }
-
- .sistema-num {
- font-family: 'Instrument Serif', Georgia, serif;
- font-style: italic;
- font-size: 3rem;
- color: var(--ni-orange);
- line-height: 1;
- flex-shrink: 0;
- padding-top: 4px;
- }
-
- .sistema-title-group h3 {
- font-size: var(--type-h2);
- font-weight: 700;
- letter-spacing: -0.01em;
- line-height: 1.2;
- }
-
- .sistema-title-group .tagline {
- color: var(--ni-white-dim);
- font-size: var(--type-small);
- margin-top: 4px;
- }
-
- .sistema-desc {
- color: var(--ni-white-dim);
- margin-bottom: var(--space-lg);
- line-height: 1.75;
- font-size: 1.05rem;
- }
-
- .sistema-desc strong { color: var(--ni-white); }
-
- .casos-label {
- font-size: var(--type-tiny);
- font-weight: 600;
- color: var(--ni-orange);
- letter-spacing: 0.1em;
- text-transform: uppercase;
- margin-bottom: var(--space-md);
- }
-
- .casos-grid {
- display: grid;
- grid-template-columns: 1fr 1fr;
- gap: var(--space-sm);
- margin-bottom: var(--space-lg);
- }
-
- @media (max-width: 600px) {
- .casos-grid { grid-template-columns: 1fr; }
- }
-
- .caso-item {
- background: var(--ni-black-soft);
- border: 1px solid var(--ni-border-dark);
- border-radius: var(--radius-md);
- padding: 10px var(--space-md);
- font-size: var(--type-small);
- color: var(--ni-white-dim);
- display: flex;
- align-items: flex-start;
- gap: 8px;
- transition: border-color 0.15s;
- }
-
- .caso-item:hover {
- border-color: var(--ni-orange-muted);
- color: var(--ni-white);
- }
-
- .caso-item::before {
- content: "✓";
- color: var(--ni-orange);
- font-weight: 700;
- flex-shrink: 0;
- margin-top: 1px;
- }
-
- .diagnostico {
- background: var(--ni-black-soft);
- border-left: 3px solid var(--ni-orange);
- border-radius: 0 var(--radius-md) var(--radius-md) 0;
- padding: var(--space-md) var(--space-lg);
- font-size: var(--type-small);
- color: var(--ni-white-dim);
- line-height: 1.7;
- }
-
- .diagnostico strong {
- color: var(--ni-orange);
- font-weight: 600;
- }
-
- .cta-inline {
- margin-top: var(--space-lg);
- background: rgba(255, 130, 0, 0.08);
- border: 1px solid rgba(255, 130, 0, 0.25);
- border-radius: var(--radius-lg);
- padding: var(--space-lg);
- }
-
- .cta-inline h4 {
- font-size: var(--type-h3);
- font-weight: 700;
- margin-bottom: var(--space-sm);
- }
-
- .cta-inline p {
- color: var(--ni-white-dim);
- font-size: var(--type-small);
- line-height: 1.7;
- margin-bottom: var(--space-md);
- }
-
- .btn-primary {
- background: var(--ni-orange);
- color: #000000;
- font-family: 'Instrument Sans', sans-serif;
- font-weight: 600;
- font-size: 0.95rem;
- padding: 14px 18px;
- border-radius: var(--radius-sm);
- border: none;
- cursor: pointer;
- transition: background 0.15s ease;
- width: 100%;
- text-align: center;
- text-decoration: none;
- display: block;
- }
-
- .btn-primary:hover { background: var(--ni-orange-deep); }
-
- /* CTA FINAL — sección clara */
- .cta-section {
- background: var(--ni-gray-section);
- padding: var(--space-2xl) 0;
- color: var(--ni-black);
- text-align: center;
- }
-
- .cta-section .section-label { color: var(--ni-black); }
-
- .cta-section h2 {
- font-size: var(--type-h1);
- font-weight: 700;
- line-height: 1.2;
- letter-spacing: -0.02em;
- margin-bottom: var(--space-md);
- }
-
- .cta-section > .container > p {
- color: #444;
- max-width: 560px;
- margin: 0 auto var(--space-lg);
- font-size: 1.05rem;
- line-height: 1.7;
- }
-
- .cta-card {
- background: var(--ni-black);
- border-radius: var(--radius-lg);
- padding: var(--space-xl);
- max-width: 540px;
- margin: 0 auto;
- text-align: left;
- }
-
- .cta-card .badge {
- display: inline-block;
- background: var(--ni-orange);
- color: #000;
- font-size: var(--type-tiny);
- font-weight: 700;
- padding: 4px 12px;
- border-radius: var(--radius-pill);
- letter-spacing: 0.05em;
- text-transform: uppercase;
- margin-bottom: var(--space-md);
- }
-
- .cta-card h3 {
- font-size: var(--type-h2);
- font-weight: 700;
- color: var(--ni-white);
- margin-bottom: var(--space-md);
- line-height: 1.25;
- letter-spacing: -0.01em;
- }
-
- .cta-card p {
- color: var(--ni-white-dim);
- font-size: var(--type-small);
- margin-bottom: var(--space-lg);
- line-height: 1.7;
- }
-
- .ni-checklist {
- list-style: none;
- padding: 0;
- margin-bottom: var(--space-lg);
- }
-
- .ni-checklist li {
- padding-left: 1.5rem;
- position: relative;
- margin-bottom: var(--space-sm);
- font-size: var(--type-small);
- color: var(--ni-white-dim);
- }
-
- .ni-checklist li::before {
- content: "✓";
- color: var(--ni-orange);
- font-weight: 700;
- position: absolute;
- left: 0;
- }
-
- /* FOOTER */
- footer {
- background: var(--ni-black);
- border-top: 1px solid var(--ni-border-dark);
- padding: var(--space-xl) var(--space-lg);
- text-align: center;
- }
-
- footer p {
- color: var(--ni-gray-meta);
- font-size: var(--type-small);
- }
-
- /* Animación entrada */
- @keyframes fadeUp {
- from { opacity: 0; transform: translateY(16px); }
- to { opacity: 1; transform: translateY(0); }
- }
-
- .hero h1, .hero p, .stats-row { animation: fadeUp 0.5s ease both; }
- .hero p { animation-delay: 0.1s; }
- .stats-row { animation-delay: 0.2s; }
-
- /* Responsive */
- @media (max-width: 600px) {
- .error-item { grid-template-columns: 36px 1fr; }
- .sistema-header { flex-direction: column; gap: var(--space-sm); }
- .stats-row { gap: var(--space-lg); }
- nav { padding: var(--space-md); }
- }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <title>5 sistemas de IA que montas una vez y vendes mil veces — Jonatan Domínguez</title>
+  <meta name="description" content="5 sistemas replicables que montas una vez y puedes vender en distintos sectores. Recurso exclusivo para suscriptores." />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+
+  <style>
+    /* Solo estilos específicos de /bienvenida, usando tokens de la home */
+    .welcome-badge {
+      font-size: var(--type-tiny);
+      color: var(--ni-gray-meta);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .mini-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+      margin-top: var(--space-xl);
+    }
+
+    .mini-stat {
+      border: 1px solid var(--ni-border-dark);
+      background: rgba(255,255,255,0.02);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+    }
+
+    .mini-stat .num {
+      display: block;
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 2.4rem;
+      line-height: 1;
+      color: var(--ni-orange);
+      margin-bottom: 6px;
+    }
+
+    .mini-stat .lbl {
+      font-size: var(--type-small);
+      color: var(--ni-white-dim);
+    }
+
+    @media (max-width: 900px) {
+      .mini-stats { grid-template-columns: 1fr; }
+    }
+
+    .card p strong { color: #111; }
+
+    .system-title {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .system-title .n {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--ni-orange);
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .inline-cta {
+      margin-top: var(--space-lg);
+      border: 1px solid rgba(255,130,0,0.25);
+      background: rgba(255,130,0,0.06);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+    }
+
+    .inline-cta h4 {
+      color: #fff;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .inline-cta p {
+      margin: 0 0 14px;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .inline-cta .btn-primary {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* Lista de sistemas más escaneable */
+    .systems-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2xl);
+      margin-top: var(--space-2xl);
+      max-width: 760px;
+    }
+
+    .systems-list .block {
+      padding-left: 1.5rem;
+      border-left: 3px solid var(--ni-orange);
+    }
+
+    .systems-list h3 {
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .systems-list .tagline {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.95rem;
+      margin: 0 0 14px;
+    }
+
+    .systems-list p {
+      color: rgba(255,255,255,0.7);
+      margin: 0 0 16px;
+    }
+
+    .cases {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .case {
+      border: 1px solid var(--ni-border-dark);
+      background: rgba(255,255,255,0.02);
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+      font-size: var(--type-small);
+      color: rgba(255,255,255,0.75);
+    }
+
+    @media (max-width: 768px) {
+      .cases { grid-template-columns: 1fr; }
+    }
+
+    .diagnosis {
+      margin-top: 14px;
+      border-left: 3px solid var(--ni-orange);
+      background: rgba(255,255,255,0.02);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 14px 16px;
+      font-size: var(--type-small);
+      color: rgba(255,255,255,0.75);
+    }
+
+    .diagnosis strong { color: var(--ni-orange); font-weight: 600; }
+  </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
- <div class="logo">
- <div class="logo-mark">NI</div>
- <span class="logo-text">Negocios Inquietos</span>
- </div>
- <span style="font-size: var(--type-tiny); color: var(--ni-gray-meta); letter-spacing: 0.05em; text-transform: uppercase;">Exclusivo suscriptores</span>
-</nav>
+  <!-- NAV (sin puntos de fuga) -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <img src="/assets/jonatand-wordmark.png" alt="Jonatan Domínguez" class="nav-logo" />
+      <span class="welcome-badge">Exclusivo suscriptores</span>
+    </div>
+  </nav>
 
-<!-- HERO -->
-<section class="hero">
- <div class="container">
- <span class="section-label" style="color: var(--ni-orange); border-color: var(--ni-orange); opacity: 1;">Recurso exclusivo</span>
- <h1>
- 5 sistemas de IA que montas<br>
- una vez y <em class="serif-accent">vendes mil veces</em>
- </h1>
- <p>
- No proyectos a medida. No empezar desde cero con cada cliente. Sistemas replicables que funcionan en sectores distintos sin re-hacer el trabajo.
- </p>
- <div class="stats-row">
- <div class="stat">
- <span class="stat-number">5</span>
- <span class="stat-label">sistemas replicables</span>
- </div>
- <div class="stat">
- <span class="stat-number">+50</span>
- <span class="stat-label">casos de uso concretos</span>
- </div>
- <div class="stat">
- <span class="stat-number">1</span>
- <span class="stat-label">base técnica (se ajusta)</span>
- </div>
- </div>
- </div>
-</section>
+  <!-- HERO (misma estructura que home, sin CTA) -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="section-label animate-fade-in-up">Recurso exclusivo</span>
+        <h1 class="animate-fade-in-up delay-1">
+          5 sistemas de IA que montas una vez
+          y <em class="serif-accent">vendes mil veces</em>
+        </h1>
+        <p class="hero-sub animate-fade-in-up delay-2">
+          No proyectos a medida. No empezar desde cero con cada cliente.
+          Sistemas replicables que funcionan en sectores distintos sin re-hacer el trabajo.
+        </p>
 
-<!-- ERRORES -->
-<section class="errores">
- <div class="container">
- <span class="section-label">Antes de los sistemas</span>
- <h2>
- Los 3 errores que cometen casi todos<br>
- <em class="serif-accent">al arrancar</em>
- </h2>
+        <div class="mini-stats animate-fade-in-up delay-3">
+          <div class="mini-stat">
+            <span class="num">5</span>
+            <span class="lbl">sistemas replicables</span>
+          </div>
+          <div class="mini-stat">
+            <span class="num">+50</span>
+            <span class="lbl">casos de uso concretos</span>
+          </div>
+          <div class="mini-stat">
+            <span class="num">1</span>
+            <span class="lbl">base técnica (se ajusta)</span>
+          </div>
+        </div>
+      </div>
 
- <p style="color:#444; margin-bottom: var(--space-xl); max-width: 560px; line-height:1.7;">
- Si llevas algo de tiempo montando automatizaciones o sistemas de IA para clientes, probablemente ya has tropezado con alguno de estos. Si acabas de empezar, te ahorras meses de frustración.
- </p>
+      <div class="hero-photo">
+        <img src="/assets/hero-whatsapp.jpg" alt="WhatsApp IA: cualificación de leads" />
+      </div>
+    </div>
+  </section>
 
- <div class="error-item">
- <div class="error-num">01</div>
- <div class="error-content">
- <h3>El proyecto a medida te da pasta, pero no te deja escalar</h3>
- <p>
- Montas algo espectacular para un cliente. Lo personalizas hasta el milímetro. Te pagan bien. Y cuando llega el siguiente cliente con una necesidad parecida, vuelves a empezar desde cero porque lo que montaste no sirve tal como está. <strong>Estás cambiando tiempo por dinero, no construyendo nada que crezca solo.</strong> Puedes facturar bien así, pero no puedes tener diez clientes a la vez. El techo es tu propio calendario.
- </p>
- </div>
- </div>
+  <!-- ERRORES (scaneable, horizontal) -->
+  <section class="section-light">
+    <div class="container">
+      <span class="section-label animate-fade-in">Antes de los sistemas</span>
+      <h2 class="animate-fade-in-up delay-1">Los 3 errores que cometen casi todos <em class="serif-accent">al arrancar</em></h2>
+      <p class="animate-fade-in-up delay-2" style="max-width:680px;">
+        Si llevas algo de tiempo montando automatizaciones o sistemas de IA para clientes, probablemente ya has tropezado con alguno de estos.
+        Si acabas de empezar, te ahorras meses de frustración.
+      </p>
 
- <div class="error-item">
- <div class="error-num">02</div>
- <div class="error-content">
- <h3>Empieza por marketing y ventas, no por operaciones internas</h3>
- <p>
- Automatizar los procesos internos de una empresa suena muy bien en papel. El problema es que nadie te va a contratar para tocar sus tripas si no te conoce. <strong>Lo que ayuda a captar clientes o cerrar ventas se vende en la primera conversación.</strong> Lo que optimiza operaciones internas requiere confianza, acceso a sistemas que no quieren darte, y decisiones que implican a más gente. La primera venta siempre es más fácil cuando el resultado es visible, rápido y no requiere tocar nada crítico.
- </p>
- </div>
- </div>
+      <div class="grid-3">
+        <div class="card animate-scale-in delay-2">
+          <div class="card-number"><span class="serif-accent">01</span></div>
+          <h3>El proyecto a medida te da pasta, pero no te deja escalar</h3>
+          <p>
+            Montas algo espectacular para un cliente. Lo personalizas hasta el milímetro. Te pagan bien.
+            Y cuando llega el siguiente cliente con una necesidad parecida, vuelves a empezar desde cero.
+            <strong>Estás cambiando tiempo por dinero, no construyendo nada que crezca solo.</strong>
+          </p>
+        </div>
 
- <div class="error-item">
- <div class="error-num">03</div>
- <div class="error-content">
- <h3>Un añadido, no una transformación</h3>
- <p>
- Nadie va a contratarte para cambiar cómo trabaja su empresa. Especialmente si no te conocen. <strong>Sí van a contratarte para ponerte encima de lo que ya usan.</strong> Los sistemas que venden son los que se conectan a lo que el cliente ya tiene — su WhatsApp, su email, su plataforma de cursos — sin pedirle que cambie nada. Cuanto menos toques sus procesos, menos fricción para cerrar el contrato y menos problemas para ejecutarlo.
- </p>
- </div>
- </div>
+        <div class="card animate-scale-in delay-3">
+          <div class="card-number"><span class="serif-accent">02</span></div>
+          <h3>Empieza por marketing y ventas, no por operaciones internas</h3>
+          <p>
+            Automatizar lo interno suena bien, pero es difícil venderlo al principio.
+            <strong>Lo que ayuda a captar clientes o cerrar ventas se vende en la primera conversación.</strong>
+            Lo interno requiere confianza, acceso y decisiones que implican a más gente.
+          </p>
+        </div>
 
- </div>
-</section>
+        <div class="card animate-scale-in delay-4">
+          <div class="card-number"><span class="serif-accent">03</span></div>
+          <h3>Un añadido, no una transformación</h3>
+          <p>
+            Nadie te contrata para cambiar cómo trabaja su empresa.
+            <strong>Sí te contratan para ponerte encima de lo que ya usan.</strong>
+            Cuanto menos toques sus procesos, menos fricción para cerrar y menos problemas al ejecutar.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- SISTEMAS -->
-<section class="sistemas">
- <div class="container">
- <span class="section-label" style="color: var(--ni-white-dim);">Los 5 sistemas</span>
- <h2>
- Montas uno, lo replicas <em class="serif-accent">donde quieras</em>
- </h2>
- <p>
- Cada sistema comparte una base. Lo que cambia es el sector, el cliente y cuatro configuraciones. El trabajo duro lo haces una vez.
- </p>
+  <!-- SISTEMAS (escaneable, estilo home) -->
+  <section class="section-dark">
+    <div class="container">
+      <span class="section-label animate-fade-in" style="color:#fff; border-color:rgba(255,255,255,0.3);">Los 5 sistemas</span>
+      <h2 class="animate-fade-in-up delay-1">Montas uno, lo replicas <em class="serif-accent">donde quieras</em></h2>
+      <p class="lead animate-fade-in-up delay-2" style="max-width:760px;">
+        Cada sistema comparte una base. Lo que cambia es el sector, el cliente y cuatro configuraciones.
+        El trabajo duro lo haces una vez.
+      </p>
 
- <div class="resumen">
-  <h3>Resumen rápido (para escanear)</h3>
-  <ul class="resumen-list">
-   <li><strong>Portero de WhatsApp:</strong> cualifica leads y decide el siguiente paso.</li>
-   <li><strong>Anfitrión:</strong> onboarding personalizado para que la gente no se pierda.</li>
-   <li><strong>Destilador:</strong> convierte audios/vídeos/documentos en entregables útiles.</li>
-   <li><strong>Soporte:</strong> responde dudas con conocimiento del negocio (sin repetir siempre lo mismo).</li>
-   <li><strong>Cazador de bajas:</strong> detecta churn y re-activa antes de que cancelen.</li>
-  </ul>
- </div>
+      <div class="systems-list">
 
- <!-- SISTEMA 1 -->
- <div class="sistema-block" id="sistema-1">
- <div class="sistema-header">
- <div class="sistema-num">01</div>
- <div class="sistema-title-group">
- <h3>El portero de WhatsApp</h3>
- <div class="tagline">Cualificación automática de leads por el canal donde ya están</div>
- </div>
- </div>
- <p class="sistema-desc">
- Un lead llega. El sistema le hace las preguntas correctas, evalúa si encaja con lo que ofrece el cliente y decide qué pasa después: agenda una llamada, manda información, lo pone en una lista de seguimiento o lo descarta. <strong>El cliente deja de perder horas hablando con personas que nunca iban a comprar.</strong> Lo montas conectado al WhatsApp Business del cliente con sus criterios de cualificación. El segundo cliente te cuesta ajustar esos criterios y cambiar cuatro textos.
- </p>
+        <div class="block">
+          <div class="system-title">
+            <span class="n">01</span>
+            <h3>El portero de WhatsApp</h3>
+          </div>
+          <div class="tagline">Cualificación automática de leads por el canal donde ya están</div>
+          <p>
+            Un lead llega. El sistema hace las preguntas correctas, evalúa si encaja y decide qué pasa después: agenda una llamada, manda información, lo pone en seguimiento o lo descarta.
+            <strong style="color:#fff;">El cliente deja de perder horas en leads que no van a comprar.</strong>
+          </p>
 
- <div class="casos-label">Lo montas una vez, lo vendes a:</div>
- <div class="casos-grid">
- <div class="caso-item">Clínica dental que recibe consultas de presupuesto a todas horas</div>
- <div class="caso-item">Coach o formador que filtra candidatos antes de la llamada de ventas</div>
- <div class="caso-item">Agencia de marketing que cualifica leads de sus campañas de pago</div>
- <div class="caso-item">Inmobiliaria que gestiona solicitudes de visita sin saturar al comercial</div>
- <div class="caso-item">Centro de formación que evalúa el encaje antes de matricular</div>
- <div class="caso-item">Consultor independiente que recibe leads fríos desde su web o LinkedIn</div>
- <div class="caso-item">E-commerce con alto volumen de preguntas pre-compra</div>
- <div class="caso-item">Academia de idiomas que gestiona el nivel y disponibilidad del alumno</div>
- <div class="caso-item">Nutricionista o psicólogo con agenda saturada de primeras consultas</div>
- <div class="caso-item">Empresa de software o SaaS que recibe demos sin cualificar</div>
- </div>
+          <div class="cases">
+            <div class="case">Clínica dental con consultas a todas horas</div>
+            <div class="case">Formador que filtra antes de una llamada</div>
+            <div class="case">Agencia que cualifica leads de campañas</div>
+            <div class="case">Inmobiliaria con solicitudes de visita</div>
+            <div class="case">Centro de formación que evalúa encaje</div>
+            <div class="case">SaaS que recibe demos sin cualificar</div>
+          </div>
 
- <div class="diagnostico">
- <strong>El diagnóstico:</strong> Tu cliente está respondiendo a mano los mismos mensajes de WhatsApp cada día, filtrando a ojo quién merece su tiempo. O tiene a alguien contratado para hacerlo. En los dos casos está pagando por algo que debería ser automático. El dolor es visible, el retorno es inmediato y la alternativa que tiene ahora mismo es claramente peor.
- </div>
+          <div class="diagnosis">
+            <strong>Diagnóstico:</strong> hoy se responde a mano lo mismo cada día, o se paga a alguien para hacerlo. En ambos casos, el retorno de automatizar es inmediato.
+          </div>
 
- <div class="cta-inline">
-  <h4>¿Quieres empezar con tu primer sistema?</h4>
-  <p>
-   Tengo un curso donde montas este sistema paso a paso (y lo dejas preparado para replicarlo en otros clientes).
-  </p>
-  <!-- TODO: sustituir por la URL real del curso -->
-  <a class="btn-primary" href="#">Quiero montarlo esta semana →</a>
- </div>
- </div>
+          <div class="inline-cta">
+            <h4>¿Quieres empezar a montar tu primer sistema?</h4>
+            <p>He preparado un curso donde montas este sistema paso a paso (y lo dejas listo para replicarlo).</p>
+            <!-- TODO: sustituir por la URL real del curso -->
+            <a class="btn-primary" href="#">Quiero montarlo esta semana →</a>
+          </div>
+        </div>
 
- <!-- SISTEMA 2 -->
- <div class="sistema-block">
- <div class="sistema-header">
- <div class="sistema-num">02</div>
- <div class="sistema-title-group">
- <h3>El anfitrión que nunca duerme</h3>
- <div class="tagline">Onboarding personalizado para que nadie se pierda al entrar</div>
- </div>
- </div>
- <p class="sistema-desc">
- Una persona nueva entra — a un curso, a una comunidad, a un servicio. El sistema la recibe, le hace tres preguntas sobre sus objetivos y la lleva exactamente donde necesita ir. No un email genérico de bienvenida. Una experiencia que parece que alguien al otro lado la está esperando. <strong>Los primeros 10-15 días deciden si esa persona se queda o desaparece.</strong> La base técnica es siempre la misma: un flujo de preguntas + lógica de derivación + conexión con la plataforma del cliente.
- </p>
+        <div class="block">
+          <div class="system-title">
+            <span class="n">02</span>
+            <h3>El anfitrión que nunca duerme</h3>
+          </div>
+          <div class="tagline">Onboarding personalizado para que nadie se pierda al entrar</div>
+          <p>
+            Una persona entra a un curso, comunidad o servicio. El sistema la recibe, hace 2-3 preguntas y la lleva exactamente donde necesita ir.
+            <strong style="color:#fff;">Los primeros 10-15 días deciden si se queda o desaparece.</strong>
+          </p>
 
- <div class="casos-label">Lo montas una vez, lo vendes a:</div>
- <div class="casos-grid">
- <div class="caso-item">Comunidad de membresía que pierde miembros en las dos primeras semanas</div>
- <div class="caso-item">Infoproductor con academia y alta tasa de abandono en el primer módulo</div>
- <div class="caso-item">SaaS que necesita activar usuarios nuevos antes de que cancelen</div>
- <div class="caso-item">Agencia que onboardea clientes nuevos con procesos siempre distintos</div>
- <div class="caso-item">Gimnasio o estudio donde los nuevos socios desaparecen al mes</div>
- <div class="caso-item">Franquicia que incorpora franquiciados con procesos estandarizados</div>
- <div class="caso-item">Empresa que quiere mejorar la incorporación de empleados nuevos</div>
- <div class="caso-item">Club privado o asociación profesional con contenidos dispersos</div>
- <div class="caso-item">Plataforma de e-learning con catálogo extenso y usuarios perdidos</div>
- <div class="caso-item">Servicio de suscripción mensual con churn en los primeros 30 días</div>
- </div>
+          <div class="cases">
+            <div class="case">Membresías con abandono en las 2 primeras semanas</div>
+            <div class="case">Academias con alumnos perdidos al entrar</div>
+            <div class="case">SaaS que necesita activar usuarios nuevos</div>
+            <div class="case">Agencias con onboarding caótico</div>
+          </div>
 
- <div class="diagnostico">
- <strong>El diagnóstico:</strong> El cliente sabe que pierde gente al principio pero no sabe exactamente por qué. La respuesta casi siempre es la misma: nadie los esperaba. Llegaron, vieron un montón de contenido o funcionalidades, no supieron por dónde empezar y se fueron. El sistema de onboarding resuelve exactamente eso, y el cliente puede verlo en sus métricas de retención sin necesidad de que le expliques nada técnico.
- </div>
- </div>
+          <div class="diagnosis">
+            <strong>Diagnóstico:</strong> el cliente no pierde por falta de valor, pierde por falta de guía. Nadie esperaba a esa persona.
+          </div>
+        </div>
 
- <!-- SISTEMA 3 -->
- <div class="sistema-block">
- <div class="sistema-header">
- <div class="sistema-num">03</div>
- <div class="sistema-title-group">
- <h3>El destilador</h3>
- <div class="tagline">De cualquier contenido — audio, vídeo, texto — a lo que importa</div>
- </div>
- </div>
- <p class="sistema-desc">
- Entra una reunión grabada, un directo, un documento largo, un podcast. Sale un resumen con los puntos clave en el formato que el cliente necesita: acta, propuesta, artículo, ficha de contenido, informe. <strong>No es un resumen genérico — está estructurado según las reglas del negocio del cliente.</strong> Una vez que tienes el sistema montado con su lógica y su formato, procesar el siguiente archivo le cuesta lo mismo que arrastrar un fichero.
- </p>
+        <div class="block">
+          <div class="system-title">
+            <span class="n">03</span>
+            <h3>El destilador</h3>
+          </div>
+          <div class="tagline">De audio/vídeo/texto a entregables útiles (con la estructura del cliente)</div>
+          <p>
+            Entra una reunión grabada o un documento largo. Sale un acta, una propuesta, un artículo o un informe.
+            <strong style="color:#fff;">No es un resumen genérico, está estructurado según las reglas del negocio.</strong>
+          </p>
 
- <div class="casos-label">Lo montas una vez, lo vendes a:</div>
- <div class="casos-grid">
- <div class="caso-item">Agencia que resume reuniones de cliente en actas estructuradas automáticamente</div>
- <div class="caso-item">Consultor que genera propuestas comerciales a partir del briefing grabado</div>
- <div class="caso-item">Comunidad o formador que publica resúmenes de sus directos semanales</div>
- <div class="caso-item">Podcast o canal de YouTube que necesita show notes sin escribirlos</div>
- <div class="caso-item">Empresa que documenta procesos internos desde grabaciones de trabajo</div>
- <div class="caso-item">Despacho que necesita extractos estructurados de contratos o informes</div>
- <div class="caso-item">Coach que genera informes de sesión para sus clientes automáticamente</div>
- <div class="caso-item">Formador que convierte sus vídeos en artículos de blog listos para publicar</div>
- <div class="caso-item">Freelance que manda resúmenes de calls al cliente sin redactarlos a mano</div>
- <div class="caso-item">Empresa con reuniones de equipo frecuentes y seguimiento de decisiones</div>
- </div>
+          <div class="cases">
+            <div class="case">Actas de reunión listas para mandar</div>
+            <div class="case">Propuestas comerciales desde el briefing</div>
+            <div class="case">Show notes para podcasts o YouTube</div>
+            <div class="case">Documentación interna desde grabaciones</div>
+          </div>
 
- <div class="diagnostico">
- <strong>El diagnóstico:</strong> Hay alguien en el equipo del cliente que dedica horas a escuchar grabaciones, tomar notas y redactar documentos que siempre tienen la misma estructura. No lo llaman "problema" porque siempre lo han hecho así. Cuando ven que eso puede desaparecer en una tarde, la conversación cambia.
- </div>
- </div>
+          <div class="diagnosis">
+            <strong>Diagnóstico:</strong> alguien está pagando horas de “copiar y pegar” con la misma estructura cada semana.
+          </div>
+        </div>
 
- <!-- SISTEMA 4 -->
- <div class="sistema-block">
- <div class="sistema-header">
- <div class="sistema-num">04</div>
- <div class="sistema-title-group">
- <h3>El soporte que no factura horas</h3>
- <div class="tagline">Respuestas entrenadas con el conocimiento del cliente</div>
- </div>
- </div>
- <p class="sistema-desc">
- Entrenas el sistema con el contenido del cliente — documentación, FAQs, vídeos, artículos — y responde las preguntas de sus usuarios con la precisión de alguien que se lo ha leído todo. <strong>No es un chatbot genérico. Es alguien que conoce exactamente lo que ofrece el cliente y sabe dónde está cada respuesta.</strong> El cliente deja de ser el cuello de botella de su propio soporte.
- </p>
+        <div class="block">
+          <div class="system-title">
+            <span class="n">04</span>
+            <h3>El soporte que no factura horas</h3>
+          </div>
+          <div class="tagline">Respuestas consistentes con el conocimiento del negocio</div>
+          <p>
+            El sistema responde dudas entrenado con documentación, FAQs y contenido del cliente.
+            <strong style="color:#fff;">Reduce soporte, baja tiempos de respuesta y quita cuello de botella.</strong>
+          </p>
 
- <div class="casos-label">Lo montas una vez, lo vendes a:</div>
- <div class="casos-grid">
- <div class="caso-item">Infoproductor que recibe las mismas preguntas cada semana sobre su curso</div>
- <div class="caso-item">SaaS con documentación extensa y soporte desbordado</div>
- <div class="caso-item">Academia o escuela con cientos de alumnos a la vez</div>
- <div class="caso-item">E-commerce con FAQs de producto, tallas, envíos y devoluciones</div>
- <div class="caso-item">Clínica con preguntas frecuentes sobre tratamientos</div>
- <div class="caso-item">Gestoría o asesoría con consultas repetitivas</div>
- <div class="caso-item">Comunidad de membresía que necesita soporte sin contratar a nadie</div>
- <div class="caso-item">Empresa de software con preguntas de onboarding básicas</div>
- <div class="caso-item">Agencia de viajes con consultas antes de la reserva</div>
- <div class="caso-item">RRHH con preguntas internas recurrentes</div>
- </div>
+          <div class="cases">
+            <div class="case">Cursos con las mismas preguntas cada semana</div>
+            <div class="case">SaaS con documentación y soporte desbordado</div>
+            <div class="case">E-commerce con precompra repetitiva</div>
+            <div class="case">Clínicas con preguntas frecuentes</div>
+          </div>
 
- <div class="diagnostico">
- <strong>El diagnóstico:</strong> El cliente está respondiendo las mismas preguntas una y otra vez, o tiene a alguien contratado para hacerlo. En cualquier caso, ese tiempo tiene un coste. Y además, sus usuarios preguntan fuera de horario y no reciben respuesta hasta el día siguiente.
- </div>
- </div>
+          <div class="diagnosis">
+            <strong>Diagnóstico:</strong> el cliente no ve el coste, pero lo paga en tiempo (o en nómina).
+          </div>
+        </div>
 
- <!-- SISTEMA 5 -->
- <div class="sistema-block">
- <div class="sistema-header">
- <div class="sistema-num">05</div>
- <div class="sistema-title-group">
- <h3>El cazador de bajas</h3>
- <div class="tagline">Detecta quién se enfría antes de que desaparezca</div>
- </div>
- </div>
- <p class="sistema-desc">
- El sistema monitoriza actividad (apertura, compras, visitas, acceso a plataforma). Cuando alguien lleva X días sin aparecer — lanza el mensaje correcto en el momento correcto. <strong>No un blast masivo. Un mensaje que parece escrito para esa persona.</strong>
- </p>
+        <div class="block">
+          <div class="system-title">
+            <span class="n">05</span>
+            <h3>El cazador de bajas</h3>
+          </div>
+          <div class="tagline">Detecta señales de churn y re-activa antes de que cancelen</div>
+          <p>
+            Monitoriza actividad (aperturas, compras, accesos). Si alguien se enfría, dispara el mensaje correcto en el momento correcto.
+            <strong style="color:#fff;">No es un blast, es seguimiento inteligente.</strong>
+          </p>
 
- <div class="casos-label">Lo montas una vez, lo vendes a:</div>
- <div class="casos-grid">
- <div class="caso-item">Comunidad que reactiva miembros antes de que cancelen</div>
- <div class="caso-item">SaaS que identifica usuarios dormidos</div>
- <div class="caso-item">Academia que contacta alumnos que han abandonado</div>
- <div class="caso-item">Gimnasio que detecta socios sin visitas</div>
- <div class="caso-item">Newsletter que reactiva suscriptores fríos</div>
- <div class="caso-item">E-commerce con clientes sin compra en 60 días</div>
- <div class="caso-item">Consultora con clientes sin proyecto activo</div>
- <div class="caso-item">App móvil con usuarios que no terminaron onboarding</div>
- <div class="caso-item">Servicio de suscripción con señales de churn</div>
- <div class="caso-item">Membresía con miembros que pagaron y nunca participaron</div>
- </div>
+          <div class="cases">
+            <div class="case">Membresías con churn silencioso</div>
+            <div class="case">SaaS con usuarios dormidos</div>
+            <div class="case">Academias con abandono a mitad</div>
+            <div class="case">Newsletters con suscriptores fríos</div>
+          </div>
 
- <div class="diagnostico">
- <strong>El diagnóstico:</strong> El cliente sabe que pierde clientes, pero no sabe cuándo empiezan a irse. Para cuando alguien cancela, ya es tarde. Este sistema lo ve venir con días o semanas de antelación.
- </div>
- </div>
+          <div class="diagnosis">
+            <strong>Diagnóstico:</strong> cuando alguien cancela ya es tarde. Este sistema te avisa antes.
+          </div>
+        </div>
 
- </div>
-</section>
+      </div>
+    </div>
+  </section>
 
-<!-- CTA FINAL -->
-<section class="cta-section">
- <div class="container">
- <span class="section-label">El siguiente paso</span>
- <h2>
- ¿Quieres empezar a montar tu<br>
- primer <em class="serif-accent">sistema replicable</em>?
- </h2>
- <p>
- Si el sistema #1 te encaja, tengo un curso donde lo montas paso a paso y lo dejas listo para replicarlo en distintos clientes sin volver a empezar.
- </p>
+  <!-- CTA FINAL (sin fugas, CTA solo al curso) -->
+  <section class="section-light" style="text-align:center;">
+    <div class="container container-narrow">
+      <span class="section-label animate-fade-in">El siguiente paso</span>
+      <h2 class="animate-fade-in-up delay-1">¿Quieres empezar a montar tu <em class="serif-accent">primer sistema</em>?</h2>
+      <p class="animate-fade-in-up delay-2" style="margin-bottom:24px;">
+        Si el sistema 1 te encaja, tengo un curso donde lo montas paso a paso y lo dejas listo para replicarlo en distintos clientes.
+      </p>
+      <!-- TODO: sustituir por la URL real del curso -->
+      <a href="#" class="btn-primary animate-fade-in-up delay-3" style="font-size:1.05rem;padding:18px 40px;justify-content:center;">Quiero verlo →</a>
+    </div>
+  </section>
 
- <div class="cta-card">
- <span class="badge">Curso</span>
- <h3>
- WhatsApp con IA:<br>
- <em class="serif-accent">un sistema que se vende fácil</em>
- </h3>
- <p>
- Lo montas siguiendo un proceso probado. Cuando termines, tienes tu primer sistema funcionando y una forma clara de ofertarlo.
- </p>
- <ul class="ni-checklist">
- <li>El flujo completo de cualificación (sin humo)</li>
- <li>Cómo adaptarlo a distintos sectores sin rehacer el trabajo</li>
- <li>Estructura de oferta para que el cliente lo entienda y lo pague</li>
- <li>Ejemplos y casos de uso para no quedarte en teoría</li>
- </ul>
- <!-- TODO: sustituir por la URL real del curso -->
- <a href="#" class="btn-primary">Quiero verlo →</a>
- </div>
- </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
- <p>Contenido exclusivo para suscriptores de Negocios Inquietos</p>
-</footer>
+  <!-- FOOTER (mismo que home, sin enlaces) -->
+  <footer class="footer">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
+      <img src="/assets/jonatand-wordmark.png" alt="Jonatan Domínguez" class="nav-logo" style="margin-bottom:0;" />
+      <p style="color:var(--ni-gray-meta); font-size:0.8rem;margin:0;">Contenido exclusivo para suscriptores</p>
+    </div>
+  </footer>
 
 </body>
 </html>
