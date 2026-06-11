@@ -1,0 +1,37 @@
+{
+  "keyword": "agente IA para gestoría precio España",
+  "primary_keyword": "agente IA gestoría",
+  "category": "Automatización",
+  "target_audience": "dueños y socios de gestorías españolas, 35-55 años, que buscan reducir carga operativa sin contratar",
+  "pain_points": [
+    "Demasiados documentos que procesar manualmente",
+    "Clientes esperando respuesta a consultas simples",
+    "Informes RGPD que tardan horas en redactar",
+    "No saben cuánto cuesta ni si merece la pena"
+  ],
+  "proof_points": [
+    "Caso real Navarra: 1.194 documentos procesados en 5 meses",
+    "713 horas de trabajo manual eliminadas",
+    "14.260€ de coste laboral recuperado",
+    "Inversión de 4.500€ — ROI positivo en mes 2"
+  ],
+  "competitors_gap": "Ningún competidor tiene este vertical con precio explícito y caso documentado",
+  "tone_notes": "Directo, datos primero, sin jerga. Empieza con el precio — es lo que todo el mundo busca.",
+  "cta": "Sesión de diagnóstico gratuita de 30 minutos",
+  "internal_links": [
+    {"anchor": "empleados digitales", "url": "/blog/que-es-un-empleado-digital"},
+    {"anchor": "protección de datos con IA", "url": "/blog/automatizar-proteccion-datos-rgpd"}
+  ],
+  "geo_callouts": [
+    "Una gestoría española media dedica 15-25 horas semanales a procesamiento documental no cualificado",
+    "El 70-80% de ese tiempo es automatizable con un agente IA bien implementado",
+    "ROI medio documentado: recuperación de inversión en 3-5 meses"
+  ],
+  "faq_questions": [
+    "¿Cuánto cuesta un agente IA para una gestoría en España?",
+    "¿Qué procesos puede automatizar un agente IA en una gestoría?",
+    "¿Cuánto tiempo tarda en implementarse?",
+    "¿Es legal procesar datos de clientes con IA en una gestoría?",
+    "¿Necesito cambiar mi software actual para usar un agente IA?"
+  ]
+}
