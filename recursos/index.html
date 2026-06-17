@@ -184,7 +184,7 @@
       color: var(--ink);
       word-break: break-all;
     }
-    .featured .btn-primary::after { content: ''; position: absolute; inset: 0; z-index: 1; }
+    .featured:hover { box-shadow: 0 28px 70px -38px rgba(20,17,15,.6); transform: translateY(-2px); }
     .feat-aside .compat {
       margin-top: auto;
       padding-top: 18px;
@@ -365,7 +365,7 @@
     <div class="container">
 
       <!-- FEATURED: Generador de documentos -->
-      <article class="featured animate-fade-in-up delay-1">
+      <a class="featured animate-fade-in-up delay-1" href="/recursos/generador-documentos/">
         <div class="feat-main">
           <div class="feat-head">
             <span class="feat-flag"><span class="star"></span> Destacado</span>
@@ -379,7 +379,7 @@
             <li><span class="tick">→</span> Incluye ejemplo real de una gestoría</li>
             <li><span class="tick">→</span> Compatible con Claude Code</li>
           </ul>
-          <a class="btn-primary" href="/recursos/generador-documentos/">Ver recurso <span class="arrow">→</span></a>
+          <span class="btn-primary">Ver recurso <span class="arrow">→</span></span>
         </div>
         <aside class="feat-aside">
           <div class="al">3 archivos incluidos</div>
@@ -388,7 +388,7 @@
           <div class="frow"><span class="fi">🐍</span><span class="fn">resaltar.py</span></div>
           <div class="compat">Funciona con .docx · Probada en proyectos reales</div>
         </aside>
-      </article>
+      </a>
 
       <!-- GRID: remaining 3 resources -->
       <div class="rcard-grid">
