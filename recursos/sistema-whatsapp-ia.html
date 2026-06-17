@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -9,37 +9,301 @@
   <meta property="og:description" content="Guía completa para montar y vender un sistema de cualificación de leads por WhatsApp con IA." />
   <meta property="og:url" content="https://jonatand.com/recursos/sistema-whatsapp-ia" />
   <meta property="og:type" content="article" />
+  <meta property="og:locale" content="es_ES" />
+
   <link rel="icon" type="image/png" href="/assets/iconos/favicon-d-naranja.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../style.css" />
+
   <style>
-    .lm-hero { padding: var(--space-xl) 0 var(--space-lg); text-align: center; }
-    .lm-meta { color: var(--ni-gray-meta); font-size: var(--type-small); margin-bottom: var(--space-md); }
-    .lm-content { max-width: var(--content-width); margin: 0 auto; padding: 0 var(--space-md) var(--space-xl); }
-    .lm-content h2 { margin-top: 2.5rem; }
-    .lm-content h3 { margin-top: 2rem; }
-    .lm-content p { margin-bottom: 1rem; line-height: 1.7; }
-    .lm-content ul { margin: 1rem 0 1.5rem 1.5rem; }
-    .lm-content li { margin-bottom: 0.5rem; line-height: 1.6; }
-    .lm-content blockquote {
-      border-left: 3px solid var(--ni-orange);
-      padding: 1rem 1.5rem;
-      margin: 1.5rem 0;
-      background: rgba(255,130,0,0.05);
-      border-radius: 0 var(--radius-md) var(--radius-md) 0;
-      font-style: italic;
+    .pill-label {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 4px 14px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      opacity: 0.7;
     }
-    .lm-content strong { color: var(--ni-white); }
-    .lm-highlight {
-      background: var(--ni-orange);
-      color: var(--ni-black);
-      padding: 2px 6px;
-      border-radius: var(--radius-sm);
+
+    /* ── HERO (dark) ── */
+    .skill-hero {
+      background-color: var(--ink);
+      background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 28px 28px;
+      padding: 72px 0 80px;
+      position: relative;
+    }
+    .skill-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 100%; height: 300px;
+      background: radial-gradient(ellipse 60% 40% at 50% -10%, rgba(255,90,31,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .skill-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,.35);
+      margin-bottom: 32px;
+    }
+    .skill-breadcrumb a { color: rgba(255,255,255,.4); transition: color .18s; }
+    .skill-breadcrumb a:hover { color: rgba(255,255,255,.8); }
+    .skill-breadcrumb span { color: rgba(255,255,255,.2); }
+
+    .skill-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      font-size: 11.5px;
       font-weight: 600;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid;
     }
-    .lm-nav { display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-md); margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: 1px solid var(--ni-border-dark); }
-    .section-dark .lm-content strong { color: var(--ni-white); }
-    .section-dark .lm-content { color: var(--ni-white-dim); }
+    .bp-free   { background: rgba(255,90,31,.15); border-color: rgba(255,90,31,.35); color: #ff8a5c; }
+    .bp-skill  { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.15); color: rgba(255,255,255,.65); }
+    .bp-who    { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.10); color: rgba(255,255,255,.45); }
+
+    .skill-hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 500;
+      line-height: 1.1;
+      color: #fff;
+      max-width: 22ch;
+      margin-bottom: 20px;
+    }
+    .skill-hero .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.55);
+      line-height: 1.7;
+      max-width: 52ch;
+      margin-bottom: 0;
+    }
+
+    /* ── CONTENT SECTION (light) ── */
+    .skill-body-section {
+      background: var(--bg);
+      padding: 80px 0 96px;
+      border-top: 1px solid var(--line);
+    }
+
+    .skill-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .skill-sidebar {
+      position: sticky;
+      top: 88px;
+    }
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 8px 32px -12px rgba(20,17,15,.12);
+    }
+    .skill-card-head {
+      background: var(--ink);
+      padding: 24px 22px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .skill-card-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--accent);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .skill-card-name {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 500;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .skill-card-sub { font-size: 12px; color: rgba(255,255,255,.45); margin-top: 3px; }
+    .skill-card-meta { padding: 18px 22px; border-bottom: 1px solid var(--line); }
+    .skill-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13.5px;
+      color: var(--soft);
+      padding: 9px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .skill-meta-row:last-child { border-bottom: none; }
+    .skill-meta-ico { font-size: 14px; flex-shrink: 0; opacity: .7; }
+    .skill-card-cta { padding: 18px 22px; }
+    .skill-price {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 14px;
+      line-height: 1;
+    }
+    .skill-card-cta .btn-primary { width: 100%; justify-content: center; padding: 15px; font-size: 1rem; }
+
+    /* ── SECTION LABELS ── */
+    .sec-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      color: var(--faint);
+      margin-bottom: 20px;
+    }
+    .sec-label::before { content: ''; width: 14px; height: 1px; background: var(--line-strong); }
+
+    .skill-section { margin-bottom: 52px; }
+    .skill-section:last-child { margin-bottom: 0; }
+    .skill-section h2 {
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      color: var(--ink);
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+    .skill-section p { font-size: 15.5px; color: var(--soft); line-height: 1.75; margin-bottom: 14px; }
+    .skill-section p:last-child { margin-bottom: 0; }
+    .skill-section ol, .skill-section ul { padding-left: 20px; margin-bottom: 14px; }
+    .skill-section li { font-size: 15px; color: var(--soft); line-height: 1.7; margin-bottom: 6px; }
+    .skill-section strong { color: var(--ink); font-weight: 600; }
+
+    /* Quote */
+    .skill-quote {
+      border-left: 3px solid var(--accent);
+      padding: 14px 20px;
+      margin: 20px 0;
+      background: rgba(255,90,31,0.05);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+    .skill-quote p { font-size: 15px; color: var(--soft); font-style: italic; line-height: 1.65; margin: 0; }
+
+    /* Steps */
+    .steps-list { display: flex; flex-direction: column; gap: 0; margin-top: 18px; }
+    .skill-step {
+      display: flex;
+      gap: 18px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .skill-step:last-child { border-bottom: none; }
+    .skill-step-num {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--accent);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 36px;
+    }
+    .skill-step h3 { font-size: 15px; color: var(--ink); margin-bottom: 5px; font-weight: 600; }
+    .skill-step p { font-size: 13.5px; color: var(--soft); line-height: 1.6; margin: 0; }
+    .skill-step strong { color: var(--ink); font-weight: 600; }
+
+    /* Niches grid */
+    .niches-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .niche-item {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+    }
+    .niche-item strong { font-size: 14px; color: var(--ink); font-weight: 600; display: block; margin-bottom: 4px; }
+    .niche-item span { font-size: 13px; color: var(--soft); line-height: 1.5; }
+
+    /* ── COMMUNITY SECTION (dark) ── */
+    .comunidad-section {
+      background-color: var(--ink);
+      background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 28px 28px;
+      padding: 96px 0;
+      border-top: 1px solid var(--line);
+      position: relative;
+    }
+    .comunidad-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 100%; height: 300px;
+      background: radial-gradient(ellipse 60% 40% at 50% -10%, rgba(255,90,31,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .comunidad-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .com-copy .pill-label { color: rgba(255,90,31,.8); border-color: rgba(255,90,31,.35); opacity: 1; margin-bottom: 22px; }
+    .com-copy h2 {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 500;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .com-copy p { font-size: 15px; color: rgba(255,255,255,.55); line-height: 1.75; margin-bottom: 14px; }
+    .com-copy p:last-child { margin-bottom: 0; }
+    .com-copy strong { color: rgba(255,255,255,.85); font-weight: 600; }
+    .com-form-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 28px 24px;
+      box-shadow: 0 16px 48px rgba(0,0,0,.35);
+    }
+    .com-form-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 16px;
+    }
+    .com-form-card-form { min-height: 200px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .skill-layout { grid-template-columns: 1fr; gap: 40px; }
+      .skill-sidebar { position: static; }
+      .skill-card { max-width: 400px; }
+      .comunidad-inner { grid-template-columns: 1fr; gap: 36px; }
+      .niches-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .skill-hero { padding: 48px 0 56px; }
+      .skill-hero h1 { max-width: 100%; }
+    }
   </style>
 </head>
 <body>
@@ -48,204 +312,324 @@
   <nav class="nav">
     <div class="nav-inner">
       <a href="/"><img src="/assets/Wordmark/jonatand-fondo-claro.png" alt="Jonatan Domínguez" class="nav-logo" /></a>
-      <div class="nav-links">
+      <div class="nav-links" id="nav-links">
         <a href="/#sobre-mi">Sobre mí</a>
-        <a href="/recursos">Recursos</a>
+        <a href="/#servicios">Cómo trabajamos</a>
         <a href="/#newsletter">Newsletter</a>
+        <a href="/recursos" style="color:var(--ink);font-weight:600;">Recursos</a>
       </div>
-      <a href="/#newsletter" class="btn-primary nav-cta-desktop">Suscríbete gratis →</a>
+      <a href="/reunion" class="btn-primary nav-cta-desktop">Agendar una llamada <span class="arrow">→</span></a>
       <button class="hamburger" id="hamburger" aria-label="Menú">
         <span></span><span></span><span></span>
       </button>
     </div>
     <div class="nav-mobile-dropdown" id="nav-dropdown">
       <a href="/#sobre-mi">Sobre mí</a>
-      <a href="/recursos">Recursos</a>
+      <a href="/#servicios">Cómo trabajamos</a>
       <a href="/#newsletter">Newsletter</a>
-      <a href="/#newsletter" class="btn-primary" style="margin-top:8px;text-align:center;">Suscríbete gratis →</a>
+      <a href="/recursos">Recursos</a>
+      <a href="/reunion" class="btn-primary">Agendar una llamada →</a>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="section-dark">
-    <div class="container lm-hero">
-      <p class="lm-meta">Lead Magnet · 8 min de lectura</p>
-      <h1>Sistema de WhatsApp IA:<br /><em class="serif-accent">Monta una vez, vende infinitas veces</em></h1>
-    </div>
-  </section>
-
-  <!-- CONTENT -->
-  <section class="section-light">
-    <div class="lm-content">
-
-      <h2>El problema que nadie menciona</h2>
-      <p>Si eres consultor de IA o automatizaciones, probablemente estés en esta situación:</p>
-      <ul>
-        <li>Tienes conocimientos técnicos</li>
-        <li>Sabes usar Make, n8n, Airtable</li>
-        <li>Entiendes de flujos y automatizaciones</li>
-        <li><strong>PERO no sabes cómo empaquetarlo en algo vendible</strong></li>
-      </ul>
-      <p>El resultado: intentas vender "proyectos de automatización" y los clientes no lo entienden. O te piden presupuestos eternos. O desaparecen después del primer email.</p>
-      <p>No es culpa de los clientes. Es que <span class="lm-highlight">estás vendiendo algo abstracto</span>.</p>
-
-      <h2>El servicio que sí funciona</h2>
-      <p>Después de años vendiendo proyectos a medida, descubrí algo:</p>
-      <blockquote>El servicio que más se vende NO es el más complejo. Es el que el cliente entiende en 30 segundos.</blockquote>
-      <p>El sistema de cualificación de leads por WhatsApp con IA cumple esto:</p>
-      <ol>
-        <li><strong>Es concreto</strong>: "Cualifico tus leads de WhatsApp automáticamente"</li>
-        <li><strong>Tiene resultado claro</strong>: "Los leads entran, el sistema los filtra, tú solo hablas con los que quieren comprar"</li>
-        <li><strong>Es replicable</strong>: Lo montas una vez, lo vendes a 10 clientes</li>
-      </ol>
-
-      <h2>Por qué funciona: el caballo de Troya</h2>
-      <p>La mayoría de consultores intentan entrar en clientes vendiendo proyectos de 5.000€.</p>
-      <p>No funciona.</p>
-      <p>El cliente no te conoce. No confía en ti. No va a soltar 5k por algo que no entiende.</p>
-      <p>Pero 500€ por un sistema de WhatsApp que cualifica sus leads mientras duermen? Eso lo entienden.</p>
-      <p><strong>Es tu caballo de Troya:</strong></p>
-      <ol>
-        <li>Vendes algo pequeño y concreto</li>
-        <li>El cliente ve resultado rápido</li>
-        <li>Confía en ti</li>
-        <li>Te vuelve a llamar para más proyectos</li>
-      </ol>
-      <p>Tu objetivo no es hacerte rico con la primera venta. <strong>Es entrar en el cliente.</strong></p>
-      <p>Las ventas 2, 3, 4... esas son donde está el dinero real.</p>
-
-      <h2>El sistema en 5 pasos</h2>
-
-      <h3>Paso 1: WhatsApp Business API (no WhatsApp personal)</h3>
-      <p>Primera regla: NO uses WhatsApp personal para esto.</p>
-      <p>WhatsApp Business API (a través de un proveedor como YCloud) te permite automatizar respuestas sin límites, conectar con herramientas externas (n8n, Make), tener múltiples agentes, métricas y control.</p>
-      <p>WhatsApp personal te bloqueará en cuanto detecte automatización.</p>
-      <p><strong>Coste aproximado:</strong> 50-100€/mes según volumen</p>
-
-      <h3>Paso 2: El flujo de cualificación</h3>
-      <p>El sistema responde automáticamente, pero no es un chatbot tonto que dice "¿en qué puedo ayudarte?".</p>
-      <p>El sistema <strong>cualifica</strong>:</p>
-      <ol>
-        <li>Recibe el mensaje del lead</li>
-        <li>Identifica qué necesita (con IA)</li>
-        <li>Hace 2-3 preguntas clave</li>
-        <li>Clasifica al lead: frío, tibio o caliente</li>
-      </ol>
-      <p><strong>Lógica:</strong></p>
-      <ul>
-        <li>Frío → Lo mando a newsletter (no pierdo tiempo)</li>
-        <li>Tibio → Le ofrezco una reunión</li>
-        <li>Caliente → Le paso directamente al cliente o vendedor</li>
-      </ul>
-
-      <h3>Paso 3: El agente de IA</h3>
-      <p>La clave es que el bot <strong>no parezca un bot</strong>.</p>
-      <p>Usas un modelo de IA (GPT, Claude, o similares) conectado al flujo con contexto del negocio del cliente, las preguntas que debe hacer, cómo responder preguntas frecuentes y cuándo derivar a humano.</p>
-      <p>El prompt bien configurado hace que el lead sienta que habla con una persona real.</p>
-
-      <h3>Paso 4: Registrar en Airtable (o CRM)</h3>
-      <p>Todo lo que el bot descubre se guarda: nombre del lead, qué necesita, nivel de interés (frío/tibio/caliente), historial de conversación.</p>
-      <p>El cliente entra a Airtable y ve exactamente qué leads vale la pena llamar.</p>
-
-      <h3>Paso 5: Avisar al cliente</h3>
-      <p>Cuando hay un lead caliente, el sistema avisa: email automático, notificación en Slack/Discord, mensaje al teléfono del cliente.</p>
-      <p>El cliente solo interviene cuando hay carne en el asador.</p>
-
-      <h2>Cómo lo vendes</h2>
-      <blockquote>"Conecto WhatsApp con un sistema que cualifica tus leads automáticamente. Tú solo hablas con los que de verdad quieren comprar. 500€ de setup, 150€/mes de mantenimiento."</blockquote>
-      <p><strong>Lo que incluye:</strong></p>
-      <ul>
-        <li>Configuración de WhatsApp Business API</li>
-        <li>Flujo de cualificación con IA</li>
-        <li>Integración con tu CRM/Airtable</li>
-        <li>Alertas de leads calientes</li>
-        <li>1 revisión mensual del sistema</li>
-      </ul>
-
-      <h2>Los nichos donde esto mata</h2>
-      <ul>
-        <li><strong>Inmobiliarias</strong> — Reciben leads de portales, la mayoría son ruido</li>
-        <li><strong>Clínicas estéticas</strong> — Muchas consultas, pocas citas confirmadas</li>
-        <li><strong>Formadores/consultores</strong> — Leads de RRSS que no contestan</li>
-        <li><strong>Agencias de viajes</strong> — Consultas que nunca se concretan</li>
-        <li><strong>Servicios urgentes</strong> — Fontaneros, cerrajeros, necesitan respuesta ya</li>
-      </ul>
-      <p>En todos estos casos, el problema NO es conseguir leads. Es que alguien los atienda y filtre.</p>
-
-      <h2>Tu estrategia de entrada</h2>
-      <ol>
-        <li><strong>Identifica 5 negocios</strong> que reciban leads por WhatsApp y no les den abasto</li>
-        <li><strong>Llámales y di:</strong> "Veo que recibís muchas consultas por WhatsApp. ¿Y si tuviese un sistema que las filtrase automáticamente y solo te avisase de las que valen la pena?"</li>
-        <li><strong>Ofrece una demo:</strong> "Te lo monto con 1 semana de tus conversaciones reales, sin compromiso. Si funciona, hablamos."</li>
-        <li><strong>Cobra 500€ setup + 150€/mes</strong></li>
-      </ol>
-
-      <h2>Lo que viene después</h2>
-      <p>Una vez que el sistema funciona, el cliente te vuelve a llamar: "¿Podrías automatizar también los emails?", "¿Y si conectamos esto con el CRM?", "Necesito que los recordatorios de cita vayan solos".</p>
-      <p><strong>Ahí es donde facturas de verdad.</strong></p>
-      <p>El sistema de WhatsApp es solo la puerta de entrada.</p>
-
-    </div>
-  </section>
-
-  <!-- CTA CURSO -->
-  <section class="section-dark" style="text-align:center;">
-    <div class="container container-narrow">
-      <span class="section-label" style="color:#fff; border-color:rgba(255,255,255,0.3);">¿Quieres ir más lejos?</span>
-      <h2 class="animate-fade-in-up" style="color:#fff;font-size:1.6rem;margin-bottom:16px;">Aprende a montar y vender <em class="serif-accent">este sistema paso a paso</em></h2>
-      <p style="color:var(--ni-white-dim);margin-bottom:24px;">El sistema técnico completo, los prompts que funcionan, cómo venderlo como servicio replicable y escalar a múltiples clientes.</p>
-      <a href="https://consultizadores.com/ia-vtas" class="btn-primary" style="display:inline-block;">Quiero aprender el método completo →</a>
-    </div>
-  </section>
-
-  <!-- NEWSLETTER CTA -->
-  <section class="section-light" style="text-align:center;">
-    <div class="container container-narrow">
-      <span class="section-label">Newsletter</span>
-      <h2 style="font-size:1.5rem;margin-bottom:12px;">Si este contenido te ha servido, <em class="serif-accent">suscríbete</em></h2>
-      <p style="color:var(--ni-gray-meta);margin-bottom:24px;">Cada semana: casos reales de automatizaciones, estrategias para vender servicios de IA, errores que te hacen perder clientes.</p>
-      <div style="max-width:460px;margin:0 auto;">
-        <iframe
-          src="https://integrations.funnels.top/widget/form/lE0EpNUS2vvUrEc1UrdS"
-          style="width:100%;height:460px;border:none;border-radius:6px;overflow:hidden;"
-          id="inline-lE0EpNUS2vvUrEc1UrdS-lm1"
-          data-layout="{'id':'INLINE'}"
-          data-trigger-type="alwaysShow"
-          data-trigger-value=""
-        ></iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- NAV BETWEEN RESOURCES -->
-  <section class="section-dark">
+  <!-- HERO (dark) -->
+  <section class="skill-hero">
     <div class="container">
-      <div class="lm-nav">
-        <a href="/recursos" class="btn-ghost">← Todos los recursos</a>
-        <a href="/recursos/10-preguntas-oportunidades" class="btn-primary">Siguiente recurso →</a>
+      <div class="skill-breadcrumb animate-fade-in">
+        <a href="/recursos">← Recursos</a>
+        <span>/</span>
+        <span>Sistema WhatsApp IA</span>
+      </div>
+
+      <div class="skill-badges animate-fade-in">
+        <span class="badge-pill bp-free">Gratis</span>
+        <span class="badge-pill bp-skill">Guía completa</span>
+        <span class="badge-pill bp-who">Consultores IA · Freelancers</span>
+      </div>
+
+      <h1 class="animate-fade-in-up delay-1">Sistema de WhatsApp IA: <em class="serif-accent">monta una vez, vende infinitas veces</em></h1>
+      <p class="hero-sub animate-fade-in-up delay-2">Lo montas una vez para un cliente. El sistema cualifica, responde y filtra leads mientras duermes. El cliente solo interviene cuando hay alguien listo para comprar. Y tú lo replicas en el siguiente negocio.</p>
+    </div>
+  </section>
+
+  <!-- CONTENT (light) -->
+  <div class="skill-body-section">
+    <div class="container">
+      <div class="skill-layout">
+
+        <!-- Main content -->
+        <div>
+
+          <div class="skill-section animate-fade-in-up">
+            <div class="sec-label">El problema</div>
+            <h2>El problema que nadie menciona</h2>
+            <p>Si eres consultor de IA o automatizaciones, probablemente estés en esta situación: tienes los conocimientos técnicos, sabes usar Make, n8n o Airtable, entiendes de flujos y automatizaciones. <strong>Pero no sabes cómo empaquetarlo en algo vendible.</strong></p>
+            <p>El resultado: intentas vender "proyectos de automatización" y los clientes no lo entienden. O te piden presupuestos eternos. O desaparecen después del primer email. No es culpa de los clientes. Es que estás vendiendo algo abstracto.</p>
+          </div>
+
+          <div class="skill-section animate-fade-in-up">
+            <div class="sec-label">El servicio</div>
+            <h2>El servicio que sí funciona</h2>
+            <p>Después de años vendiendo proyectos a medida, descubrí algo: el servicio que más se vende no es el más complejo. Es el que el cliente entiende en 30 segundos.</p>
+            <p>El sistema de cualificación de leads por WhatsApp cumple exactamente esto:</p>
+            <div class="steps-list">
+              <div class="skill-step">
+                <div class="skill-step-num">①</div>
+                <div>
+                  <h3>Es concreto</h3>
+                  <p>"Cualifico tus leads de WhatsApp automáticamente."</p>
+                </div>
+              </div>
+              <div class="skill-step">
+                <div class="skill-step-num">②</div>
+                <div>
+                  <h3>Tiene resultado claro</h3>
+                  <p>"Los leads entran, el sistema los filtra, tú solo hablas con los que quieren comprar."</p>
+                </div>
+              </div>
+              <div class="skill-step">
+                <div class="skill-step-num">③</div>
+                <div>
+                  <h3>Es replicable</h3>
+                  <p>Lo montas una vez, lo vendes a 10 clientes.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-section animate-fade-in-up">
+            <div class="sec-label">Por qué funciona</div>
+            <h2>El caballo de Troya</h2>
+            <p>La mayoría de consultores intentan entrar en clientes vendiendo proyectos de 5.000€. No funciona. El cliente no te conoce, no confía en ti, no va a soltar 5k por algo que no entiende.</p>
+            <p>Pero 500€ por un sistema de WhatsApp que cualifica sus leads mientras duermen. Eso lo entienden.</p>
+            <div class="skill-quote">
+              <p>Tu objetivo no es hacerte rico con la primera venta. Es entrar en el cliente. Las ventas 2, 3, 4... esas son donde está el dinero real.</p>
+            </div>
+          </div>
+
+          <div class="skill-section animate-fade-in-up">
+            <div class="sec-label">El sistema</div>
+            <h2>El sistema en 5 pasos</h2>
+            <div class="steps-list">
+              <div class="skill-step">
+                <div class="skill-step-num">01</div>
+                <div>
+                  <h3>WhatsApp Business API (no WhatsApp personal)</h3>
+                  <p>Primera regla: no uses WhatsApp personal. La API (a través de un proveedor como YCloud) te permite automatizar sin límites, conectar con herramientas externas y tener control total. <strong>Coste aproximado: 50–100€/mes según volumen.</strong></p>
+                </div>
+              </div>
+              <div class="skill-step">
+                <div class="skill-step-num">02</div>
+                <div>
+                  <h3>El flujo de cualificación</h3>
+                  <p>El sistema no es un chatbot tonto que dice "¿en qué puedo ayudarte?". Recibe el mensaje del lead, identifica qué necesita con IA, hace 2–3 preguntas clave y clasifica al lead: frío, tibio o caliente. Frío va a newsletter, tibio a reunión, caliente al vendedor directo.</p>
+                </div>
+              </div>
+              <div class="skill-step">
+                <div class="skill-step-num">03</div>
+                <div>
+                  <h3>El agente de IA</h3>
+                  <p>Un modelo de IA (Claude, GPT o similar) conectado al flujo con contexto del negocio, preguntas predefinidas y lógica de derivación. El prompt bien configurado hace que el lead sienta que habla con una persona real.</p>
+                </div>
+              </div>
+              <div class="skill-step">
+                <div class="skill-step-num">04</div>
+                <div>
+                  <h3>Registrar en Airtable (o CRM)</h3>
+                  <p>Todo lo que el bot descubre se guarda: nombre, necesidad, nivel de interés, historial de conversación. El cliente entra y ve exactamente qué leads vale la pena llamar.</p>
+                </div>
+              </div>
+              <div class="skill-step">
+                <div class="skill-step-num">05</div>
+                <div>
+                  <h3>Avisar al cliente</h3>
+                  <p>Cuando hay un lead caliente, el sistema avisa: email automático, notificación en Slack, mensaje al teléfono. El cliente solo interviene cuando hay carne en el asador.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-section animate-fade-in-up">
+            <div class="sec-label">Cómo venderlo</div>
+            <h2>El pitch que funciona</h2>
+            <div class="skill-quote">
+              <p>"Conecto WhatsApp con un sistema que cualifica tus leads automáticamente. Tú solo hablas con los que de verdad quieren comprar. 500€ de setup, 150€/mes de mantenimiento."</p>
+            </div>
+            <p>Lo que incluye: configuración de la API, flujo de cualificación con IA, integración con CRM/Airtable, alertas de leads calientes y 1 revisión mensual del sistema.</p>
+          </div>
+
+          <div class="skill-section animate-fade-in-up">
+            <div class="sec-label">Los nichos</div>
+            <h2>Donde esto funciona mejor</h2>
+            <div class="niches-grid">
+              <div class="niche-item">
+                <strong>Inmobiliarias</strong>
+                <span>Reciben leads de portales — la mayoría son ruido</span>
+              </div>
+              <div class="niche-item">
+                <strong>Clínicas estéticas</strong>
+                <span>Muchas consultas por Instagram, pocas citas confirmadas</span>
+              </div>
+              <div class="niche-item">
+                <strong>Formadores y consultores</strong>
+                <span>Leads de RRSS que no contestan a correos</span>
+              </div>
+              <div class="niche-item">
+                <strong>Agencias de viajes</strong>
+                <span>Consultas que nunca se concretan en reserva</span>
+              </div>
+              <div class="niche-item">
+                <strong>Servicios urgentes</strong>
+                <span>Fontaneros, cerrajeros — necesitan respuesta inmediata</span>
+              </div>
+              <div class="niche-item">
+                <strong>Cualquier negocio con volumen</strong>
+                <span>Si los leads superan la capacidad de respuesta manual</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-section animate-fade-in-up">
+            <div class="sec-label">Tu estrategia de entrada</div>
+            <h2>Cómo conseguir tus primeros clientes</h2>
+            <div class="steps-list">
+              <div class="skill-step">
+                <div class="skill-step-num">01</div>
+                <div>
+                  <h3>Identifica 5 negocios</h3>
+                  <p>Que reciban leads por WhatsApp y no les den abasto. Búscalos en tu entorno cercano primero.</p>
+                </div>
+              </div>
+              <div class="skill-step">
+                <div class="skill-step-num">02</div>
+                <div>
+                  <h3>Llama con un mensaje concreto</h3>
+                  <p>"Veo que recibís muchas consultas por WhatsApp. ¿Y si tuvieses un sistema que las filtrase automáticamente y solo te avisase de las que valen la pena?"</p>
+                </div>
+              </div>
+              <div class="skill-step">
+                <div class="skill-step-num">03</div>
+                <div>
+                  <h3>Ofrece una demo sin compromiso</h3>
+                  <p>"Te lo monto con 1 semana de tus conversaciones reales. Si funciona, hablamos."</p>
+                </div>
+              </div>
+              <div class="skill-step">
+                <div class="skill-step-num">04</div>
+                <div>
+                  <h3>Cobra setup + mensualidad</h3>
+                  <p><strong>500€ de setup + 150€/mes.</strong> El recurrente es lo que hace que el negocio escale.</p>
+                </div>
+              </div>
+            </div>
+            <p style="margin-top:20px;">Una vez que el sistema funciona, el cliente vuelve: "¿Podrías automatizar también los emails?", "¿Y si conectamos esto con el CRM?". Ahí es donde facturas de verdad. El sistema de WhatsApp es solo la puerta de entrada.</p>
+          </div>
+
+        </div>
+
+        <!-- Sticky sidebar -->
+        <div class="skill-sidebar animate-scale-in delay-2">
+          <div class="skill-card">
+            <div class="skill-card-head">
+              <div class="skill-card-icon">📱</div>
+              <div>
+                <div class="skill-card-name">sistema-whatsapp-ia</div>
+                <div class="skill-card-sub">Guía completa</div>
+              </div>
+            </div>
+            <div class="skill-card-meta">
+              <div class="skill-meta-row">
+                <span class="skill-meta-ico">📋</span>
+                <span>5 pasos detallados</span>
+              </div>
+              <div class="skill-meta-row">
+                <span class="skill-meta-ico">💰</span>
+                <span>Estrategia de venta incluida</span>
+              </div>
+              <div class="skill-meta-row">
+                <span class="skill-meta-ico">🎯</span>
+                <span>6 nichos concretos</span>
+              </div>
+              <div class="skill-meta-row">
+                <span class="skill-meta-ico">✓</span>
+                <span>Probado en proyectos reales</span>
+              </div>
+            </div>
+            <div class="skill-card-cta">
+              <div class="skill-price">Gratis</div>
+              <a href="/reunion" class="btn-primary">
+                Agendar una llamada <span class="arrow">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- COMUNIDAD (dark) -->
+  <section class="comunidad-section" id="comunidad">
+    <div class="container">
+      <div class="comunidad-inner">
+
+        <div class="com-copy animate-fade-in-up">
+          <span class="pill-label">Comunidad · Lista de espera</span>
+          <h2>¿Eres profesional o dueño de negocio y quieres aplicar IA en tu trabajo? <em class="serif-accent">No estás solo.</em></h2>
+          <p>Da igual si llevas un despacho, una cartera de clientes o un negocio con equipo: aquí hay gente en tu misma situación contando qué les está funcionando de verdad con IA — y qué no. Sin la teoría de los cursos genéricos, sin la herramienta de moda que nadie usa al mes siguiente.</p>
+          <p>Yo modero la conversación para que se quede en lo aplicable a tu día a día, sea facturar más rápido, cerrar más ventas o dejar de ser tú el cuello de botella de tu negocio.</p>
+          <p>Apúntate a la lista de espera. <strong>Aviso primero a quien ya está dentro en cuanto haya plazas.</strong></p>
+        </div>
+
+        <div class="animate-scale-in delay-2">
+          <div class="com-form-card">
+            <div class="com-form-eyebrow">Lista de espera · Sin compromiso</div>
+            <div class="com-form-card-form">
+              <script type="text/javascript" src="https://acumbamail.com/newform/dynamic/js/FGoAPLkT2C2N1Dw4kOwsFX7b4MhT1VDL1GwerFCP8tP0ry/63219/"></script>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
+
+  <script src="/assets/scroll-animations.js" defer></script>
+  <script>
+  (function () {
+    var btn = document.getElementById('hamburger');
+    var dropdown = document.getElementById('nav-dropdown');
+    if (btn && dropdown) {
+      btn.addEventListener('click', function () {
+        var isOpen = dropdown.classList.toggle('open');
+        btn.classList.toggle('open');
+        document.body.classList.toggle('menu-open', isOpen);
+      });
+      dropdown.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          dropdown.classList.remove('open');
+          btn.classList.remove('open');
+          document.body.classList.remove('menu-open');
+        });
+      });
+    }
+  })();
+  </script>
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="container">
-      <span class="nav-logo"><img src="/assets/Wordmark/jonatand-fondo-claro.png" alt="Jonatan Domínguez" style="height:24px;" /></span>
-      <div class="footer-links">
-        <a href="https://consultizadores.com">Consultizadores</a>
-        <a href="https://linkedin.com/in/jonatandominguez">LinkedIn</a>
-        <a href="https://tiktok.com/@jonatand">TikTok</a>
-        <a href="mailto:jonatan@jonatand.com">jonatan@jonatand.com</a>
-      </div>
-      <p style="color:var(--ni-gray-meta); font-size:0.8rem; margin-top:1rem;">© 2026 Jonatan Domínguez</p>
+    <div class="container foot-in">
+      <img src="/assets/Wordmark/jonatand-fondo-claro.png" alt="Jonatan Domínguez" class="nav-logo" />
+      <nav class="foot-links">
+        <a href="/#sobre-mi">Sobre mí</a>
+        <a href="/#servicios">Cómo trabajamos</a>
+        <a href="/#newsletter">Newsletter</a>
+        <a href="/recursos">Recursos</a>
+        <a href="/reunion">Agendar una llamada</a>
+      </nav>
+      <p class="foot-meta">© 2026 Jonatan Domínguez</p>
     </div>
   </footer>
 
-  <script>
-    document.getElementById('hamburger')?.addEventListener('click', function() {
-      document.getElementById('nav-dropdown')?.classList.toggle('open');
-    });
-  </script>
 </body>
 </html>
-

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -9,394 +9,248 @@
   <meta property="og:description" content="12 tareas que, si las automatizas, te permiten trabajar menos, cobrar lo mismo y ganar terreno a quien todavía las hace a mano." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://jonatand.com/recursos/12-tareas-claude" />
+  <meta property="og:locale" content="es_ES" />
+
   <link rel="icon" type="image/png" href="/assets/iconos/favicon-d-naranja.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --black: #0a0a0a;
-      --black-soft: #111111;
-      --white: #ffffff;
-      --white-dim: #c8c8c4;
-      --page-bg: #fbf7f0;
-      --gray-section: #f2f2f0;
-      --gray-meta: #888884;
-      --border-dark: #1e1e1e;
-      --border-light: #e0e0dc;
-      --orange: #FF8200;
-      --orange-deep: #d96e00;
-      --sans: 'Instrument Sans', system-ui, sans-serif;
-      --serif: 'Instrument Serif', Georgia, serif;
-      --max-w: 1200px;
-      --gate-form-h: 440px;
-      --gate-form-h-mobile: 560px;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--sans);
-      color: var(--black);
-      background: var(--page-bg);
-      -webkit-font-smoothing: antialiased;
-      line-height: 1.65;
+    /* ── HERO (dark) ── */
+    .skill-hero {
+      background-color: var(--ink);
+      background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 28px 28px;
+      padding: 72px 0 80px;
       position: relative;
     }
-    body::before {
+    .skill-hero::before {
       content: '';
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 100%; height: 300px;
+      background: radial-gradient(ellipse 60% 40% at 50% -10%, rgba(255,90,31,0.1) 0%, transparent 65%);
       pointer-events: none;
-      z-index: 9999;
-      opacity: 0.03;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-repeat: repeat;
-      background-size: 200px 200px;
     }
-
-    .container {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    a { text-decoration: none; }
-
-    /* NAV */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background: var(--black);
-      border-bottom: 1px solid var(--border-dark);
-    }
-    .nav-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 24px;
-      height: 64px;
+    .skill-breadcrumb {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,.35);
+      margin-bottom: 32px;
     }
-    .nav-logo { height: 28px; }
-    .nav-links { display: flex; gap: 28px; }
-    .nav-links a { color: rgba(255,255,255,0.7); font-size: 0.85rem; font-weight: 500; transition: color .2s; }
-    .nav-links a:hover { color: #fff; }
-    .nav-cta { font-size: 0.85rem; padding: 8px 20px; background: var(--orange); color: #000; border-radius: 4px; font-weight: 600; transition: background .15s; }
-    .nav-cta:hover { background: var(--orange-deep); }
-    .hamburger { display: none; background: none; border: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .hamburger span { width: 22px; height: 2px; background: #fff; transition: .3s; }
-    @media (max-width: 768px) {
-      .nav-links, .nav-cta { display: none; }
-      .hamburger { display: flex; }
-    }
-    .mobile-menu {
-      display: none;
-      background: var(--black);
-      border-top: 1px solid var(--border-dark);
-      padding: 16px 24px;
-    }
-    .mobile-menu.open { display: block; }
-    .mobile-menu a { display: block; color: rgba(255,255,255,0.8); padding: 10px 0; font-size: 0.95rem; }
+    .skill-breadcrumb a { color: rgba(255,255,255,.4); transition: color .18s; }
+    .skill-breadcrumb a:hover { color: rgba(255,255,255,.8); }
+    .skill-breadcrumb span { color: rgba(255,255,255,.2); }
 
-    /* BUTTONS */
-    .btn-primary {
-      display: inline-block;
-      background: var(--orange);
-      color: #000;
-      font-family: var(--sans);
+    .skill-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      font-size: 11.5px;
       font-weight: 600;
-      font-size: 0.95rem;
-      padding: 14px 28px;
-      border-radius: 4px;
-      border: none;
-      cursor: pointer;
-      transition: background 0.15s ease;
-    }
-    .btn-primary:hover { background: var(--orange-deep); }
-
-    /* SECTION LABEL */
-    .section-label {
-      display: inline-block;
-      border: 1px solid currentColor;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: 5px 12px;
       border-radius: 999px;
-      font-size: 0.75rem;
+      border: 1px solid;
+    }
+    .bp-free   { background: rgba(255,90,31,.15); border-color: rgba(255,90,31,.35); color: #ff8a5c; }
+    .bp-skill  { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.15); color: rgba(255,255,255,.65); }
+    .bp-who    { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.10); color: rgba(255,255,255,.45); }
+
+    .skill-hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
       font-weight: 500;
-      padding: 4px 14px;
-      opacity: 0.5;
-      margin-bottom: 16px;
+      line-height: 1.1;
+      color: #fff;
+      max-width: 24ch;
+      margin-bottom: 20px;
     }
-
-    /* HERO */
-    .hero {
-      background: linear-gradient(180deg, #ffffff 0%, var(--page-bg) 100%);
-      padding: 140px 0 64px;
-      text-align: center;
-      border-bottom: 1px solid var(--border-light);
-    }
-    .hero h1 {
-      font-size: clamp(1.8rem, 4.5vw, 3rem);
-      font-weight: 700;
-      color: var(--black);
-      line-height: 1.15;
-      letter-spacing: -0.01em;
-      margin: 0 auto 16px;
-      max-width: 800px;
-    }
-    .hero h1 em {
-      font-family: var(--serif);
-      font-style: italic;
-      font-weight: 400;
-      color: var(--orange);
-    }
-    .hero-sub {
+    .skill-hero .hero-sub {
       font-size: 1.05rem;
-      color: #555;
+      color: rgba(255,255,255,.55);
       line-height: 1.7;
-      max-width: 640px;
-      margin: 0 auto;
+      max-width: 52ch;
+      margin-bottom: 0;
     }
 
-    /* TASK GRID */
+    /* ── TASK SECTION ── */
+    .task-section {
+      background: var(--bg);
+      padding: 72px 0 0;
+      border-top: 1px solid var(--line);
+    }
+
+    /* ── TASK GRID ── */
     .task-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-    @media (max-width: 768px) {
-      .task-grid { grid-template-columns: 1fr; }
+      gap: 18px;
+      margin-top: 36px;
     }
 
-    /* CARD */
+    /* ── TASK CARD ── */
     .task-card {
       position: relative;
-      background: var(--white);
-      border: 1px dashed #e7ddcf;
-      border-radius: 16px;
-      padding: 32px 28px;
-      box-shadow: 0 10px 30px rgba(10,10,10,0.06);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 28px 26px;
+      overflow: hidden;
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .task-card.visible {
+      animation: fadeUp 0.5s ease forwards;
     }
     .task-card::after {
       content: attr(data-num);
       position: absolute;
-      top: 18px;
-      right: 18px;
+      top: 16px;
+      right: 20px;
       font-family: var(--serif);
       font-style: italic;
+      font-size: 3.2rem;
       font-weight: 400;
-      font-size: 3.4rem;
-      line-height: 1;
-      color: var(--black);
-      opacity: 0.06;
+      color: var(--ink);
+      opacity: 0.05;
       pointer-events: none;
       user-select: none;
+      line-height: 1;
     }
-    .task-card { transition: box-shadow 0.25s ease, transform 0.25s ease; }
-    .task-card:hover { box-shadow: 0 18px 48px rgba(10,10,10,0.13); transform: translateY(-4px) rotate3d(1,1,0,1deg) !important; }
-    @media (min-width: 769px) {
-      .task-grid .task-card:nth-child(odd) { transform: translateY(10px); }
-    }
-    .task-header {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-    .task-num {
-      display: none;
+    .task-card:hover {
+      border-color: var(--line-strong);
+      box-shadow: 0 12px 36px -12px rgba(20,17,15,.14);
+      transform: translateY(-2px);
     }
     .task-category {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-size: 0.68rem;
+      font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #1f1f1f;
+      letter-spacing: .08em;
+      color: var(--soft);
       margin-bottom: 10px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid #efe6da;
-      background: #fbf6ef;
-      width: fit-content;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--line);
+      background: var(--bg);
     }
     .task-title {
+      font-family: var(--serif);
       font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--black);
+      font-weight: 500;
+      color: var(--ink);
       line-height: 1.2;
+      margin-bottom: 10px;
     }
     .task-hook {
-      font-size: 0.9rem;
-      color: #555;
+      font-size: 14px;
+      color: var(--soft);
       line-height: 1.65;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
     .task-solution {
-      background: rgba(255,130,0,0.06);
-      border-left: 3px solid var(--orange);
-      padding: 14px 18px;
-      border-radius: 0 8px 8px 0;
-      margin-bottom: 14px;
+      border-left: 3px solid var(--accent);
+      padding: 12px 16px;
+      background: rgba(255,90,31,0.05);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin-bottom: 12px;
     }
     .task-solution p {
-      font-size: 0.88rem;
-      color: var(--black);
+      font-size: 13.5px;
+      color: var(--soft);
       line-height: 1.6;
+      margin: 0;
     }
     .task-ideal {
-      font-size: 0.78rem;
-      color: var(--gray-meta);
+      font-size: 12.5px;
+      color: var(--faint);
     }
-    .task-ideal strong {
-      color: #555;
-      font-weight: 500;
+    .task-ideal strong { color: var(--soft); font-weight: 500; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* GATE */
+    /* ── GATE ── */
     .gate-section {
-      background: #f6f0e8;
-      padding: 80px 0;
-      position: relative;
-    }
-    .gate-section::before {
-      content: '';
-      position: absolute;
-      top: -80px;
-      left: 0;
-      right: 0;
-      height: 80px;
-      background: linear-gradient(to bottom, transparent, #f6f0e8);
-      pointer-events: none;
+      background: var(--surface);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 64px 0;
+      margin-top: 56px;
     }
     .gate-inner {
-      max-width: 980px;
-      margin: 0 auto;
-      text-align: left;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
     }
-    .gate-count {
-      font-family: var(--serif);
-      font-style: italic;
-      font-weight: 400;
-      font-size: 1.4rem;
-      color: var(--orange);
-      margin-bottom: 12px;
+    .progress-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--faint);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 8px;
     }
-    .gate-inner h2 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--black);
-      line-height: 1.25;
-      margin-bottom: 12px;
-    }
-    .gate-inner h2 em {
-      font-family: var(--serif);
-      font-style: italic;
-      font-weight: 400;
-      color: var(--orange);
-    }
-    .gate-inner p {
-      color: #555;
-      font-size: 0.92rem;
-      line-height: 1.65;
+    .progress-bar {
+      display: flex;
+      gap: 4px;
       margin-bottom: 24px;
     }
-    .gate-form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      max-width: 400px;
-      margin: 0 auto 12px;
+    .progress-bar .pip {
+      flex: 1;
+      height: 5px;
+      border-radius: 3px;
+      background: var(--line);
     }
-    .gate-form input {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1px solid var(--border-light);
-      border-radius: 4px;
-      background: var(--white);
-      color: var(--black);
-      font-family: var(--sans);
-      font-size: 0.9rem;
+    .progress-bar .pip.filled { background: var(--accent); }
+    .gate-copy h2 {
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 12px;
     }
-    .gate-form input:focus {
-      outline: none;
-      border-color: var(--orange);
+    .gate-copy p {
+      font-size: 15px;
+      color: var(--soft);
+      line-height: 1.7;
+      margin-bottom: 8px;
     }
-    .gate-form input::placeholder {
-      color: var(--gray-meta);
-    }
-    .gate-form button {
-      width: 100%;
-      padding: 14px;
-      background: var(--orange);
-      color: #000;
-      border: none;
-      border-radius: 4px;
-      font-family: var(--sans);
-      font-weight: 600;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: background 0.15s;
-    }
-    .gate-form button:hover { background: var(--orange-deep); }
     .gate-note {
-      font-size: 0.78rem;
-      color: var(--gray-meta);
+      font-size: 13px;
+      color: var(--faint);
+      margin-top: 8px;
     }
-    .gate-layout {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 28px;
-      align-items: stretch;
-    }
-    @media (max-width: 900px) {
-      .gate-layout { grid-template-columns: 1fr; }
-    }
-    .gate-left {
-      height: var(--gate-form-h);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 16px;
-      padding: 4px 0;
-    }
-    .gate-left h2 { font-size: 2rem; line-height: 1.15; margin: 0; }
-    .gate-left p { margin: 0; }
-    .form-embed {
-      width: 100%;
-      max-width: 520px;
-      margin: 0;
-      border-radius: 16px;
+    .gate-form-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
       overflow: hidden;
-      background: #ffffff;
-      box-shadow: 0 16px 44px rgba(10,10,10,0.12);
-      height: var(--gate-form-h);
-      align-self: stretch;
+      box-shadow: 0 8px 32px -12px rgba(20,17,15,.12);
     }
-    .form-embed iframe {
+    .gate-form-card iframe {
       width: 100%;
-      height: var(--gate-form-h);
+      height: 440px;
       border: none;
       display: block;
     }
-    @media (max-width: 600px) {
-      .gate-left { height: auto; }
-      .form-embed { height: auto; }
-      .form-embed iframe { height: var(--gate-form-h-mobile); }
-    }
 
-    /* LOCKED */
+    /* ── LOCKED ── */
     .locked-content {
       position: relative;
+      background: var(--bg);
+      padding: 56px 0 80px;
     }
-    .locked-content.blur-active .task-card,
-    .locked-content.blur-active .proof-section {
+    .locked-content.blur-active .task-card {
       filter: blur(5px);
       pointer-events: none;
       user-select: none;
@@ -404,174 +258,163 @@
     .locked-content.blur-active::after {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(251,247,240,0.55);
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(251,250,248,0.5);
       pointer-events: none;
     }
 
-    /* PROOF / CTA FINAL */
+    /* ── PROOF ── */
     .proof-section {
-      background: var(--black);
-      border-radius: 16px;
-      padding: 48px 40px;
-      margin-top: 48px;
+      background: var(--ink);
+      border-radius: var(--radius-lg);
+      padding: 52px 44px;
+      margin-top: 52px;
       text-align: center;
-    }
-    .proof-label {
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--orange);
-      margin-bottom: 20px;
-    }
-    .proof-headline {
-      font-family: var(--serif);
-      font-style: italic;
-      font-weight: 400;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      color: var(--white);
-      line-height: 1.2;
-      margin-bottom: 28px;
-      max-width: 100%;
-    }
-    .proof-metrics {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border-dark);
-      border-radius: 12px;
-      overflow: hidden;
-      margin-bottom: 28px;
-      max-width: 100%;
-    }
-    .proof-metric {
-      background: var(--black-soft);
-      padding: 36px 20px;
-      text-align: center;
-    }
-    .proof-metric-num {
-      font-family: var(--serif);
-      font-style: italic;
-      font-weight: 400;
-      font-size: clamp(2.8rem, 4.5vw, 4.2rem);
-      color: var(--orange);
-      line-height: 1;
-      margin-bottom: 10px;
-    }
-    .proof-metric-label {
-      font-size: 0.85rem;
-      color: var(--white-dim);
-      line-height: 1.4;
-    }
-    .proof-text {
-      color: var(--white-dim);
-      font-size: 1.15rem;
-      line-height: 1.7;
-      margin-bottom: 12px;
-      max-width: 100%;
-    }
-    .proof-text strong { color: var(--white); }
-    .proof-teaser {
-      margin-top: 28px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border-dark);
-    }
-    .proof-teaser p {
-      color: var(--white);
-      font-weight: 600;
-      font-size: clamp(1.3rem, 2.5vw, 1.6rem);
-      line-height: 1.4;
-    }
-    .proof-teaser em {
-      font-family: var(--serif);
-      font-style: italic;
-      font-weight: 400;
-      color: var(--orange);
-    }
-    @media (max-width: 600px) {
-      .proof-metrics { grid-template-columns: 1fr; }
-      .proof-section { padding: 36px 24px; }
-    }
-
-    /* FOOTER */
-    .footer {
-      background: var(--black);
-      border-top: 1px solid var(--border-dark);
-      padding: 20px 0;
-    }
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .footer p { color: var(--gray-meta); font-size: 0.78rem; }
-
-    @media (max-width: 600px) {
-      .hero { padding: 120px 0 48px; }
-      .task-card { padding: 24px 20px; }
-      .task-header { gap: 14px; }
-      .task-title { font-size: 1.05rem; }
-    }
-
-    /* ANIMACIONES */
-    .hero .container {
-      opacity: 0;
-      transform: translateY(24px);
-      animation: fadeUp 0.7s ease forwards;
-    }
-    .task-card {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    .task-card.visible {
-      animation: fadeUp 0.5s ease forwards;
-    }
-    @media (min-width: 769px) {
-      .task-grid .task-card.visible:nth-child(odd) { transform: translateY(10px); }
-    }
-    .proof-section {
       opacity: 0;
       transform: translateY(20px);
     }
     .proof-section.visible {
       animation: fadeUp 0.6s ease forwards;
     }
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
+    .proof-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--accent);
+      margin-bottom: 18px;
     }
-
-    /* FOCUS VISIBLE */
-    a:focus-visible,
-    button:focus-visible,
-    input:focus-visible,
-    [tabindex]:focus-visible {
-      outline: 2px solid var(--orange);
-      outline-offset: 2px;
+    .proof-headline {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 32px;
     }
-
-    /* PROGRESS BAR */
-    .progress-bar {
-      display: flex;
-      gap: 4px;
+    .proof-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,.08);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+    .proof-metric {
+      background: rgba(255,255,255,.03);
+      padding: 32px 16px;
+    }
+    .proof-metric-num {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      font-weight: 400;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .proof-metric-label {
+      font-size: 13px;
+      color: rgba(255,255,255,.45);
+      line-height: 1.4;
+    }
+    .proof-text {
+      color: rgba(255,255,255,.55);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .proof-text strong { color: rgba(255,255,255,.85); font-weight: 600; }
+    .proof-cta {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,.1);
+    }
+    .proof-cta p {
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.2rem;
+      line-height: 1.4;
       margin-bottom: 20px;
     }
-    .progress-bar .pip {
-      flex: 1;
-      height: 6px;
-      border-radius: 3px;
-      background: rgba(0,0,0,0.08);
+    .proof-cta em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--accent); }
+
+    /* ── COMMUNITY SECTION (dark) ── */
+    .comunidad-section {
+      background-color: var(--ink);
+      background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 28px 28px;
+      padding: 96px 0;
+      border-top: 1px solid var(--line);
+      position: relative;
     }
-    .progress-bar .pip.filled {
-      background: var(--orange);
+    .comunidad-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 100%; height: 300px;
+      background: radial-gradient(ellipse 60% 40% at 50% -10%, rgba(255,90,31,0.08) 0%, transparent 65%);
+      pointer-events: none;
     }
-    .progress-label {
-      font-size: 0.78rem;
-      color: var(--gray-meta);
-      margin-bottom: 8px;
+    .comunidad-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .pill-label {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 4px 14px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      opacity: 0.7;
+    }
+    .com-copy .pill-label { color: rgba(255,90,31,.8); border-color: rgba(255,90,31,.35); opacity: 1; margin-bottom: 22px; }
+    .com-copy h2 {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 500;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .com-copy p { font-size: 15px; color: rgba(255,255,255,.55); line-height: 1.75; margin-bottom: 14px; }
+    .com-copy p:last-child { margin-bottom: 0; }
+    .com-copy strong { color: rgba(255,255,255,.85); font-weight: 600; }
+    .com-form-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 28px 24px;
+      box-shadow: 0 16px 48px rgba(0,0,0,.35);
+    }
+    .com-form-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 16px;
+    }
+    .com-form-card-form { min-height: 200px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .task-grid { grid-template-columns: 1fr; }
+      .gate-inner { grid-template-columns: 1fr; gap: 28px; }
+      .proof-metrics { grid-template-columns: 1fr; }
+      .proof-section { padding: 36px 24px; }
+      .comunidad-inner { grid-template-columns: 1fr; gap: 36px; }
+    }
+    @media (max-width: 560px) {
+      .skill-hero { padding: 48px 0 56px; }
+      .skill-hero h1 { max-width: 100%; }
     }
   </style>
 </head>
@@ -581,44 +424,54 @@
   <nav class="nav">
     <div class="nav-inner">
       <a href="/"><img src="/assets/Wordmark/jonatand-fondo-claro.png" alt="Jonatan Domínguez" class="nav-logo" /></a>
-      <div class="nav-links">
-        <a href="/">Inicio</a>
-        <a href="/servicios">Servicios</a>
-        <a href="/recursos">Recursos</a>
+      <div class="nav-links" id="nav-links">
+        <a href="/#sobre-mi">Sobre mí</a>
+        <a href="/#servicios">Cómo trabajamos</a>
+        <a href="/#newsletter">Newsletter</a>
+        <a href="/recursos" style="color:var(--ink);font-weight:600;">Recursos</a>
       </div>
-      <a href="/reunion" class="nav-cta">Agenda tu llamada →</a>
-      <button class="hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+      <a href="/reunion" class="btn-primary nav-cta-desktop">Agendar una llamada <span class="arrow">→</span></a>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <div class="mobile-menu" id="mobile-menu">
-      <a href="/">Inicio</a>
-      <a href="/servicios">Servicios</a>
+    <div class="nav-mobile-dropdown" id="nav-dropdown">
+      <a href="/#sobre-mi">Sobre mí</a>
+      <a href="/#servicios">Cómo trabajamos</a>
+      <a href="/#newsletter">Newsletter</a>
       <a href="/recursos">Recursos</a>
-      <a href="/reunion" class="btn-primary" style="display:inline-block;margin-top:8px;">Agenda tu llamada →</a>
+      <a href="/reunion" class="btn-primary">Agendar una llamada →</a>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero">
+  <!-- HERO (dark) -->
+  <section class="skill-hero">
     <div class="container">
-      <h1><em>12 tareas</em> que puedes dejar de hacer esta semana (y cómo <em>Claude las hace por ti</em>)</h1>
-      <p class="hero-sub">La diferencia llega cuando, ante una tarea nueva, no piensas en cómo puedes hacerla, sino en cómo la IA puede hacerla por ti.</p>
+      <div class="skill-breadcrumb animate-fade-in">
+        <a href="/recursos">← Recursos</a>
+        <span>/</span>
+        <span>12 tareas para Claude</span>
+      </div>
+
+      <div class="skill-badges animate-fade-in">
+        <span class="badge-pill bp-free">Gratis</span>
+        <span class="badge-pill bp-skill">Lista de tareas · Prompts</span>
+        <span class="badge-pill bp-who">Para cualquier profesional</span>
+      </div>
+
+      <h1 class="animate-fade-in-up delay-1">12 tareas que puedes dejar de hacer <em class="serif-accent">esta semana</em></h1>
+      <p class="hero-sub animate-fade-in-up delay-2">La diferencia llega cuando, ante una tarea nueva, no piensas en cómo puedes hacerla tú, sino en cómo la IA puede hacerla por ti. Estas son las 12 primeras con las que empezar.</p>
     </div>
   </section>
 
   <!-- TARJETAS 1-4 (VISIBLES) -->
-  <section style="padding:48px 0 0;">
+  <div class="task-section">
     <div class="container">
       <div class="task-grid">
 
-        <div class="task-card" data-num="01">
-          <div class="task-header">
-            <span class="task-num">01</span>
-            <div>
-              <div class="task-category">Documentos</div>
-              <div class="task-title">El rellenador</div>
-            </div>
-          </div>
-          <p class="task-hook">Genera documentos completos desde una plantilla.</p>
+        <div class="task-card animate-scale-in delay-1" data-num="01">
+          <div class="task-category">Documentos</div>
+          <div class="task-title">El rellenador</div>
           <p class="task-hook">Tienes una plantilla. Tienes los datos del cliente. Y aun así tardas diez minutos en abrir el documento, cambiar el nombre, la fecha, el importe, guardar, renombrar el archivo. Multiplicado por cada cliente. Cada semana.</p>
           <div class="task-solution">
             <p>Claude coge tu plantilla, lee los datos que le das y genera el documento terminado. Con tu formato, con tu membrete, sin que toques nada a mano.</p>
@@ -626,15 +479,9 @@
           <p class="task-ideal"><strong>Ideal para:</strong> gestorías, despachos, consultorías, inmobiliarias</p>
         </div>
 
-        <div class="task-card" data-num="02">
-          <div class="task-header">
-            <span class="task-num">02</span>
-            <div>
-              <div class="task-category">Comunicación</div>
-              <div class="task-title">El respondedor</div>
-            </div>
-          </div>
-          <p class="task-hook">Borradores de correo en diez segundos.</p>
+        <div class="task-card animate-scale-in delay-2" data-num="02">
+          <div class="task-category">Comunicación</div>
+          <div class="task-title">El respondedor</div>
           <p class="task-hook">Hay correos que llevas respondiendo igual desde hace tres años. El cliente que pregunta lo mismo. El proveedor al que hay que pedir disculpas. El seguimiento que sabes cómo debe sonar pero que te cuesta arrancar.</p>
           <div class="task-solution">
             <p>Le describes la situación y lo que quieres conseguir. Claude escribe el borrador. Tú lo revisas en veinte segundos y lo envías.</p>
@@ -642,15 +489,9 @@
           <p class="task-ideal"><strong>Ideal para:</strong> cualquier profesional que gestiona muchos correos al día</p>
         </div>
 
-        <div class="task-card" data-num="03">
-          <div class="task-header">
-            <span class="task-num">03</span>
-            <div>
-              <div class="task-category">Operativa</div>
-              <div class="task-title">El tomador de actas</div>
-            </div>
-          </div>
-          <p class="task-hook">Resúmenes de reunión sin esfuerzo.</p>
+        <div class="task-card animate-scale-in delay-3" data-num="03">
+          <div class="task-category">Operativa</div>
+          <div class="task-title">El tomador de actas</div>
           <p class="task-hook">La reunión acaba. Hay que escribir el resumen, los acuerdos, quién hace qué y para cuándo. Nadie quiere hacerlo. Siempre se retrasa. Siempre falta algo.</p>
           <div class="task-solution">
             <p>Le pegas la transcripción o tus notas. Claude devuelve el acta estructurada: qué se decidió, qué queda pendiente y quién se lleva cada tarea.</p>
@@ -658,15 +499,9 @@
           <p class="task-ideal"><strong>Ideal para:</strong> directivos, gerentes, jefes de equipo, consultores</p>
         </div>
 
-        <div class="task-card" data-num="04">
-          <div class="task-header">
-            <span class="task-num">04</span>
-            <div>
-              <div class="task-category">Análisis</div>
-              <div class="task-title">El buscador interno</div>
-            </div>
-          </div>
-          <p class="task-hook">Encuentra el dato exacto dentro de tus documentos.</p>
+        <div class="task-card animate-scale-in delay-4" data-num="04">
+          <div class="task-category">Análisis</div>
+          <div class="task-title">El buscador interno</div>
           <p class="task-hook">El contrato que firmaste hace seis meses. El email donde el cliente confirmó algo. La cláusula que no recuerdas bien. Sabes que existe. No sabes dónde está.</p>
           <div class="task-solution">
             <p>Le pegas el documento. Le preguntas lo que buscas. Te dice exactamente dónde está y qué dice, sin que tengas que leerlo entero.</p>
@@ -676,330 +511,285 @@
 
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- GATE / MURO DE SUSCRIPCIÓN -->
+  <!-- GATE -->
   <section class="gate-section" id="gate">
     <div class="container">
       <div class="gate-inner">
-        <div class="gate-layout">
-          <div class="gate-left">
-            <div class="progress-label">Progreso: 4 de 12 tareas desbloqueadas</div>
-            <div class="progress-bar">
-              <span class="pip filled"></span>
-              <span class="pip filled"></span>
-              <span class="pip filled"></span>
-              <span class="pip filled"></span>
-              <span class="pip"></span>
-              <span class="pip"></span>
-              <span class="pip"></span>
-              <span class="pip"></span>
-              <span class="pip"></span>
-              <span class="pip"></span>
-              <span class="pip"></span>
-              <span class="pip"></span>
-            </div>
-            <h2>Suscríbete gratis y desbloquea <em>las 8 tareas que faltan</em></h2>
-            <p class="gate-sub">Todo lo que aprendo aplicando IA en negocios reales, en tu email. Casos concretos, sistemas que funcionan, errores que me han costado dinero.</p>
-            <p class="gate-note" style="margin-top:4px;">Sin spam. Solo lo bueno. Más de 460 profesionales ya dentro.</p>
+        <div class="gate-copy">
+          <div class="progress-label">Progreso: 4 de 12 tareas desbloqueadas</div>
+          <div class="progress-bar">
+            <span class="pip filled"></span><span class="pip filled"></span>
+            <span class="pip filled"></span><span class="pip filled"></span>
+            <span class="pip"></span><span class="pip"></span>
+            <span class="pip"></span><span class="pip"></span>
+            <span class="pip"></span><span class="pip"></span>
+            <span class="pip"></span><span class="pip"></span>
           </div>
-          <div>
-            <div class="form-embed">
-              <iframe
-                src="https://integrations.funnels.top/widget/form/tzyQu2ttAgX5GaZ6FLcw"
-                style="width:100%;border:none;border-radius:6px;overflow:hidden;"
-                id="inline-tzyQu2ttAgX5GaZ6FLcw"
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Form LP - 12 tareas Claude"
-                data-height="440"
-                data-layout-iframe-id="inline-tzyQu2ttAgX5GaZ6FLcw"
-                data-form-id="tzyQu2ttAgX5GaZ6FLcw"
-                title="Form LP - 12 tareas Claude"
-              ></iframe>
-            </div>
-          </div>
+          <h2>Suscríbete gratis y desbloquea <em class="serif-accent">las 8 tareas que faltan</em></h2>
+          <p>Todo lo que aprendo aplicando IA en negocios reales, en tu email. Casos concretos, sistemas que funcionan, errores que me han costado dinero.</p>
+          <p class="gate-note">Sin spam. Solo lo bueno. Más de 460 profesionales ya dentro.</p>
+        </div>
+        <div class="gate-form-card">
+          <iframe
+            src="https://integrations.funnels.top/widget/form/tzyQu2ttAgX5GaZ6FLcw"
+            id="inline-tzyQu2ttAgX5GaZ6FLcw"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Form LP - 12 tareas Claude"
+            data-height="440"
+            data-layout-iframe-id="inline-tzyQu2ttAgX5GaZ6FLcw"
+            data-form-id="tzyQu2ttAgX5GaZ6FLcw"
+            title="Form LP - 12 tareas Claude"
+          ></iframe>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TARJETAS 5-12 + CTA FINAL (BLOQUEADAS) -->
+  <!-- TARJETAS 5-12 (BLOQUEADAS) -->
   <div class="locked-content blur-active" id="locked">
-    <section style="padding:48px 0 80px;">
-      <div class="container">
-        <div class="task-grid">
+    <div class="container">
+      <div class="task-grid">
 
-          <div class="task-card" data-num="05">
-            <div class="task-header">
-              <span class="task-num">05</span>
-              <div>
-                <div class="task-category">Documentos</div>
-                <div class="task-title">El comparador</div>
-              </div>
-            </div>
-            <p class="task-hook">Detecta qué cambió entre dos versiones.</p>
-            <p class="task-hook">Dos presupuestos. Dos contratos. Dos versiones del mismo informe. Y tú leyendo los dos de arriba a abajo para encontrar las diferencias.</p>
-            <div class="task-solution">
-              <p>Le das los dos documentos. Te dice qué se añadió, qué se quitó y qué cambió. Sin leer línea por línea.</p>
-            </div>
-            <p class="task-ideal"><strong>Ideal para:</strong> despachos, equipos comerciales, cualquiera que gestiona versiones de documentos</p>
+        <div class="task-card" data-num="05">
+          <div class="task-category">Documentos</div>
+          <div class="task-title">El comparador</div>
+          <p class="task-hook">Dos presupuestos. Dos contratos. Dos versiones del mismo informe. Y tú leyendo los dos de arriba a abajo para encontrar las diferencias.</p>
+          <div class="task-solution">
+            <p>Le das los dos documentos. Te dice qué se añadió, qué se quitó y qué cambió. Sin leer línea por línea.</p>
           </div>
-
-          <div class="task-card" data-num="06">
-            <div class="task-header">
-              <span class="task-num">06</span>
-              <div>
-                <div class="task-category">Comunicación</div>
-                <div class="task-title">El traductor de tono</div>
-              </div>
-            </div>
-            <p class="task-hook">El mismo mensaje en el registro que necesitas.</p>
-            <p class="task-hook">A veces el borrador suena demasiado brusco. O demasiado informal. O lo escribió alguien del equipo y hay que dejarlo presentable antes de que salga.</p>
-            <div class="task-solution">
-              <p>Le das el texto. Le dices cómo tiene que sonar. Te lo devuelve reescrito sin perder el mensaje. También convierte un email agresivo en uno neutro antes de que lo envíes en caliente.</p>
-            </div>
-            <p class="task-ideal"><strong>Ideal para:</strong> cualquier profesional que comunica por escrito</p>
-          </div>
-
-          <div class="task-card" data-num="07">
-            <div class="task-header">
-              <span class="task-num">07</span>
-              <div>
-                <div class="task-category">Operativa</div>
-                <div class="task-title">El documentador de procesos</div>
-              </div>
-            </div>
-            <p class="task-hook">Tus instrucciones escritas de una vez para siempre.</p>
-            <p class="task-hook">Hay cosas que haces tú porque nadie más sabe cómo. Y cuando alguien pregunta, lo explicas. Y la semana que viene vuelven a preguntar.</p>
-            <div class="task-solution">
-              <p>Le explicas el proceso como si se lo contaras a alguien. Claude lo estructura, lo redacta y lo deja listo para que otro lo siga sin necesitarte.</p>
-            </div>
-            <p class="task-ideal"><strong>Ideal para:</strong> dueños de negocio que quieren dejar de ser el cuello de botella</p>
-          </div>
-
-          <div class="task-card" data-num="08">
-            <div class="task-header">
-              <span class="task-num">08</span>
-              <div>
-                <div class="task-category">Análisis</div>
-                <div class="task-title">El preparador de reuniones</div>
-              </div>
-            </div>
-            <p class="task-hook">Entra a cada reunión con ventaja.</p>
-            <p class="task-hook">Tienes la reunión en una hora. No has preparado nada. O la tienes mañana y sabes que deberías, pero no sabes por dónde empezar.</p>
-            <div class="task-solution">
-              <p>Le das el contexto: con quién es, qué quieres conseguir, qué sabes del otro lado. Claude te prepara las preguntas clave, los puntos que defender y los escenarios posibles.</p>
-            </div>
-            <p class="task-ideal"><strong>Ideal para:</strong> comerciales, directivos, consultores, cualquiera que negocia</p>
-          </div>
-
-          <div class="task-card" data-num="09">
-            <div class="task-header">
-              <span class="task-num">09</span>
-              <div>
-                <div class="task-category">Comunicación</div>
-                <div class="task-title">El gestor de quejas</div>
-              </div>
-            </div>
-            <p class="task-hook">Respuestas difíciles sin desgaste.</p>
-            <p class="task-hook">El cliente está enfadado. Tiene razón, o no la tiene, o la tiene a medias. Y tienes que responder de forma que no empeore la situación ni cierres una puerta que puede seguir abierta.</p>
-            <div class="task-solution">
-              <p>Le pegas el mensaje. Le dices qué quieres conseguir. Claude propone varias respuestas según el objetivo: retener, compensar, cerrar o no escalar.</p>
-            </div>
-            <p class="task-ideal"><strong>Ideal para:</strong> negocios con atención al cliente, autónomos, cualquiera que recibe reclamaciones</p>
-          </div>
-
-          <div class="task-card" data-num="10">
-            <div class="task-header">
-              <span class="task-num">10</span>
-              <div>
-                <div class="task-category">Documentos</div>
-                <div class="task-title">El plantillador</div>
-              </div>
-            </div>
-            <p class="task-hook">Convierte cualquier documento tuyo en reutilizable.</p>
-            <p class="task-hook">Tienes un presupuesto que ya enviaste. Un contrato que ya firmaste. Un informe que ya entregaste. Y la próxima vez que lo necesites vas a volver a empezar desde cero o a buscar el anterior para copiarlo.</p>
-            <div class="task-solution">
-              <p>Le das el documento. Le dices qué cambia de un cliente a otro. Claude detecta los campos variables y lo deja como plantilla lista para reutilizar.</p>
-            </div>
-            <p class="task-ideal"><strong>Ideal para:</strong> cualquiera que repite los mismos documentos cambiando solo algunos datos</p>
-          </div>
-
-          <div class="task-card" data-num="11">
-            <div class="task-header">
-              <span class="task-num">11</span>
-              <div>
-                <div class="task-category">Análisis</div>
-                <div class="task-title">El revisor antes de firmar</div>
-              </div>
-            </div>
-            <p class="task-hook">Lo que no ves a primera lectura.</p>
-            <p class="task-hook">Antes de firmar un contrato, un acuerdo o un presupuesto de un proveedor, vale la pena que alguien lo lea con otros ojos. Alguien que no tenga prisa. Que no esté emocionado con el acuerdo.</p>
-            <div class="task-solution">
-              <p>Le das el documento. Claude señala las cláusulas que merecen atención, los puntos ambiguos y lo que falta. No es un abogado. Pero te avisa de lo que no parece normal antes de que firmes.</p>
-            </div>
-            <p class="task-ideal"><strong>Ideal para:</strong> autónomos, pymes, directivos que firman sin asesor jurídico a mano</p>
-          </div>
-
-          <div class="task-card" data-num="12">
-            <div class="task-header">
-              <span class="task-num">12</span>
-              <div>
-                <div class="task-category">Operativa</div>
-                <div class="task-title">El manual de bienvenida</div>
-              </div>
-            </div>
-            <p class="task-hook">Onboarding sin reuniones extra.</p>
-            <p class="task-hook">Cada vez que entra alguien nuevo hay que explicar lo mismo. Cómo funciona el equipo. Dónde está cada cosa. A quién se le pregunta qué. Esa explicación siempre la haces tú, siempre roba tiempo y siempre queda incompleta.</p>
-            <div class="task-solution">
-              <p>Le das los materiales que tienes. Claude genera el manual de bienvenida que responde las preguntas antes de que las hagan.</p>
-            </div>
-            <p class="task-ideal"><strong>Ideal para:</strong> dueños de negocio con equipo, responsables de RRHH, managers</p>
-          </div>
-
+          <p class="task-ideal"><strong>Ideal para:</strong> despachos, equipos comerciales, cualquiera que gestiona versiones de documentos</p>
         </div>
 
-        <!-- CTA FINAL: CASO REAL -->
-        <div class="proof-section">
-          <div class="proof-label">Mañana en tu correo...</div>
-          <div class="proof-headline">Estos son los resultados de una consultora en los últimos 5 meses</div>
-          <div class="proof-metrics">
-            <div class="proof-metric">
-              <div class="proof-metric-num" data-countup="2141" data-suffix="" data-decimal="true">2.141</div>
-              <div class="proof-metric-label">documentos generados solos</div>
-            </div>
-            <div class="proof-metric">
-              <div class="proof-metric-num" data-countup="713" data-suffix=" h">713 h</div>
-              <div class="proof-metric-label">de trabajo manual eliminadas</div>
-            </div>
-            <div class="proof-metric">
-              <div class="proof-metric-num" data-countup="14260" data-suffix=" €" data-decimal="true">14.260 €</div>
-              <div class="proof-metric-label">recuperados en tiempo de equipo</div>
-            </div>
+        <div class="task-card" data-num="06">
+          <div class="task-category">Comunicación</div>
+          <div class="task-title">El traductor de tono</div>
+          <p class="task-hook">A veces el borrador suena demasiado brusco. O demasiado informal. O lo escribió alguien del equipo y hay que dejarlo presentable antes de que salga.</p>
+          <div class="task-solution">
+            <p>Le das el texto. Le dices cómo tiene que sonar. Te lo devuelve reescrito sin perder el mensaje. También convierte un email agresivo en uno neutro antes de que lo envíes en caliente.</p>
           </div>
-          <p class="proof-text">No cambiaron su forma de trabajar. No contrataron a nadie. Solo dejaron de hacer a mano lo que la inteligencia artificial ya podía hacer por ellos.</p>
-          <div class="proof-teaser">
-            <p>¿Quieres aplicar inteligencia artificial en tu negocio y <em>recuperar horas de trabajo cada semana</em>?</p>
-            <a href="/reunion" class="btn-primary" style="margin-top:20px;display:inline-block;">Agenda tu llamada gratuita →</a>
+          <p class="task-ideal"><strong>Ideal para:</strong> cualquier profesional que comunica por escrito</p>
+        </div>
+
+        <div class="task-card" data-num="07">
+          <div class="task-category">Operativa</div>
+          <div class="task-title">El documentador de procesos</div>
+          <p class="task-hook">Hay cosas que haces tú porque nadie más sabe cómo. Y cuando alguien pregunta, lo explicas. Y la semana que viene vuelven a preguntar.</p>
+          <div class="task-solution">
+            <p>Le explicas el proceso como si se lo contaras a alguien. Claude lo estructura, lo redacta y lo deja listo para que otro lo siga sin necesitarte.</p>
+          </div>
+          <p class="task-ideal"><strong>Ideal para:</strong> dueños de negocio que quieren dejar de ser el cuello de botella</p>
+        </div>
+
+        <div class="task-card" data-num="08">
+          <div class="task-category">Análisis</div>
+          <div class="task-title">El preparador de reuniones</div>
+          <p class="task-hook">Tienes la reunión en una hora. No has preparado nada. O la tienes mañana y sabes que deberías, pero no sabes por dónde empezar.</p>
+          <div class="task-solution">
+            <p>Le das el contexto: con quién es, qué quieres conseguir, qué sabes del otro lado. Claude te prepara las preguntas clave, los puntos que defender y los escenarios posibles.</p>
+          </div>
+          <p class="task-ideal"><strong>Ideal para:</strong> comerciales, directivos, consultores, cualquiera que negocia</p>
+        </div>
+
+        <div class="task-card" data-num="09">
+          <div class="task-category">Comunicación</div>
+          <div class="task-title">El gestor de quejas</div>
+          <p class="task-hook">El cliente está enfadado. Tiene razón, o no la tiene, o la tiene a medias. Y tienes que responder de forma que no empeore la situación ni cierres una puerta que puede seguir abierta.</p>
+          <div class="task-solution">
+            <p>Le pegas el mensaje. Le dices qué quieres conseguir. Claude propone varias respuestas según el objetivo: retener, compensar, cerrar o no escalar.</p>
+          </div>
+          <p class="task-ideal"><strong>Ideal para:</strong> negocios con atención al cliente, autónomos, cualquiera que recibe reclamaciones</p>
+        </div>
+
+        <div class="task-card" data-num="10">
+          <div class="task-category">Documentos</div>
+          <div class="task-title">El plantillador</div>
+          <p class="task-hook">Tienes un presupuesto que ya enviaste. Un contrato que ya firmaste. Un informe que ya entregaste. Y la próxima vez que lo necesites vas a volver a empezar desde cero o a buscar el anterior para copiarlo.</p>
+          <div class="task-solution">
+            <p>Le das el documento. Le dices qué cambia de un cliente a otro. Claude detecta los campos variables y lo deja como plantilla lista para reutilizar.</p>
+          </div>
+          <p class="task-ideal"><strong>Ideal para:</strong> cualquiera que repite los mismos documentos cambiando solo algunos datos</p>
+        </div>
+
+        <div class="task-card" data-num="11">
+          <div class="task-category">Análisis</div>
+          <div class="task-title">El revisor antes de firmar</div>
+          <p class="task-hook">Antes de firmar un contrato, un acuerdo o un presupuesto de un proveedor, vale la pena que alguien lo lea con otros ojos. Alguien que no tenga prisa. Que no esté emocionado con el acuerdo.</p>
+          <div class="task-solution">
+            <p>Le das el documento. Claude señala las cláusulas que merecen atención, los puntos ambiguos y lo que falta. No es un abogado. Pero te avisa de lo que no parece normal antes de que firmes.</p>
+          </div>
+          <p class="task-ideal"><strong>Ideal para:</strong> autónomos, pymes, directivos que firman sin asesor jurídico a mano</p>
+        </div>
+
+        <div class="task-card" data-num="12">
+          <div class="task-category">Operativa</div>
+          <div class="task-title">El manual de bienvenida</div>
+          <p class="task-hook">Cada vez que entra alguien nuevo hay que explicar lo mismo. Esa explicación siempre la haces tú, siempre roba tiempo y siempre queda incompleta.</p>
+          <div class="task-solution">
+            <p>Le das los materiales que tienes. Claude genera el manual de bienvenida que responde las preguntas antes de que las hagan.</p>
+          </div>
+          <p class="task-ideal"><strong>Ideal para:</strong> dueños de negocio con equipo, responsables de RRHH, managers</p>
+        </div>
+
+      </div>
+
+      <!-- CTA FINAL -->
+      <div class="proof-section">
+        <div class="proof-label">Resultados reales · Una consultora en 5 meses</div>
+        <div class="proof-headline">No cambiaron su forma de trabajar. Solo dejaron de hacer a mano lo que la IA ya podía hacer por ellos.</div>
+        <div class="proof-metrics">
+          <div class="proof-metric">
+            <div class="proof-metric-num" data-countup="2141" data-decimal="true">2.141</div>
+            <div class="proof-metric-label">documentos generados solos</div>
+          </div>
+          <div class="proof-metric">
+            <div class="proof-metric-num" data-countup="713" data-suffix=" h">713 h</div>
+            <div class="proof-metric-label">de trabajo manual eliminadas</div>
+          </div>
+          <div class="proof-metric">
+            <div class="proof-metric-num" data-countup="14260" data-decimal="true" data-suffix=" €">14.260 €</div>
+            <div class="proof-metric-label">recuperados en tiempo de equipo</div>
+          </div>
+        </div>
+        <div class="proof-cta">
+          <p>¿Quieres aplicar inteligencia artificial en tu negocio y <em>recuperar horas de trabajo cada semana</em>?</p>
+          <a href="/reunion" class="btn-primary" style="display:inline-flex;">Agenda tu llamada gratuita <span class="arrow" style="margin-left:6px;">→</span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- COMUNIDAD (dark) -->
+  <section class="comunidad-section" id="comunidad">
+    <div class="container">
+      <div class="comunidad-inner">
+
+        <div class="com-copy animate-fade-in-up">
+          <span class="pill-label">Comunidad · Lista de espera</span>
+          <h2>¿Eres profesional o dueño de negocio y quieres aplicar IA en tu trabajo? <em class="serif-accent">No estás solo.</em></h2>
+          <p>Da igual si llevas un despacho, una cartera de clientes o un negocio con equipo: aquí hay gente en tu misma situación contando qué les está funcionando de verdad con IA — y qué no. Sin la teoría de los cursos genéricos, sin la herramienta de moda que nadie usa al mes siguiente.</p>
+          <p>Yo modero la conversación para que se quede en lo aplicable a tu día a día, sea facturar más rápido, cerrar más ventas o dejar de ser tú el cuello de botella de tu negocio.</p>
+          <p>Apúntate a la lista de espera. <strong>Aviso primero a quien ya está dentro en cuanto haya plazas.</strong></p>
+        </div>
+
+        <div class="animate-scale-in delay-2">
+          <div class="com-form-card">
+            <div class="com-form-eyebrow">Lista de espera · Sin compromiso</div>
+            <div class="com-form-card-form">
+              <script type="text/javascript" src="https://acumbamail.com/newform/dynamic/js/FGoAPLkT2C2N1Dw4kOwsFX7b4MhT1VDL1GwerFCP8tP0ry/63219/"></script>
+            </div>
           </div>
         </div>
 
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
+
+  <script src="/assets/scroll-animations.js" defer></script>
+  <script>
+  (function () {
+    var btn = document.getElementById('hamburger');
+    var dropdown = document.getElementById('nav-dropdown');
+    if (btn && dropdown) {
+      btn.addEventListener('click', function () {
+        var isOpen = dropdown.classList.toggle('open');
+        btn.classList.toggle('open');
+        document.body.classList.toggle('menu-open', isOpen);
+      });
+      dropdown.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          dropdown.classList.remove('open');
+          btn.classList.remove('open');
+          document.body.classList.remove('menu-open');
+        });
+      });
+    }
+  })();
+
+  // Card entrance animations
+  (function() {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var card = entry.target;
+          var cards = Array.from(card.parentElement.children);
+          var idx = cards.indexOf(card);
+          card.style.animationDelay = (idx * 0.07) + 's';
+          card.classList.add('visible');
+          observer.unobserve(card);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.task-card').forEach(function(card) {
+      observer.observe(card);
+    });
+
+    var proofObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          proofObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    var proof = document.querySelector('.proof-section');
+    if (proof) proofObserver.observe(proof);
+  })();
+
+  // Count-up animation
+  (function() {
+    function formatNum(n, decimal) {
+      return decimal ? Math.round(n).toLocaleString('es-ES') : Math.round(n).toString();
+    }
+    var countupObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        var target = parseFloat(el.dataset.countup);
+        var suffix = el.dataset.suffix || '';
+        var decimal = !!el.dataset.decimal;
+        var duration = 1600;
+        var start = performance.now();
+        countupObserver.unobserve(el);
+        function step(now) {
+          var progress = Math.min((now - start) / duration, 1);
+          var ease = 1 - Math.pow(1 - progress, 3);
+          el.textContent = formatNum(target * ease, decimal) + suffix;
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.5, rootMargin: '0px 0px -25% 0px' });
+    document.querySelectorAll('[data-countup]').forEach(function(el) {
+      countupObserver.observe(el);
+    });
+  })();
+  </script>
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <img src="/assets/Wordmark/jonatand-fondo-claro.png" alt="Jonatan Domínguez" class="nav-logo" />
-        <p>© 2026 Jonatan Domínguez</p>
-      </div>
+    <div class="container foot-in">
+      <img src="/assets/Wordmark/jonatand-fondo-claro.png" alt="Jonatan Domínguez" class="nav-logo" />
+      <nav class="foot-links">
+        <a href="/#sobre-mi">Sobre mí</a>
+        <a href="/#servicios">Cómo trabajamos</a>
+        <a href="/#newsletter">Newsletter</a>
+        <a href="/recursos">Recursos</a>
+        <a href="/reunion">Agendar una llamada</a>
+      </nav>
+      <p class="foot-meta">© 2026 Jonatan Domínguez</p>
     </div>
   </footer>
 
-  <script>
-    // IntersectionObserver for card animations
-    (function() {
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            var card = entry.target;
-            var cards = Array.from(card.parentElement.children);
-            var idx = cards.indexOf(card);
-            card.style.animationDelay = (idx * 0.08) + 's';
-            card.classList.add('visible');
-            observer.unobserve(card);
-          }
-        });
-      }, { threshold: 0.1 });
-
-      document.querySelectorAll('.task-card').forEach(function(card) {
-        observer.observe(card);
-      });
-
-      var proofObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            proofObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-
-      var proof = document.querySelector('.proof-section');
-      if (proof) proofObserver.observe(proof);
-    })();
-
-    // Count-up animation for metrics
-    (function() {
-      function formatNum(n, decimal) {
-        if (decimal) return Math.round(n).toLocaleString('es-ES');
-        return Math.round(n).toString();
-      }
-      var countupObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (!entry.isIntersecting) return;
-          var el = entry.target;
-          var target = parseFloat(el.dataset.countup);
-          var suffix = el.dataset.suffix || '';
-          var decimal = !!el.dataset.decimal;
-          var duration = 1600;
-          var start = performance.now();
-          countupObserver.unobserve(el);
-          function step(now) {
-            var progress = Math.min((now - start) / duration, 1);
-            var ease = 1 - Math.pow(1 - progress, 3);
-            el.textContent = formatNum(target * ease, decimal) + suffix;
-            if (progress < 1) requestAnimationFrame(step);
-          }
-          requestAnimationFrame(step);
-        });
-      }, { threshold: 0.5, rootMargin: '0px 0px -25% 0px' });
-      document.querySelectorAll('[data-countup]').forEach(function(el) {
-        countupObserver.observe(el);
-      });
-    })();
-
-    document.getElementById('hamburger').addEventListener('click', function() {
-      this.classList.toggle('open');
-      document.getElementById('mobile-menu').classList.toggle('open');
-    });
-
-    var lockedContent = document.getElementById('locked');
-    var unlockKey = 'lm_12_tareas_claude_unlocked';
-
-    if (localStorage.getItem(unlockKey) === '1') {
-      unlock();
-    }
-
-    try {
-      var params = new URLSearchParams(window.location.search);
-      var submitted = params.get('submitted');
-      if (submitted === '1' || window.location.hash === '#submitted') {
-        unlock();
-        params.delete('submitted');
-        var newQuery = params.toString();
-        var newUrl = window.location.pathname + (newQuery ? ('?' + newQuery) : '') + (window.location.hash === '#submitted' ? '' : window.location.hash);
-        history.replaceState(null, '', newUrl);
-      }
-    } catch (e) {}
-
-
-    function unlock() {
-      try { localStorage.setItem(unlockKey, '1'); } catch (e) {}
-      lockedContent.classList.remove('blur-active');
-      var gateInner = document.querySelector('.gate-inner');
-      gateInner.innerHTML = '<div class="gate-count">Listo.</div><h2>Revisa tu email. Las 8 tareas restantes están <em>desbloqueadas debajo</em>.</h2>';
-      document.getElementById('gate').scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  </script>
 </body>
 </html>
-

@@ -1,68 +1,338 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>10 Preguntas para Detectar Oportunidades de Automatización — Jonatan Domínguez</title>
-  <meta name="description" content="Las 10 preguntas que todo consultor de IA debería hacer para detectar oportunidades de automatización. Método SCREAMS completo." />
+  <meta name="description" content="Las 10 preguntas que uso con clientes para detectar oportunidades de automatización en menos de una hora. Método SCREAMS completo." />
   <meta property="og:title" content="10 Preguntas para Detectar Oportunidades de Automatización" />
-  <meta property="og:description" content="El método SCREAMS para detectar oportunidades de automatización en cualquier negocio. Checklist completo." />
+  <meta property="og:description" content="El método SCREAMS para detectar oportunidades de automatización en cualquier negocio. Guía completa." />
   <meta property="og:url" content="https://jonatand.com/recursos/10-preguntas-oportunidades" />
   <meta property="og:type" content="article" />
+  <meta property="og:locale" content="es_ES" />
+
   <link rel="icon" type="image/png" href="/assets/iconos/favicon-d-naranja.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../style.css" />
+
   <style>
-    .lm-hero { padding: var(--space-xl) 0 var(--space-lg); text-align: center; }
-    .lm-meta { color: var(--ni-gray-meta); font-size: var(--type-small); margin-bottom: var(--space-md); }
-    .lm-content { max-width: var(--content-width); margin: 0 auto; padding: 0 var(--space-md) var(--space-xl); }
-    .lm-content h2 { margin-top: 2.5rem; }
-    .lm-content h3 { margin-top: 2rem; }
-    .lm-content p { margin-bottom: 1rem; line-height: 1.7; }
-    .lm-content ul, .lm-content ol { margin: 1rem 0 1.5rem 1.5rem; }
-    .lm-content li { margin-bottom: 0.5rem; line-height: 1.6; }
-    .lm-content blockquote {
-      border-left: 3px solid var(--ni-orange);
-      padding: 1rem 1.5rem;
-      margin: 1.5rem 0;
-      background: rgba(255,130,0,0.05);
-      border-radius: 0 var(--radius-md) var(--radius-md) 0;
-      font-style: italic;
+    .pill-label {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 4px 14px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      opacity: 0.7;
     }
-    .lm-content strong { color: var(--ni-black); }
-    .lm-highlight {
-      background: var(--ni-orange);
-      color: var(--ni-black);
-      padding: 2px 6px;
-      border-radius: var(--radius-sm);
+
+    /* ── HERO (dark) ── */
+    .skill-hero {
+      background-color: var(--ink);
+      background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 28px 28px;
+      padding: 72px 0 80px;
+      position: relative;
+    }
+    .skill-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 100%; height: 300px;
+      background: radial-gradient(ellipse 60% 40% at 50% -10%, rgba(255,90,31,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .skill-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,.35);
+      margin-bottom: 32px;
+    }
+    .skill-breadcrumb a { color: rgba(255,255,255,.4); transition: color .18s; }
+    .skill-breadcrumb a:hover { color: rgba(255,255,255,.8); }
+    .skill-breadcrumb span { color: rgba(255,255,255,.2); }
+
+    .skill-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      font-size: 11.5px;
       font-weight: 600;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid;
     }
-    .lm-nav { display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-md); margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: 1px solid var(--ni-border-dark); }
-    .question-card {
-      background: var(--ni-gray-section);
+    .bp-free   { background: rgba(255,90,31,.15); border-color: rgba(255,90,31,.35); color: #ff8a5c; }
+    .bp-skill  { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.15); color: rgba(255,255,255,.65); }
+    .bp-who    { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.10); color: rgba(255,255,255,.45); }
+
+    .skill-hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 500;
+      line-height: 1.1;
+      color: #fff;
+      max-width: 22ch;
+      margin-bottom: 20px;
+    }
+    .skill-hero .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.55);
+      line-height: 1.7;
+      max-width: 52ch;
+      margin-bottom: 0;
+    }
+
+    /* ── CONTENT SECTION (light) ── */
+    .skill-body-section {
+      background: var(--bg);
+      padding: 80px 0 96px;
+      border-top: 1px solid var(--line);
+    }
+
+    .skill-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .skill-sidebar {
+      position: sticky;
+      top: 88px;
+    }
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--line-strong);
       border-radius: var(--radius-lg);
-      padding: var(--space-lg);
-      margin: 2rem 0;
+      overflow: hidden;
+      box-shadow: 0 8px 32px -12px rgba(20,17,15,.12);
     }
-    .question-card h3 { margin-top: 0; color: var(--ni-orange); }
-    .question-card .label { font-size: var(--type-small); color: var(--ni-gray-meta); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-sm); }
+    .skill-card-head {
+      background: var(--ink);
+      padding: 24px 22px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .skill-card-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--accent);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .skill-card-name {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 500;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .skill-card-sub { font-size: 12px; color: rgba(255,255,255,.45); margin-top: 3px; }
+    .skill-card-meta { padding: 18px 22px; border-bottom: 1px solid var(--line); }
+    .skill-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13.5px;
+      color: var(--soft);
+      padding: 9px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .skill-meta-row:last-child { border-bottom: none; }
+    .skill-meta-ico { font-size: 14px; flex-shrink: 0; opacity: .7; }
+    .skill-card-cta { padding: 18px 22px; }
+    .skill-price {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 14px;
+      line-height: 1;
+    }
+    .skill-card-cta .btn-primary { width: 100%; justify-content: center; padding: 15px; font-size: 1rem; }
+
+    /* ── SECTION LABELS ── */
+    .sec-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      color: var(--faint);
+      margin-bottom: 20px;
+    }
+    .sec-label::before { content: ''; width: 14px; height: 1px; background: var(--line-strong); }
+
+    .skill-section { margin-bottom: 52px; }
+    .skill-section:last-child { margin-bottom: 0; }
+    .skill-section h2 {
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      color: var(--ink);
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+    .skill-section h3 { font-size: 1rem; color: var(--ink); margin-bottom: 6px; font-weight: 600; margin-top: 18px; }
+    .skill-section p { font-size: 15.5px; color: var(--soft); line-height: 1.75; margin-bottom: 14px; }
+    .skill-section p:last-child { margin-bottom: 0; }
+    .skill-section ol, .skill-section ul { padding-left: 20px; margin-bottom: 14px; }
+    .skill-section li { font-size: 15px; color: var(--soft); line-height: 1.7; margin-bottom: 6px; }
+    .skill-section strong { color: var(--ink); font-weight: 600; }
+
+    /* SCREAMS grid */
     .screams-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: var(--space-md);
-      margin: 1.5rem 0;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 20px 0;
     }
     .screams-item {
-      background: var(--ni-black);
-      color: var(--ni-white);
-      padding: var(--space-md);
+      background: var(--ink);
       border-radius: var(--radius-md);
+      padding: 16px 12px;
       text-align: center;
     }
-    .screams-item .letter { font-size: 1.8rem; font-weight: 700; color: var(--ni-orange); }
-    .screams-item .desc { font-size: var(--type-small); color: var(--ni-white-dim); margin-top: 4px; }
-    .section-dark .lm-content strong { color: var(--ni-white); }
-    .section-dark .lm-content { color: var(--ni-white-dim); }
+    .screams-letter {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .screams-desc { font-size: 12px; color: rgba(255,255,255,.55); line-height: 1.4; }
+
+    /* Question cards */
+    .question-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 24px 22px;
+      margin: 14px 0;
+      border-left: 3px solid var(--accent);
+    }
+    .q-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .question-card h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 12px;
+      margin-top: 0;
+    }
+    .question-card p { font-size: 14px; color: var(--soft); line-height: 1.65; margin-bottom: 8px; }
+    .question-card p:last-child { margin-bottom: 0; }
+    .question-card strong { color: var(--ink); font-weight: 600; }
+    .question-card ul { padding-left: 16px; margin: 6px 0; }
+    .question-card li { font-size: 13.5px; color: var(--soft); line-height: 1.6; margin-bottom: 4px; }
+
+    /* Error blocks */
+    .error-block {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 20px 20px;
+      margin: 12px 0;
+    }
+    .error-block h3 { font-size: 14.5px; color: var(--ink); font-weight: 600; margin-bottom: 6px; }
+    .error-block p { font-size: 14px; color: var(--soft); line-height: 1.6; margin: 0; }
+
+    /* Example blockquote */
+    .skill-quote {
+      border-left: 3px solid var(--accent);
+      padding: 14px 20px;
+      margin: 16px 0;
+      background: rgba(255,90,31,0.05);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+    .skill-quote p { font-size: 15px; color: var(--soft); font-style: italic; line-height: 1.65; margin: 0; }
+
+    /* ── COMMUNITY SECTION (dark) ── */
+    .comunidad-section {
+      background-color: var(--ink);
+      background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 28px 28px;
+      padding: 96px 0;
+      border-top: 1px solid var(--line);
+      position: relative;
+    }
+    .comunidad-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 100%; height: 300px;
+      background: radial-gradient(ellipse 60% 40% at 50% -10%, rgba(255,90,31,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .comunidad-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .com-copy .pill-label { color: rgba(255,90,31,.8); border-color: rgba(255,90,31,.35); opacity: 1; margin-bottom: 22px; }
+    .com-copy h2 {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 500;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .com-copy p { font-size: 15px; color: rgba(255,255,255,.55); line-height: 1.75; margin-bottom: 14px; }
+    .com-copy p:last-child { margin-bottom: 0; }
+    .com-copy strong { color: rgba(255,255,255,.85); font-weight: 600; }
+    .com-form-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 28px 24px;
+      box-shadow: 0 16px 48px rgba(0,0,0,.35);
+    }
+    .com-form-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 16px;
+    }
+    .com-form-card-form { min-height: 200px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .skill-layout { grid-template-columns: 1fr; gap: 40px; }
+      .skill-sidebar { position: static; }
+      .skill-card { max-width: 400px; }
+      .comunidad-inner { grid-template-columns: 1fr; gap: 36px; }
+      .screams-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .skill-hero { padding: 48px 0 56px; }
+      .skill-hero h1 { max-width: 100%; }
+      .screams-grid { grid-template-columns: repeat(2, 1fr); }
+    }
   </style>
 </head>
 <body>
@@ -71,290 +341,392 @@
   <nav class="nav">
     <div class="nav-inner">
       <a href="/"><img src="/assets/Wordmark/jonatand-fondo-claro.png" alt="Jonatan Domínguez" class="nav-logo" /></a>
-      <div class="nav-links">
+      <div class="nav-links" id="nav-links">
         <a href="/#sobre-mi">Sobre mí</a>
-        <a href="/recursos">Recursos</a>
+        <a href="/#servicios">Cómo trabajamos</a>
         <a href="/#newsletter">Newsletter</a>
+        <a href="/recursos" style="color:var(--ink);font-weight:600;">Recursos</a>
       </div>
-      <a href="/#newsletter" class="btn-primary nav-cta-desktop">Suscríbete gratis →</a>
+      <a href="/reunion" class="btn-primary nav-cta-desktop">Agendar una llamada <span class="arrow">→</span></a>
       <button class="hamburger" id="hamburger" aria-label="Menú">
         <span></span><span></span><span></span>
       </button>
     </div>
     <div class="nav-mobile-dropdown" id="nav-dropdown">
       <a href="/#sobre-mi">Sobre mí</a>
-      <a href="/recursos">Recursos</a>
+      <a href="/#servicios">Cómo trabajamos</a>
       <a href="/#newsletter">Newsletter</a>
-      <a href="/#newsletter" class="btn-primary" style="margin-top:8px;text-align:center;">Suscríbete gratis →</a>
+      <a href="/recursos">Recursos</a>
+      <a href="/reunion" class="btn-primary">Agendar una llamada →</a>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="section-dark">
-    <div class="container lm-hero">
-      <p class="lm-meta">Lead Magnet · 12 min de lectura</p>
-      <h1>10 Preguntas para Detectar<br /><em class="serif-accent">Oportunidades de Automatización</em></h1>
-    </div>
-  </section>
-
-  <!-- CONTENT -->
-  <section class="section-light">
-    <div class="lm-content">
-
-      <h2>El problema de la mayoría de consultores</h2>
-      <p>Hay algo que me pasó durante años:</p>
-      <p>El cliente me explicaba su negocio. Yo asentía. Me contaba problemas. Yo tomaba notas. Y al final... no tenía ni idea de qué automatizar.</p>
-      <p>No es que no supiera la técnica. Es que <span class="lm-highlight">no estaba preguntando lo correcto</span>.</p>
-      <p>La mayoría de consultores escuchan esperando que el cliente diga "necesito que me hagas un flujo en Make". Spoiler: nunca lo dicen.</p>
-      <p>El cliente describe síntomas. <strong>Tienes que detectar tú la enfermedad.</strong></p>
-
-      <h2>El método SCREAMS</h2>
-      <p>Después de cientos de discovery calls, desarrollé un sistema para no perderme:</p>
-
-      <div class="screams-grid">
-        <div class="screams-item"><div class="letter">S</div><div class="desc">Situación actual</div></div>
-        <div class="screams-item"><div class="letter">C</div><div class="desc">Cuellos de botella</div></div>
-        <div class="screams-item"><div class="letter">R</div><div class="desc">Repetitivos</div></div>
-        <div class="screams-item"><div class="letter">E</div><div class="desc">Errores costosos</div></div>
-        <div class="screams-item"><div class="letter">A</div><div class="desc">Amenazas / urgencia</div></div>
-        <div class="screams-item"><div class="letter">M</div><div class="desc">Métricas</div></div>
-        <div class="screams-item"><div class="letter">S</div><div class="desc">Sistemas existentes</div></div>
-      </div>
-
-      <p>Cada letra es una dimensión que exploro. Las 10 preguntas que vienen a continuación cubren todas.</p>
-      <p>No las hagas en orden. Déjalas fluir en la conversación. Pero asegúrate de cubrirlas todas antes de terminar.</p>
-
-      <h2>Las 10 preguntas que cambian todo</h2>
-
-      <div class="question-card">
-        <p class="label">Pregunta 1 — Situación</p>
-        <h3>"¿Cómo es un día típico en tu equipo?"</h3>
-        <p><strong>Qué buscas:</strong> Entender el flujo de trabajo real, no el que dicen en la web.</p>
-        <p><strong>Señales de oportunidad:</strong></p>
-        <ul>
-          <li>Mencionan tareas manuales repetitivas</li>
-          <li>Hay cosas que "siempre se nos olvida"</li>
-          <li>Tienen que copiar-pegar información entre herramientas</li>
-        </ul>
-        <p><strong>Qué hacer:</strong> Escucha sin interrumpir. Toma nota mental de TODO lo manual.</p>
-      </div>
-
-      <div class="question-card">
-        <p class="label">Pregunta 2 — Cuellos de botella</p>
-        <h3>"¿En qué momento se te atasca el trabajo?"</h3>
-        <p><strong>Qué buscas:</strong> Identificar cuellos de botella donde se acumula trabajo.</p>
-        <p><strong>Señales de oportunidad:</strong></p>
-        <ul>
-          <li>"Las respuestas de WhatsApp"</li>
-          <li>"Cuando hay que pasar los datos al CRM"</li>
-          <li>"Los lunes con tanto email"</li>
-        </ul>
-        <p><strong>Qué hacer:</strong> El cuello de botella es donde más valor puedes aportar automatizando.</p>
-      </div>
-
-      <div class="question-card">
-        <p class="label">Pregunta 3 — Repetitivos</p>
-        <h3>"¿Qué hacéis tres veces al día sin pensarlo?"</h3>
-        <p><strong>Qué buscas:</strong> Tareas tan repetitivas que ya son invisibles para ellos.</p>
-        <p><strong>Señales de oportunidad:</strong></p>
-        <ul>
-          <li>Responder los mismos mensajes</li>
-          <li>Copiar datos de un sitio a otro</li>
-          <li>Mandar recordatorios</li>
-          <li>Generar informes semanales</li>
-        </ul>
-        <p><strong>Qué hacer:</strong> Lo invisible es lo más automatizable. Haz que lo vean.</p>
-      </div>
-
-      <div class="question-card">
-        <p class="label">Pregunta 4 — Errores costosos</p>
-        <h3>"¿Cuál fue el último error que os costó dinero o clientes?"</h3>
-        <p><strong>Qué buscas:</strong> Dolor financiero real, no teórico.</p>
-        <p><strong>Señales de oportunidad:</strong></p>
-        <ul>
-          <li>"Se nos cayó un lead porque no le respondimos"</li>
-          <li>"Cobramos mal porque había datos mal en el sistema"</li>
-          <li>"El cliente se enfadó porque le llegaron dos veces lo mismo"</li>
-        </ul>
-        <p><strong>Qué hacer:</strong> El error que duele en el bolsillo es el que quieren solucionar YA.</p>
-      </div>
-
-      <div class="question-card">
-        <p class="label">Pregunta 5 — Escala</p>
-        <h3>"¿Qué pasaría si mañana tenéis el doble de clientes?"</h3>
-        <p><strong>Qué buscas:</strong> Puntos de rotura. Lo que no escala.</p>
-        <p><strong>Señales de oportunidad:</strong></p>
-        <ul>
-          <li>"No podríamos con los WhatsApp"</li>
-          <li>"El equipo de atención no da abasto"</li>
-          <li>"Tendríamos que contratar a alguien más"</li>
-        </ul>
-        <p><strong>Qué hacer:</strong> Lo que no escala con más clientes es candidato a automatización.</p>
-      </div>
-
-      <div class="question-card">
-        <p class="label">Pregunta 6 — Métricas</p>
-        <h3>"¿Qué números miráis cada semana para saber si va bien?"</h3>
-        <p><strong>Qué buscas:</strong> Métricas que les importan. También: datos que recopilan a mano.</p>
-        <p><strong>Señales de oportunidad:</strong></p>
-        <ul>
-          <li>"Me tengo que bajar un Excel y sumarlo"</li>
-          <li>"Lo miro en tres herramientas distintas"</li>
-          <li>"La verdad, no lo sé hasta fin de mes"</li>
-        </ul>
-        <p><strong>Qué hacer:</strong> Si lo miran y les cuesta, pueden automatizar la recopilación.</p>
-      </div>
-
-      <div class="question-card">
-        <p class="label">Pregunta 7 — Sistemas existentes</p>
-        <h3>"¿Qué herramientas usáis ya? ¿Os funcionan bien juntas?"</h3>
-        <p><strong>Qué buscas:</strong> Ecosistema actual y posibles integraciones.</p>
-        <p><strong>Señales de oportunidad:</strong></p>
-        <ul>
-          <li>"Tenemos HubSpot pero los datos llegan de otra forma"</li>
-          <li>"Usamos Airtable pero todo es manual"</li>
-          <li>"Tenemos mil herramientas y cada una por su lado"</li>
-        </ul>
-        <p><strong>Qué hacer:</strong> Más herramientas sin conexión = más oportunidades de integrar.</p>
-      </div>
-
-      <div class="question-card">
-        <p class="label">Pregunta 8 — Deseos</p>
-        <h3>"¿Hay algo que os gustaría hacer pero no encontráis cómo?"</h3>
-        <p><strong>Qué buscas:</strong> Ideas que tienen pero no saben ejecutar.</p>
-        <p><strong>Señales de oportunidad:</strong></p>
-        <ul>
-          <li>"Me gustaría que los leads entraran solos al CRM"</li>
-          <li>"Quisiera mandar mensajes personalizados pero es imposible"</li>
-          <li>"Sueño con un dashboard que lo tenga todo"</li>
-        </ul>
-        <p><strong>Qué hacer:</strong> El deseo no cumplido es tu propuesta de valor.</p>
-      </div>
-
-      <div class="question-card">
-        <p class="label">Pregunta 9 — Decision makers</p>
-        <h3>"¿Quién más tendría que aprobar un proyecto de estos?"</h3>
-        <p><strong>Qué buscas:</strong> Decision makers adicionales. Evitar sorpresas.</p>
-        <p><strong>Señales de oportunidad:</strong></p>
-        <ul>
-          <li>"Yo decido" → Perfecto</li>
-          <li>"Mi jefe tendría que verlo" → Pide hablar con el jefe</li>
-          <li>"Necesitaríamos ver ROI antes" → Prepara números</li>
-        </ul>
-        <p><strong>Qué hacer:</strong> Si no está el que decide, la llamada está incompleta.</p>
-      </div>
-
-      <div class="question-card">
-        <p class="label">Pregunta 10 — Urgencia</p>
-        <h3>"Si esto funcionara, ¿cuándo te gustaría empezarlo?"</h3>
-        <p><strong>Qué buscas:</strong> Urgencia real. Diferenciar curiosidad de necesidad.</p>
-        <p><strong>Señales de oportunidad:</strong></p>
-        <ul>
-          <li>"Ayer" → Caliente</li>
-          <li>"Este trimestre" → Templado</li>
-          <li>"No sé, a ver" → Frío</li>
-        </ul>
-        <p><strong>Qué hacer:</strong> Sin urgencia, no hay venta. Busca el disparador de timing.</p>
-      </div>
-
-      <h2>Cómo usar esta checklist</h2>
-      <h3>En la discovery call</h3>
-      <ol>
-        <li><strong>No es un interrogatorio</strong> — Deja que fluya como conversación</li>
-        <li><strong>Escucha más de lo que hablas</strong> — Tú diriges, ellos explican</li>
-        <li><strong>Toma notas por categorías</strong> (SCREAMS: Situación, Cuellos, Repetitivos...)</li>
-        <li><strong>Al final, resume</strong> — "Si lo he entendido bien, lo que más os duele es..."</li>
-      </ol>
-      <h3>Después de la llamada</h3>
-      <ol>
-        <li><strong>Revisa las 10 preguntas</strong> — ¿Alguna sin responder?</li>
-        <li><strong>Prioriza por dolor</strong> — Lo que más les cuesta = primera automatización</li>
-        <li><strong>Prepara la propuesta</strong> — Enfócate en 1-2 problemas, no en todo</li>
-      </ol>
-
-      <h2>Los 3 errores que casi todos cometen</h2>
-      <h3>Error 1: Preguntar "¿qué queréis automatizar?"</h3>
-      <p>El cliente no sabe. Tú eres el experto. Pregunta por problemas, no por soluciones.</p>
-      <h3>Error 2: Esperar a que digan el presupuesto</h3>
-      <p>Si no sale el tema, pregunta: "Para tener contexto, ¿tenéis un rango de inversión en mente?" Sin drama.</p>
-      <h3>Error 3: Proponer demasiado</h3>
-      <p>No intentes arreglarles toda la empresa. Propón UNA cosa que resuelva UN dolor. Lo demás viene después.</p>
-
-      <h2>Ejemplo real de llamada</h2>
-      <p><strong>Cliente:</strong> Clínica estética, 3 personas, muchas consultas por Instagram y WhatsApp.</p>
-      <p><strong>Pregunta 1 (Situación):</strong> "¿Cómo es un día típico?"</p>
-      <blockquote>"Pues llegamos, miramos los mensajes que han llegado por la noche, respondemos consultas de precios, confirmamos citas, atendemos a los pacientes..."</blockquote>
-      <p><strong>Pregunta 3 (Repetitivos):</strong> "¿Qué repetís más veces al día?"</p>
-      <blockquote>"Responder 'el precio de esto es X' y 'tenemos disponibilidad tal día'. Es lo mismo una y otra vez."</blockquote>
-      <p><strong>Pregunta 4 (Errores):</strong> "¿Algún error reciente que os haya dolido?"</p>
-      <blockquote>"Se nos cayó una cita importante porque el mensaje de confirmación se nos pasó. La paciente se enfadó mucho."</blockquote>
-      <p><strong>Pregunta 5 (Escala):</strong> "¿Y si tenéis el doble de consultas?"</p>
-      <blockquote>"Imposible. Ya vamos justos. Tendríamos que contratar a alguien solo para mensajes."</blockquote>
-      <p><strong>Propuesta clara:</strong></p>
-      <blockquote>"Sistema que responde automáticamente precios y disponibilidad, confirma citas, y te avisa solo de las que van en serio. 500€ setup, 100€/mes."</blockquote>
-      <p><strong>Resultado:</strong> Cerrado en la primera llamada.</p>
-
-    </div>
-  </section>
-
-  <!-- CTA CURSO -->
-  <section class="section-dark" style="text-align:center;">
-    <div class="container container-narrow">
-      <span class="section-label" style="color:#fff; border-color:rgba(255,255,255,0.3);">¿Quieres aprender a montar estos sistemas?</span>
-      <h2 style="color:#fff;font-size:1.6rem;margin-bottom:16px;">Esta checklist te ayuda a detectar.<br />El curso te enseña a <em class="serif-accent">ejecutar</em>.</h2>
-      <p style="color:var(--ni-white-dim);margin-bottom:24px;">Montar el sistema técnico paso a paso, venderlo como servicio replicable y escalar a múltiples clientes.</p>
-      <a href="https://consultizadores.com/ia-vtas" class="btn-primary" style="display:inline-block;">Quiero aprender el método completo →</a>
-    </div>
-  </section>
-
-  <!-- NEWSLETTER CTA -->
-  <section class="section-light" style="text-align:center;">
-    <div class="container container-narrow">
-      <span class="section-label">Newsletter</span>
-      <h2 style="font-size:1.5rem;margin-bottom:12px;">Si este contenido te ha servido, <em class="serif-accent">suscríbete</em></h2>
-      <p style="color:var(--ni-gray-meta);margin-bottom:24px;">Cada semana: casos reales, ejemplos de discovery calls que cierran, errores que hacen perder clientes.</p>
-      <div style="max-width:460px;margin:0 auto;">
-        <iframe
-          src="https://integrations.funnels.top/widget/form/lE0EpNUS2vvUrEc1UrdS"
-          style="width:100%;height:460px;border:none;border-radius:6px;overflow:hidden;"
-          id="inline-lE0EpNUS2vvUrEc1UrdS-lm2"
-          data-layout="{'id':'INLINE'}"
-          data-trigger-type="alwaysShow"
-          data-trigger-value=""
-        ></iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- NAV BETWEEN RESOURCES -->
-  <section class="section-dark">
+  <!-- HERO (dark) -->
+  <section class="skill-hero">
     <div class="container">
-      <div class="lm-nav">
-        <a href="/recursos/sistema-whatsapp-ia" class="btn-ghost">← Recurso anterior</a>
-        <a href="/recursos" class="btn-primary">Todos los recursos →</a>
+      <div class="skill-breadcrumb animate-fade-in">
+        <a href="/recursos">← Recursos</a>
+        <span>/</span>
+        <span>10 preguntas SCREAMS</span>
+      </div>
+
+      <div class="skill-badges animate-fade-in">
+        <span class="badge-pill bp-free">Gratis</span>
+        <span class="badge-pill bp-skill">Guía · Método</span>
+        <span class="badge-pill bp-who">Consultores IA · Freelancers</span>
+      </div>
+
+      <h1 class="animate-fade-in-up delay-1">10 preguntas para detectar <em class="serif-accent">oportunidades de automatización</em></h1>
+      <p class="hero-sub animate-fade-in-up delay-2">Las preguntas que uso con clientes nuevos para mapear en menos de una hora qué procesos están listos para automatizarse y en qué orden atacarlos. Método SCREAMS completo con ejemplo real.</p>
+    </div>
+  </section>
+
+  <!-- CONTENT (light) -->
+  <div class="skill-body-section">
+    <div class="container">
+      <div class="skill-layout">
+
+        <!-- Main content -->
+        <div>
+
+          <div class="skill-section animate-fade-in-up">
+            <div class="sec-label">El problema</div>
+            <h2>El problema de la mayoría de consultores</h2>
+            <p>Hay algo que me pasó durante años: el cliente me explicaba su negocio, yo asentía, me contaba problemas, yo tomaba notas. Y al final no tenía ni idea de qué automatizar. No es que no supiera la técnica. Es que <strong>no estaba preguntando lo correcto</strong>.</p>
+            <p>La mayoría de consultores escuchan esperando que el cliente diga "necesito que me hagas un flujo en Make". Spoiler: nunca lo dicen. El cliente describe síntomas. Tienes que detectar tú la enfermedad.</p>
+          </div>
+
+          <div class="skill-section animate-fade-in-up">
+            <div class="sec-label">El método</div>
+            <h2>El método SCREAMS</h2>
+            <p>Después de cientos de discovery calls, desarrollé un sistema para no perderme. Cada letra es una dimensión que exploro. No hagas las preguntas en orden — déjalas fluir en la conversación. Pero asegúrate de cubrirlas todas antes de terminar.</p>
+            <div class="screams-grid">
+              <div class="screams-item">
+                <div class="screams-letter">S</div>
+                <div class="screams-desc">Situación actual</div>
+              </div>
+              <div class="screams-item">
+                <div class="screams-letter">C</div>
+                <div class="screams-desc">Cuellos de botella</div>
+              </div>
+              <div class="screams-item">
+                <div class="screams-letter">R</div>
+                <div class="screams-desc">Repetitivos</div>
+              </div>
+              <div class="screams-item">
+                <div class="screams-letter">E</div>
+                <div class="screams-desc">Errores costosos</div>
+              </div>
+              <div class="screams-item">
+                <div class="screams-letter">A</div>
+                <div class="screams-desc">Amenazas / urgencia</div>
+              </div>
+              <div class="screams-item">
+                <div class="screams-letter">M</div>
+                <div class="screams-desc">Métricas</div>
+              </div>
+              <div class="screams-item">
+                <div class="screams-letter">S</div>
+                <div class="screams-desc">Sistemas existentes</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-section animate-fade-in-up">
+            <div class="sec-label">Las preguntas</div>
+            <h2>Las 10 preguntas que cambian todo</h2>
+
+            <div class="question-card">
+              <div class="q-label">Pregunta 1 — Situación</div>
+              <h3>"¿Cómo es un día típico en tu equipo?"</h3>
+              <p><strong>Qué buscas:</strong> Entender el flujo de trabajo real, no el que dicen en la web.</p>
+              <p><strong>Señales de oportunidad:</strong></p>
+              <ul>
+                <li>Mencionan tareas manuales repetitivas</li>
+                <li>Hay cosas que "siempre se nos olvida"</li>
+                <li>Tienen que copiar-pegar información entre herramientas</li>
+              </ul>
+              <p><strong>Qué hacer:</strong> Escucha sin interrumpir. Toma nota mental de TODO lo manual.</p>
+            </div>
+
+            <div class="question-card">
+              <div class="q-label">Pregunta 2 — Cuellos de botella</div>
+              <h3>"¿En qué momento se te atasca el trabajo?"</h3>
+              <p><strong>Qué buscas:</strong> Identificar cuellos de botella donde se acumula trabajo.</p>
+              <p><strong>Señales de oportunidad:</strong></p>
+              <ul>
+                <li>"Las respuestas de WhatsApp"</li>
+                <li>"Cuando hay que pasar los datos al CRM"</li>
+                <li>"Los lunes con tanto email"</li>
+              </ul>
+              <p><strong>Qué hacer:</strong> El cuello de botella es donde más valor puedes aportar automatizando.</p>
+            </div>
+
+            <div class="question-card">
+              <div class="q-label">Pregunta 3 — Repetitivos</div>
+              <h3>"¿Qué hacéis tres veces al día sin pensarlo?"</h3>
+              <p><strong>Qué buscas:</strong> Tareas tan repetitivas que ya son invisibles para ellos.</p>
+              <p><strong>Señales de oportunidad:</strong></p>
+              <ul>
+                <li>Responder los mismos mensajes</li>
+                <li>Copiar datos de un sitio a otro</li>
+                <li>Mandar recordatorios</li>
+                <li>Generar informes semanales</li>
+              </ul>
+              <p><strong>Qué hacer:</strong> Lo invisible es lo más automatizable. Haz que lo vean.</p>
+            </div>
+
+            <div class="question-card">
+              <div class="q-label">Pregunta 4 — Errores costosos</div>
+              <h3>"¿Cuál fue el último error que os costó dinero o clientes?"</h3>
+              <p><strong>Qué buscas:</strong> Dolor financiero real, no teórico.</p>
+              <p><strong>Señales de oportunidad:</strong></p>
+              <ul>
+                <li>"Se nos cayó un lead porque no le respondimos"</li>
+                <li>"Cobramos mal porque había datos mal en el sistema"</li>
+                <li>"El cliente se enfadó porque le llegaron dos veces lo mismo"</li>
+              </ul>
+              <p><strong>Qué hacer:</strong> El error que duele en el bolsillo es el que quieren solucionar YA.</p>
+            </div>
+
+            <div class="question-card">
+              <div class="q-label">Pregunta 5 — Escala</div>
+              <h3>"¿Qué pasaría si mañana tenéis el doble de clientes?"</h3>
+              <p><strong>Qué buscas:</strong> Puntos de rotura. Lo que no escala.</p>
+              <p><strong>Señales de oportunidad:</strong></p>
+              <ul>
+                <li>"No podríamos con los WhatsApp"</li>
+                <li>"El equipo de atención no da abasto"</li>
+                <li>"Tendríamos que contratar a alguien más"</li>
+              </ul>
+              <p><strong>Qué hacer:</strong> Lo que no escala con más clientes es candidato a automatización.</p>
+            </div>
+
+            <div class="question-card">
+              <div class="q-label">Pregunta 6 — Métricas</div>
+              <h3>"¿Qué números miráis cada semana para saber si va bien?"</h3>
+              <p><strong>Qué buscas:</strong> Métricas que les importan. También: datos que recopilan a mano.</p>
+              <p><strong>Señales de oportunidad:</strong></p>
+              <ul>
+                <li>"Me tengo que bajar un Excel y sumarlo"</li>
+                <li>"Lo miro en tres herramientas distintas"</li>
+                <li>"La verdad, no lo sé hasta fin de mes"</li>
+              </ul>
+              <p><strong>Qué hacer:</strong> Si lo miran y les cuesta, pueden automatizar la recopilación.</p>
+            </div>
+
+            <div class="question-card">
+              <div class="q-label">Pregunta 7 — Sistemas existentes</div>
+              <h3>"¿Qué herramientas usáis ya? ¿Os funcionan bien juntas?"</h3>
+              <p><strong>Qué buscas:</strong> Ecosistema actual y posibles integraciones.</p>
+              <p><strong>Señales de oportunidad:</strong></p>
+              <ul>
+                <li>"Tenemos HubSpot pero los datos llegan de otra forma"</li>
+                <li>"Usamos Airtable pero todo es manual"</li>
+                <li>"Tenemos mil herramientas y cada una por su lado"</li>
+              </ul>
+              <p><strong>Qué hacer:</strong> Más herramientas sin conexión = más oportunidades de integrar.</p>
+            </div>
+
+            <div class="question-card">
+              <div class="q-label">Pregunta 8 — Deseos</div>
+              <h3>"¿Hay algo que os gustaría hacer pero no encontráis cómo?"</h3>
+              <p><strong>Qué buscas:</strong> Ideas que tienen pero no saben ejecutar.</p>
+              <p><strong>Señales de oportunidad:</strong></p>
+              <ul>
+                <li>"Me gustaría que los leads entraran solos al CRM"</li>
+                <li>"Quisiera mandar mensajes personalizados pero es imposible"</li>
+                <li>"Sueño con un dashboard que lo tenga todo"</li>
+              </ul>
+              <p><strong>Qué hacer:</strong> El deseo no cumplido es tu propuesta de valor.</p>
+            </div>
+
+            <div class="question-card">
+              <div class="q-label">Pregunta 9 — Decision makers</div>
+              <h3>"¿Quién más tendría que aprobar un proyecto de estos?"</h3>
+              <p><strong>Qué buscas:</strong> Decision makers adicionales. Evitar sorpresas.</p>
+              <p><strong>Señales de oportunidad:</strong></p>
+              <ul>
+                <li>"Yo decido" → Perfecto</li>
+                <li>"Mi jefe tendría que verlo" → Pide hablar con el jefe</li>
+                <li>"Necesitaríamos ver ROI antes" → Prepara números</li>
+              </ul>
+              <p><strong>Qué hacer:</strong> Si no está el que decide, la llamada está incompleta.</p>
+            </div>
+
+            <div class="question-card">
+              <div class="q-label">Pregunta 10 — Urgencia</div>
+              <h3>"Si esto funcionara, ¿cuándo te gustaría empezarlo?"</h3>
+              <p><strong>Qué buscas:</strong> Urgencia real. Diferenciar curiosidad de necesidad.</p>
+              <p><strong>Señales de oportunidad:</strong></p>
+              <ul>
+                <li>"Ayer" → Caliente</li>
+                <li>"Este trimestre" → Templado</li>
+                <li>"No sé, a ver" → Frío</li>
+              </ul>
+              <p><strong>Qué hacer:</strong> Sin urgencia, no hay venta. Busca el disparador de timing.</p>
+            </div>
+          </div>
+
+          <div class="skill-section animate-fade-in-up">
+            <div class="sec-label">Cómo usarla</div>
+            <h2>Cómo usar esta checklist</h2>
+            <h3>En la discovery call</h3>
+            <ol>
+              <li><strong>No es un interrogatorio</strong> — Deja que fluya como conversación</li>
+              <li><strong>Escucha más de lo que hablas</strong> — Tú diriges, ellos explican</li>
+              <li><strong>Toma notas por categorías</strong> (SCREAMS: Situación, Cuellos, Repetitivos...)</li>
+              <li><strong>Al final, resume:</strong> "Si lo he entendido bien, lo que más os duele es..."</li>
+            </ol>
+            <h3>Después de la llamada</h3>
+            <ol>
+              <li><strong>Revisa las 10 preguntas</strong> — ¿Alguna sin responder?</li>
+              <li><strong>Prioriza por dolor</strong> — Lo que más les cuesta = primera automatización</li>
+              <li><strong>Prepara la propuesta</strong> — Enfócate en 1–2 problemas, no en todo</li>
+            </ol>
+          </div>
+
+          <div class="skill-section animate-fade-in-up">
+            <div class="sec-label">Los 3 errores</div>
+            <h2>Los 3 errores que casi todos cometen</h2>
+            <div class="error-block">
+              <h3>Error 1: Preguntar "¿qué queréis automatizar?"</h3>
+              <p>El cliente no sabe. Tú eres el experto. Pregunta por problemas, no por soluciones.</p>
+            </div>
+            <div class="error-block">
+              <h3>Error 2: Esperar a que digan el presupuesto</h3>
+              <p>Si no sale el tema, pregunta: "Para tener contexto, ¿tenéis un rango de inversión en mente?" Sin drama.</p>
+            </div>
+            <div class="error-block">
+              <h3>Error 3: Proponer demasiado</h3>
+              <p>No intentes arreglarles toda la empresa. Propón UNA cosa que resuelva UN dolor. Lo demás viene después.</p>
+            </div>
+          </div>
+
+          <div class="skill-section animate-fade-in-up">
+            <div class="sec-label">Ejemplo real</div>
+            <h2>Ejemplo real de llamada</h2>
+            <p><strong>Cliente:</strong> Clínica estética, 3 personas, muchas consultas por Instagram y WhatsApp.</p>
+            <div class="skill-quote">
+              <p><strong>Pregunta 1:</strong> "¿Cómo es un día típico?" — "Llegamos, miramos los mensajes que han llegado por la noche, respondemos consultas de precios, confirmamos citas, atendemos a los pacientes..."</p>
+            </div>
+            <div class="skill-quote">
+              <p><strong>Pregunta 3:</strong> "¿Qué repetís más veces al día?" — "Responder 'el precio de esto es X' y 'tenemos disponibilidad tal día'. Es lo mismo una y otra vez."</p>
+            </div>
+            <div class="skill-quote">
+              <p><strong>Pregunta 4:</strong> "¿Algún error reciente que os haya dolido?" — "Se nos cayó una cita importante porque el mensaje de confirmación se nos pasó. La paciente se enfadó mucho."</p>
+            </div>
+            <div class="skill-quote">
+              <p><strong>Pregunta 5:</strong> "¿Y si tenéis el doble de consultas?" — "Imposible. Ya vamos justos. Tendríamos que contratar a alguien solo para mensajes."</p>
+            </div>
+            <p><strong>Propuesta:</strong> Sistema que responde automáticamente precios y disponibilidad, confirma citas, y avisa solo de las que van en serio. 500€ setup, 100€/mes. <strong>Cerrado en la primera llamada.</strong></p>
+          </div>
+
+        </div>
+
+        <!-- Sticky sidebar -->
+        <div class="skill-sidebar animate-scale-in delay-2">
+          <div class="skill-card">
+            <div class="skill-card-head">
+              <div class="skill-card-icon">🎯</div>
+              <div>
+                <div class="skill-card-name">10 preguntas SCREAMS</div>
+                <div class="skill-card-sub">Guía · Método</div>
+              </div>
+            </div>
+            <div class="skill-card-meta">
+              <div class="skill-meta-row">
+                <span class="skill-meta-ico">🔡</span>
+                <span>Método SCREAMS completo</span>
+              </div>
+              <div class="skill-meta-row">
+                <span class="skill-meta-ico">❓</span>
+                <span>10 preguntas con contexto</span>
+              </div>
+              <div class="skill-meta-row">
+                <span class="skill-meta-ico">📖</span>
+                <span>Con ejemplo real de cierre</span>
+              </div>
+              <div class="skill-meta-row">
+                <span class="skill-meta-ico">⏱</span>
+                <span>12 min de lectura</span>
+              </div>
+            </div>
+            <div class="skill-card-cta">
+              <div class="skill-price">Gratis</div>
+              <a href="/reunion" class="btn-primary">
+                Agendar una llamada <span class="arrow">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- COMUNIDAD (dark) -->
+  <section class="comunidad-section" id="comunidad">
+    <div class="container">
+      <div class="comunidad-inner">
+
+        <div class="com-copy animate-fade-in-up">
+          <span class="pill-label">Comunidad · Lista de espera</span>
+          <h2>¿Eres profesional o dueño de negocio y quieres aplicar IA en tu trabajo? <em class="serif-accent">No estás solo.</em></h2>
+          <p>Da igual si llevas un despacho, una cartera de clientes o un negocio con equipo: aquí hay gente en tu misma situación contando qué les está funcionando de verdad con IA — y qué no. Sin la teoría de los cursos genéricos, sin la herramienta de moda que nadie usa al mes siguiente.</p>
+          <p>Yo modero la conversación para que se quede en lo aplicable a tu día a día, sea facturar más rápido, cerrar más ventas o dejar de ser tú el cuello de botella de tu negocio.</p>
+          <p>Apúntate a la lista de espera. <strong>Aviso primero a quien ya está dentro en cuanto haya plazas.</strong></p>
+        </div>
+
+        <div class="animate-scale-in delay-2">
+          <div class="com-form-card">
+            <div class="com-form-eyebrow">Lista de espera · Sin compromiso</div>
+            <div class="com-form-card-form">
+              <script type="text/javascript" src="https://acumbamail.com/newform/dynamic/js/FGoAPLkT2C2N1Dw4kOwsFX7b4MhT1VDL1GwerFCP8tP0ry/63219/"></script>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
+
+  <script src="/assets/scroll-animations.js" defer></script>
+  <script>
+  (function () {
+    var btn = document.getElementById('hamburger');
+    var dropdown = document.getElementById('nav-dropdown');
+    if (btn && dropdown) {
+      btn.addEventListener('click', function () {
+        var isOpen = dropdown.classList.toggle('open');
+        btn.classList.toggle('open');
+        document.body.classList.toggle('menu-open', isOpen);
+      });
+      dropdown.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          dropdown.classList.remove('open');
+          btn.classList.remove('open');
+          document.body.classList.remove('menu-open');
+        });
+      });
+    }
+  })();
+  </script>
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="container">
-      <span class="nav-logo"><img src="/assets/Wordmark/jonatand-fondo-claro.png" alt="Jonatan Domínguez" style="height:24px;" /></span>
-      <div class="footer-links">
-        <a href="https://consultizadores.com">Consultizadores</a>
-        <a href="https://linkedin.com/in/jonatandominguez">LinkedIn</a>
-        <a href="https://tiktok.com/@jonatand">TikTok</a>
-        <a href="mailto:jonatan@jonatand.com">jonatan@jonatand.com</a>
-      </div>
-      <p style="color:var(--ni-gray-meta); font-size:0.8rem; margin-top:1rem;">© 2026 Jonatan Domínguez</p>
+    <div class="container foot-in">
+      <img src="/assets/Wordmark/jonatand-fondo-claro.png" alt="Jonatan Domínguez" class="nav-logo" />
+      <nav class="foot-links">
+        <a href="/#sobre-mi">Sobre mí</a>
+        <a href="/#servicios">Cómo trabajamos</a>
+        <a href="/#newsletter">Newsletter</a>
+        <a href="/recursos">Recursos</a>
+        <a href="/reunion">Agendar una llamada</a>
+      </nav>
+      <p class="foot-meta">© 2026 Jonatan Domínguez</p>
     </div>
   </footer>
 
-  <script>
-    document.getElementById('hamburger')?.addEventListener('click', function() {
-      document.getElementById('nav-dropdown')?.classList.toggle('open');
-    });
-  </script>
 </body>
 </html>
-
