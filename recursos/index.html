@@ -20,6 +20,7 @@
     /* ── HERO ── */
     .recursos-hero {
       padding: 72px 0 18px;
+      text-align: center;
     }
     .recursos-hero .section-label { margin-bottom: 14px; }
     .recursos-hero h1 {
@@ -27,7 +28,7 @@
       line-height: 1.06;
       color: var(--ink);
       max-width: 18ch;
-      margin: 0 0 0;
+      margin: 0 auto;
     }
     .recursos-hero h1 em {
       font-family: var(--serif);
@@ -38,11 +39,12 @@
     .recursos-hero .lead {
       max-width: 46ch;
       font-size: clamp(17px, 2.2vw, 20px);
-      margin: 24px 0 0;
+      margin: 24px auto 0;
     }
     .libmeta {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
       margin-top: 26px;
       color: var(--faint);
@@ -72,6 +74,7 @@
 
     /* ── FEATURED CARD ── */
     .featured {
+      position: relative;
       background: var(--surface);
       border: 1px solid var(--ink);
       border-radius: 22px;
@@ -181,6 +184,7 @@
       color: var(--ink);
       word-break: break-all;
     }
+    .featured .btn-primary::after { content: ''; position: absolute; inset: 0; z-index: 1; }
     .feat-aside .compat {
       margin-top: auto;
       padding-top: 18px;
@@ -238,6 +242,7 @@
     }
     .rcard ul li .tick { color: var(--accent); font-weight: 700; }
     .rcard .rlink { margin-top: auto; }
+    .rcard .rlink::after { content: ''; position: absolute; inset: 0; z-index: 1; }
 
     /* ── COMMUNITY (kept as-is) ── */
     .comunidad-section {

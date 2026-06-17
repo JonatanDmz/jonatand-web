@@ -250,8 +250,9 @@
       background: var(--bg);
       padding: 56px 0 80px;
     }
-    .locked-content.blur-active .task-card {
-      filter: blur(5px);
+    .locked-content.blur-active .task-card,
+    .locked-content.blur-active .proof-section {
+      filter: blur(6px);
       pointer-events: none;
       user-select: none;
     }
@@ -259,7 +260,7 @@
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(251,250,248,0.5);
+      background: rgba(251,250,248,0.55);
       pointer-events: none;
     }
 
@@ -730,6 +731,29 @@
         });
       });
     }
+  })();
+
+  // Unlock blurred content when gate form is submitted
+  (function() {
+    function unlockContent() {
+      var locked = document.getElementById('locked');
+      if (locked) locked.classList.remove('blur-active');
+    }
+    window.addEventListener('message', function(e) {
+      if (!e.data) return;
+      var d = e.data;
+      // HighLevel / funnels.top sends various message formats on submission
+      if (
+        (typeof d === 'string' && (d.includes('submit') || d.includes('success'))) ||
+        (typeof d === 'object' && (
+          d.type === 'form-submitted' || d.type === 'gtm.formSubmit' ||
+          d.formId === 'tzyQu2ttAgX5GaZ6FLcw' ||
+          d.event === 'form_submitted' || d.submitted === true
+        ))
+      ) {
+        unlockContent();
+      }
+    });
   })();
 
   // Card entrance animations
