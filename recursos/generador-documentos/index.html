@@ -288,6 +288,110 @@
     .wait-input:focus { outline: none; border-color: var(--accent); }
     .wait-input::placeholder { color: var(--faint); }
 
+    /* ── DOWNLOAD MODAL ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(20,17,15,.55);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 300;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-card {
+      background: #fff;
+      border-radius: 22px;
+      padding: clamp(28px, 5vw, 48px);
+      max-width: 480px;
+      width: 100%;
+      position: relative;
+      box-shadow: 0 32px 80px -20px rgba(20,17,15,.45);
+      animation: modalIn .22s ease;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(14px) scale(.97); }
+      to   { opacity: 1; transform: none; }
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px; right: 16px;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: none;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+      color: var(--soft);
+      transition: background .15s, color .15s;
+      line-height: 1;
+    }
+    .modal-close:hover { background: var(--line); color: var(--ink); }
+    .modal-pill {
+      display: inline-flex;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(255,90,31,.3);
+      border-radius: 999px;
+      padding: 4px 12px;
+      margin-bottom: 18px;
+    }
+    .modal-card h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.25rem, 3vw, 1.6rem);
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--ink);
+      margin: 0 0 12px;
+    }
+    .modal-card h2 em { font-style: italic; color: var(--accent); }
+    .modal-card .modal-copy {
+      font-size: 14.5px;
+      color: var(--soft);
+      line-height: 1.65;
+      margin: 0 0 22px;
+    }
+    .modal-form { display: flex; flex-direction: column; gap: 10px; }
+    .modal-input {
+      font-family: var(--sans);
+      font-size: 16px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1.5px solid var(--line-strong);
+      background: var(--bg);
+      color: var(--ink);
+      width: 100%;
+      box-sizing: border-box;
+      transition: border-color .2s;
+    }
+    .modal-input:focus { outline: none; border-color: var(--accent); }
+    .modal-input::placeholder { color: var(--faint); }
+    .modal-submit { width: 100%; justify-content: center; font-size: 1rem; }
+    .modal-skip {
+      display: block;
+      text-align: center;
+      font-size: 13px;
+      color: var(--faint);
+      margin-top: 14px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: var(--sans);
+      transition: color .15s;
+      padding: 0;
+      width: 100%;
+    }
+    .modal-skip:hover { color: var(--ink); }
+    .modal-success-state { display: none; text-align: center; padding: 12px 0; }
+
     /* ── FORM SUCCESS STATE ── */
     .acm-success {
       display: none;
@@ -542,9 +646,89 @@
     </div>
   </section>
 
+  <!-- MODAL COMUNIDAD -->
+  <div class="modal-overlay" id="dl-modal" role="dialog" aria-modal="true" aria-label="Lista de espera comunidad">
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close" aria-label="Cerrar">✕</button>
+
+      <div id="modal-form-wrap">
+        <span class="modal-pill">Comunidad · Lista de espera</span>
+        <h2>¿Eres profesional o dueño de negocio y quieres aplicar IA? <em>No estás solo.</em></h2>
+        <p class="modal-copy">Hay gente en tu misma situación contando qué les está funcionando de verdad con IA — y qué no. Apúntate y te aviso cuando haya plazas disponibles.</p>
+        <form
+          action="https://acumbamail.com/newform/subscribe/FGoAPLkT2C2N1Dw4kOwsFX7b4MhT1VDL1GwerFCP8tP0ry/63219/?iframe=1"
+          target="acm_result_modal"
+          method="post"
+          class="modal-form"
+          id="acm-form-modal"
+        >
+          <input class="modal-input" name="email_1" type="email" placeholder="tu@email.com" required autocomplete="email" aria-label="Tu email" />
+          <input type="text" name="a1415185c" tabindex="-1" value="" style="position:absolute;left:-4900px" aria-hidden="true" autocomplete="off"/>
+          <input type="email" name="b1415185c" tabindex="-1" value="" style="position:absolute;left:-5000px" aria-hidden="true" autocomplete="off"/>
+          <input type="checkbox" name="c1415185c" tabindex="-1" style="position:absolute;left:-5100px" aria-hidden="true" autocomplete="off"/>
+          <input type="hidden" name="ok_redirect" value="">
+          <button type="submit" class="btn-primary modal-submit">Apuntarme a la lista <span class="arrow">→</span></button>
+          <iframe name="acm_result_modal" style="display:none" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </form>
+        <button class="modal-skip" id="modal-skip">Saltar por ahora</button>
+      </div>
+
+      <div class="modal-success-state" id="modal-success">
+        <div class="acm-success-check" style="margin:0 auto 18px;">✓</div>
+        <p class="acm-success-title">¡Apuntado!</p>
+        <p class="acm-success-body">Te aviso en cuanto haya plazas — serás de los primeros en saberlo.</p>
+      </div>
+    </div>
+  </div>
+
   <script src="/assets/scroll-animations.js" defer></script>
   <script>
-  // Form success swap
+  // Download modal
+  (function() {
+    var overlay    = document.getElementById('dl-modal');
+    var formWrap   = document.getElementById('modal-form-wrap');
+    var successEl  = document.getElementById('modal-success');
+    var modalForm  = document.getElementById('acm-form-modal');
+
+    function openModal() {
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      setTimeout(function() {
+        var inp = overlay.querySelector('.modal-input');
+        if (inp) inp.focus();
+      }, 150);
+    }
+    function closeModal() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Trigger on every download button
+    document.querySelectorAll('a[href*="generador-documentos.skill"]').forEach(function(a) {
+      a.addEventListener('click', function() {
+        setTimeout(openModal, 350);
+      });
+    });
+
+    // Close: overlay click, × button, skip, Escape
+    overlay.addEventListener('click', function(e) { if (e.target === overlay) closeModal(); });
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    document.getElementById('modal-skip').addEventListener('click', closeModal);
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+
+    // Form success inside modal
+    if (modalForm) {
+      modalForm.addEventListener('submit', function() {
+        setTimeout(function() {
+          formWrap.style.display = 'none';
+          successEl.style.display = 'block';
+          setTimeout(closeModal, 2200);
+        }, 800);
+      });
+    }
+  })();
+
+  // Form success swap (bottom community section)
   (function() {
     var form = document.getElementById('acm-form-gen');
     if (form) {
