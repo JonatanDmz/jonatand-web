@@ -288,6 +288,36 @@
     .wait-input:focus { outline: none; border-color: var(--accent); }
     .wait-input::placeholder { color: var(--faint); }
 
+    /* ── FORM SUCCESS STATE ── */
+    .acm-success {
+      display: none;
+      text-align: center;
+      padding: 28px 16px;
+    }
+    .acm-success-check {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 22px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px;
+    }
+    .acm-success-title {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin: 0 0 8px;
+      line-height: 1.2;
+    }
+    .acm-success-body {
+      font-size: 14px;
+      color: var(--soft);
+      line-height: 1.6;
+      margin: 0;
+    }
+
     /* ── RESPONSIVE ── */
     @media (min-width: 680px) {
       .flow { grid-template-columns: 1fr 1fr; }
@@ -486,27 +516,47 @@
         <h2>¿Eres profesional o dueño de negocio y quieres aplicar IA en tu trabajo? <em>No estás solo.</em></h2>
         <p>Da igual si llevas un despacho, una cartera de clientes o un negocio con equipo: aquí hay gente en tu misma situación contando qué les está funcionando de verdad con IA — y qué no. Yo modero la conversación para que se quede en lo aplicable a tu día a día.</p>
         <p>Apúntate a la lista de espera. <strong>Aviso primero a quien ya está dentro en cuanto haya plazas.</strong></p>
-        <form
-          action="https://acumbamail.com/newform/subscribe/FGoAPLkT2C2N1Dw4kOwsFX7b4MhT1VDL1GwerFCP8tP0ry/63219/?iframe=1"
-          target="acm_result_gen"
-          method="post"
-          class="wait-form"
-          onsubmit="document.getElementById('acm-iframe-gen').style.cssText='display:block;width:100%;height:60px;border:0;margin-top:10px'"
-        >
-          <input class="wait-input" name="email_1" type="email" placeholder="tu@email.com" required autocomplete="email" aria-label="Tu email" />
-          <input type="text" name="a1415185c" tabindex="-1" value="" style="position:absolute;left:-4900px" aria-hidden="true" autocomplete="off"/>
-          <input type="email" name="b1415185c" tabindex="-1" value="" style="position:absolute;left:-5000px" aria-hidden="true" autocomplete="off"/>
-          <input type="checkbox" name="c1415185c" tabindex="-1" style="position:absolute;left:-5100px" aria-hidden="true" autocomplete="off"/>
-          <input type="hidden" name="ok_redirect" value="">
-          <button type="submit" class="btn-primary" style="white-space:nowrap;">Apuntarme a la lista <span class="arrow">→</span></button>
-          <iframe name="acm_result_gen" id="acm-iframe-gen" style="display:none" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-        </form>
+        <div id="acm-form-wrap-gen">
+          <form
+            action="https://acumbamail.com/newform/subscribe/FGoAPLkT2C2N1Dw4kOwsFX7b4MhT1VDL1GwerFCP8tP0ry/63219/?iframe=1"
+            target="acm_result_gen"
+            method="post"
+            class="wait-form"
+            id="acm-form-gen"
+          >
+            <input class="wait-input" name="email_1" type="email" placeholder="tu@email.com" required autocomplete="email" aria-label="Tu email" />
+            <input type="text" name="a1415185c" tabindex="-1" value="" style="position:absolute;left:-4900px" aria-hidden="true" autocomplete="off"/>
+            <input type="email" name="b1415185c" tabindex="-1" value="" style="position:absolute;left:-5000px" aria-hidden="true" autocomplete="off"/>
+            <input type="checkbox" name="c1415185c" tabindex="-1" style="position:absolute;left:-5100px" aria-hidden="true" autocomplete="off"/>
+            <input type="hidden" name="ok_redirect" value="">
+            <button type="submit" class="btn-primary" style="white-space:nowrap;">Apuntarme a la lista <span class="arrow">→</span></button>
+            <iframe name="acm_result_gen" id="acm-iframe-gen" style="display:none" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </form>
+        </div>
+        <div class="acm-success" id="acm-success-gen">
+          <div class="acm-success-check">✓</div>
+          <p class="acm-success-title">¡Apuntado!</p>
+          <p class="acm-success-body">Te aviso en cuanto haya plazas — serás de los primeros en saberlo.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <script src="/assets/scroll-animations.js" defer></script>
   <script>
+  // Form success swap
+  (function() {
+    var form = document.getElementById('acm-form-gen');
+    if (form) {
+      form.addEventListener('submit', function() {
+        setTimeout(function() {
+          document.getElementById('acm-form-wrap-gen').style.display = 'none';
+          document.getElementById('acm-success-gen').style.display = 'block';
+        }, 800);
+      });
+    }
+  })();
+
   (function () {
     var btn = document.getElementById('hamburger');
     var dropdown = document.getElementById('nav-dropdown');
