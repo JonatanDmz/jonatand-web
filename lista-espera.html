@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IA en el Negocio — Automatiza sin depender de ti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Instrument+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #09090f;
+      --surface: #111118;
+      --card: #15151e;
+      --border: rgba(255, 255, 255, .08);
+      --border-hi: rgba(255, 255, 255, .14);
+      --blue: #3b82f6;
+      --blue-glow: rgba(59, 130, 246, .18);
+      --cyan: #22d3ee;
+      --green: #34d399;
+      --orange: #fb923c;
+      --white: #ffffff;
+      --dim: rgba(255, 255, 255, .5);
+      --dimmer: rgba(255, 255, 255, .28);
+      --font-h: 'Syne', sans-serif;
+      --font: 'Instrument Sans', sans-serif;
+      --radius: 14px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* ── TOPBAR ────────────────────────────────── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 9, 15, .85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      height: 54px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .topbar-mark {
+      width: 30px;
+      height: 30px;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-h);
+      font-size: 13px;
+      font-weight: 800;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .topbar-name {
+      font-family: var(--font-h);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -.3px;
+      color: white;
+    }
+
+    .topbar-cta {
+      margin-left: auto;
+      padding: 7px 16px;
+      background: white;
+      color: var(--bg);
+      border: none;
+      border-radius: 8px;
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity .15s;
+    }
+
+    .topbar-cta:hover {
+      opacity: .85;
+    }
+
+    /* ── HERO BAND (dark) ──────────────────────── */
+    .hero {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 36px 24px 0;
+      display: grid;
+      grid-template-columns: 1fr 310px;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* ── VIDEO ─────────────────────────────────── */
+    .video-main {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    /* grid texture */
+    .video-main::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 44px 44px;
+    }
+
+    /* glow */
+    .video-main::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 25% 35%, rgba(59, 130, 246, .14) 0%, transparent 55%),
+        radial-gradient(ellipse at 72% 60%, rgba(34, 211, 238, .08) 0%, transparent 50%);
+    }
+
+    .v-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 58px;
+      height: 58px;
+      background: rgba(255, 255, 255, .1);
+      backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(255, 255, 255, .2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      transition: background .2s, transform .2s;
+    }
+
+    .video-main:hover .v-play {
+      background: rgba(255, 255, 255, .18);
+      transform: translate(-50%, -50%) scale(1.06);
+    }
+
+    .v-play svg {
+      width: 20px;
+      height: 20px;
+      fill: white;
+      margin-left: 3px;
+    }
+
+    .v-chip {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      z-index: 2;
+      background: rgba(0, 0, 0, .6);
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, .8);
+      padding: 2px 8px;
+      border-radius: 5px;
+      letter-spacing: .3px;
+    }
+
+    .v-label {
+      position: absolute;
+      bottom: 14px;
+      left: 16px;
+      z-index: 2;
+      font-size: 12px;
+      color: var(--dimmer);
+    }
+
+    .video-thumbs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 7px;
+      margin-top: 7px;
+    }
+
+    .v-thumb {
+      aspect-ratio: 16/9;
+      background: var(--card);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color .2s;
+    }
+
+    .v-thumb:first-child {
+      border-color: var(--blue);
+    }
+
+    .v-thumb:hover {
+      border-color: var(--border-hi);
+    }
+
+    .v-thumb::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(59, 130, 246, .06), transparent 70%);
+    }
+
+    .v-tp {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 22px;
+      height: 22px;
+      background: rgba(255, 255, 255, .15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .v-tp svg {
+      width: 9px;
+      height: 9px;
+      fill: white;
+      margin-left: 2px;
+    }
+
+    /* ── PROGRAM CARD ──────────────────────────── */
+    .prog-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, .06), 0 24px 64px rgba(0, 0, 0, .5);
+      color: #111;
+    }
+
+    .card-banner {
+      height: 130px;
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .04) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    .card-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 60%, rgba(59, 130, 246, .22), transparent 60%);
+    }
+
+    .card-icon {
+      position: relative;
+      z-index: 1;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #3b82f6, #22d3ee);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 8px 28px rgba(59, 130, 246, .4);
+    }
+
+    .card-body {
+      padding: 18px 20px;
+    }
+
+    .card-name {
+      font-family: var(--font-h);
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -.4px;
+      color: #0a0a0f;
+      margin-bottom: 3px;
+    }
+
+    .card-sub {
+      font-size: 12.5px;
+      color: #666;
+      line-height: 1.45;
+      margin-bottom: 16px;
+    }
+
+    .card-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-bottom: 18px;
+    }
+
+    .card-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 13px;
+      color: #444;
+    }
+
+    .cr-icon {
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .pill-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      color: #9a3412;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      background: #f97316;
+      border-radius: 50%;
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: .3
+      }
+    }
+
+    .btn-card {
+      width: 100%;
+      padding: 13px;
+      background: #09090f;
+      color: white;
+      border: none;
+      border-radius: 9px;
+      font-family: var(--font);
+      font-size: 14.5px;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: -.2px;
+      transition: background .15s, transform .15s, box-shadow .15s;
+    }
+
+    .btn-card:hover {
+      background: #1a1a2a;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .2);
+    }
+
+    .card-creator {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .c-av {
+      width: 26px;
+      height: 26px;
+      background: linear-gradient(135deg, #3b82f6, #22d3ee);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 800;
+      color: white;
+    }
+
+    .c-label {
+      font-size: 12.5px;
+      color: #888;
+    }
+
+    .c-label strong {
+      color: #333;
+      font-weight: 600;
+    }
+
+    .card-foot {
+      padding: 10px 20px;
+      border-top: 1px solid #f4f4f4;
+      text-align: center;
+      font-size: 11px;
+      color: #bbb;
+    }
+
+    /* ── CONTENT ───────────────────────────────── */
+    .content {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 56px 24px 72px;
+      display: grid;
+      grid-template-columns: 1fr 310px;
+      gap: 56px;
+      align-items: start;
+    }
+
+    /* Intro */
+    .intro p {
+      font-size: 16px;
+      color: var(--dim);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .intro p strong {
+      color: var(--white);
+    }
+
+    .intro .lead {
+      font-family: var(--font-h);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+      letter-spacing: -.5px;
+      margin-bottom: 18px;
+    }
+
+    /* Highlight inline */
+    .hi {
+      color: var(--cyan);
+    }
+
+    /* Section label */
+    .sec-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+      color: var(--dimmer);
+      margin: 48px 0 20px;
+    }
+
+    .sec-label::before {
+      content: '';
+      width: 16px;
+      height: 1px;
+      background: var(--border-hi);
+      flex-shrink: 0;
+    }
+
+    /* Checklist */
+    .checks {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .checks li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 15px;
+      color: var(--dim);
+      line-height: 1.55;
+    }
+
+    .ck {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      background: rgba(52, 211, 153, .15);
+      border: 1px solid rgba(52, 211, 153, .25);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ck svg {
+      width: 11px;
+      height: 11px;
+      stroke: var(--green);
+      fill: none;
+      stroke-width: 2.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Sessions */
+    .sessions {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .session {
+      display: flex;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .session:last-child {
+      border-bottom: none;
+    }
+
+    .s-num {
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-h);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--dimmer);
+    }
+
+    .session.active .s-num {
+      background: rgba(59, 130, 246, .12);
+      border-color: rgba(59, 130, 246, .25);
+      color: var(--blue);
+    }
+
+    .s-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 3px;
+    }
+
+    .s-desc {
+      font-size: 13.5px;
+      color: var(--dimmer);
+      line-height: 1.55;
+    }
+
+    /* ── RIGHT SIDEBAR ─────────────────────────── */
+    .sidebar {
+      position: sticky;
+      top: 72px;
+    }
+
+    /* stats */
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    .stat-ey {
+      font-size: 10.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+      color: var(--dimmer);
+      margin-bottom: 18px;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .stat-n {
+      font-family: var(--font-h);
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 4px;
+      color: var(--white);
+    }
+
+    .stat-l {
+      font-size: 11.5px;
+      color: var(--dimmer);
+      line-height: 1.35;
+    }
+
+    /* tools */
+    .tools-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    .tools-title {
+      font-size: 10.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+      color: var(--dimmer);
+      margin-bottom: 14px;
+    }
+
+    .tool-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 9px;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid var(--border);
+      margin-bottom: 8px;
+    }
+
+    .tool-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .tool-logo {
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .tool-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .tool-sub {
+      font-size: 11.5px;
+      color: var(--dimmer);
+    }
+
+    /* faq */
+    .faq-ey {
+      font-size: 10.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+      color: var(--dimmer);
+      margin-bottom: 12px;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color .15s;
+    }
+
+    .faq-item:hover {
+      border-color: var(--border-hi);
+    }
+
+    .faq-q {
+      padding: 12px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--dim);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      user-select: none;
+    }
+
+    .faq-ico {
+      width: 18px;
+      height: 18px;
+      background: rgba(255, 255, 255, .06);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--dimmer);
+      flex-shrink: 0;
+      transition: transform .2s, background .2s;
+    }
+
+    .faq-item.open .faq-ico {
+      transform: rotate(45deg);
+      background: rgba(255, 255, 255, .1);
+    }
+
+    .faq-a {
+      padding: 0 14px;
+      font-size: 13px;
+      color: var(--dimmer);
+      line-height: 1.65;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease, padding .3s ease;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 200px;
+      padding: 0 14px 12px;
+    }
+
+    /* ── WAITLIST ───────────────────────────────── */
+    .waitlist {
+      padding: 88px 24px;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* glow behind form */
+    .waitlist::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(59, 130, 246, .12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .wl-inner {
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .wl-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(251, 146, 60, .1);
+      border: 1px solid rgba(251, 146, 60, .2);
+      color: #fb923c;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 22px;
+    }
+
+    .wl-title {
+      font-family: var(--font-h);
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+
+    .wl-sub {
+      font-size: 16px;
+      color: var(--dimmer);
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .wl-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .wl-input {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-family: var(--font);
+      font-size: 15px;
+      color: var(--white);
+      outline: none;
+      transition: border-color .2s, background .2s;
+    }
+
+    .wl-input::placeholder {
+      color: var(--dimmer);
+    }
+
+    .wl-input:focus {
+      border-color: rgba(59, 130, 246, .4);
+      background: rgba(59, 130, 246, .06);
+    }
+
+    .btn-wl {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(135deg, var(--blue), #2563eb);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-family: var(--font-h);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -.3px;
+      cursor: pointer;
+      transition: opacity .15s, transform .15s, box-shadow .15s;
+      box-shadow: 0 4px 24px rgba(59, 130, 246, .3);
+    }
+
+    .btn-wl:hover {
+      opacity: .92;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 32px rgba(59, 130, 246, .45);
+    }
+
+    .wl-fine {
+      font-size: 11.5px;
+      color: var(--dimmer);
+      margin-top: 12px;
+    }
+
+    .wl-success {
+      display: none;
+      background: rgba(52, 211, 153, .08);
+      border: 1px solid rgba(52, 211, 153, .2);
+      border-radius: 12px;
+      padding: 28px 20px;
+    }
+
+    .wl-success .si {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .wl-success p {
+      color: rgba(52, 211, 153, .9);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .wl-success strong {
+      color: #a7f3d0;
+    }
+
+    /* footer */
+    .foot {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 20px 24px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--dimmer);
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────── */
+    @media (max-width: 760px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        padding: 20px 16px 0;
+        gap: 20px;
+      }
+
+      .content {
+        grid-template-columns: 1fr;
+        padding: 36px 16px 48px;
+        gap: 36px;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .stat-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-mark">IA</div>
+    <span class="topbar-name">IA en el Negocio</span>
+    <button class="topbar-cta" onclick="document.querySelector('.waitlist').scrollIntoView({behavior:'smooth'})">
+      Unirme a la lista →
+    </button>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+
+      <!-- Video -->
+      <div>
+        <div class="video-main">
+          <div class="v-play">
+            <svg viewBox="0 0 24 24">
+              <polygon points="6,3 20,12 6,21" />
+            </svg>
+          </div>
+          <span class="v-label">Por qué tu negocio sigue dependiendo de ti — y cómo cambiarlo</span>
+          <span class="v-chip">8:23</span>
+        </div>
+        <div class="video-thumbs">
+          <div class="v-thumb">
+            <div class="v-tp"><svg viewBox="0 0 24 24">
+                <polygon points="6,3 20,12 6,21" />
+              </svg></div>
+          </div>
+          <div class="v-thumb">
+            <div class="v-tp"><svg viewBox="0 0 24 24">
+                <polygon points="6,3 20,12 6,21" />
+              </svg></div>
+          </div>
+          <div class="v-thumb">
+            <div class="v-tp"><svg viewBox="0 0 24 24">
+                <polygon points="6,3 20,12 6,21" />
+              </svg></div>
+          </div>
+          <div class="v-thumb">
+            <div class="v-tp"><svg viewBox="0 0 24 24">
+                <polygon points="6,3 20,12 6,21" />
+              </svg></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card -->
+      <div class="prog-card">
+        <div class="card-banner">
+          <div class="card-icon">🤖</div>
+        </div>
+        <div class="card-body">
+          <div class="card-name">IA en el Negocio</div>
+          <div class="card-sub">El programa donde cada semana automatizamos un proceso de tu negocio que hoy pasa por ti
+          </div>
+
+          <div class="card-rows">
+            <div class="card-row">
+              <span class="cr-icon">🔒</span>
+              <span>Comunidad privada</span>
+            </div>
+            <div class="card-row">
+              <span class="cr-icon">👥</span>
+              <div class="pill-live">
+                <div class="pill-dot"></div>
+                Lista de espera abierta
+              </div>
+            </div>
+            <div class="card-row">
+              <span class="cr-icon">🏷</span>
+              <span>Suscripción mensual</span>
+            </div>
+            <div class="card-row">
+              <span class="cr-icon">🗓</span>
+              <span>Sesiones en directo cada semana</span>
+            </div>
+          </div>
+
+          <button class="btn-card" onclick="document.querySelector('.waitlist').scrollIntoView({behavior:'smooth'})">
+            Quiero entrar →
+          </button>
+
+          <div class="card-creator">
+            <div class="c-av">JD</div>
+            <span class="c-label">Por <strong>Jonatan Domínguez</strong></span>
+          </div>
+        </div>
+        <div class="card-foot">negociosinquietos.com</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- Left -->
+    <div>
+      <div class="intro">
+        <p class="lead">Tu negocio lleva años dependiendo de ti para todo. <span class="hi">Eso no se arregla
+            contratando más gente. Se arregla con el sistema adecuado.</span></p>
+        <p>Claude, ChatGPT, Gemini — ya las tienes disponibles y son baratas. El problema no es la tecnología. El
+          problema es que nadie te ha dicho exactamente qué proceso de tu negocio automatizar primero, con qué
+          herramienta y cómo integrarlo sin que tu equipo tenga que aprender nada nuevo.</p>
+        <p>IA en el Negocio es el programa donde cada semana, en directo, cogemos un proceso concreto de tu negocio que
+          hoy pasa por ti — y lo dejamos funcionando solo. <strong>Sin proyectos tecnológicos. Sin cursos de 40 horas.
+            Con lo que ya tienes.</strong></p>
+      </div>
+
+      <div class="sec-label">✅ Para quién es esto</div>
+      <ul class="checks">
+        <li>
+          <div class="ck"><svg viewBox="0 0 24 24">
+              <polyline points="20,6 9,17 4,12" />
+            </svg></div>
+          <span>Llevas años con el negocio y sigues siendo tú quien resuelve los atascos del día a día</span>
+        </li>
+        <li>
+          <div class="ck"><svg viewBox="0 0 24 24">
+              <polyline points="20,6 9,17 4,12" />
+            </svg></div>
+          <span>Has intentado contratar o externalizar — el resultado fue más gestión, no menos</span>
+        </li>
+        <li>
+          <div class="ck"><svg viewBox="0 0 24 24">
+              <polyline points="20,6 9,17 4,12" />
+            </svg></div>
+          <span>Ves competidores más pequeños crecer más rápido y sospechas que tienen mejores sistemas</span>
+        </li>
+        <li>
+          <div class="ck"><svg viewBox="0 0 24 24">
+              <polyline points="20,6 9,17 4,12" />
+            </svg></div>
+          <span>No quieres aprender herramientas — quieres saber exactamente qué hacer con las que ya tienes</span>
+        </li>
+        <li>
+          <div class="ck"><svg viewBox="0 0 24 24">
+              <polyline points="20,6 9,17 4,12" />
+            </svg></div>
+          <span>Necesitas ver el ROI en semanas, no esperar meses a que "algo cambie"</span>
+        </li>
+      </ul>
+
+      <div class="sec-label">🎥 Qué hay dentro</div>
+      <div class="sessions">
+        <div class="session active">
+          <div class="s-num">01</div>
+          <div>
+            <div class="s-title">Cada semana, un proceso menos en tu lista</div>
+            <div class="s-desc">Traes la tarea que más tiempo te roba esa semana. La analizamos en vivo, identificamos
+              qué parte puede hacer la IA por ti y la dejas configurada antes de cerrar la sesión.</div>
+          </div>
+        </div>
+        <div class="session">
+          <div class="s-num">02</div>
+          <div>
+            <div class="s-title">Flujos listos para copiar a tu negocio</div>
+            <div class="s-desc">Acceso a todos los sistemas que ya funcionan en negocios reales — organizados por tipo
+              de tarea. No empiezas desde cero: coges lo que ya funciona y lo adaptas en una tarde.</div>
+          </div>
+        </div>
+        <div class="session">
+          <div class="s-num">03</div>
+          <div>
+            <div class="s-title">Grupo de trabajo con dueños de negocio en tu misma situación</div>
+            <div class="s-desc">La parte más útil. Ver cómo otro negocio resolvió exactamente tu problema acelera más
+              que cualquier explicación teórica. Aquí no hay alumnos — hay gente que ya lo está implementando.</div>
+          </div>
+        </div>
+        <div class="session">
+          <div class="s-num">04</div>
+          <div>
+            <div class="s-title">Respuesta en menos de 24 horas cuando te atascas</div>
+            <div class="s-desc">Si entre sesiones algo no funciona o no sabes cómo aplicarlo a tu caso, preguntas y
+              tienes respuesta antes del día siguiente. No te quedas bloqueado.</div>
+          </div>
+        </div>
+        <div class="session">
+          <div class="s-num">05</div>
+          <div>
+            <div class="s-title">Todo grabado y organizado si no puedes asistir</div>
+            <div class="s-desc">No puedes en directo esa semana — no pasa nada. Cada sesión queda grabada y clasificada
+              por tipo de proceso para que encuentres lo que necesitas cuando puedas.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right sidebar -->
+    <aside class="sidebar">
+
+      <div class="stat-card">
+        <div class="stat-ey">Comunidad activa</div>
+        <div class="stat-grid">
+          <div>
+            <div class="stat-n">8+</div>
+            <div class="stat-l">años aplicando IA en negocios reales</div>
+          </div>
+          <div>
+            <div class="stat-n">+20</div>
+            <div class="stat-l">sectores diferentes ya automatizando</div>
+          </div>
+          <div>
+            <div class="stat-n">713h</div>
+            <div class="stat-l">ahorradas por miembros en 5 meses</div>
+          </div>
+          <div>
+            <div class="stat-n">1/sem</div>
+            <div class="stat-l">sesión en directo garantizada</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tools-card">
+        <div class="tools-title">Las herramientas que usamos</div>
+        <div class="tool-row">
+          <div class="tool-logo">🤖</div>
+          <div>
+            <div class="tool-name">Claude (Anthropic)</div>
+            <div class="tool-sub">Análisis, redacción, razonamiento</div>
+          </div>
+        </div>
+        <div class="tool-row">
+          <div class="tool-logo">💬</div>
+          <div>
+            <div class="tool-name">ChatGPT (OpenAI)</div>
+            <div class="tool-sub">Automatización, imágenes, voz</div>
+          </div>
+        </div>
+        <div class="tool-row">
+          <div class="tool-logo">⚡</div>
+          <div>
+            <div class="tool-name">N8N / Make</div>
+            <div class="tool-sub">Flujos sin código cuando hace falta</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-ey">Preguntas frecuentes</div>
+      <div class="faq-list">
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+          <div class="faq-q"><span>¿Necesito saber de tecnología?</span>
+            <div class="faq-ico">+</div>
+          </div>
+          <div class="faq-a">No. Las sesiones están diseñadas para que cualquier profesional pueda implementar algo útil
+            en el mismo día, sin conocimientos técnicos previos.</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+          <div class="faq-q"><span>¿Cuánto tiempo me va a quitar esto cada semana?</span>
+            <div class="faq-ico">+</div>
+          </div>
+          <div class="faq-a">La sesión dura entre 60 y 90 minutos. Eso es todo lo que necesitas para salir con algo
+            implementado. El resto — la biblioteca, las grabaciones, el grupo — lo usas cuando quieras o no lo usas. No
+            hay deberes.</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+          <div class="faq-q"><span>¿En cuánto tiempo recupero lo que pago?</span>
+            <div class="faq-ico">+</div>
+          </div>
+          <div class="faq-a">Los que más rápido ven retorno son los que entran con una tarea concreta en mente. Si
+            tienes un proceso que te roba 2 horas diarias y en la primera sesión lo automatizas, has recuperado la
+            inversión del mes en menos de una semana. Los números reales: 713 horas ahorradas en 5 meses.</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+          <div class="faq-q"><span>¿Esto funciona para mi sector?</span>
+            <div class="faq-ico">+</div>
+          </div>
+          <div class="faq-a">Llevamos más de 8 años aplicando esto en más de 20 sectores distintos — desde despachos de
+            abogados hasta empresas de logística. El proceso de identificar qué automatizar primero es el mismo. Lo que
+            cambia es la tarea concreta, y de eso hablamos en tu primera sesión.</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+          <div class="faq-q"><span>¿Mi equipo va a adoptar esto?</span>
+            <div class="faq-ico">+</div>
+          </div>
+          <div class="faq-a">El sistema está diseñado para integrarse en las herramientas que tu equipo ya usa. No
+            aprenden nada nuevo — simplemente hacen menos pasos manuales. Si algo no encaja con tu operativa real, lo
+            ajustamos en la sesión.</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+          <div class="faq-q"><span>¿Puedo cancelar cuando quiera?</span>
+            <div class="faq-ico">+</div>
+          </div>
+          <div class="faq-a">Sí, sin permanencia. La suscripción es mensual y puedes darte de baja cuando quieras desde
+            tu panel.</div>
+        </div>
+      </div>
+
+    </aside>
+
+  </div>
+
+  <!-- WAITLIST -->
+  <section class="waitlist">
+    <div class="wl-inner">
+      <div class="wl-badge">🔥 Plazas limitadas — abrimos en Septiembre</div>
+      <h2 class="wl-title">Añade el primer miembro de tu equipo que no falta, no comete el mismo error dos veces y
+        trabaja mientras tú duermes.</h2>
+      <p class="wl-sub">Abrimos el próximo grupo en septiembre. Las plazas son limitadas porque el formato es en directo
+        y necesitamos que cada negocio tenga espacio para trabajar su caso. Apúntate y te aviso antes que a nadie.</p>
+
+      <form class="wl-form" id="wlForm">
+        <input class="wl-input" type="text" placeholder="Tu nombre" required autocomplete="name">
+        <input class="wl-input" type="email" placeholder="Tu email" required autocomplete="email">
+        <button type="submit" class="btn-wl">Quiero entrar en el próximo grupo →</button>
+      </form>
+
+      <div class="wl-success" id="wlOk">
+        <div class="si">✓</div>
+        <p><strong>Ya estás en la lista.</strong><br>Te aviso en cuanto abramos el próximo grupo.</p>
+      </div>
+
+      <p class="wl-fine">Sin spam. Solo te escribimos cuando haya plaza disponible.</p>
+    </div>
+  </section>
+
+  <footer class="foot">© 2025 Negocios Inquietos · negociosinquietos.com</footer>
+
+  <script>
+    document.getElementById('wlForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      this.style.display = 'none';
+      document.getElementById('wlOk').style.display = 'block';
+    });
+  </script>
+
+</body>
+
+</html>

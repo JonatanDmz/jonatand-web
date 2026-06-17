@@ -1,0 +1,456 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recursos — Jonatan Domínguez</title>
+  <meta name="description" content="Guías, plantillas y herramientas para aplicar IA en tu negocio. Algunos gratis, algunos de pago. Todo probado en proyectos reales." />
+  <meta property="og:title" content="Recursos — Jonatan Domínguez" />
+  <meta property="og:description" content="Guías, plantillas y herramientas para aplicar IA en tu negocio. Todo probado en proyectos reales." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jonatand.com/recursos" />
+  <meta property="og:locale" content="es_ES" />
+
+  <link rel="icon" type="image/png" href="../assets/iconos/favicon-d-naranja.png" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+
+  <style>
+    :root {
+      --rec-free-bg:  #FFF6F1;
+      --rec-free-bd:  rgba(255,90,31,.22);
+      --rec-free-txt: #C43D0A;
+      --rec-paid-bg:  #F0EFED;
+      --rec-paid-bd:  rgba(20,17,15,.14);
+      --rec-paid-txt: #14110F;
+    }
+
+    /* ── HERO ── */
+    .recursos-hero {
+      padding: 72px 0 60px;
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+    }
+    .recursos-hero .section-label { margin-bottom: 14px; }
+    .recursos-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.1;
+      color: var(--ink);
+      max-width: 30ch;
+      margin: 0 auto 18px;
+    }
+    .recursos-hero .lead {
+      max-width: 48ch;
+      font-size: 1.05rem;
+      margin: 0 auto;
+    }
+
+    /* ── FILTER TABS ── */
+    .filter-bar { padding: 32px 0 0; }
+    .filter-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .ftab {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--line-strong);
+      background: transparent;
+      font-family: var(--sans);
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--soft);
+      cursor: pointer;
+      transition: background .15s, color .15s, border-color .15s;
+    }
+    .ftab:hover { border-color: var(--ink); color: var(--ink); }
+    .ftab.active { background: var(--ink); border-color: var(--ink); color: #fff; }
+    .ftab-count {
+      background: var(--line);
+      color: var(--faint);
+      border-radius: var(--radius-pill);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 1px 7px;
+      line-height: 1.6;
+    }
+    .ftab.active .ftab-count { background: rgba(255,255,255,.2); color: #fff; }
+
+    /* ── GRID ── */
+    .recursos-section { padding: 48px 0 96px; }
+    .recursos-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 36px;
+    }
+
+    /* ── CARD ── */
+    .rec-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 28px 26px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .rec-card:hover:not(.coming) {
+      border-color: var(--line-strong);
+      box-shadow: 0 12px 36px -18px rgba(20,17,15,.18);
+      transform: translateY(-2px);
+    }
+    .rec-card.featured::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+    }
+    .rec-card.coming {
+      opacity: .6;
+    }
+
+    .rec-badges { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .badge-type {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid;
+    }
+    .badge-type.free  { background: var(--rec-free-bg); border-color: var(--rec-free-bd); color: var(--rec-free-txt); }
+    .badge-type.paid  { background: var(--rec-paid-bg); border-color: var(--rec-paid-bd); color: var(--rec-paid-txt); }
+    .badge-type.soon  {
+      background: var(--bg);
+      border-color: var(--line);
+      color: var(--faint);
+    }
+    .badge-format { font-size: 12px; font-weight: 500; color: var(--faint); letter-spacing: .02em; }
+
+    .rec-body { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+    .rec-title {
+      font-family: var(--serif);
+      font-size: clamp(1.05rem, 2.2vw, 1.22rem);
+      font-weight: 500;
+      line-height: 1.25;
+      color: var(--ink);
+    }
+    .rec-card.coming .rec-title { color: var(--soft); }
+    .rec-desc { font-size: 14.5px; color: var(--soft); line-height: 1.65; margin: 0; }
+
+    .rec-includes { list-style: none; padding: 0; margin: 4px 0 0; display: flex; flex-direction: column; gap: 5px; }
+    .rec-includes li { display: flex; align-items: baseline; gap: 8px; font-size: 13.5px; color: var(--soft); }
+    .rec-includes li::before { content: "→"; color: var(--accent); font-weight: 700; flex-shrink: 0; font-size: 12px; }
+
+    .rec-footer {
+      margin-top: 4px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+    /* Text link + stretched click area over the whole card */
+    .rec-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: gap .18s;
+    }
+    .rec-link::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+    .rec-card:hover .rec-link { gap: 8px; }
+
+    /* ── COMUNIDAD ── */
+    .comunidad-section {
+      background-color: var(--ink);
+      background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 28px 28px;
+      padding: 96px 0;
+      border-top: 1px solid var(--line);
+      position: relative;
+    }
+    .comunidad-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 100%; height: 300px;
+      background: radial-gradient(ellipse 60% 40% at 50% -10%, rgba(255,90,31,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .comunidad-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+      position: relative;
+    }
+    .pill-label {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 14px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .com-copy .pill-label { color: rgba(255,90,31,.8); border-color: rgba(255,90,31,.35); }
+    .com-copy h2 { color: #fff; font-size: clamp(1.25rem, 3vw, 1.75rem); margin-bottom: 18px; font-weight: 500; line-height: 1.15; }
+    .com-copy p { color: rgba(255,255,255,.55); font-size: 15px; line-height: 1.75; margin-bottom: 14px; }
+    .com-copy p:last-child { margin: 0; }
+    .com-copy strong { color: rgba(255,255,255,.85); font-weight: 600; }
+    .com-form-card { background: #fff; border-radius: 18px; padding: 28px 24px; box-shadow: 0 16px 48px rgba(0,0,0,.35); }
+    .com-form-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 16px;
+    }
+    .com-form-card-form { min-height: 200px; }
+
+    @media (max-width: 768px) {
+      .comunidad-inner { grid-template-columns: 1fr; gap: 36px; }
+    }
+    @media (max-width: 680px) {
+      .recursos-grid { grid-template-columns: 1fr; }
+      .rec-footer { flex-direction: column; align-items: flex-start; }
+      .rec-footer .btn-primary,
+      .rec-footer .btn-ghost { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/"><img src="../assets/Wordmark/jonatand-fondo-claro.png" alt="Jonatan Domínguez" class="nav-logo" /></a>
+      <div class="nav-links" id="nav-links">
+        <a href="/#sobre-mi">Sobre mí</a>
+        <a href="/#servicios">Cómo trabajamos</a>
+        <a href="/#newsletter">Newsletter</a>
+        <a href="/recursos" style="color:var(--ink);font-weight:600;">Recursos</a>
+      </div>
+      <a href="/reunion" class="btn-primary nav-cta-desktop">Agendar una llamada <span class="arrow">→</span></a>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile-dropdown" id="nav-dropdown">
+      <a href="/#sobre-mi">Sobre mí</a>
+      <a href="/#servicios">Cómo trabajamos</a>
+      <a href="/#newsletter">Newsletter</a>
+      <a href="/recursos">Recursos</a>
+      <a href="/reunion" class="btn-primary">Agendar una llamada →</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="recursos-hero">
+    <div class="container">
+      <span class="section-label animate-fade-in">Guías · Plantillas · Herramientas</span>
+      <h1 class="animate-fade-in-up delay-1">Lo que aprendo en el barro, <em class="serif-accent">para que lo apliques tú</em></h1>
+      <p class="lead animate-fade-in-up delay-2">Recursos que creo a partir de proyectos reales con clientes.</p>
+    </div>
+  </section>
+
+  <!-- FILTER + GRID -->
+  <section class="recursos-section">
+    <div class="container">
+
+      <div class="filter-bar animate-fade-in delay-1">
+        <div class="filter-tabs" id="filter-tabs">
+          <button class="ftab active" data-filter="all">
+            Todos <span class="ftab-count">1</span>
+          </button>
+          <button class="ftab" data-filter="free">
+            Gratis <span class="ftab-count">1</span>
+          </button>
+          <button class="ftab" data-filter="paid">
+            De pago <span class="ftab-count">0</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="recursos-grid" id="recursos-grid">
+
+        <!-- REAL: Skill generador de documentos -->
+        <div class="rec-card featured animate-scale-in delay-2" data-type="free">
+          <div class="rec-badges">
+            <span class="badge-type free">Gratis</span>
+            <span class="badge-format">Skill para Claude Code</span>
+          </div>
+          <div class="rec-body">
+            <h2 class="rec-title">Generador de documentos desde plantilla</h2>
+            <p class="rec-desc">Convierte cualquier documento tuyo en una plantilla reutilizable y genera el mismo documento con los datos de otro cliente en segundos — sin tocar el formato original.</p>
+            <ul class="rec-includes">
+              <li>Funciona con presupuestos, contratos, informes y cartas</li>
+              <li>Incluye ejemplo real de una gestoría</li>
+              <li>Compatible con Claude Code</li>
+            </ul>
+          </div>
+          <div class="rec-footer">
+            <a href="/recursos/generador-documentos/" class="rec-link">Ver recurso <span class="arrow">→</span></a>
+          </div>
+        </div>
+
+        <!-- PRÓXIMAMENTE 2 -->
+        <div class="rec-card coming animate-scale-in delay-3" data-type="coming">
+          <div class="rec-badges">
+            <span class="badge-type soon">Próximamente</span>
+            <span class="badge-format">Plantilla de prompts</span>
+          </div>
+          <div class="rec-body">
+            <h2 class="rec-title">Prompts para saber qué automatizar primero en tu negocio</h2>
+            <p class="rec-desc">La secuencia de preguntas que uso con clientes nuevos para mapear en menos de una hora qué procesos están listos para automatizarse y en qué orden.</p>
+          </div>
+          <div class="rec-footer">
+            <span style="font-size:14px;color:var(--faint);font-weight:500;">Disponible pronto</span>
+          </div>
+        </div>
+
+        <!-- PRÓXIMAMENTE 3 -->
+        <div class="rec-card coming animate-scale-in delay-4" data-type="coming">
+          <div class="rec-badges">
+            <span class="badge-type soon">Próximamente</span>
+            <span class="badge-format">Guía PDF</span>
+          </div>
+          <div class="rec-body">
+            <h2 class="rec-title">5 sistemas de IA que montas una vez y generan valor indefinidamente</h2>
+            <p class="rec-desc">Los cinco sistemas que más retorno han generado en proyectos reales. Cada uno con el proceso paso a paso y las herramientas concretas.</p>
+          </div>
+          <div class="rec-footer">
+            <span style="font-size:14px;color:var(--faint);font-weight:500;">Disponible pronto</span>
+          </div>
+        </div>
+
+        <!-- PRÓXIMAMENTE 4 -->
+        <div class="rec-card coming animate-scale-in delay-5" data-type="coming">
+          <div class="rec-badges">
+            <span class="badge-type soon">Próximamente</span>
+            <span class="badge-format">Kit completo</span>
+          </div>
+          <div class="rec-body">
+            <h2 class="rec-title">Kit de implantación de IA: del diagnóstico al primer sistema en funcionamiento</h2>
+            <p class="rec-desc">Todo lo que uso en los primeros 30 días con un cliente nuevo. Diagnóstico, hoja de ruta y plantillas de adopción para el equipo.</p>
+          </div>
+          <div class="rec-footer">
+            <span style="font-size:14px;color:var(--faint);font-weight:500;">Disponible pronto</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COMUNIDAD -->
+  <section class="comunidad-section" id="comunidad">
+    <div class="container">
+      <div class="comunidad-inner animate-fade-in-up">
+
+        <div class="com-copy">
+          <span class="pill-label">Comunidad · Lista de espera</span>
+          <h2>¿Eres profesional o dueño de negocio y quieres aplicar IA en tu trabajo? <em class="serif-accent">No estás solo.</em></h2>
+          <p>Da igual si llevas un despacho, una cartera de clientes o un negocio con equipo: aquí hay gente en tu misma situación contando qué les está funcionando de verdad con IA — y qué no. Sin la teoría de los cursos genéricos, sin la herramienta de moda que nadie usa al mes siguiente.</p>
+          <p>Yo modero la conversación para que se quede en lo aplicable a tu día a día, sea facturar más rápido, cerrar más ventas o dejar de ser tú el cuello de botella de tu negocio.</p>
+          <p>Apúntate a la lista de espera. <strong>Aviso primero a quien ya está dentro en cuanto haya plazas.</strong></p>
+        </div>
+
+        <div>
+          <div class="com-form-card">
+            <div class="com-form-eyebrow">Lista de espera · Sin compromiso</div>
+            <div class="com-form-card-form">
+              <script type="text/javascript" src="https://acumbamail.com/newform/dynamic/js/FGoAPLkT2C2N1Dw4kOwsFX7b4MhT1VDL1GwerFCP8tP0ry/63219/"></script>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script src="/assets/scroll-animations.js" defer></script>
+  <script>
+  // Filter — coming cards always show
+  (function () {
+    var tabs = document.querySelectorAll('.ftab');
+    var cards = document.querySelectorAll('.rec-card');
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var filter = tab.dataset.filter;
+        tabs.forEach(function (t) { t.classList.remove('active'); });
+        tab.classList.add('active');
+
+        cards.forEach(function (card) {
+          var isComing = card.dataset.type === 'coming';
+          var show = filter === 'all' || isComing || card.dataset.type === filter;
+          card.style.display = show ? '' : 'none';
+        });
+      });
+    });
+  })();
+
+  // Hamburger
+  (function () {
+    var btn = document.getElementById('hamburger');
+    var dropdown = document.getElementById('nav-dropdown');
+    if (btn && dropdown) {
+      btn.addEventListener('click', function () {
+        var isOpen = dropdown.classList.toggle('open');
+        btn.classList.toggle('open');
+        document.body.classList.toggle('menu-open', isOpen);
+      });
+      dropdown.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          dropdown.classList.remove('open');
+          btn.classList.remove('open');
+          document.body.classList.remove('menu-open');
+        });
+      });
+    }
+  })();
+  </script>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container foot-in">
+      <img src="../assets/Wordmark/jonatand-fondo-claro.png" alt="Jonatan Domínguez" class="nav-logo" />
+      <nav class="foot-links">
+        <a href="/#sobre-mi">Sobre mí</a>
+        <a href="/#servicios">Cómo trabajamos</a>
+        <a href="/#newsletter">Newsletter</a>
+        <a href="/recursos">Recursos</a>
+        <a href="/reunion">Agendar una llamada</a>
+      </nav>
+      <p class="foot-meta">© 2026 Jonatan Domínguez</p>
+    </div>
+  </footer>
+
+</body>
+</html>
+

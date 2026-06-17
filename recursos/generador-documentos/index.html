@@ -1,0 +1,573 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generador de documentos desde plantilla — Skill para Claude Code · Jonatan Domínguez</title>
+  <meta name="description" content="Skill gratuita para Claude Code que convierte cualquier documento tuyo en una plantilla reutilizable y genera el mismo documento con datos de otro cliente en segundos." />
+  <meta property="og:title" content="Generador de documentos desde plantilla — Skill para Claude Code" />
+  <meta property="og:description" content="Convierte cualquier documento real en plantilla y genera documentos nuevos en segundos, sin tocar el formato original." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jonatand.com/recursos/generador-documentos/" />
+  <meta property="og:locale" content="es_ES" />
+
+  <link rel="icon" type="image/png" href="../../assets/iconos/favicon-d-naranja.png" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../style.css" />
+
+  <style>
+    /* ── RESET SECTION-LABEL para modo pill (servicios style) ── */
+    .pill-label {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 4px 14px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      opacity: 0.7;
+    }
+
+    /* ── HERO (dark) ── */
+    .skill-hero {
+      background-color: var(--ink);
+      background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 28px 28px;
+      padding: 72px 0 80px;
+      position: relative;
+    }
+    .skill-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 100%; height: 300px;
+      background: radial-gradient(ellipse 60% 40% at 50% -10%, rgba(255,90,31,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .skill-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,.35);
+      margin-bottom: 32px;
+    }
+    .skill-breadcrumb a { color: rgba(255,255,255,.4); transition: color .18s; }
+    .skill-breadcrumb a:hover { color: rgba(255,255,255,.8); }
+    .skill-breadcrumb span { color: rgba(255,255,255,.2); }
+
+    .skill-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid;
+    }
+    .bp-free   { background: rgba(255,90,31,.15); border-color: rgba(255,90,31,.35); color: #ff8a5c; }
+    .bp-skill  { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.15); color: rgba(255,255,255,.65); }
+    .bp-who    { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.10); color: rgba(255,255,255,.45); }
+
+    .skill-hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 500;
+      line-height: 1.1;
+      color: #fff;
+      max-width: 18ch;
+      margin-bottom: 20px;
+    }
+    .skill-hero .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.55);
+      line-height: 1.7;
+      max-width: 50ch;
+      margin-bottom: 0;
+    }
+
+    /* ── CONTENT SECTION (light) ── */
+    .skill-body-section {
+      background: var(--bg);
+      padding: 80px 0 96px;
+      border-top: 1px solid var(--line);
+    }
+
+    /* Two-column layout */
+    .skill-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 64px;
+      align-items: start;
+    }
+
+    /* Sidebar — sticky */
+    .skill-sidebar {
+      position: sticky;
+      top: 88px;
+    }
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 8px 32px -12px rgba(20,17,15,.12);
+    }
+    .skill-card-head {
+      background: var(--ink);
+      padding: 24px 22px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .skill-card-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--accent);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .skill-card-name {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 500;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .skill-card-sub { font-size: 12px; color: rgba(255,255,255,.45); margin-top: 3px; }
+    .skill-card-meta { padding: 18px 22px; border-bottom: 1px solid var(--line); }
+    .skill-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13.5px;
+      color: var(--soft);
+      padding: 9px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .skill-meta-row:last-child { border-bottom: none; }
+    .skill-meta-ico { font-size: 14px; flex-shrink: 0; opacity: .7; }
+    .skill-card-cta { padding: 18px 22px; }
+    .skill-price {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 14px;
+      line-height: 1;
+    }
+    .skill-card-cta .btn-primary { width: 100%; justify-content: center; padding: 15px; font-size: 1rem; }
+
+    /* ── SECTION LABELS (content) ── */
+    .sec-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      color: var(--faint);
+      margin-bottom: 20px;
+    }
+    .sec-label::before { content: ''; width: 14px; height: 1px; background: var(--line-strong); }
+
+    .skill-section { margin-bottom: 52px; }
+    .skill-section:last-child { margin-bottom: 0; }
+    .skill-section h2 {
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      color: var(--ink);
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+    .skill-section p { font-size: 15.5px; color: var(--soft); line-height: 1.75; margin-bottom: 14px; }
+    .skill-section p:last-child { margin-bottom: 0; }
+
+    /* Phase cards */
+    .phase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 22px; }
+    .phase-block {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 22px 20px;
+      border-top: 3px solid var(--accent);
+    }
+    .phase-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .phase-block h3 { font-size: 1rem; color: var(--ink); margin-bottom: 8px; font-weight: 600; }
+    .phase-block p { font-size: 13.5px; color: var(--soft); line-height: 1.6; margin: 0; }
+
+    /* File list */
+    .file-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+    .file-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      background: var(--surface);
+    }
+    .file-ico {
+      width: 36px; height: 36px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+    }
+    .file-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+    .file-desc { font-size: 12.5px; color: var(--faint); margin-top: 2px; }
+
+    /* Steps */
+    .steps-list { display: flex; flex-direction: column; gap: 0; margin-top: 18px; }
+    .skill-step {
+      display: flex;
+      gap: 18px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .skill-step:last-child { border-bottom: none; }
+    .skill-step-num {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--accent);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 36px;
+    }
+    .skill-step h3 { font-size: 15px; color: var(--ink); margin-bottom: 5px; font-weight: 600; }
+    .skill-step p { font-size: 13.5px; color: var(--soft); line-height: 1.6; margin: 0; }
+
+    /* ── COMMUNITY SECTION (dark) ── */
+    .comunidad-section {
+      background-color: var(--ink);
+      background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 28px 28px;
+      padding: 96px 0;
+      border-top: 1px solid var(--line);
+      position: relative;
+    }
+    .comunidad-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 100%; height: 300px;
+      background: radial-gradient(ellipse 60% 40% at 50% -10%, rgba(255,90,31,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .comunidad-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .com-copy .pill-label { color: rgba(255,90,31,.8); border-color: rgba(255,90,31,.35); opacity: 1; margin-bottom: 22px; }
+    .com-copy h2 {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 500;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .com-copy p { font-size: 15px; color: rgba(255,255,255,.55); line-height: 1.75; margin-bottom: 14px; }
+    .com-copy p:last-child { margin-bottom: 0; }
+    .com-copy strong { color: rgba(255,255,255,.85); font-weight: 600; }
+
+    .com-form-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 28px 24px;
+      box-shadow: 0 16px 48px rgba(0,0,0,.35);
+    }
+    .com-form-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 16px;
+    }
+    .com-form-card-form { min-height: 200px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .skill-layout { grid-template-columns: 1fr; gap: 40px; }
+      .skill-sidebar { position: static; }
+      .skill-card { max-width: 400px; }
+      .comunidad-inner { grid-template-columns: 1fr; gap: 36px; }
+      .phase-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .skill-hero { padding: 48px 0 56px; }
+      .skill-hero h1 { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/"><img src="../../assets/Wordmark/jonatand-fondo-claro.png" alt="Jonatan Domínguez" class="nav-logo" /></a>
+      <div class="nav-links" id="nav-links">
+        <a href="/#sobre-mi">Sobre mí</a>
+        <a href="/#servicios">Cómo trabajamos</a>
+        <a href="/#newsletter">Newsletter</a>
+        <a href="/recursos" style="color:var(--ink);font-weight:600;">Recursos</a>
+      </div>
+      <a href="/reunion" class="btn-primary nav-cta-desktop">Agendar una llamada <span class="arrow">→</span></a>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile-dropdown" id="nav-dropdown">
+      <a href="/#sobre-mi">Sobre mí</a>
+      <a href="/#servicios">Cómo trabajamos</a>
+      <a href="/#newsletter">Newsletter</a>
+      <a href="/recursos">Recursos</a>
+      <a href="/reunion" class="btn-primary">Agendar una llamada →</a>
+    </div>
+  </nav>
+
+  <!-- HERO (dark) -->
+  <section class="skill-hero">
+    <div class="container">
+      <div class="skill-breadcrumb animate-fade-in">
+        <a href="/recursos">← Recursos</a>
+        <span>/</span>
+        <span>Generador de documentos</span>
+      </div>
+
+      <div class="skill-badges animate-fade-in">
+        <span class="badge-pill bp-free">Gratis</span>
+        <span class="badge-pill bp-skill">Skill para Claude Code</span>
+        <span class="badge-pill bp-who">Gestorías · Despachos · Consultorías</span>
+      </div>
+
+      <h1 class="animate-fade-in-up delay-1">Generador de documentos <em class="serif-accent">desde plantilla</em></h1>
+      <p class="hero-sub animate-fade-in-up delay-2">Sube un documento que ya tienes — un presupuesto, contrato o informe — y la skill lo convierte en plantilla reutilizable. La próxima vez que necesites el mismo documento para otro cliente, lo genera en segundos sin tocar el formato original.</p>
+    </div>
+  </section>
+
+  <!-- CONTENT (light) -->
+  <div class="skill-body-section">
+    <div class="container">
+      <div class="skill-layout">
+
+        <!-- Main content -->
+        <div>
+
+          <!-- Cómo funciona -->
+          <div class="skill-section animate-fade-in-up">
+            <div class="sec-label">Cómo funciona</div>
+            <h2>Dos fases, un mismo problema resuelto</h2>
+            <p>La mayoría de los documentos de una empresa son siempre el mismo documento con datos distintos. Esta skill convierte ese proceso manual — abrir el Word, buscar el nombre del cliente, cambiar la fecha, el importe — en algo que hace Claude en segundos.</p>
+
+            <div class="phase-grid">
+              <div class="phase-block">
+                <div class="phase-tag">Fase A · Plantillar</div>
+                <h3>Del documento real a la plantilla</h3>
+                <p>Sube un documento tuyo ya relleno. La skill identifica qué partes son datos variables — nombre, fecha, importe, NIF — y los sustituye por marcadores <code style="font-size:12px;background:rgba(20,17,15,.06);padding:1px 5px;border-radius:4px;">{{campo}}</code> conservando el formato exacto.</p>
+              </div>
+              <div class="phase-block">
+                <div class="phase-tag">Fase B · Rellenar</div>
+                <h3>De la plantilla al documento nuevo</h3>
+                <p>Pasa la plantilla y los datos del nuevo cliente. Claude genera el documento final con todos los campos correctamente rellenados — mismo membrete, misma tipografía, mismo layout.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Para quién -->
+          <div class="skill-section animate-fade-in-up">
+            <div class="sec-label">Para quién es</div>
+            <h2>Si repites el mismo documento cambiando solo los datos, esto es para ti</h2>
+            <p>Diseñada para gestorías, despachos, consultorías e inmobiliarias que generan volumen de documentación similar — presupuestos, contratos, informes periódicos, cartas a clientes.</p>
+            <p>También funciona si preparas propuestas comerciales o cualquier tipo de documento repetitivo donde el formato es siempre el mismo y solo cambian los datos.</p>
+          </div>
+
+          <!-- Qué incluye -->
+          <div class="skill-section animate-fade-in-up">
+            <div class="sec-label">Qué incluye</div>
+            <h2>Lo que descargas</h2>
+            <ul class="file-list">
+              <li class="file-item">
+                <div class="file-ico">📋</div>
+                <div>
+                  <div class="file-name">SKILL.md</div>
+                  <div class="file-desc">Las instrucciones que Claude lee para saber cómo actuar</div>
+                </div>
+              </li>
+              <li class="file-item">
+                <div class="file-ico">📄</div>
+                <div>
+                  <div class="file-name">presupuesto-Talleres-Iruna.docx</div>
+                  <div class="file-desc">Documento real de ejemplo para probar la skill desde el primer minuto</div>
+                </div>
+              </li>
+              <li class="file-item">
+                <div class="file-ico">🐍</div>
+                <div>
+                  <div class="file-name">resaltar.py</div>
+                  <div class="file-desc">Script auxiliar para marcar visualmente los campos sustituidos en el Word</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Cómo instalarla -->
+          <div class="skill-section animate-fade-in-up">
+            <div class="sec-label">Instalación</div>
+            <h2>En menos de dos minutos</h2>
+            <div class="steps-list">
+              <div class="skill-step">
+                <div class="skill-step-num">01</div>
+                <div>
+                  <h3>Descarga el archivo .skill</h3>
+                  <p>Es un archivo comprimido con todo lo que necesita la skill para funcionar.</p>
+                </div>
+              </div>
+              <div class="skill-step">
+                <div class="skill-step-num">02</div>
+                <div>
+                  <h3>Extrae en <code style="font-size:12px;background:rgba(20,17,15,.06);padding:2px 6px;border-radius:4px;">.claude/skills/</code></h3>
+                  <p>Dentro de tu proyecto, crea la carpeta <code style="font-size:12px;background:rgba(20,17,15,.06);padding:2px 6px;border-radius:4px;">.claude/skills/generador-documentos/</code> y extrae ahí el contenido del .skill.</p>
+                </div>
+              </div>
+              <div class="skill-step">
+                <div class="skill-step-num">03</div>
+                <div>
+                  <h3>Dile a Claude que la use</h3>
+                  <p>Abre Claude Code, sube tu documento y escribe: <em style="color:var(--ink);">"convierte esto en plantilla"</em> o <em style="color:var(--ink);">"genera este presupuesto para otro cliente con estos datos"</em>. Claude activa la skill automáticamente.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Sticky sidebar -->
+        <div class="skill-sidebar animate-scale-in delay-2">
+          <div class="skill-card">
+            <div class="skill-card-head">
+              <div class="skill-card-icon">📄</div>
+              <div>
+                <div class="skill-card-name">generador-documentos</div>
+                <div class="skill-card-sub">Skill para Claude Code</div>
+              </div>
+            </div>
+            <div class="skill-card-meta">
+              <div class="skill-meta-row">
+                <span class="skill-meta-ico">📁</span>
+                <span>3 archivos incluidos</span>
+              </div>
+              <div class="skill-meta-row">
+                <span class="skill-meta-ico">⚡</span>
+                <span>Compatible con Claude Code</span>
+              </div>
+              <div class="skill-meta-row">
+                <span class="skill-meta-ico">🏗</span>
+                <span>Funciona con .docx</span>
+              </div>
+              <div class="skill-meta-row">
+                <span class="skill-meta-ico">✓</span>
+                <span>Probada en proyectos reales</span>
+              </div>
+            </div>
+            <div class="skill-card-cta">
+              <div class="skill-price">Gratis</div>
+              <a href="/recursos/Descargables/generador-documentos.skill" download class="btn-primary">
+                Descargar skill <span class="arrow">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- COMUNIDAD (dark) -->
+  <section class="comunidad-section" id="comunidad">
+    <div class="container">
+      <div class="comunidad-inner">
+
+        <div class="com-copy animate-fade-in-up">
+          <span class="pill-label">Comunidad · Lista de espera</span>
+          <h2>¿Eres profesional o dueño de negocio y quieres aplicar IA en tu trabajo? <em class="serif-accent">No estás solo.</em></h2>
+          <p>Da igual si llevas un despacho, una cartera de clientes o un negocio con equipo: aquí hay gente en tu misma situación contando qué les está funcionando de verdad con IA — y qué no. Sin la teoría de los cursos genéricos, sin la herramienta de moda que nadie usa al mes siguiente.</p>
+          <p>Yo modero la conversación para que se quede en lo aplicable a tu día a día, sea facturar más rápido, cerrar más ventas o dejar de ser tú el cuello de botella de tu negocio.</p>
+          <p>Apúntate a la lista de espera. <strong>Aviso primero a quien ya está dentro en cuanto haya plazas.</strong></p>
+        </div>
+
+        <div class="animate-scale-in delay-2">
+          <div class="com-form-card">
+            <div class="com-form-eyebrow">Lista de espera · Sin compromiso</div>
+            <div class="com-form-card-form">
+              <script type="text/javascript" src="https://acumbamail.com/newform/dynamic/js/FGoAPLkT2C2N1Dw4kOwsFX7b4MhT1VDL1GwerFCP8tP0ry/63219/"></script>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script src="/assets/scroll-animations.js" defer></script>
+  <script>
+  (function () {
+    var btn = document.getElementById('hamburger');
+    var dropdown = document.getElementById('nav-dropdown');
+    if (btn && dropdown) {
+      btn.addEventListener('click', function () {
+        var isOpen = dropdown.classList.toggle('open');
+        btn.classList.toggle('open');
+        document.body.classList.toggle('menu-open', isOpen);
+      });
+      dropdown.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          dropdown.classList.remove('open');
+          btn.classList.remove('open');
+          document.body.classList.remove('menu-open');
+        });
+      });
+    }
+  })();
+  </script>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container foot-in">
+      <img src="../../assets/Wordmark/jonatand-fondo-claro.png" alt="Jonatan Domínguez" class="nav-logo" />
+      <nav class="foot-links">
+        <a href="/#sobre-mi">Sobre mí</a>
+        <a href="/#servicios">Cómo trabajamos</a>
+        <a href="/#newsletter">Newsletter</a>
+        <a href="/recursos">Recursos</a>
+        <a href="/reunion">Agendar una llamada</a>
+      </nav>
+      <p class="foot-meta">© 2026 Jonatan Domínguez</p>
+    </div>
+  </footer>
+
+</body>
+</html>
+
