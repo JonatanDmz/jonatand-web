@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>7 Skills para Claude — Enséñale Cómo Trabajas | Jonatan Domínguez</title>
+  <meta name="description" content="Pack de 7 skills para Claude: tono, branding, emails, presupuestos y más. Las 4 primeras gratuitas, las 3 restantes con suscripción. Instala una vez, Claude recuerda cómo trabajas para siempre." />
+  <meta name="author" content="Jonatan Domínguez" />
+  <link rel="canonical" href="https://jonatand.com/recursos/skills-para-claude/" />
+
+  <meta property="og:title" content="7 Skills para Claude — Dale Memoria a Tu IA" />
+  <meta property="og:description" content="Instala estas 7 skills y Claude aprende cómo trabajas tú. 4 gratis, 3 con suscripción. Sin tecnicismos." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jonatand.com/recursos/skills-para-claude/" />
+  <meta property="og:locale" content="es_ES" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="7 Skills para Claude — Dale Memoria a Tu IA" />
+  <meta name="twitter:description" content="Instala estas 7 skills y Claude aprende cómo trabajas tú. 4 gratis, 3 con suscripción." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://jonatand.com/recursos/skills-para-claude/",
+        "name": "7 Skills para Claude",
+        "description": "Pack de 7 skills para Claude AI que enseñan a la IA cómo trabaja el usuario: tono, branding, emails, presupuestos, reuniones, onboarding y documentación.",
+        "inLanguage": "es",
+        "audience": { "@type": "Audience", "audienceType": "Autónomos y pequeños negocios" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://jonatand.com"},
+          {"@type": "ListItem", "position": 2, "name": "Recursos", "item": "https://jonatand.com/recursos"},
+          {"@type": "ListItem", "position": 3, "name": "7 Skills para Claude", "item": "https://jonatand.com/recursos/skills-para-claude/"}
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "name": "Cómo instalar una skill en Claude",
+        "totalTime": "PT5M",
+        "step": [
+          {"@type": "HowToStep", "position": 1, "name": "Descarga el archivo", "text": "Descarga el archivo .md de la skill. No necesitas instaladores ni programas externos."},
+          {"@type": "HowToStep", "position": 2, "name": "Abre el archivo en Claude", "text": "Abre Claude Pro, crea o abre un Proyecto, y añade el archivo .md como documento del proyecto."},
+          {"@type": "HowToStep", "position": 3, "name": "Escribe 'configurar skill'", "text": "Escribe 'configurar skill' en el chat. Claude empieza a hacerte preguntas para personalizarla a tu forma de trabajar."}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "¿Necesito Claude Pro para usar las skills?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Las skills de Claude requieren un plan Claude Pro, Max, Team o Enterprise."}},
+          {"@type": "Question", "name": "¿Cuánto tiempo lleva instalar una skill de Claude?", "acceptedAnswer": {"@type": "Answer", "text": "Instalar una skill lleva menos de 2 minutos. La configuración inicial tarda entre 3 y 10 minutos."}},
+          {"@type": "Question", "name": "¿Puedo modificar las skills después de configurarlas?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Puedes editar el archivo en cualquier momento y volver a configurarla."}},
+          {"@type": "Question", "name": "¿Las skills de Claude funcionan en español?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Todas las skills están escritas en español y diseñadas para el mercado hispanohablante."}},
+          {"@type": "Question", "name": "¿Cómo descargo las 4 skills gratuitas?", "acceptedAnswer": {"@type": "Answer", "text": "Haz clic en el botón de descarga de cualquiera de las 4 primeras skills. Las 3 restantes se desbloquean suscribiéndote a la newsletter."}}
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/png" href="../../assets/iconos/favicon-d-naranja.png" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../style.css" />
+
+  <style>
+    .tag { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 5px 11px; border-radius: 999px; }
+    .tag.free { background: var(--accent-tint); color: var(--accent-press); }
+    .tag.cat  { background: var(--bg); border: 1px solid var(--line); color: var(--faint); }
+
+    .crumb { font-size: 14px; color: var(--faint); font-weight: 500; padding: 24px 0 0; }
+    .crumb a { transition: color .18s; }
+    .crumb a:hover { color: var(--ink); }
+
+    /* HERO */
+    .hero { padding: 26px 0 60px; border-bottom: 1px solid var(--line); }
+    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 34px; align-items: start; }
+    .htags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+    .hero h1 { font-size: clamp(36px, 6.4vw, 62px); line-height: 1.05; max-width: 16ch; font-weight: 500; margin: 0; }
+    .hero h1 em { font-style: italic; color: var(--accent); }
+    .hero .intro { font-size: clamp(17px, 2.2vw, 19.5px); color: var(--soft); max-width: 52ch; margin: 24px 0 0; }
+
+    /* SUMMARY PANEL */
+    .dl { background: var(--surface); border: 1px solid var(--line-strong); border-radius: 20px; padding: 30px 28px; box-shadow: 0 22px 60px -40px rgba(20,17,15,.5); }
+    .dl-top { display: flex; align-items: center; gap: 14px; }
+    .dl-ic { width: 52px; height: 52px; border-radius: 13px; background: var(--accent-tint); display: flex; align-items: center; justify-content: center; font-size: 26px; flex: none; }
+    .dl-top > div { min-width: 0; }
+    .dl-nm { font-family: var(--serif); font-size: 19px; font-weight: 500; line-height: 1.2; }
+    .dl-sub { font-size: 13.5px; color: var(--faint); font-weight: 500; margin-top: 3px; }
+    .dl .btn-primary { width: 100%; justify-content: center; font-size: 1rem; margin-top: 22px; }
+    .dl-split { margin: 18px 0 0; }
+    .dl-split-row { display: flex; gap: 8px; align-items: center; padding: 9px 0; border-top: 1px solid var(--line); font-size: 14px; font-weight: 500; }
+    .dl-split-row .ck { font-weight: 700; flex: none; width: 18px; }
+    .ck-free { color: var(--accent); }
+    .ck-lock { color: var(--faint); }
+    .dl-split-row .skill-lbl { color: var(--soft); }
+    .dl-split-row .skill-lbl.locked { color: var(--faint); }
+    .dl-split-sep { padding: 10px 0 4px; border-top: 1px solid var(--line); font-size: 11.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); }
+
+    /* CONTENT SECTIONS */
+    .skill-section { padding: 72px 0; border-bottom: 1px solid var(--line); }
+    .sec-eyebrow { font-size: 12.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0 0 16px; }
+    .skill-section h2 { font-size: clamp(27px, 4vw, 42px); max-width: 22ch; font-weight: 500; margin: 0; }
+    .skill-section h2 em { font-style: italic; color: var(--accent); }
+    .skill-section .sec-lead { font-size: 17px; color: var(--soft); max-width: 62ch; margin-top: 22px; }
+
+    /* PROBLEM */
+    .problem-list { list-style: none; margin: 38px 0 0; padding: 0; border-top: 1px solid var(--line); }
+    .problem-list li { padding: 22px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: baseline; }
+    .problem-list .pnum { font-family: var(--serif); font-size: 28px; color: var(--line-strong); line-height: 1; width: 38px; }
+    .problem-list h3 { font-size: 18px; font-weight: 500; margin-bottom: 6px; }
+    .problem-list p { font-size: 15.5px; color: var(--soft); margin: 0; }
+
+    /* WHAT ARE SKILLS */
+    .analogy-box { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 0 16px 16px 0; padding: 28px 30px; margin-top: 38px; max-width: 62ch; }
+    .analogy-box .al { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .analogy-box p { font-size: 18px; font-weight: 500; color: var(--ink); line-height: 1.55; margin: 0; }
+    .how-works { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 38px; }
+    .hw-item { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 26px 28px; display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: start; }
+    .hw-ic { width: 44px; height: 44px; border-radius: 11px; background: var(--accent-tint); display: flex; align-items: center; justify-content: center; font-size: 22px; flex: none; }
+    .hw-item h3 { font-size: 18px; font-weight: 500; margin-bottom: 6px; }
+    .hw-item p { font-size: 15px; color: var(--soft); margin: 0; }
+
+    /* SKILLS GRID */
+    .skills-section-wrap { padding: 72px 0 0; border-bottom: none; }
+    .skills-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 42px; }
+    .skill-card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 28px 26px; display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start; transition: border-color .2s, box-shadow .2s, transform .2s; }
+    .skill-card:hover { border-color: var(--line-strong); box-shadow: 0 12px 36px -24px rgba(20,17,15,.3); transform: translateY(-2px); }
+    .skill-num-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .skill-num { width: 42px; height: 42px; border-radius: 11px; background: var(--ink); color: #fff; font-family: var(--serif); font-size: 19px; display: flex; align-items: center; justify-content: center; flex: none; }
+    .skill-ic { font-size: 24px; }
+    .skill-card h3 { font-size: 20px; font-weight: 500; margin-bottom: 8px; }
+    .skill-card p { font-size: 15.5px; color: var(--soft); margin: 0 0 18px; line-height: 1.6; }
+    .skill-card .dl-btn { display: inline-flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 600; color: var(--accent); border: 1px solid rgba(255,90,31,.3); border-radius: 8px; padding: 9px 16px; background: var(--accent-tint); transition: background .15s, border-color .15s; text-decoration: none; }
+    .skill-card .dl-btn:hover { background: rgba(255,90,31,.15); border-color: var(--accent); }
+
+    /* GATE */
+    .gate-section { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 64px 0; }
+    .gate-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
+    .progress-label { font-size: 12px; font-weight: 600; color: var(--faint); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; }
+    .progress-bar { display: flex; gap: 4px; margin-bottom: 24px; }
+    .progress-bar .pip { flex: 1; height: 5px; border-radius: 3px; background: var(--line); }
+    .progress-bar .pip.filled { background: var(--accent); }
+    .gate-copy h2 { font-size: clamp(1.3rem, 2.5vw, 1.75rem); font-weight: 500; color: var(--ink); line-height: 1.2; margin-bottom: 12px; }
+    .gate-copy p { font-size: 15px; color: var(--soft); line-height: 1.7; margin-bottom: 8px; }
+    .gate-note { font-size: 13px; color: var(--faint); margin-top: 8px; }
+    .gate-form-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 8px 32px -12px rgba(20,17,15,.12); }
+    .gate-form-card iframe { width: 100%; height: 440px; border: none; display: block; }
+
+    /* LOCKED CONTENT */
+    .locked-content { position: relative; background: var(--bg); padding: 56px 0 32px; border-bottom: 1px solid var(--line); }
+    .locked-content.blur-active .skill-card,
+    .locked-content.blur-active .dl-all-banner { filter: blur(6px); pointer-events: none; user-select: none; }
+    .locked-content.blur-active::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(251,250,248,0.55); pointer-events: none; }
+
+    /* DOWNLOAD ALL BANNER */
+    .dl-all-banner { background: var(--ink); border-radius: 18px; padding: 28px 32px; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; margin-top: 28px; }
+    .dl-all-banner h3 { color: #fff; font-size: 22px; font-weight: 500; margin: 0; }
+    .dl-all-banner p { color: #C7BFB7; font-size: 15px; margin: 0; }
+
+    /* STEPS */
+    .steps { margin-top: 42px; }
+    .step { display: grid; grid-template-columns: auto 1fr; gap: 22px; padding: 26px 0; border-top: 1px solid var(--line); }
+    .step:last-child { border-bottom: 1px solid var(--line); }
+    .step .sn { font-family: var(--serif); font-size: 30px; color: var(--accent); line-height: 1; width: 54px; }
+    .step h3 { font-size: 20px; margin-bottom: 8px; font-weight: 500; }
+    .step p { font-size: 15.5px; color: var(--soft); margin: 0; }
+
+    /* FOR WHOM */
+    .profiles-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 38px; }
+    .profile-item { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; display: flex; gap: 16px; align-items: center; }
+    .profile-ic { font-size: 28px; flex: none; }
+    .profile-item h3 { font-size: 17px; font-weight: 600; margin-bottom: 3px; }
+    .profile-item p { font-size: 14.5px; color: var(--soft); margin: 0; }
+
+    /* FAQ */
+    .faq-list { margin-top: 38px; }
+    .faq-item { border-top: 1px solid var(--line); padding: 22px 0; }
+    .faq-item:last-child { border-bottom: 1px solid var(--line); }
+    .faq-item h3 { font-size: 18px; font-weight: 500; margin-bottom: 10px; }
+    .faq-item p { font-size: 15.5px; color: var(--soft); margin: 0; }
+
+    /* CTA BAND */
+    .cta-band { background: var(--ink); color: #fff; border-radius: 26px; padding: clamp(34px, 5vw, 56px); display: grid; grid-template-columns: 1fr; gap: 28px; align-items: center; }
+    .cta-band .band-eyebrow { font-size: 12.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0 0 16px; }
+    .cta-band h2 { color: #fff; max-width: 20ch; font-weight: 500; margin: 0; font-size: clamp(24px, 3.5vw, 38px); }
+    .cta-band p { font-size: 16px; color: #C7BFB7; margin: 16px 0 0; max-width: 46ch; }
+    .cta-side { display: flex; flex-direction: column; gap: 12px; }
+    .cta-side .btn-primary { justify-content: center; }
+    .cta-note { font-size: 13px; color: #8B847D; }
+
+    /* COMMUNITY */
+    .community-section { padding: 80px 0; border-top: 1px solid var(--line); }
+    .comm-card { background: var(--surface); border: 1px solid var(--line); border-radius: 26px; padding: clamp(32px, 5vw, 56px); }
+    .comm-eyebrow { font-size: 12.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); margin: 0 0 16px; }
+    .comm-card h2 { max-width: 24ch; font-weight: 500; margin: 0; }
+    .comm-card h2 em { font-style: italic; color: var(--accent); }
+    .comm-card p { font-size: 16px; color: var(--soft); max-width: 62ch; margin: 16px 0 0; }
+    .comm-card p strong { color: var(--ink); font-weight: 600; }
+    .wait-form { display: flex; flex-direction: column; gap: 12px; max-width: 520px; margin-top: 28px; }
+    .wait-input { font-family: var(--sans); font-size: 16px; padding: 15px 18px; border-radius: 11px; border: 1px solid var(--line-strong); background: var(--bg); color: var(--ink); width: 100%; box-sizing: border-box; transition: border-color .2s; }
+    .wait-input:focus { outline: none; border-color: var(--accent); }
+    .wait-input::placeholder { color: var(--faint); }
+    .acm-success { display: none; text-align: center; padding: 28px 16px; }
+    .acm-success-check { width: 48px; height: 48px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 22px; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; }
+    .acm-success-title { font-family: var(--serif); font-size: 1.35rem; font-weight: 500; color: var(--ink); margin: 0 0 8px; line-height: 1.2; }
+    .acm-success-body { font-size: 14px; color: var(--soft); line-height: 1.6; margin: 0; }
+
+    /* MODAL */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(20,17,15,.55); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 300; display: none; align-items: center; justify-content: center; padding: 20px; }
+    .modal-overlay.open { display: flex; }
+    .modal-card { background: #fff; border-radius: 22px; padding: clamp(28px, 5vw, 48px); max-width: 480px; width: 100%; position: relative; box-shadow: 0 32px 80px -20px rgba(20,17,15,.45); animation: modalIn .22s ease; }
+    @keyframes modalIn { from { opacity: 0; transform: translateY(14px) scale(.97); } to { opacity: 1; transform: none; } }
+    .modal-close { position: absolute; top: 16px; right: 16px; width: 32px; height: 32px; border-radius: 50%; background: var(--bg); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 15px; color: var(--soft); transition: background .15s, color .15s; line-height: 1; }
+    .modal-close:hover { background: var(--line); color: var(--ink); }
+    .modal-pill { display: inline-flex; align-items: center; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(255,90,31,.3); border-radius: 999px; padding: 4px 12px; margin-bottom: 18px; }
+    .modal-card h2 { font-family: var(--serif); font-size: clamp(1.25rem, 3vw, 1.6rem); font-weight: 500; line-height: 1.15; color: var(--ink); margin: 0 0 12px; }
+    .modal-card h2 em { font-style: italic; color: var(--accent); }
+    .modal-card .modal-copy { font-size: 14.5px; color: var(--soft); line-height: 1.65; margin: 0 0 22px; }
+    .modal-form { display: flex; flex-direction: column; gap: 10px; }
+    .modal-input { font-family: var(--sans); font-size: 16px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid var(--line-strong); background: var(--bg); color: var(--ink); width: 100%; box-sizing: border-box; transition: border-color .2s; }
+    .modal-input:focus { outline: none; border-color: var(--accent); }
+    .modal-input::placeholder { color: var(--faint); }
+    .modal-submit { width: 100%; justify-content: center; font-size: 1rem; }
+    .modal-skip { display: block; text-align: center; font-size: 13px; color: var(--faint); margin-top: 14px; cursor: pointer; background: none; border: none; font-family: var(--sans); transition: color .15s; padding: 0; width: 100%; }
+    .modal-skip:hover { color: var(--ink); }
+    .modal-success-state { display: none; text-align: center; padding: 12px 0; }
+
+    @media (min-width: 640px) {
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .profiles-grid { grid-template-columns: 1fr 1fr; }
+      .how-works { grid-template-columns: 1fr 1fr 1fr; }
+      .wait-form { flex-direction: row; }
+      .wait-form .wait-input { flex: 1; }
+      .wait-form .btn-primary { white-space: nowrap; }
+      .dl-all-banner { flex-direction: row; align-items: center; justify-content: space-between; }
+    }
+    @media (min-width: 680px) {
+      .cta-band { grid-template-columns: 1.4fr .9fr; gap: 44px; }
+      .gate-inner { grid-template-columns: 1.1fr 0.9fr; gap: 48px; }
+    }
+    @media (max-width: 679px) {
+      .gate-inner { grid-template-columns: 1fr; gap: 28px; }
+    }
+    @media (min-width: 920px) {
+      .hero-grid { grid-template-columns: 1.5fr .9fr; gap: 56px; }
+      .dl { position: sticky; top: 92px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/"><img src="../../assets/Wordmark/jonatand-fondo-claro.png" alt="Jonatan Domínguez" class="nav-logo" /></a>
+      <div class="nav-links" id="nav-links">
+        <a href="/#sobre-mi">Sobre mí</a>
+        <a href="/#servicios">Cómo trabajamos</a>
+        <a href="/#newsletter">Newsletter</a>
+        <a href="/recursos" style="color:var(--ink);font-weight:600;">Recursos</a>
+      </div>
+      <a href="#skills" class="btn-primary nav-cta-desktop" style="white-space:nowrap;">Ver las skills <span class="arrow">→</span></a>
+      <button class="hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+    </div>
+    <div class="nav-mobile-dropdown" id="nav-dropdown">
+      <a href="/#sobre-mi">Sobre mí</a>
+      <a href="/#servicios">Cómo trabajamos</a>
+      <a href="/#newsletter">Newsletter</a>
+      <a href="/recursos">Recursos</a>
+      <a href="#skills" class="btn-primary">Ver las skills →</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="container">
+      <div class="crumb animate-fade-in">
+        <a href="/recursos">← Recursos</a> &nbsp;/&nbsp; Skills para Claude
+      </div>
+      <div class="hero-grid" style="margin-top: 26px;">
+
+        <div>
+          <div class="htags animate-fade-in">
+            <span class="tag free">Gratis</span>
+            <span class="tag cat">7 Skills para Claude</span>
+            <span class="tag cat">Claude Pro · Claude Team</span>
+          </div>
+          <h1 class="animate-fade-in-up delay-1">7 Skills para Claude — <em>Dale Memoria a Tu IA</em></h1>
+          <p class="intro animate-fade-in-up delay-2">Claude sin configurar responde como si acabara de conocerte — porque literalmente es así. Estas 7 skills cambian eso: le enseñas una vez cómo trabajas, y Claude lo recuerda en todas las conversaciones siguientes.</p>
+        </div>
+
+        <aside class="dl animate-scale-in delay-2">
+          <div class="dl-top">
+            <div class="dl-ic">🧠</div>
+            <div>
+              <div class="dl-nm">skills-para-claude</div>
+              <div class="dl-sub">7 skills · Claude Pro y Team</div>
+            </div>
+          </div>
+          <div class="dl-price"><span class="pdot"></span> Gratis</div>
+          <a href="#skills" class="btn-primary">Ver las 7 skills <span class="arrow">→</span></a>
+          <ul class="dl-meta">
+            <li><span class="ck">✓</span> Tono y voz</li>
+            <li><span class="ck">✓</span> Branding</li>
+            <li><span class="ck">✓</span> Emails difíciles</li>
+            <li><span class="ck">✓</span> Resumen de reuniones</li>
+            <li><span class="ck">✓</span> Presupuestos</li>
+            <li><span class="ck">✓</span> Onboarding de clientes</li>
+            <li><span class="ck">✓</span> Documentación de procesos</li>
+          </ul>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- PROBLEMA -->
+  <div class="skill-section">
+    <div class="container animate-fade-in-up">
+      <p class="sec-eyebrow">El problema</p>
+      <h2>Cada vez que abres Claude, vuelves a ser un desconocido para él</h2>
+      <p class="sec-lead">No es un defecto de Claude — es un problema de configuración. Y tiene solución exacta.</p>
+      <ul class="problem-list">
+        <li>
+          <span class="pnum">01</span>
+          <div>
+            <h3>Empiezas de cero en cada conversación</h3>
+            <p>Tienes que explicarle de nuevo cómo escribes, qué nivel de formalidad usas, si eres directo o prefieres suavizar los mensajes. Cada vez. Eso agota y hace que el resultado nunca sea del todo tuyo.</p>
+          </div>
+        </li>
+        <li>
+          <span class="pnum">02</span>
+          <div>
+            <h3>El resultado nunca suena como tú</h3>
+            <p>Sin contexto sobre tu estilo, Claude escribe de forma genérica. El texto está bien, pero no es tuyo. Acabas reescribiendo la mitad de lo que genera — que es justo lo que querías evitar.</p>
+          </div>
+        </li>
+        <li>
+          <span class="pnum">03</span>
+          <div>
+            <h3>Estás usando el 20% de lo que podría hacer</h3>
+            <p>La mayoría de personas usan Claude como un buscador sofisticado. Las skills desbloquean el otro 80%: que trabaje con tu voz, tu marca y tus procesos, sin que tengas que repetírselo.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- QUÉ SON LAS SKILLS -->
+  <div class="skill-section">
+    <div class="container animate-fade-in-up">
+      <p class="sec-eyebrow">Qué son las skills</p>
+      <h2>Como darle <em>memoria permanente</em> a Claude</h2>
+      <p class="sec-lead">Una skill es un archivo de instrucciones permanentes que Claude carga antes de cada conversación. No es un prompt. Es una configuración persistente que le dice cómo eres, cómo trabajas y qué esperas de él.</p>
+      <div class="analogy-box">
+        <p class="al">La diferencia clave</p>
+        <p>Un prompt se olvida al cerrar la pestaña. Una skill vive en tu proyecto de Claude y está activa en todas las conversaciones. Le enseñas una vez. Lo sabe para siempre.</p>
+      </div>
+      <div class="how-works">
+        <div class="hw-item">
+          <div class="hw-ic">📥</div>
+          <div>
+            <h3>Se instalan una vez</h3>
+            <p>Descargas el archivo, lo añades a tu proyecto de Claude. No hay que repetirlo en cada conversación.</p>
+          </div>
+        </div>
+        <div class="hw-item">
+          <div class="hw-ic">💬</div>
+          <div>
+            <h3>Claude hace las preguntas</h3>
+            <p>Escribes "configurar skill" y Claude empieza a preguntarte cómo trabajas. Tú respondes, él aprende.</p>
+          </div>
+        </div>
+        <div class="hw-item">
+          <div class="hw-ic">✅</div>
+          <div>
+            <h3>Y ya lo sabe siempre</h3>
+            <p>A partir de ahí, Claude aplica ese contexto en cada respuesta, en cada conversación. Sin recordatorios.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS 1–4 (VISIBLES) -->
+  <div class="skills-section-wrap" id="skills">
+    <div class="container animate-fade-in-up" style="padding-top: 72px; padding-bottom: 72px;">
+      <p class="sec-eyebrow">Las 7 skills</p>
+      <h2>Descarga la que necesitas — <em>o las 7 de golpe</em></h2>
+      <p class="sec-lead">Cada skill resuelve un problema concreto de tu trabajo diario. Instálalas todas o empieza por la que más te urja.</p>
+
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <div class="skill-num-wrap">
+            <div class="skill-num">1</div>
+            <span class="skill-ic">✍️</span>
+          </div>
+          <div>
+            <h3>Tono y voz</h3>
+            <p>Claude aprende cómo escribes tú y reescribe cualquier texto con tu estilo exacto. Un texto que suena a ti, no a una IA genérica. Sin explicárselo cada vez.</p>
+            <a href="/recursos/Descargables/las%207%20skills%20que%20todo%20negocio%20debe%20tener.zip" download class="dl-btn">Descargar <span class="arrow">↓</span></a>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-num-wrap">
+            <div class="skill-num">2</div>
+            <span class="skill-ic">🎨</span>
+          </div>
+          <div>
+            <h3>Branding</h3>
+            <p>Le enseñas tus colores, tipografías y estilo visual. Cualquier documento que te genere sigue tu identidad de marca sin tener que recordárselo.</p>
+            <a href="/recursos/Descargables/las%207%20skills%20que%20todo%20negocio%20debe%20tener.zip" download class="dl-btn">Descargar <span class="arrow">↓</span></a>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-num-wrap">
+            <div class="skill-num">3</div>
+            <span class="skill-ic">✉️</span>
+          </div>
+          <div>
+            <h3>Emails difíciles</h3>
+            <p>Cuando tienes un email complicado — un cliente enfadado, una negociación, una queja — Claude te da 3 versiones: una empática, una firme y una diplomática.</p>
+            <a href="/recursos/Descargables/las%207%20skills%20que%20todo%20negocio%20debe%20tener.zip" download class="dl-btn">Descargar <span class="arrow">↓</span></a>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-num-wrap">
+            <div class="skill-num">4</div>
+            <span class="skill-ic">🎙️</span>
+          </div>
+          <div>
+            <h3>Resumen de reuniones</h3>
+            <p>Pegas la transcripción y Claude te saca el resumen, las decisiones tomadas y las tareas pendientes. Una hora de reunión convertida en accionables en 30 segundos.</p>
+            <a href="/recursos/Descargables/las%207%20skills%20que%20todo%20negocio%20debe%20tener.zip" download class="dl-btn">Descargar <span class="arrow">↓</span></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- GATE -->
+  <section class="gate-section" id="gate">
+    <div class="container">
+      <div class="gate-inner">
+        <div class="gate-copy">
+          <div class="progress-label">4 de 7 skills desbloqueadas</div>
+          <div class="progress-bar">
+            <span class="pip filled"></span>
+            <span class="pip filled"></span>
+            <span class="pip filled"></span>
+            <span class="pip filled"></span>
+            <span class="pip"></span>
+            <span class="pip"></span>
+            <span class="pip"></span>
+          </div>
+          <h2>Suscríbete y desbloquea <em class="serif-accent">las 3 skills que faltan</em></h2>
+          <p>Todo lo que aprendo aplicando IA en negocios reales, en tu email. Casos concretos, sistemas que funcionan, errores que me han costado dinero.</p>
+          <p class="gate-note">Sin spam. Solo lo que funciona de verdad.</p>
+        </div>
+        <div class="gate-form-card">
+          <iframe
+            src="https://integrations.funnels.top/widget/form/tzyQu2ttAgX5GaZ6FLcw"
+            id="inline-gate-skills"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Form LP - Skills Claude"
+            data-height="440"
+            data-layout-iframe-id="inline-gate-skills"
+            data-form-id="tzyQu2ttAgX5GaZ6FLcw"
+            title="Suscríbete para desbloquear las 3 skills restantes"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS 5–7 (BLOQUEADAS) -->
+  <div class="locked-content blur-active" id="locked">
+    <div class="container">
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <div class="skill-num-wrap">
+            <div class="skill-num">5</div>
+            <span class="skill-ic">📋</span>
+          </div>
+          <div>
+            <h3>Presupuestos</h3>
+            <p>Claude genera presupuestos profesionales con la estructura que funciona: introducción, alcance, desglose de precios y cierre. Siempre consistentes, siempre con tu tono.</p>
+            <a href="/recursos/Descargables/las%207%20skills%20que%20todo%20negocio%20debe%20tener.zip" download class="dl-btn">Descargar <span class="arrow">↓</span></a>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-num-wrap">
+            <div class="skill-num">6</div>
+            <span class="skill-ic">🤝</span>
+          </div>
+          <div>
+            <h3>Onboarding de clientes</h3>
+            <p>Cada vez que entra un cliente nuevo, Claude genera la checklist interna de lo que tienes que hacer y el documento de bienvenida para el cliente. Automático y consistente.</p>
+            <a href="/recursos/Descargables/las%207%20skills%20que%20todo%20negocio%20debe%20tener.zip" download class="dl-btn">Descargar <span class="arrow">↓</span></a>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-num-wrap">
+            <div class="skill-num">7</div>
+            <span class="skill-ic">📁</span>
+          </div>
+          <div>
+            <h3>Documentación de procesos</h3>
+            <p>Le describes cualquier proceso de tu negocio, aunque sea de forma caótica, y Claude lo convierte en un procedimiento estructurado que cualquiera puede seguir.</p>
+            <a href="/recursos/Descargables/las%207%20skills%20que%20todo%20negocio%20debe%20tener.zip" download class="dl-btn">Descargar <span class="arrow">↓</span></a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="dl-all-banner" style="margin-top: 32px;">
+        <div>
+          <h3>Descarga las 7 de golpe</h3>
+          <p>El pack completo en un solo archivo.</p>
+        </div>
+        <a href="/recursos/Descargables/las%207%20skills%20que%20todo%20negocio%20debe%20tener.zip" download class="btn-primary" style="white-space:nowrap;">Descargar el pack completo <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CÓMO SE INSTALA -->
+  <div class="skill-section">
+    <div class="container animate-fade-in-up">
+      <p class="sec-eyebrow">Instalación</p>
+      <h2>Tres pasos. Cinco minutos. Sin tecnicismos.</h2>
+      <p class="sec-lead">No hace falta saber programar ni entender nada de IA. Si sabes abrir un archivo y escribir un mensaje, puedes configurar estas skills.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="sn">01</div>
+          <div>
+            <h3>Descarga el archivo</h3>
+            <p>Descarga la skill que quieras. Son archivos .md — archivos de texto plano que cualquier ordenador puede abrir. No necesitas instalar nada.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="sn">02</div>
+          <div>
+            <h3>Abre el archivo en Claude</h3>
+            <p>Entra en Claude Pro, crea un Proyecto nuevo (o abre uno que ya tengas) y añade el archivo como documento del proyecto. Claude lo leerá automáticamente en cada conversación.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="sn">03</div>
+          <div>
+            <h3>Escribe "configurar skill"</h3>
+            <p>Claude empieza a hacerte preguntas sobre cómo trabajas — tu tono, tu estilo, tus preferencias. Tú respondes. En 5 minutos ya te conoce y a partir de ahí lo sabe siempre.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PARA QUIÉN ES -->
+  <div class="skill-section">
+    <div class="container animate-fade-in-up">
+      <p class="sec-eyebrow">Para quién es</p>
+      <h2>Para cualquiera que use Claude para trabajar <em>y quiera sacarle más partido</em></h2>
+      <p class="sec-lead">No hace falta saber programar ni entender de IA. Solo tener Claude Pro y 5 minutos.</p>
+      <div class="profiles-grid">
+        <div class="profile-item">
+          <span class="profile-ic">👤</span>
+          <div>
+            <h3>Autónomos</h3>
+            <p>Que facturan solos y necesitan que Claude trabaje con su voz y sus estándares sin repetírselo cada vez</p>
+          </div>
+        </div>
+        <div class="profile-item">
+          <span class="profile-ic">🏪</span>
+          <div>
+            <h3>Pequeños negocios</h3>
+            <p>Con equipo pequeño donde todos usan Claude pero nadie lo ha configurado para que trabaje bien</p>
+          </div>
+        </div>
+        <div class="profile-item">
+          <span class="profile-ic">💼</span>
+          <div>
+            <h3>Consultores y asesores</h3>
+            <p>Que producen mucha documentación y quieren que siempre suene profesional y coherente con su marca</p>
+          </div>
+        </div>
+        <div class="profile-item">
+          <span class="profile-ic">🎯</span>
+          <div>
+            <h3>Profesionales independientes</h3>
+            <p>Que ya usan Claude de vez en cuando pero saben que podrían sacarle mucho más partido con una configuración básica</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="skill-section">
+    <div class="container animate-fade-in-up">
+      <p class="sec-eyebrow">Preguntas frecuentes</p>
+      <h2>Dudas que probablemente tienes</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>¿Necesito Claude Pro?</h3>
+          <p>Sí. Las skills de Claude requieren un plan Claude Pro, Max, Team o Enterprise. El plan gratuito de claude.ai no incluye soporte para skills. Si ya usas Claude de vez en cuando, el salto a Pro merece la pena.</p>
+        </div>
+        <div class="faq-item">
+          <h3>¿Cuánto tiempo lleva configurarlas?</h3>
+          <p>Instalar una skill lleva menos de 2 minutos. Configurarla — responder las preguntas de Claude — tarda entre 3 y 10 minutos según la skill. Las 7 configuradas en una tarde tranquila.</p>
+        </div>
+        <div class="faq-item">
+          <h3>¿Puedo cambiarlas después?</h3>
+          <p>Sí. Puedes editar el archivo de la skill en cualquier momento y volver a ejecutar la configuración. Si cambias de estilo o de marca, en 5 minutos Claude lo sabe. No hay límite de modificaciones.</p>
+        </div>
+        <div class="faq-item">
+          <h3>¿Funcionan en español?</h3>
+          <p>Sí. Todas las skills están escritas en español y diseñadas para el mercado hispanohablante — tanto España como Latinoamérica.</p>
+        </div>
+        <div class="faq-item">
+          <h3>¿Son gratis de verdad?</h3>
+          <p>Sí. Todas las skills son gratuitas. Solo necesitas tener una cuenta Claude Pro activa para usarlas una vez descargadas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BAND -->
+  <div style="padding: 72px 0; border-bottom: 1px solid var(--line);">
+    <div class="container animate-fade-in-up">
+      <div class="cta-band">
+        <div>
+          <p class="band-eyebrow">Empieza ahora</p>
+          <h2>En 5 minutos, Claude puede trabajar como si te conociera de hace meses</h2>
+          <p>O puedes seguir explicándole quién eres cada vez que abres una conversación nueva. La elección es tuya.</p>
+        </div>
+        <div class="cta-side">
+          <a href="#skills" class="btn-primary">Ver las 7 skills <span class="arrow">→</span></a>
+          <span class="cta-note">7 skills · Gratis · Compatible con Claude Pro y Team</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMUNIDAD -->
+  <section class="community-section" id="comunidad">
+    <div class="container animate-fade-in-up">
+      <div class="comm-card">
+        <p class="comm-eyebrow">Comunidad · Lista de espera</p>
+        <h2>¿Eres profesional o dueño de negocio y quieres aplicar IA en tu trabajo? <em>No estás solo.</em></h2>
+        <p>Da igual si llevas un despacho, una cartera de clientes o un negocio con equipo: aquí hay gente en tu misma situación contando qué les está funcionando de verdad con IA — y qué no. Yo modero la conversación para que se quede en lo aplicable a tu día a día.</p>
+        <p>Apúntate a la lista de espera. <strong>Aviso primero a quien ya está dentro en cuanto haya plazas.</strong></p>
+        <div id="acm-form-wrap-skills">
+          <form
+            action="https://acumbamail.com/newform/subscribe/FGoAPLkT2C2N1Dw4kOwsFX7b4MhT1VDL1GwerFCP8tP0ry/63219/?iframe=1"
+            target="acm_result_skills"
+            method="post"
+            class="wait-form"
+            id="acm-form-skills"
+          >
+            <input class="wait-input" name="email_1" type="email" placeholder="tu@email.com" required autocomplete="email" aria-label="Tu email" />
+            <input type="text" name="a1415185c" tabindex="-1" value="" style="position:absolute;left:-4900px" aria-hidden="true" autocomplete="off"/>
+            <input type="email" name="b1415185c" tabindex="-1" value="" style="position:absolute;left:-5000px" aria-hidden="true" autocomplete="off"/>
+            <input type="checkbox" name="c1415185c" tabindex="-1" style="position:absolute;left:-5100px" aria-hidden="true" autocomplete="off"/>
+            <input type="hidden" name="ok_redirect" value="">
+            <button type="submit" class="btn-primary" style="white-space:nowrap;">Apuntarme a la lista <span class="arrow">→</span></button>
+            <iframe name="acm_result_skills" style="display:none" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </form>
+        </div>
+        <div class="acm-success" id="acm-success-skills">
+          <div class="acm-success-check">✓</div>
+          <p class="acm-success-title">¡Apuntado!</p>
+          <p class="acm-success-body">Te aviso en cuanto haya plazas — serás de los primeros en saberlo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL COMUNIDAD (se abre al descargar skills 1-4) -->
+  <div class="modal-overlay" id="dl-modal" role="dialog" aria-modal="true" aria-label="Lista de espera comunidad">
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close" aria-label="Cerrar">✕</button>
+      <div id="modal-form-wrap">
+        <span class="modal-pill">Comunidad · Lista de espera</span>
+        <h2>¿Eres dueño de negocio y quieres aplicar IA? <em>No estás solo.</em></h2>
+        <p class="modal-copy">Hay gente en tu misma situación contando qué les está funcionando de verdad con IA — y qué no. Apúntate y te aviso cuando haya plazas disponibles.</p>
+        <form
+          action="https://acumbamail.com/newform/subscribe/FGoAPLkT2C2N1Dw4kOwsFX7b4MhT1VDL1GwerFCP8tP0ry/63219/?iframe=1"
+          target="acm_result_modal_skills"
+          method="post"
+          class="modal-form"
+          id="acm-form-modal-skills"
+        >
+          <input class="modal-input" name="email_1" type="email" placeholder="tu@email.com" required autocomplete="email" aria-label="Tu email" />
+          <input type="text" name="a1415185c" tabindex="-1" value="" style="position:absolute;left:-4900px" aria-hidden="true" autocomplete="off"/>
+          <input type="email" name="b1415185c" tabindex="-1" value="" style="position:absolute;left:-5000px" aria-hidden="true" autocomplete="off"/>
+          <input type="checkbox" name="c1415185c" tabindex="-1" style="position:absolute;left:-5100px" aria-hidden="true" autocomplete="off"/>
+          <input type="hidden" name="ok_redirect" value="">
+          <button type="submit" class="btn-primary modal-submit">Apuntarme a la lista <span class="arrow">→</span></button>
+          <iframe name="acm_result_modal_skills" style="display:none" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </form>
+        <button class="modal-skip" id="modal-skip">Saltar por ahora</button>
+      </div>
+      <div class="modal-success-state" id="modal-success">
+        <div class="acm-success-check" style="margin:0 auto 18px;">✓</div>
+        <p class="acm-success-title">¡Apuntado!</p>
+        <p class="acm-success-body">Te aviso en cuanto haya plazas — serás de los primeros en saberlo.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/scroll-animations.js" defer></script>
+  <script>
+  // Unlock blurred content on gate form submit
+  (function() {
+    window.addEventListener('message', function(e) {
+      if (!e.data) return;
+      var d = e.data;
+      if (
+        (typeof d === 'string' && (d.includes('submit') || d.includes('success'))) ||
+        (typeof d === 'object' && (
+          d.type === 'form-submitted' || d.type === 'gtm.formSubmit' ||
+          d.formId === 'tzyQu2ttAgX5GaZ6FLcw' ||
+          d.event === 'form_submitted' || d.submitted === true
+        ))
+      ) {
+        var locked = document.getElementById('locked');
+        if (locked) locked.classList.remove('blur-active');
+      }
+    });
+  })();
+
+  // Download modal (fires on skills 1-4 download clicks)
+  (function() {
+    var overlay   = document.getElementById('dl-modal');
+    var formWrap  = document.getElementById('modal-form-wrap');
+    var successEl = document.getElementById('modal-success');
+    var modalForm = document.getElementById('acm-form-modal-skills');
+
+    function openModal() {
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      setTimeout(function() {
+        var inp = overlay.querySelector('.modal-input');
+        if (inp) inp.focus();
+      }, 150);
+    }
+    function closeModal() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Only trigger modal on the visible (non-locked) download buttons
+    document.querySelectorAll('#skills .dl-btn').forEach(function(a) {
+      a.addEventListener('click', function() {
+        setTimeout(openModal, 350);
+      });
+    });
+
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    document.getElementById('modal-skip').addEventListener('click', closeModal);
+
+    if (modalForm) {
+      modalForm.addEventListener('submit', function() {
+        setTimeout(function() {
+          formWrap.style.display = 'none';
+          successEl.style.display = 'block';
+          setTimeout(closeModal, 2200);
+        }, 800);
+      });
+    }
+  })();
+
+  // Community section form success
+  (function() {
+    var form = document.getElementById('acm-form-skills');
+    if (form) {
+      form.addEventListener('submit', function() {
+        setTimeout(function() {
+          document.getElementById('acm-form-wrap-skills').style.display = 'none';
+          document.getElementById('acm-success-skills').style.display = 'block';
+        }, 800);
+      });
+    }
+  })();
+
+  // Hamburger
+  (function () {
+    var btn = document.getElementById('hamburger');
+    var dropdown = document.getElementById('nav-dropdown');
+    if (btn && dropdown) {
+      btn.addEventListener('click', function () {
+        var isOpen = dropdown.classList.toggle('open');
+        btn.classList.toggle('open');
+        document.body.classList.toggle('menu-open', isOpen);
+      });
+      dropdown.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          dropdown.classList.remove('open');
+          btn.classList.remove('open');
+          document.body.classList.remove('menu-open');
+        });
+      });
+    }
+  })();
+  </script>
+
+  <footer class="footer">
+    <div class="container foot-in">
+      <img src="../../assets/Wordmark/jonatand-fondo-claro.png" alt="Jonatan Domínguez" class="nav-logo" />
+      <nav class="foot-links">
+        <a href="/#sobre-mi">Sobre mí</a>
+        <a href="/#servicios">Cómo trabajamos</a>
+        <a href="/#newsletter">Newsletter</a>
+        <a href="/recursos">Recursos</a>
+        <a href="/reunion">Agendar una llamada</a>
+      </nav>
+      <p class="foot-meta">© 2026 Jonatan Domínguez</p>
+    </div>
+  </footer>
+
+</body>
+</html>

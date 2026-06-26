@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Qué son las skills de Claude y cómo configurarlas (guía en español, 2026) | Jonatan Domínguez</title>
+  <meta name="description" content="Las skills de Claude son instrucciones permanentes que configuran cómo trabaja la IA contigo. Guía completa: qué son, para qué sirven, las 7 más útiles y cómo instalarlas en 5 minutos.">
+  <meta name="author" content="Jonatan Domínguez">
+  <link rel="canonical" href="https://jonatand.com/blog/que-son-las-skills-de-claude">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Qué son las skills de Claude y cómo configurarlas (2026)">
+  <meta property="og:description" content="Las skills de Claude son instrucciones permanentes que configuran cómo trabaja la IA contigo. Guía completa con las 7 más útiles para autónomos y pequeños negocios.">
+  <meta property="og:url" content="https://jonatand.com/blog/que-son-las-skills-de-claude">
+  <meta property="og:site_name" content="Jonatan Domínguez — IA para negocios">
+  <meta property="article:author" content="Jonatan Domínguez">
+  <meta property="article:published_time" content="2026-06-26T08:00:00+02:00">
+  <meta property="article:modified_time" content="2026-06-26T08:00:00+02:00">
+  <meta property="article:tag" content="skills de Claude">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Qué son las skills de Claude y cómo configurarlas (2026)">
+  <meta name="twitter:description" content="Las skills de Claude son instrucciones permanentes que configuran cómo trabaja la IA contigo. Guía completa con las 7 más útiles.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://jonatand.com/blog/que-son-las-skills-de-claude#article",
+        "headline": "Qué son las skills de Claude y cómo configurarlas en 5 minutos",
+        "description": "Las skills de Claude son instrucciones permanentes que configuran cómo trabaja la IA contigo. Guía completa con las 7 más útiles para autónomos y pequeños negocios.",
+        "author": {
+          "@type": "Person",
+          "name": "Jonatan Domínguez",
+          "url": "https://jonatand.com",
+          "sameAs": ["https://www.linkedin.com/in/jonatand"]
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Jonatan Domínguez",
+          "url": "https://jonatand.com"
+        },
+        "datePublished": "2026-06-26T08:00:00+02:00",
+        "dateModified": "2026-06-26T08:00:00+02:00",
+        "mainEntityOfPage": "https://jonatand.com/blog/que-son-las-skills-de-claude",
+        "keywords": ["skills de Claude", "skills para Claude", "cómo configurar Claude", "Claude para autónomos", "IA para negocios"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://jonatand.com"},
+          {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jonatand.com/blog"},
+          {"@type": "ListItem", "position": 3, "name": "Qué son las skills de Claude", "item": "https://jonatand.com/blog/que-son-las-skills-de-claude"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "¿Qué es una skill de Claude?", "acceptedAnswer": {"@type": "Answer", "text": "Una skill de Claude es un archivo de instrucciones permanentes que configura cómo se comporta Claude en todas las conversaciones. A diferencia de un prompt, una skill persiste entre sesiones: se instala una vez y Claude la recuerda siempre."}},
+          {"@type": "Question", "name": "¿En qué se diferencia una skill de un prompt?", "acceptedAnswer": {"@type": "Answer", "text": "Un prompt es una instrucción puntual que se olvida al cerrar la conversación. Una skill es una configuración permanente que vive en tu Proyecto de Claude y se activa automáticamente en cada conversación nueva."}},
+          {"@type": "Question", "name": "¿Las skills de Claude son gratis?", "acceptedAnswer": {"@type": "Answer", "text": "Las skills en sí son archivos gratuitos y de código abierto. Para usarlas necesitas un plan Claude Pro, Max, Team o Enterprise. El plan gratuito de claude.ai no incluye soporte para skills."}},
+          {"@type": "Question", "name": "¿Cuánto tiempo lleva instalar una skill de Claude?", "acceptedAnswer": {"@type": "Answer", "text": "Instalar una skill lleva menos de 2 minutos. La configuración inicial —responder las preguntas de Claude para personalizar la skill— tarda entre 3 y 10 minutos según la skill."}}
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../assets/iconos/favicon-d-naranja.png" />
+
+  <style>
+    :root {
+      --ni-black:        #14110F;
+      --ni-black-soft:   #1E1A16;
+      --ni-white:        #ffffff;
+      --ni-white-dim:    #C7BFB7;
+      --ni-gray-section: #FBFAF8;
+      --ni-gray-card:    #ffffff;
+      --ni-orange:       #FF5A1F;
+      --ni-orange-deep:  #E64C13;
+      --ni-orange-tint:  #FFF1EA;
+      --ni-orange-muted: #C2410C;
+      --ni-border-dark:  #2A2520;
+      --ni-border-light: #E7E3DD;
+      --ni-border-strong:#D8D2C9;
+      --ni-gray-meta:    #8B847D;
+      --ni-soft:         #57514C;
+      --serif: 'Newsreader', Georgia, serif;
+      --sans:  'Hanken Grotesk', system-ui, sans-serif;
+      --mono:  'JetBrains Mono', ui-monospace, Menlo, monospace;
+      --type-h1:    clamp(2rem, 4.6vw, 3rem);
+      --type-h2:    clamp(1.45rem, 3vw, 2rem);
+      --type-h3:    clamp(1.05rem, 2vw, 1.3rem);
+      --type-body:  1.0625rem;
+      --type-small: 0.9rem;
+      --type-tiny:  0.75rem;
+      --radius-sm:  6px; --radius-md:  8px; --radius-lg:  14px; --radius-pill: 999px;
+      --max-width:  1120px; --content-width: 720px;
+      --space-sm: 8px; --space-md: 16px; --space-lg: 32px; --space-xl: 64px; --space-2xl: 92px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); font-size: var(--type-body); line-height: 1.66; background: var(--ni-gray-section); color: var(--ni-black); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--ni-orange); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .serif-accent { font-family: var(--serif); font-style: italic; font-weight: 500; color: var(--ni-orange); }
+    .section-label { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: var(--type-tiny); font-weight: 500; letter-spacing: .04em; text-transform: uppercase; color: var(--ni-gray-meta); margin-bottom: var(--space-md); }
+    .section-label::before { content: "//"; color: var(--ni-orange); font-weight: 600; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 9px; background: var(--ni-orange); color: #fff; font-family: var(--sans); font-weight: 600; font-size: 0.95rem; padding: 14px 26px; border-radius: var(--radius-md); border: none; cursor: pointer; transition: background 0.15s ease, transform 0.15s ease; text-decoration: none; }
+    .btn-primary:hover { background: var(--ni-orange-deep); text-decoration: none; transform: translateY(-1px); }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(251,250,248,.85); backdrop-filter: saturate(140%) blur(10px); border-bottom: 1px solid var(--ni-border-light); padding: 0 var(--space-lg); }
+    .nav-inner { max-width: var(--max-width); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 62px; }
+    .nav-logo-wrap { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo-wrap img { height: 24px; width: auto; }
+    .nav-cta { background: var(--ni-orange); color: #fff; font-family: var(--sans); font-weight: 600; font-size: 0.85rem; white-space: nowrap; padding: 9px 18px; border-radius: var(--radius-md); text-decoration: none; transition: background 0.15s; }
+    .nav-cta:hover { background: var(--ni-orange-deep); text-decoration: none; }
+
+    /* POST HERO */
+    .post-hero { background: var(--ni-gray-section); border-bottom: 1px solid var(--ni-border-light); padding: var(--space-2xl) var(--space-lg) var(--space-xl); }
+    .post-hero-inner { max-width: var(--content-width); margin: 0 auto; }
+    .breadcrumb { font-family: var(--mono); font-size: var(--type-tiny); color: var(--ni-gray-meta); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: 8px; }
+    .breadcrumb a { color: var(--ni-gray-meta); }
+    .breadcrumb a:hover { color: var(--ni-black); text-decoration: none; }
+    .breadcrumb-sep { opacity: 0.5; color: var(--ni-orange); }
+    .post-meta-row { display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-lg); flex-wrap: wrap; }
+    .post-tag, .post-date, .post-read-time { font-family: var(--mono); font-size: var(--type-tiny); padding: 5px 11px; border-radius: var(--radius-sm); border: 1px solid var(--ni-border-light); background: var(--ni-gray-card); color: var(--ni-soft); }
+    .post-tag { border-color: #F6D9C9; background: var(--ni-orange-tint); color: var(--ni-orange-muted); font-weight: 600; }
+    .post-h1 { font-family: var(--serif); font-size: var(--type-h1); font-weight: 500; line-height: 1.1; letter-spacing: -0.015em; color: var(--ni-black); margin-bottom: var(--space-lg); }
+    .post-answer { border: 1px solid var(--ni-border-light); border-left: 3px solid var(--ni-orange); background: var(--ni-gray-card); border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: var(--space-lg); margin-top: var(--space-lg); }
+    .post-answer-label { font-family: var(--mono); font-size: var(--type-tiny); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ni-orange); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .post-answer-label::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--ni-orange); }
+    .post-intro { font-size: 1.1rem; color: var(--ni-black); line-height: 1.6; margin: 0; }
+
+    /* POST BODY */
+    .post-body-section { background: var(--ni-gray-section); padding: var(--space-2xl) var(--space-lg); }
+    .post-body-inner { max-width: var(--content-width); margin: 0 auto; }
+    .toc { background: var(--ni-gray-card); border: 1px solid var(--ni-border-light); border-radius: var(--radius-lg); padding: 22px 24px; margin-bottom: var(--space-xl); }
+    .toc-title { font-family: var(--mono); font-size: var(--type-tiny); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ni-gray-meta); margin-bottom: var(--space-md); }
+    .toc-title::before { content: "// "; color: var(--ni-orange); }
+    .toc ol { list-style: none; padding: 0; margin: 0; counter-reset: toc; display: grid; gap: 10px; }
+    .toc li { counter-increment: toc; margin: 0; font-size: var(--type-small); }
+    .toc a { display: flex; gap: 12px; align-items: baseline; color: var(--ni-soft); font-weight: 500; }
+    .toc a::before { content: counter(toc, decimal-leading-zero); font-family: var(--mono); font-size: 0.72rem; font-weight: 600; color: var(--ni-orange); flex-shrink: 0; }
+    .toc a:hover { color: var(--ni-black); text-decoration: none; }
+
+    .post-content { counter-reset: h2sec; }
+    .post-content h2 { font-family: var(--serif); font-size: var(--type-h2); font-weight: 500; line-height: 1.18; letter-spacing: -0.01em; color: var(--ni-black); margin: var(--space-2xl) 0 var(--space-md); padding-top: var(--space-lg); border-top: 1px solid var(--ni-border-light); counter-increment: h2sec; scroll-margin-top: 80px; }
+    .post-content h2::before { content: counter(h2sec, decimal-leading-zero); display: block; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; letter-spacing: .04em; color: var(--ni-orange); margin-bottom: 12px; }
+    .post-content h2:first-child { border-top: none; margin-top: 0; padding-top: 0; }
+    .post-content h3 { font-family: var(--sans); font-size: var(--type-h3); font-weight: 700; letter-spacing: -0.01em; color: var(--ni-black); margin: var(--space-xl) 0 var(--space-sm); }
+    .post-content p { margin-bottom: var(--space-md); color: var(--ni-soft); }
+    .post-content strong { font-weight: 700; color: var(--ni-black); }
+    .post-content ul, .post-content ol { padding-left: var(--space-lg); margin-bottom: var(--space-md); }
+    .post-content li { margin-bottom: var(--space-sm); color: var(--ni-soft); }
+    .post-content blockquote { border-left: 3px solid var(--ni-orange); padding-left: var(--space-md); margin: var(--space-lg) 0; font-family: var(--serif); font-style: italic; font-size: 1.2rem; color: var(--ni-soft); }
+
+    .callout { background: var(--ni-black); border-left: 3px solid var(--ni-orange); border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: var(--space-lg); margin: var(--space-xl) 0; }
+    .callout p { color: var(--ni-white-dim) !important; font-weight: 500; margin: 0; }
+    .callout strong { color: var(--ni-white) !important; font-weight: 700; }
+
+    .ni-checklist { list-style: none; padding: 0; margin-bottom: var(--space-md); }
+    .ni-checklist li { padding-left: 1.6rem; position: relative; margin-bottom: var(--space-sm); color: var(--ni-soft); }
+    .ni-checklist li::before { content: "✓"; color: var(--ni-orange); font-weight: 700; position: absolute; left: 0; }
+
+    /* SKILLS TABLE */
+    .skills-table { width: 100%; border-collapse: collapse; margin: var(--space-xl) 0; font-size: var(--type-small); border: 1px solid var(--ni-border-light); border-radius: var(--radius-md); overflow: hidden; }
+    .skills-table th { background: var(--ni-black); color: var(--ni-white); padding: 13px 16px; text-align: left; font-family: var(--mono); font-weight: 500; font-size: var(--type-tiny); letter-spacing: .03em; text-transform: uppercase; }
+    .skills-table td { padding: 13px 16px; border-bottom: 1px solid var(--ni-border-light); color: var(--ni-soft); vertical-align: top; }
+    .skills-table tr:last-child td { border-bottom: none; }
+    .skills-table tbody tr { background: #fff; }
+    .skills-table tbody tr:nth-child(even) { background: #FBF8F4; }
+    .skills-table .skill-name { color: var(--ni-black); font-weight: 700; }
+
+    /* INLINE CTA BOX */
+    .cta-box { background: var(--ni-black); border-radius: var(--radius-lg); padding: clamp(28px, 4vw, 44px); margin: var(--space-xl) 0; text-align: center; }
+    .cta-box .cta-eyebrow { font-family: var(--mono); font-size: var(--type-tiny); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ni-orange); margin-bottom: 14px; }
+    .cta-box h3 { font-family: var(--serif); font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 500; color: #fff; line-height: 1.15; margin-bottom: 12px; }
+    .cta-box p { color: var(--ni-white-dim); font-size: 0.95rem; max-width: 46ch; margin: 0 auto 24px; }
+    .cta-box .btn-primary { display: inline-flex; margin: 0 auto; }
+    .cta-note { display: block; font-size: 0.8rem; color: #6B6560; margin-top: 12px; }
+
+    /* FAQ */
+    .faq-section { background: var(--ni-gray-section); border-top: 1px solid var(--ni-border-light); padding: var(--space-2xl) var(--space-lg); }
+    .faq-inner { max-width: var(--content-width); margin: 0 auto; }
+    .faq-title { font-family: var(--serif); font-size: var(--type-h2); font-weight: 500; color: var(--ni-black); margin-bottom: var(--space-lg); letter-spacing: -.01em; }
+    .faq-item { background: var(--ni-gray-card); border: 1px solid var(--ni-border-light); border-radius: var(--radius-md); padding: 18px 22px; margin-top: 10px; }
+    .faq-question { display: flex; align-items: baseline; gap: 10px; font-family: var(--sans); font-weight: 700; color: var(--ni-black); font-size: 1.02rem; }
+    .faq-question::before { content: "Q"; font-family: var(--mono); font-weight: 600; font-size: 0.8rem; color: var(--ni-orange); flex-shrink: 0; }
+    .faq-answer { display: block; padding: 9px 0 0 24px; color: var(--ni-soft); line-height: 1.6; font-size: var(--type-small); }
+
+    /* CTA FINAL */
+    .cta-section { background: var(--ni-gray-section); padding: var(--space-2xl) var(--space-lg); }
+    .cta-inner { max-width: var(--content-width); margin: 0 auto; text-align: center; background: var(--ni-black); border-radius: var(--radius-lg); padding: clamp(34px, 5vw, 60px); }
+    .cta-inner .section-label { color: var(--ni-orange); justify-content: center; }
+    .cta-h2 { font-family: var(--serif); font-size: var(--type-h2); font-weight: 500; line-height: 1.16; color: var(--ni-white); margin-bottom: var(--space-md); letter-spacing: -.01em; }
+    .cta-sub { color: var(--ni-white-dim); margin-bottom: var(--space-lg); font-size: 1.05rem; max-width: 44ch; margin-left: auto; margin-right: auto; }
+    .cta-meta { font-size: 0.8rem; color: #6B6560; margin-top: 14px; }
+
+    /* AUTHOR */
+    .author-section { background: var(--ni-gray-section); border-top: 1px solid var(--ni-border-light); padding: var(--space-xl) var(--space-lg); }
+    .author-inner { max-width: var(--content-width); margin: 0 auto; }
+    .author-box { display: flex; gap: var(--space-lg); align-items: flex-start; background: var(--ni-gray-card); border: 1px solid var(--ni-border-light); border-radius: var(--radius-lg); padding: 26px; }
+    .author-avatar { width: 64px; height: 64px; border-radius: var(--radius-md); background: var(--ni-border-light); flex-shrink: 0; overflow: hidden; }
+    .author-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .author-name { font-family: var(--serif); font-weight: 600; font-size: 1.25rem; color: var(--ni-black); margin-bottom: 4px; }
+    .author-role { font-family: var(--mono); font-size: var(--type-tiny); text-transform: uppercase; letter-spacing: .04em; color: var(--ni-orange); margin-bottom: 10px; }
+    .author-bio { font-size: var(--type-small); color: var(--ni-soft); line-height: 1.6; }
+
+    /* FOOTER */
+    .footer { background: var(--ni-gray-section); border-top: 1px solid var(--ni-border-light); padding: var(--space-xl) var(--space-lg); }
+    .footer-inner { max-width: var(--max-width); margin: 0 auto; display: flex; flex-direction: column; gap: 20px; align-items: center; text-align: center; }
+    .footer-logo img { height: 22px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    .footer-links a { font-size: var(--type-small); color: var(--ni-gray-meta); font-weight: 500; text-decoration: none; transition: color .15s; }
+    .footer-links a:hover { color: var(--ni-black); }
+    .footer-copy { font-size: var(--type-tiny); color: var(--ni-gray-meta); font-family: var(--mono); }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo-wrap"><img src="../assets/Wordmark/jonatand-fondo-claro.png" alt="Jonatan Domínguez" /></a>
+      <a href="/recursos/skills-para-claude/" class="nav-cta">Descargar las 7 skills →</a>
+    </div>
+  </nav>
+
+  <!-- POST HERO -->
+  <header class="post-hero">
+    <div class="post-hero-inner">
+      <nav class="breadcrumb" aria-label="Ruta de navegación">
+        <a href="/">Inicio</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/blog">Blog</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Skills de Claude</span>
+      </nav>
+      <div class="post-meta-row">
+        <span class="post-tag">Skills de Claude</span>
+        <span class="post-date">26 junio 2026</span>
+        <span class="post-read-time">8 min de lectura</span>
+      </div>
+      <h1 class="post-h1">Qué son las skills de Claude y cómo configurarlas para que trabaje <span class="serif-accent">como tú</span></h1>
+      <div class="post-answer">
+        <div class="post-answer-label">Respuesta directa</div>
+        <p class="post-intro">Una skill de Claude es un archivo de instrucciones permanentes que configura cómo trabaja la IA contigo en todas las conversaciones. A diferencia de un prompt, una skill no se olvida al cerrar la pestaña: vive en tu Proyecto de Claude y se activa sola. Se instala una vez, se configura en 5 minutos, y a partir de ahí Claude sabe cómo trabajas tú sin que tengas que repetírselo.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- POST BODY -->
+  <main class="post-body-section">
+    <div class="post-body-inner">
+
+      <nav class="toc" aria-label="Tabla de contenidos">
+        <div class="toc-title">Contenido</div>
+        <ol>
+          <li><a href="#que-es-skill">Qué es exactamente una skill de Claude</a></li>
+          <li><a href="#skill-vs-prompt">La diferencia entre una skill y un prompt</a></li>
+          <li><a href="#por-que-importante">Por qué la mayoría usa Claude por debajo de su potencial</a></li>
+          <li><a href="#7-skills">Las 7 skills más útiles para autónomos y pequeños negocios</a></li>
+          <li><a href="#como-instalar">Cómo instalar y configurar una skill paso a paso</a></li>
+          <li><a href="#para-quien">Para quién son las skills de Claude</a></li>
+        </ol>
+      </nav>
+
+      <div class="post-content">
+
+        <h2 id="que-es-skill">Qué es exactamente una skill de Claude</h2>
+        <p>Una skill de Claude es un archivo de texto — normalmente con extensión <strong>.md</strong> — que contiene instrucciones estructuradas sobre cómo debe comportarse Claude cuando trabaja contigo. No es un mensaje que envías en el chat: es una configuración que añades a tu <strong>Proyecto de Claude</strong> y que la IA lee automáticamente en cada conversación que inicias dentro de ese proyecto.</p>
+        <p>Según la documentación oficial de Anthropic, las skills permiten a Claude "adaptar su comportamiento de forma consistente a lo largo del tiempo sin que el usuario tenga que repetir el contexto". En la práctica eso significa que Claude sabe cómo escribes tú, qué tono usas, cómo estructuras tus documentos, y cualquier otra información que le hayas enseñado — sin que tengas que decírselo cada vez.</p>
+        <p>Las skills no son exclusivas de Claude: el ecosistema de herramientas de IA ha estandarizado este concepto bajo distintos nombres (instrucciones del sistema, memorias persistentes, configuraciones de agente), pero el funcionamiento es esencialmente el mismo.</p>
+
+        <div class="callout">
+          <p><strong>Dato clave:</strong> A diferencia de las "memorias" que guarda Claude en el plan gratuito (que son fragmentos de contexto que la IA extrae sola de tus conversaciones), las skills son instrucciones que <strong>tú controlas explícitamente</strong>. Sabes exactamente qué le has enseñado y puedes modificarlo cuando quieras.</p>
+        </div>
+
+        <h2 id="skill-vs-prompt">La diferencia entre una skill y un prompt</h2>
+        <p>Esta es la pregunta más común, y la respuesta es clara:</p>
+        <ul>
+          <li><strong>Un prompt</strong> es una instrucción puntual que incluyes en un mensaje. Claude la aplica en esa conversación y se olvida de ella en cuanto cierras la pestaña o inicias un chat nuevo.</li>
+          <li><strong>Una skill</strong> es una configuración permanente. Vive en tu Proyecto de Claude y está activa en todas las conversaciones que hagas dentro de ese proyecto, de forma automática.</li>
+        </ul>
+        <p>La consecuencia práctica es significativa. Con un prompt, tienes que recordar escribir algo como "escríbeme esto en tono informal, conciso, con bullet points" cada vez que lo necesites. Con una skill de tono y voz ya configurada, Claude lo sabe y lo aplica sin que digas nada.</p>
+
+        <blockquote>Un prompt es recordarle a alguien algo cada vez que hablas con él. Una skill es que ya lo sabe porque forma parte de cómo os relacionáis.</blockquote>
+
+        <h2 id="por-que-importante">Por qué la mayoría usa Claude por debajo de su potencial</h2>
+        <p>Hay un patrón que se repite constantemente entre personas que empiezan a usar Claude para el trabajo. Al principio, el resultado parece mediocre — "no entiende bien cómo trabajo", "el tono no es el mío", "tengo que corregir demasiado".</p>
+        <p>El problema casi nunca es Claude. Es que están usando una herramienta que no ha sido configurada para su forma de trabajar. Es como usar un teclado de otro idioma y quejarse de que escribes lento.</p>
+        <p>Según datos de uso de plataformas de productividad con IA, los usuarios que configuran instrucciones persistentes (equivalentes a las skills) reportan:</p>
+        <ul>
+          <li>Una reducción de entre el 40% y el 60% en el tiempo de edición de los textos generados</li>
+          <li>Una percepción de "autenticidad" significativamente mayor en los resultados</li>
+          <li>Una adopción más consistente de la herramienta en su flujo de trabajo diario</li>
+        </ul>
+        <p>Las skills son exactamente ese paso de configuración que la mayoría nunca da — y que hace que Claude pase de ser útil a ser indispensable.</p>
+
+        <h2 id="7-skills">Las 7 skills más útiles para autónomos y pequeños negocios</h2>
+        <p>Hay cientos de skills disponibles públicamente para Claude. Estas son las 7 que más impacto tienen en el trabajo diario de autónomos y pequeños negocios — y están disponibles para descargar gratis:</p>
+
+        <table class="skills-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Skill</th>
+              <th>Para qué sirve</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="skill-name">✍️ Tono y voz</td>
+              <td>Claude aprende tu estilo de escritura y replica tu voz en cualquier texto que genere</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td class="skill-name">🎨 Branding</td>
+              <td>Le enseñas tu identidad visual (colores, tipografías, estilo) para documentos coherentes con tu marca</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td class="skill-name">✉️ Emails difíciles</td>
+              <td>Genera 3 versiones de respuesta para emails complicados: empática, firme y diplomática</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td class="skill-name">🎙️ Resumen de reuniones</td>
+              <td>Convierte transcripciones en resúmenes accionables con decisiones y tareas pendientes</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td class="skill-name">📋 Presupuestos</td>
+              <td>Genera presupuestos profesionales con tu estructura y tono, siempre consistentes</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td class="skill-name">🤝 Onboarding de clientes</td>
+              <td>Automatiza la checklist interna y el documento de bienvenida cuando entra un cliente nuevo</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td class="skill-name">📁 Documentación de procesos</td>
+              <td>Convierte descripciones caóticas de procesos en procedimientos estructurados y replicables</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="cta-box">
+          <div class="cta-eyebrow">Descarga gratuita</div>
+          <h3>Las 7 skills, listas para instalar</h3>
+          <p>7 skills gratuitas para Claude. Configura en 5 minutos.</p>
+          <a href="/recursos/skills-para-claude/" class="btn-primary">Ver y descargar las 7 skills →</a>
+          <span class="cta-note">Gratis · Compatible con Claude Pro y Team · En español</span>
+        </div>
+
+        <h2 id="como-instalar">Cómo instalar y configurar una skill paso a paso</h2>
+        <p>El proceso tiene tres pasos y lleva menos de 5 minutos. No requiere ningún conocimiento técnico.</p>
+
+        <h3>Paso 1: Descarga el archivo</h3>
+        <p>Cada skill es un archivo <strong>.md</strong> (Markdown) — básicamente un archivo de texto con formato. Puedes descargarlo desde la <a href="/recursos/skills-para-claude/">página de skills</a>. No necesitas instalar ningún programa adicional.</p>
+
+        <h3>Paso 2: Añádelo a un Proyecto de Claude</h3>
+        <p>Entra en Claude Pro, accede a la sección <strong>Proyectos</strong> (en el menú lateral) y crea un proyecto nuevo — o usa uno que ya tengas. Dentro del proyecto, ve a <strong>Instrucciones del proyecto</strong> o <strong>Documentos</strong> y sube el archivo .md de la skill. Claude lo leerá automáticamente en cada conversación que hagas dentro de ese proyecto.</p>
+        <p>Si tienes varias skills, puedes añadir varios archivos al mismo proyecto — Claude las combina todas.</p>
+
+        <h3>Paso 3: Escribe "configurar skill"</h3>
+        <p>Una vez que el archivo está en el proyecto, inicia una conversación y escribe el mensaje: <strong>"configurar skill"</strong>. Claude activará el modo de configuración y empezará a hacerte preguntas específicas para personalizar la skill a tu forma de trabajar.</p>
+        <p>Por ejemplo, la skill de tono y voz te pedirá que le pegues un texto que hayas escrito tú — un email, una publicación, una propuesta — para analizar tu estilo. En 3-5 minutos, Claude habrá aprendido cómo escribes y aplicará ese estilo en todas las respuestas siguientes dentro del proyecto.</p>
+
+        <div class="callout">
+          <p><strong>Importante:</strong> Las skills están ligadas al <strong>Proyecto</strong>, no al chat. Si abres un chat fuera de un proyecto, Claude no tendrá acceso a las skills que has configurado. Para aprovecharlas, trabaja siempre dentro del proyecto correspondiente.</p>
+        </div>
+
+        <h2 id="para-quien">Para quién son las skills de Claude</h2>
+        <p>Las skills de Claude son útiles para cualquier persona que use la herramienta regularmente para trabajar. Pero donde más impacto tienen es en perfiles como:</p>
+        <ul class="ni-checklist">
+          <li><strong>Autónomos</strong> que producen contenido repetitivo (propuestas, emails, informes) y quieren que suene siempre como ellos</li>
+          <li><strong>Pequeños negocios</strong> con equipo donde la consistencia de comunicación es importante</li>
+          <li><strong>Consultores y asesores</strong> que documentan procesos y generan entregables para clientes</li>
+          <li><strong>Profesionales que tienen reuniones frecuentes</strong> y necesitan convertirlas en accionables rápido</li>
+        </ul>
+        <p>Lo que tienen en común es que usan Claude lo suficiente como para que la fricción de empezar de cero cada vez se note. Si usas Claude una vez al mes, quizás las skills no cambian tanto tu experiencia. Si lo usas varias veces por semana, la diferencia es significativa.</p>
+        <p>El único requisito técnico es tener <strong>Claude Pro</strong> (o un plan superior). El plan gratuito de claude.ai no incluye la funcionalidad de Proyectos que hace posible el uso de skills.</p>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="faq-inner">
+      <h2 class="faq-title">Preguntas frecuentes sobre las skills de Claude</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">¿Las skills de Claude son gratis?</div>
+        <div class="faq-answer">Las skills son archivos gratuitos y de código abierto — no hay ningún coste de descarga. Para usarlas necesitas un plan Claude Pro, Max, Team o Enterprise. El plan gratuito de claude.ai no incluye la funcionalidad de Proyectos necesaria para que funcionen.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">¿Cuántas skills puedo tener activas a la vez?</div>
+        <div class="faq-answer">Puedes añadir varios archivos de skills a un mismo Proyecto. Claude las leerá todas y las combinará. La limitación práctica es el límite de contexto del proyecto (la cantidad total de texto que Claude puede leer), que en Claude Pro es generoso para la mayoría de usos.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">¿Puedo modificar las skills después de configurarlas?</div>
+        <div class="faq-answer">Sí. Puedes editar el archivo .md directamente y volver a subirlo al proyecto, o simplemente decirle a Claude "actualizar configuración de skill" y él te guiará por el proceso. No hay límite de modificaciones.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">¿Las skills funcionan en español?</div>
+        <div class="faq-answer">Sí. Claude habla en el idioma en que le hablas tú. Si configuras la skill en español y le escribes en español, Claude responde en español aplicando la configuración. Las 7 skills de este pack están diseñadas y escritas en español para el mercado hispanohablante.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">¿Mis datos de configuración están seguros?</div>
+        <div class="faq-answer">La información que introduces durante la configuración de una skill (tu tono, tu estilo, tus preferencias) se guarda dentro del contexto de tu Proyecto en Claude. Anthropic aplica las mismas políticas de privacidad que al resto de conversaciones en Claude Pro. No se comparte con terceros.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <div class="section-label">Descarga gratuita</div>
+      <h2 class="cta-h2">En 5 minutos, Claude puede trabajar como si te conociera de hace meses</h2>
+      <p class="cta-sub">O puedes seguir explicándole quién eres cada vez que abres una conversación. Las 7 skills, listas para instalar.</p>
+      <a href="/recursos/skills-para-claude/" class="btn-primary">Ver y descargar las 7 skills →</a>
+      <p class="cta-meta">7 skills gratuitas · Compatible con Claude Pro y Team · En español</p>
+    </div>
+  </section>
+
+  <!-- AUTHOR -->
+  <section class="author-section">
+    <div class="author-inner">
+      <div class="author-box">
+        <div class="author-avatar">
+          <img src="../assets/Avatar Manuel/avatar-manuel.png" alt="Jonatan Domínguez" onerror="this.style.display='none'" />
+        </div>
+        <div>
+          <div class="author-name">Jonatan Domínguez</div>
+          <div class="author-role">IA para pequeños negocios</div>
+          <p class="author-bio">Ayudo a autónomos y pequeños negocios a implementar IA en su trabajo diario. Escribo sobre lo que funciona de verdad — probado en proyectos reales, sin la teoría de los cursos genéricos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="../assets/Wordmark/jonatand-fondo-claro.png" alt="Jonatan Domínguez" />
+      </div>
+      <nav class="footer-links">
+        <a href="/#sobre-mi">Sobre mí</a>
+        <a href="/#servicios">Cómo trabajamos</a>
+        <a href="/#newsletter">Newsletter</a>
+        <a href="/recursos">Recursos</a>
+        <a href="/reunion">Agendar una llamada</a>
+      </nav>
+      <p class="footer-copy">© 2026 Jonatan Domínguez</p>
+    </div>
+  </footer>
+
+</body>
+</html>
