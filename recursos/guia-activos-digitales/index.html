@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cómo subir de nivel en cada área de tu negocio — El manual del Empresario Exponencial · Jonatan Domínguez</title>
+<meta name="description" content="El marco que está detrás del diagnóstico: los 4 niveles de madurez de un negocio, los 30 activos digitales clave y cómo construir tu primera palanca para subir al siguiente nivel.">
+<meta name="author" content="Jonatan Domínguez">
+
+<!-- Página de entrega del lead magnet — NO indexar en buscadores -->
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cómo subir de nivel en cada área de tu negocio — El manual del Empresario Exponencial">
+<meta property="og:description" content="Los 4 niveles de madurez, los 30 activos digitales clave y cómo construir tu primera palanca.">
+<meta property="og:url" content="https://jonatand.com/recursos/guia-activos-digitales">
+<meta property="og:site_name" content="Jonatan Domínguez — IA para negocios">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="/assets/iconos/favicon-d-naranja.png" />
+
+<style>
+  :root{
+    --bg:#FBFAF8;
+    --surface:#FFFFFF;
+    --ink:#14110F;
+    --ink-soft:#1E1A16;
+    --soft:#57514C;
+    --faint:#8B847D;
+    --line:#E7E3DD;
+    --line-strong:#D8D2C9;
+    --accent:#FF5A1F;
+    --accent-press:#E64C13;
+    --accent-tint:#FFF1EA;
+    --accent-muted:#C2410C;
+
+    --serif:"Newsreader",Georgia,serif;
+    --sans:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+
+    --maxw:1160px;
+    --content:720px;
+    --body:1000px;
+    --r:14px;
+    --r-md:10px;
+    --r-sm:6px;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.66;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  img{max-width:100%;height:auto;display:block;}
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  em{font-style:italic;color:var(--accent);font-weight:500;font-family:var(--serif);}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+
+  /* ---- Eyebrow / labels ---- */
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--mono);font-size:11.5px;font-weight:500;
+    letter-spacing:.06em;text-transform:uppercase;
+    color:var(--faint);
+  }
+  .eyebrow::before{content:"//";color:var(--accent);font-weight:600;}
+
+  /* ---- Buttons ---- */
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    font-family:var(--sans);font-size:16px;font-weight:600;
+    border-radius:10px;padding:15px 24px;
+    cursor:pointer;border:1px solid transparent;line-height:1;
+    transition:all .18s ease;text-decoration:none;
+  }
+  .btn-primary{background:var(--accent);color:#fff;}
+  .btn-primary:hover{background:var(--accent-press);transform:translateY(-1px);text-decoration:none;}
+  .arrow{transition:transform .18s;}
+  .btn:hover .arrow{transform:translateX(3px);}
+
+  /* ---- Nav ---- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,250,248,.86);
+    backdrop-filter:saturate(140%) blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-in{display:flex;align-items:center;height:64px;gap:18px;}
+  .brand{
+    display:flex;align-items:baseline;gap:10px;
+    font-family:var(--serif);font-weight:600;font-size:19px;
+    letter-spacing:-.02em;color:var(--ink);text-decoration:none;
+  }
+  .brand b{color:var(--accent);font-weight:600;}
+  .brand .tag{
+    font-family:var(--mono);font-weight:500;font-size:11px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--faint);
+    border-left:1px solid var(--line-strong);padding-left:10px;
+  }
+  .nav-right{margin-left:auto;display:flex;align-items:center;gap:18px;}
+  .nav-cta{font-size:14px;font-weight:600;white-space:nowrap;padding:10px 18px;}
+
+  /* ============================ HERO ============================ */
+  .hero{padding:84px 0 56px;border-bottom:1px solid var(--line);position:relative;}
+  .hero-in{max-width:var(--content);margin:0 auto;}
+  .hero-figure{
+    margin:48px auto 0;
+    max-width:980px;
+    border:1px solid var(--line);
+    border-radius:var(--r);
+    overflow:hidden;
+    background:#F2EFE9;
+  }
+  .hero-figure img{width:100%;height:auto;display:block;}
+
+  /* Inline figures */
+  .figure{
+    margin:36px 0;
+    border:1px solid var(--line);
+    border-radius:var(--r-md);
+    overflow:hidden;
+    background:#F2EFE9;
+  }
+  .figure img{width:100%;height:auto;display:block;}
+  .figure figcaption{
+    background:var(--surface);
+    padding:12px 18px;
+    font-family:var(--mono);font-size:12px;
+    color:var(--faint);
+    border-top:1px solid var(--line);
+    line-height:1.5;
+  }
+  .figure figcaption b{color:var(--accent);font-weight:600;}
+
+  /* Side-by-side comparison */
+  .compare{
+    display:grid;grid-template-columns:1fr;gap:14px;
+    margin:36px 0;
+  }
+  .compare .figure{margin:0;}
+  .compare .figure .label{
+    position:absolute;top:14px;left:14px;
+    font-family:var(--mono);font-size:10.5px;font-weight:600;
+    letter-spacing:.08em;text-transform:uppercase;
+    padding:5px 10px;border-radius:var(--r-sm);
+    background:rgba(20,17,15,.78);color:#fff;
+    backdrop-filter:blur(4px);
+  }
+  .compare .figure{position:relative;}
+  .breadcrumb{
+    font-family:var(--mono);font-size:12px;color:var(--faint);
+    margin-bottom:28px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  }
+  .breadcrumb a{color:var(--faint);}
+  .breadcrumb a:hover{color:var(--ink);text-decoration:none;}
+  .breadcrumb .sep{color:var(--accent);opacity:.7;}
+
+  .pill-row{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:28px;}
+  .pill{
+    font-family:var(--mono);font-size:11.5px;
+    padding:5px 11px;border-radius:var(--r-sm);
+    border:1px solid var(--line);background:var(--surface);
+    color:var(--soft);
+  }
+  .pill.cat{
+    background:var(--accent-tint);border-color:#F6D9C9;
+    color:var(--accent-muted);font-weight:600;
+  }
+
+  h1.title{
+    font-family:var(--serif);font-weight:500;
+    font-size:clamp(34px,5vw,52px);
+    line-height:1.08;letter-spacing:-.018em;
+    color:var(--ink);
+    margin-bottom:24px;
+    text-wrap:balance;
+  }
+  .dek{
+    font-size:clamp(18px,2.2vw,21px);
+    color:var(--soft);line-height:1.5;
+    max-width:38em;
+    margin-bottom:36px;
+  }
+
+  /* Resumen / answer card */
+  .answer{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-left:3px solid var(--accent);
+    border-radius:0 var(--r-md) var(--r-md) 0;
+    padding:26px 28px;
+  }
+  .answer-lbl{
+    font-family:var(--mono);font-size:11px;font-weight:600;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--accent);
+    margin-bottom:12px;display:flex;align-items:center;gap:8px;
+  }
+  .answer-lbl::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);}
+  .answer p{font-size:17px;color:var(--ink);line-height:1.55;}
+  .answer p + p{margin-top:12px;}
+  .answer strong{font-weight:700;}
+
+  /* Byline */
+  .byline{
+    display:flex;align-items:center;gap:14px;
+    margin-top:36px;padding-top:24px;border-top:1px solid var(--line);
+  }
+  .byline-avatar{
+    width:42px;height:42px;border-radius:50%;flex-shrink:0;
+    background:linear-gradient(135deg,var(--accent),var(--accent-press));
+    color:#fff;font-family:var(--serif);font-weight:600;font-size:18px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .byline-name{font-weight:600;font-size:14.5px;color:var(--ink);}
+  .byline-meta{font-family:var(--mono);font-size:11.5px;color:var(--faint);}
+
+  /* ============================ BODY ============================ */
+  .body-section{padding:64px 0 80px;}
+  .body-in{max-width:var(--content);margin:0 auto;}
+
+  /* TOC */
+  .toc{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--r);
+    padding:22px 24px;
+    margin-bottom:56px;
+  }
+  .toc-title{
+    font-family:var(--mono);font-size:11.5px;font-weight:600;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--faint);
+    margin-bottom:16px;
+  }
+  .toc-title::before{content:"// ";color:var(--accent);}
+  .toc ol{list-style:none;counter-reset:toc;display:grid;gap:10px;}
+  .toc li{counter-increment:toc;font-size:14.5px;}
+  .toc a{
+    display:flex;gap:14px;align-items:baseline;
+    color:var(--soft);font-weight:500;
+  }
+  .toc a::before{
+    content:counter(toc,decimal-leading-zero);
+    font-family:var(--mono);font-size:11.5px;font-weight:600;
+    color:var(--accent);flex-shrink:0;
+  }
+  .toc a:hover{color:var(--ink);text-decoration:none;}
+
+  /* Content typography */
+  .content{counter-reset:h2sec;}
+  .content h2{
+    font-family:var(--serif);font-weight:500;
+    font-size:clamp(26px,3.4vw,34px);
+    line-height:1.18;letter-spacing:-.012em;
+    color:var(--ink);
+    margin:80px 0 18px;
+    padding-top:36px;
+    border-top:1px solid var(--line);
+    counter-increment:h2sec;
+    scroll-margin-top:88px;
+    text-wrap:balance;
+  }
+  .content h2::before{
+    content:counter(h2sec,decimal-leading-zero);
+    display:block;
+    font-family:var(--mono);font-size:12px;font-weight:600;
+    letter-spacing:.04em;color:var(--accent);
+    margin-bottom:14px;
+  }
+  .content h2:first-child{border-top:none;padding-top:0;margin-top:0;}
+
+  .content h3{
+    font-family:var(--sans);font-weight:700;
+    font-size:clamp(19px,2vw,22px);
+    letter-spacing:-.008em;color:var(--ink);
+    margin:42px 0 12px;
+    scroll-margin-top:88px;
+  }
+
+  .content p{margin-bottom:18px;color:var(--soft);}
+  .content p strong{color:var(--ink);font-weight:700;}
+  .content p em{font-style:italic;font-family:var(--serif);color:var(--accent);font-weight:500;}
+  .content > p:first-of-type{font-size:18.5px;}
+
+  /* lead — first paragraph of section */
+  .content h2 + p{font-size:18.5px;color:var(--ink);}
+
+  .content ul,.content ol{margin:0 0 22px;padding-left:1.4rem;}
+  .content li{margin-bottom:10px;color:var(--soft);}
+  .content li strong{color:var(--ink);font-weight:700;}
+
+  /* Checklist style */
+  .ni-checklist{list-style:none;padding:0;margin:18px 0 26px;}
+  .ni-checklist li{
+    padding-left:1.7rem;position:relative;
+    margin-bottom:12px;color:var(--soft);
+  }
+  .ni-checklist li::before{
+    content:"✓";color:var(--accent);font-weight:700;
+    position:absolute;left:0;top:0;
+  }
+  .ni-checklist li strong{color:var(--ink);font-weight:700;}
+
+  /* Pull quote */
+  .pullquote{
+    margin:42px 0;
+    padding:32px 0 32px 28px;
+    border-left:3px solid var(--accent);
+    font-family:var(--serif);font-style:italic;
+    font-size:clamp(20px,2.6vw,26px);
+    line-height:1.32;
+    color:var(--ink);
+    letter-spacing:-.005em;
+  }
+  .pullquote cite{
+    display:block;
+    font-family:var(--mono);font-style:normal;
+    font-size:12px;font-weight:500;
+    text-transform:uppercase;letter-spacing:.06em;
+    color:var(--faint);margin-top:14px;
+  }
+  .pullquote cite::before{content:"— ";color:var(--accent);}
+
+  /* Callout (datos clave / energía) */
+  .callout{
+    background:var(--ink);
+    border-left:3px solid var(--accent);
+    border-radius:0 var(--r-md) var(--r-md) 0;
+    padding:26px 28px;
+    margin:34px 0;
+  }
+  .callout-lbl{
+    font-family:var(--mono);font-size:11px;font-weight:600;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--accent);
+    margin-bottom:10px;
+  }
+  .callout p{color:#C7BFB7;font-weight:500;margin:0;font-size:16.5px;line-height:1.55;}
+  .callout strong,
+  .content .callout p strong{color:#fff;font-weight:700;}
+
+  /* Highlight box (claro) */
+  .hl{
+    background:var(--accent-tint);
+    border:1px solid #F6D9C9;
+    border-radius:var(--r-md);
+    padding:22px 26px;
+    margin:30px 0;
+  }
+  .hl p{margin:0;color:var(--ink);font-size:17px;}
+  .hl strong{font-weight:700;color:var(--accent-muted);}
+
+  /* ============= NIVELES — Card grid ============= */
+  .niveles{
+    display:grid;grid-template-columns:1fr;gap:14px;
+    margin:30px 0 24px;
+  }
+  .nivel{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--r);
+    padding:26px 26px 24px;
+    position:relative;
+    transition:.2s ease;
+  }
+  .nivel:hover{border-color:var(--line-strong);}
+  .nivel.feature{
+    background:var(--ink);border-color:var(--ink);
+  }
+  .nivel-head{
+    display:flex;align-items:baseline;justify-content:space-between;
+    gap:14px;margin-bottom:14px;
+  }
+  .nivel-num{
+    font-family:var(--mono);font-size:11.5px;font-weight:600;
+    letter-spacing:.08em;text-transform:uppercase;
+    color:var(--faint);
+  }
+  .nivel.feature .nivel-num{color:var(--accent);}
+  .nivel-tag{
+    font-family:var(--mono);font-size:10.5px;font-weight:500;
+    letter-spacing:.06em;text-transform:uppercase;
+    color:var(--faint);
+    padding:3px 9px;border:1px solid var(--line);border-radius:999px;
+    background:var(--bg);
+  }
+  .nivel.feature .nivel-tag{background:rgba(255,90,31,.14);border-color:rgba(255,90,31,.4);color:var(--accent);}
+  .nivel h3{
+    font-family:var(--serif);font-weight:500;
+    font-size:22px;letter-spacing:-.01em;line-height:1.18;
+    color:var(--ink);margin-bottom:10px;
+  }
+  .nivel.feature h3{color:#fff;}
+  .nivel h3 em{font-style:italic;color:var(--accent);font-family:var(--serif);}
+  .nivel p{font-size:15.5px;color:var(--soft);margin:0;line-height:1.55;}
+  .nivel.feature p{color:#C7BFB7;}
+
+  /* ============= CHECKLIST — Categorías ============= */
+  .cats{display:grid;grid-template-columns:1fr;gap:16px;margin:32px 0 24px;}
+  .cat-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--r);
+    padding:24px 26px 18px;
+  }
+  .cat-head{
+    display:flex;align-items:baseline;gap:12px;
+    margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);
+  }
+  .cat-num{
+    font-family:var(--mono);font-size:12px;font-weight:600;
+    color:var(--accent);
+  }
+  .cat-card h3{
+    font-family:var(--sans);font-weight:700;font-size:17px;
+    margin:0;color:var(--ink);letter-spacing:-.005em;
+  }
+  .cat-card ul{list-style:none;padding:0;margin:0;}
+  .cat-card li{
+    padding:10px 0 10px 26px;position:relative;
+    color:var(--soft);font-size:15px;line-height:1.5;
+    border-bottom:1px dashed var(--line);
+  }
+  .cat-card li:last-child{border-bottom:none;}
+  .cat-card li::before{
+    content:"›";position:absolute;left:6px;top:9px;
+    color:var(--accent);font-weight:700;font-size:18px;line-height:1;
+  }
+  .cat-card li b{color:var(--ink);font-weight:700;}
+
+  /* ============= OFERTA / Pricing ============= */
+  .offer{
+    background:var(--ink);
+    color:#fff;
+    border-radius:18px;
+    padding:clamp(32px,4.4vw,52px);
+    margin:48px 0 30px;
+    position:relative;overflow:hidden;
+  }
+  .offer .eyebrow{color:var(--accent);}
+  .offer .eyebrow::before{color:var(--accent);}
+  .offer h3{
+    font-family:var(--serif);font-weight:500;
+    font-size:clamp(24px,3.2vw,32px);
+    color:#fff;letter-spacing:-.01em;line-height:1.16;
+    margin:14px 0 14px;
+  }
+  .offer h3 em{color:var(--accent);font-style:italic;}
+  .offer p{color:#C7BFB7;font-size:16.5px;margin-bottom:24px;}
+  .offer-list{list-style:none;padding:0;margin:24px 0 30px;display:grid;gap:14px;}
+  .offer-list li{
+    padding:16px 18px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:var(--r-md);
+    color:#EDE7E1;font-size:15.5px;line-height:1.45;
+    display:flex;gap:14px;align-items:baseline;
+  }
+  .offer-list li::before{
+    content:"✓";color:var(--accent);font-weight:700;flex-shrink:0;
+  }
+  .offer-list li strong{color:#fff;font-weight:700;}
+  .offer-cta{
+    display:flex;flex-direction:column;gap:14px;align-items:stretch;
+    margin-top:18px;
+  }
+  .offer-cta .btn{
+    width:100%;justify-content:center;
+    font-size:17px;padding:18px 24px;
+  }
+
+  /* ============= CTA strip ============= */
+  .closing{
+    text-align:center;
+    padding:64px 0 40px;
+    border-top:1px solid var(--line);
+    margin-top:60px;
+  }
+  .closing p{
+    font-family:var(--serif);font-style:italic;font-weight:500;
+    font-size:clamp(22px,3vw,28px);
+    line-height:1.32;color:var(--ink);
+    max-width:32ch;margin:0 auto 32px;
+  }
+  .closing p em{color:var(--accent);}
+  .closing .btn{padding:16px 30px;font-size:16px;}
+
+  /* ============= Footer ============= */
+  footer.foot{
+    background:var(--bg);
+    border-top:1px solid var(--line);
+    padding:36px 0 48px;
+  }
+  .foot-in{
+    display:flex;flex-direction:column;gap:18px;
+    align-items:flex-start;
+  }
+  .foot-meta{font-family:var(--mono);font-size:12px;color:var(--faint);}
+  .foot-links{display:flex;gap:24px;flex-wrap:wrap;font-size:14px;color:var(--soft);}
+  .foot-links a{color:var(--soft);}
+  .foot-links a:hover{color:var(--ink);text-decoration:none;}
+
+  /* ===================== DESKTOP ===================== */
+  @media(min-width:920px){
+    .body-in{
+      max-width:var(--body);
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 220px;
+      column-gap:56px;
+    }
+    .content{grid-column:1;grid-row:1;max-width:var(--content);}
+    .toc{
+      grid-column:2;grid-row:1;
+      position:sticky;top:88px;align-self:start;
+      margin-bottom:0;
+      background:transparent;border:none;padding:0;
+    }
+    .toc ol{border-left:1px solid var(--line-strong);}
+    .toc a{
+      padding-left:16px;margin-left:-1px;
+      border-left:2px solid transparent;line-height:1.5;
+    }
+    .toc a:hover{border-left-color:var(--accent);}
+
+    .niveles{grid-template-columns:1fr 1fr;}
+    .cats{grid-template-columns:1fr 1fr;}
+    .compare{grid-template-columns:1fr 1fr;}
+  }
+
+  /* ===================== MOBILE ===================== */
+  @media(max-width:640px){
+    .hero{padding:56px 0 40px;}
+    .nav-in{height:58px;}
+    .brand .tag{display:none;}
+    .content h2{margin-top:60px;}
+    .pullquote{padding:24px 0 24px 22px;}
+    .offer{padding:28px 22px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- =================== NAV =================== -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/">
+      <span>Jonatan<b>.</b></span>
+      <span class="tag">/guía</span>
+    </a>
+    <div class="nav-right">
+      <a class="btn btn-primary nav-cta" href="https://cal.eu/jonatand/proximo-activo-digital">Reservar sesión <span class="arrow">→</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- =================== HERO =================== -->
+<section class="hero">
+  <div class="wrap hero-in">
+
+    <nav class="breadcrumb" aria-label="Navegación">
+      <a href="/">Inicio</a>
+      <span class="sep">›</span>
+      <a href="/recursos">Recursos</a>
+      <span class="sep">›</span>
+      <span>Activos Digitales</span>
+    </nav>
+
+    <div class="pill-row">
+      <span class="pill cat">Guía estratégica</span>
+      <span class="pill">Lectura ~12 min</span>
+    </div>
+
+    <h1 class="title">
+      Cómo <em>subir de nivel</em> en cada área de tu negocio: el manual del Empresario Exponencial
+    </h1>
+    <p class="dek">El marco que está detrás de tu diagnóstico: qué significan los 4 niveles, los 30 activos digitales que separan a uno del siguiente y cómo construir tu primera palanca — sin saber tecnología.</p>
+
+    <div class="answer">
+      <div class="answer-lbl">En resumen</div>
+      <p>Un negocio no crece trabajando más horas; crece cuando se <strong>apalanca</strong>. Esta guía te muestra cómo pasar del "todo manual" al <strong>Empleado Digital</strong>: el nivel donde la IA gestiona entre el 80&nbsp;% y el 90&nbsp;% del trabajo rutinario y tu rol se transforma de operador a estratega.</p>
+      <p>Dentro encontrarás los <strong>4 niveles de madurez</strong> de un negocio automatizado, por qué la mayoría falla intentando saltar directamente a la IA, y un <strong>checklist con 30 Activos Digitales clave</strong> para identificar qué le falta a tu línea de producción.</p>
+    </div>
+
+    <div class="byline">
+      <div class="byline-avatar">J</div>
+      <div>
+        <div class="byline-name">Jonatan Domínguez</div>
+        <div class="byline-meta">IA &amp; automatización · jonatand.com</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="wrap">
+    <figure class="hero-figure">
+      <img src="img/guia-palanca.jpg" alt="Hombre apalancando una roca enorme con una palanca de madera — metáfora del Empresario Exponencial" loading="eager" width="1600" height="809">
+    </figure>
+  </div>
+</section>
+
+<!-- =================== BODY =================== -->
+<section class="body-section">
+  <div class="wrap body-in">
+
+    <!-- TOC -->
+    <nav class="toc" aria-label="Tabla de contenidos">
+      <div class="toc-title">En esta guía</div>
+      <ol>
+        <li><a href="#apoyo">Dadme un punto de apoyo</a></li>
+        <li><a href="#cadena">De picar piedra a la cadena automatizada</a></li>
+        <li><a href="#activo">¿Qué es un Activo Digital?</a></li>
+        <li><a href="#niveles">Los 4 Niveles de Madurez</a></li>
+        <li><a href="#espejismo">El espejismo de la IA</a></li>
+        <li><a href="#checklist">Checklist · 30 Activos Digitales</a></li>
+        <li><a href="#sesion">Tu siguiente movimiento</a></li>
+      </ol>
+    </nav>
+
+    <!-- =========== CONTENT =========== -->
+    <article class="content">
+
+      <!-- 1 -->
+      <h2 id="apoyo">Dadme un punto de apoyo y moveré el negocio</h2>
+      <p>La física nos demuestra que un hombre común de 80 kilos puede levantar una roca descomunal de 500 kilos si utiliza la herramienta idónea. No necesita ser cinco veces más fuerte, ni necesita dejarse la espalda o la salud en el intento. Solo necesita una palanca lo suficientemente larga y un punto de apoyo perfectamente sólido.</p>
+
+      <p>De este principio físico nace todo el crecimiento empresarial real. La gran mayoría de los dueños de negocio intentan hacer crecer sus empresas empujando la roca a base de fuerza bruta: trabajando 14 horas al día, sacrificando sus fines de semana, durmiendo mal y supervisando cada micro‑detalle bajo la falsa creencia de que su implicación personal es la única garantía de calidad. Pero el tiempo y la energía humana son recursos limitados. Si tú eres el único motor y punto de empuje de tu empresa, tu negocio tiene un techo físico infranqueable.</p>
+
+      <div class="pullquote">
+        Un negocio no crece trabajando más horas; crece cuando se apalanca.
+        <cite>Regla del Empresario Exponencial</cite>
+      </div>
+
+      <p>Apalancarse significa, textualmente, apoyarte en estructuras externas que multiplican el impacto de tu esfuerzo diario para que consigas movimientos gigantescos con el mínimo esfuerzo personal.</p>
+
+      <!-- 2 -->
+      <h2 id="cadena">De "Picar Piedra" a la Cadena de Montaje Automatizada</h2>
+      <p>Imagina que tienes una fábrica de coches. En tu línea de producción, cada vez que entra un chasis, hay que montarle las cuatro ruedas.</p>
+
+      <p>Si operas bajo la mentalidad del dueño tradicional, tienes a una sola persona corriendo alrededor del coche: aprieta los tornillos de la rueda delantera izquierda, corre a la trasera, luego va al otro lado… ¿Cuánto tiempo y energía se pierde ahí? Tu producción está limitada a la velocidad de las piernas y los brazos de esa persona. Si se cansa, si le duele la espalda o si se despista, la fábrica se frena. Su implicación física es el único control de calidad.</p>
+
+      <p>Ante esto, la respuesta intuitiva de muchos empresarios es: <em>"Bueno, contratemos a tres personas más"</em>. Ahora tienes a cuatro personas montando las ruedas a la vez. Sí, el coche sale antes, pero tus costes se han multiplicado por cuatro, tienes que gestionar más personal, coordinar turnos y cruzar los dedos para que nadie cometa un error humano. Has escalado el problema, no la solución.</p>
+
+      <p>Aquí es donde nace un concepto propio, una categoría exclusiva de empresario: el <strong>Empresario Exponencial</strong>.</p>
+
+      <p>Un Empresario Exponencial mira la fábrica con otros ojos. En lugar de meter más manos, instala cuatro robots en esa sección de la línea. Al principio requiere una inversión y un diseño, por supuesto. Pero una vez que los robots están calibrados y funcionando, el juego cambia por completo: no se cansan, no necesitan vacaciones ni bajas, ejecutan el movimiento con una precisión milimétrica y el coste por coche se desploma porque la inversión ya está hecha.</p>
+
+      <p>En tu negocio actual —ya seas una consultoría, una agencia, una clínica o una empresa de servicios— ocurre exactamente lo mismo. Cada propuesta comercial que redactas desde cero, cada email de seguimiento que envías de memoria o cada consulta repetitiva que respondes por WhatsApp es una rueda que estás intentando apretar corriendo alrededor del coche. Dejar de ser el operario de tu propia fábrica y convertirte en el diseñador de la línea de montaje es el verdadero cambio de mentalidad.</p>
+
+      <div class="compare">
+        <figure class="figure">
+          <span class="label">Antes · Fuerza bruta</span>
+          <img src="img/guia-ford-manual.jpg" alt="Línea de montaje Ford antigua con operarios atornillando ruedas a mano" loading="lazy" width="1400" height="837">
+          <figcaption>El operario corriendo alrededor del coche. Cada propuesta, cada email, cada respuesta repetitiva.</figcaption>
+        </figure>
+        <figure class="figure">
+          <span class="label">Después · Apalancamiento</span>
+          <img src="img/guia-robotica.jpg" alt="Línea de montaje moderna con brazos robotizados ensamblando un coche" loading="lazy" width="1200" height="900">
+          <figcaption>La misma tarea, ejecutada por <b>Activos Digitales</b>: sin cansancio, sin error, escalable.</figcaption>
+        </figure>
+      </div>
+
+      <h3>El Bucle del Crecimiento Exponencial</h3>
+      <p>Lo verdaderamente revolucionario de este sistema no es solo que el robot monte la rueda más rápido; es lo que ocurre en las finanzas y en la estructura de tu negocio cuando decides dar el paso.</p>
+
+      <p>Imagina que gracias a esos cuatro robots iniciales, tu fábrica pasa de montar las ruedas de 100 coches al día a 1.000 coches al día. Tus ingresos se disparan porque eliminas ese primer gran atasco, pero tus costes operativos en esa sección se mantienen prácticamente planos. ¿Qué haces con ese nuevo beneficio extra? Lo reinviertes estratégicamente en automatizar el siguiente tramo de la línea: <strong>el proceso de pintura</strong>. Instalas brazos mecánicos que cubren el chasis en segundos. Ahora tu capacidad total salta de 1.000 a 2.000 unidades diarias.</p>
+
+      <p>Ese nuevo superávit que genera la sección de pintura lo vuelves a inyectar en la siguiente estación: <strong>el ensamblaje automatizado del motor</strong>. Al automatizar este tercer bloque, la velocidad general de la cadena se duplica otra vez, pasando de 2.000 a 4.000 vehículos terminados. Cada activo que instalas financia, empuja y acelera la automatización de la siguiente sección. Eso es el crecimiento exponencial: un bucle continuo donde produces muchísimo más, en menos tiempo y con un coste por unidad cada vez más bajo.</p>
+
+      <h3>La consecuencia inevitable: borrar a tu competencia del mapa</h3>
+      <p>Cuando logras montar esta cadena de producción en tu sector, ocurre algo letal para el resto del mercado: tu competencia simplemente deja de ser competitiva. Mientras el dueño tradicional sigue ahí fuera en su pequeño taller intentando "apretar tornillos con las manos", pagando nóminas altísimas por tareas manuales rutinarias, tú entregas un producto impecable, diez veces más rápido y con un margen de beneficio que ellos ni se imaginan. La competencia se vuelve completamente irrelevante. No juegas bajo sus mismas reglas; has cambiado el juego.</p>
+
+      <!-- 3 -->
+      <h2 id="activo">¿Qué es realmente un Activo Digital?</h2>
+      <p>Cuando hablamos de automatizar tu empresa, la mayoría de los dueños piensan en comprar softwares caros. Pero un software por sí solo no genera dinero. El verdadero secreto de un Empresario Exponencial es construir <strong>Activos Digitales</strong>.</p>
+
+      <p>Un activo digital es cualquier pieza, sistema, documento o proceso que trabaja de forma automática por ti, o que te ayuda a completar las tareas del día a día muchísimo más rápido. Está diseñado para absorber el esfuerzo de los 4 sistemas que generan ingresos en tu negocio: <strong>Marketing, Ventas, Servicio y Operaciones</strong>. Para que algo sea considerado un Activo Digital, solo debe cumplir una de estas dos condiciones claras:</p>
+
+      <ul class="ni-checklist">
+        <li><strong>1. Automatización (trabaja por ti):</strong> Es un sistema que funciona de forma autónoma, sin que tú muevas un dedo. Por ejemplo, una secuencia de emails que educa a tus potenciales clientes mientras duermes, o un sistema de facturación que emite y envía el recibo en el momento en que alguien te contrata.</li>
+        <li><strong>2. Aceleración (te ayuda a trabajar muy rápido):</strong> Son herramientas o estructuras que transforman una tarea pesada de cuatro horas en un trámite de 15 minutos. Por ejemplo, un swipe file, una plantilla inteligente de propuestas o una serie de instrucciones (prompts) de IA calibradas para redactar informes en un clic.</li>
+      </ul>
+
+      <div class="hl">
+        <p><strong>La regla de oro del Empresario Exponencial:</strong> si en tu negocio haces algo más de una vez, tiene que convertirse en un Activo Digital.</p>
+      </div>
+
+      <!-- 4 -->
+      <h2 id="niveles">Los 4 Niveles de Madurez: ¿en qué escalón está tu negocio hoy?</h2>
+      <p>El camino hacia la automatización completa avanza obligatoriamente a través de cuatro niveles de sofisticación operativa:</p>
+
+      <div class="niveles">
+
+        <div class="nivel l1">
+          <div class="nivel-head">
+            <span class="nivel-num">Nivel 01</span>
+            <span class="nivel-tag">Fuerza bruta</span>
+          </div>
+          <h3>El enfoque todo manual</h3>
+          <p>Tú haces todo el trabajo operativo de forma directa. No hay nada entre tú y el mercado; cada acción, decisión y tarea fluye de tu esfuerzo personal. Estás limitado por tu productividad física. Para ganar más, necesitas meter más horas. Si tú estás ausente, el negocio se detiene por completo.</p>
+        </div>
+
+        <div class="nivel l2">
+          <div class="nivel-head">
+            <span class="nivel-num">Nivel 02</span>
+            <span class="nivel-tag">La palanca corta</span>
+          </div>
+          <h3>Implementación básica</h3>
+          <p>Empiezas a usar algunas herramientas y activos digitales aislados para ir más rápido. Aunque usas plantillas o secuencias de email para no empezar desde cero, las herramientas no se comunican entre sí. Sigues teniendo que conectar tú los puntos manualmente entre departamentos.</p>
+        </div>
+
+        <div class="nivel l3">
+          <div class="nivel-head">
+            <span class="nivel-num">Nivel 03</span>
+            <span class="nivel-tag">Máquina conectada</span>
+          </div>
+          <h3>El sistema operativo completo</h3>
+          <p>Tienes un ecosistema de Activos Digitales en los 4 sistemas de tu negocio que forman un sistema operativo integrado. Tus herramientas están conectadas y funcionan juntas de forma sistemática. Consigues un negocio ordenado y predecible, pero sigues siendo tú quien tiene que operar la máquina manualmente.</p>
+        </div>
+
+        <div class="nivel l4 feature">
+          <div class="nivel-head">
+            <span class="nivel-num">Nivel 04</span>
+            <span class="nivel-tag">El destino</span>
+          </div>
+          <h3>El <em>Empleado Digital</em></h3>
+          <p>Es el nivel de máxima palanca. Le das acceso a la Inteligencia Artificial a tu sistema operativo del negocio y la dejas actuar de forma autónoma dentro de tus procesos. Los Empleados Digitales gestionan entre el 80&nbsp;% y el 90&nbsp;% del trabajo rutinario —cualificar leads, redactar borradores con tu voz, generar informes predictivos—. Tu rol se transforma de operador a estratega. El negocio funciona exactamente igual de bien sin ti.</p>
+        </div>
+
+      </div>
+
+      <!-- 5 -->
+      <h2 id="espejismo">El espejismo de la IA: el gran error de automatizar el caos</h2>
+      <p>La inmensa mayoría de los dueños de negocio ven las nuevas herramientas de Inteligencia Artificial y quieren implementarlas de inmediato. Intentan dar un salto directo desde el desorden manual del Nivel 1 a la automatización desatendida del Nivel 4. <strong>Esto es un error crítico.</strong> La IA es completamente inútil si no dispone de procesos organizados, datos estructurados limpios y sistemas claros sobre los cuales trabajar.</p>
+
+      <div class="callout">
+        <div class="callout-lbl">Idea clave</div>
+        <p>Implementar IA en un negocio caótico es el equivalente a meter un <strong>motor de Fórmula 1 en un coche de madera con las ruedas rotas</strong>: el coche va a saltar por los aires a 300 km/h. La IA no es un mago que resuelve desorden; es un operario ultra‑rápido que necesita instrucciones.</p>
+      </div>
+
+      <p>Por eso los Activos Digitales (Niveles 2 y 3) son los cimientos obligatorios: primero creas la infraestructura y luego dejas que los Empleados Digitales la operen.</p>
+
+      <!-- 6 -->
+      <h2 id="checklist">Tu checklist de referencia: 30 Activos Digitales clave</h2>
+      <p>Utiliza este listado por categorías para identificar qué piezas le faltan a tu línea de producción digital para empezar a recuperar hasta <strong>10 horas a la semana</strong>:</p>
+
+      <div class="cats">
+
+        <div class="cat-card">
+          <div class="cat-head">
+            <span class="cat-num">01</span>
+            <h3>Marketing y captación de leads</h3>
+          </div>
+          <ul>
+            <li><b>Lead Magnets</b> — Guías, checklists o diagnósticos estratégicos que atraen clientes potenciales.</li>
+            <li><b>Secuencias de bienvenida</b> — Flujos de email que educan y nutren leads mientras duermes.</li>
+            <li><b>Scripts de mensajería directa</b> — Estructuras probadas para abrir conversaciones en redes.</li>
+            <li><b>Plantillas de landing pages</b> — Páginas de captura optimizadas para convertir visitas en registros.</li>
+            <li><b>Frameworks de contenido</b> — Estructuras fijas para producir posts y vídeos rápidamente.</li>
+          </ul>
+        </div>
+
+        <div class="cat-card">
+          <div class="cat-head">
+            <span class="cat-num">02</span>
+            <h3>Ventas y conversión</h3>
+          </div>
+          <ul>
+            <li><b>Dossiers de servicio</b> — One‑pagers de oferta que pre‑cualifican al cliente.</li>
+            <li><b>Formularios de cualificación</b> — Filtros interactivos para hablar solo con perfiles que encajan.</li>
+            <li><b>Pasarelas de agenda automática</b> — Reserva de reuniones y confirmaciones sin intervención.</li>
+            <li><b>Briefings pre‑llamada</b> — Generación automática del contexto del cliente antes de la reunión.</li>
+            <li><b>Plantillas de seguimiento</b> — Mensajes post‑reunión automatizados para acelerar el cierre.</li>
+          </ul>
+        </div>
+
+        <div class="cat-card">
+          <div class="cat-head">
+            <span class="cat-num">03</span>
+            <h3>Servicio y entrega al cliente</h3>
+          </div>
+          <ul>
+            <li><b>Portal privado de clientes</b> — Paneles donde el usuario ve el progreso de su caso en tiempo real.</li>
+            <li><b>Onboarding automatizado</b> — Alta de nuevo cliente, accesos y comunicaciones sin que intervengas.</li>
+            <li><b>Checklists de bienvenida</b> — Guías paso a paso para que el cliente sepa qué hacer desde el minuto uno.</li>
+            <li><b>Bibliotecas de soporte (FAQ)</b> — Base de conocimientos con respuestas pre‑escritas a consultas frecuentes.</li>
+            <li><b>Sistema de tickets</b> — Flujo automatizado para gestionar incidencias de forma ordenada.</li>
+          </ul>
+        </div>
+
+        <div class="cat-card">
+          <div class="cat-head">
+            <span class="cat-num">04</span>
+            <h3>Operaciones internas y escala</h3>
+          </div>
+          <ul>
+            <li><b>Procedimientos operativos (POEs)</b> — Documentación clara para que cualquiera ejecute con calidad.</li>
+            <li><b>Automatizaciones de flujo</b> — Conexiones internas inteligentes en plataformas como Make o n8n.</li>
+            <li><b>Bases de datos centralizadas</b> — Cuadros de mando internos con toda la información clave.</li>
+            <li><b>Dashboard de KPIs</b> — Indicadores en tiempo real de la salud financiera y operativa del negocio.</li>
+            <li><b>Plantillas de contratos legales</b> — Acuerdos estándar listos para firmar digitalmente en segundos.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- 7 — CTA -->
+      <h2 id="sesion">El coste de cerrar este documento y no hacer nada</h2>
+      <p>Es muy fácil leer una guía como esta, contagiarse del entusiasmo de la idea del Empresario Exponencial y los Empleados Digitales, y asentir con la cabeza pensando "bien que suena". Pero sé perfectamente lo que ocurre después. Cerramos la pestaña del navegador, abrimos el correo, entra una urgencia de un cliente y volvemos de golpe a la trinchera del día a día. Aparece la excusa de siempre: <em>"Me encanta la idea, pero ahora mismo no tengo tiempo para ponerme a construir esto"</em>.</p>
+
+      <p>Y el peligro no es el día de hoy. El peligro real es lo que ocurre seis meses o un año después. Muchos dueños de negocio se encuentran de pronto con que una empresa de su mismo sector empieza a entregar el mismo servicio que ellos, pero tres veces más rápido y a unos precios que parecen ridículamente bajos. La primera reacción humana siempre es intentar justificarse: <em>"Eso que hacen no es rentable", "Están perdiendo dinero", "Es imposible mantener la calidad a esa velocidad"</em>.</p>
+
+      <p>Pero la realidad es mucho más cruda. No están perdiendo dinero. La única diferencia es que ese competidor sí tomó la decisión en su día de dejar de empujar la roca con la espalda, se sentó a estructurar sus Activos Digitales y automatizó su línea de producción. Lo doloroso de ese momento es que ya suele ser demasiado tarde. Cuando la competencia ya produce más rápido, más barato y con más margen gracias a sus sistemas, el negocio tradicional se queda sin espacio de maniobra ni tiempo de reacción.</p>
+
+      <figure class="figure">
+        <img src="img/guia-diagrama.png" alt="Diagrama: la línea del Empresario Exponencial sube exponencialmente mientras la línea del Dueño que no aplica cae hasta el cese del negocio" loading="lazy" width="1800" height="757">
+        <figcaption>Dos caminos desde la lectura de este documento: la línea azul (apalancada) frente a la línea naranja (fuerza bruta) que termina en el <b>cese del negocio</b>.</figcaption>
+      </figure>
+
+      <p>Por eso estoy aquí escribiendo esto contigo. No quiero que esa sea la historia de tu empresa. Sé que el día a día te absorbe, sé que sientes que no te da la vida para pararte a diseñar tecnología. Y precisamente porque entiendo perfectamente ese agobio, no pretendo que lo hagas todo solo ni que pases meses encerrado programando.</p>
+
+      <!-- OFERTA -->
+      <div class="offer">
+        <span class="eyebrow">Siguiente paso</span>
+        <h3>Tu <em>Próximo Activo Digital</em></h3>
+        <p>Cada nuevo activo digital hace que tu negocio dependa menos de ti. Y es el paso que casi nadie llega a dar — porque "ahora no es el momento". Si quieres romper esa línea hoy, lo hacemos así: 90 minutos, los dos juntos, construimos tu próximo activo digital y al final de la sesión se te queda funcionando.</p>
+        <ul class="offer-list">
+          <li><span><strong>Inversión única: 147&nbsp;€.</strong> Sin suscripción ni costes recurrentes.</span></li>
+          <li><span><strong>Garantía absoluta.</strong> Si al finalizar los 90 minutos no hemos creado tu próximo activo digital y no se queda funcionando, te devuelvo el 100&nbsp;% de tu dinero. Sin preguntas.</span></li>
+          <li><span><strong>Cero barreras.</strong> No necesitas saber de tecnología, ni programar, ni cambiar la forma en que trabaja tu equipo actual.</span></li>
+        </ul>
+        <div class="offer-cta">
+          <a href="https://cal.eu/jonatand/proximo-activo-digital" class="btn btn-primary">Reservar mi sesión <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+      <div class="closing">
+        <p>Hacer un movimiento grande en tu negocio no requiere un esfuerzo titánico; requiere el <em>punto de apoyo</em> correcto.</p>
+        <a href="https://cal.eu/jonatand/proximo-activo-digital" class="btn btn-primary">Reservar mi sesión <span class="arrow">→</span></a>
+      </div>
+
+    </article>
+
+  </div>
+</section>
+
+<!-- =================== FOOTER =================== -->
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="brand" href="/">
+      <span>Jonatan<b>.</b></span>
+      <span class="tag">IA para negocios</span>
+    </a>
+    <nav class="foot-links">
+      <a href="/">Inicio</a>
+      <a href="/recursos">Recursos</a>
+      <a href="/blog">Blog</a>
+      <a href="/#contacto">Contacto</a>
+    </nav>
+    <span class="foot-meta">© 2026 Jonatan Domínguez · jonatand.com</span>
+  </div>
+</footer>
+
+</body>
+</html>
