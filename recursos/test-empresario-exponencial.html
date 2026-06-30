@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Test del Empresario Exponencial · Jonatan Domínguez</title>
+<meta name="description" content="10 preguntas. 3 minutos. Mide cuánto depende tu negocio de ti en Marketing, Ventas, Servicio y Operaciones — y descubre el primer paso para que crezca sin que tú metas más horas.">
+<meta name="author" content="Jonatan Domínguez">
+<link rel="canonical" href="https://jonatand.com/recursos/test-empresario-exponencial">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Test del Empresario Exponencial">
+<meta property="og:description" content="Mide cuánto depende tu negocio de ti y descubre el primer paso para que crezca sin que tú metas más horas.">
+<meta property="og:url" content="https://jonatand.com/recursos/test-empresario-exponencial">
+<meta property="og:site_name" content="Jonatan Domínguez — IA para negocios">
+<meta property="og:locale" content="es_ES">
+
+<link rel="icon" type="image/png" href="/assets/iconos/favicon-d-naranja.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#FBFAF8;
+    --surface:#FFFFFF;
+    --ink:#14110F;
+    --ink-soft:#1E1A16;
+    --soft:#57514C;
+    --faint:#8B847D;
+    --line:#E7E3DD;
+    --line-strong:#D8D2C9;
+    --accent:#FF5A1F;
+    --accent-press:#E64C13;
+    --accent-tint:#FFF1EA;
+    --accent-muted:#C2410C;
+
+    --serif:"Newsreader",Georgia,serif;
+    --sans:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+
+    --maxw:1160px;
+    --content:640px;
+    --r:14px;
+    --r-md:10px;
+    --r-sm:6px;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    min-height:100vh;
+    display:flex;flex-direction:column;
+  }
+  img{max-width:100%;height:auto;display:block;}
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  em{font-style:italic;color:var(--accent);font-weight:500;font-family:var(--serif);}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+
+  /* ---- Eyebrow ---- */
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--mono);font-size:11.5px;font-weight:500;
+    letter-spacing:.06em;text-transform:uppercase;
+    color:var(--faint);
+  }
+  .eyebrow::before{content:"//";color:var(--accent);font-weight:600;}
+
+  /* ---- Buttons ---- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    font-family:var(--sans);font-size:16px;font-weight:600;
+    border-radius:10px;padding:15px 24px;
+    cursor:pointer;border:1px solid transparent;line-height:1;
+    transition:all .18s ease;text-decoration:none;
+  }
+  .btn-primary{background:var(--accent);color:#fff;}
+  .btn-primary:hover{background:var(--accent-press);transform:translateY(-1px);text-decoration:none;}
+  .btn-primary:disabled,
+  .btn-primary[disabled]{background:var(--line-strong);color:#fff;cursor:not-allowed;transform:none;}
+  .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line-strong);}
+  .btn-ghost:hover{background:var(--surface);text-decoration:none;}
+  .arrow{transition:transform .18s;}
+  .btn:hover .arrow{transform:translateX(3px);}
+  .btn-block{width:100%;padding:18px 24px;font-size:17px;}
+
+  /* ---- Pills ---- */
+  .pill-row{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;}
+  .pill{
+    font-family:var(--mono);font-size:11.5px;
+    padding:5px 11px;border-radius:var(--r-sm);
+    border:1px solid var(--line);background:var(--surface);
+    color:var(--soft);
+  }
+  .pill.cat{
+    background:var(--accent-tint);border-color:#F6D9C9;
+    color:var(--accent-muted);font-weight:600;
+  }
+
+  /* ============================ NAV ============================ */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,250,248,.86);
+    backdrop-filter:saturate(140%) blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-in{display:flex;align-items:center;height:64px;gap:18px;}
+  .brand{
+    display:flex;align-items:baseline;gap:10px;
+    font-family:var(--serif);font-weight:600;font-size:19px;
+    letter-spacing:-.02em;color:var(--ink);text-decoration:none;
+  }
+  .brand b{color:var(--accent);font-weight:600;}
+  .brand .tag{
+    font-family:var(--mono);font-weight:500;font-size:11px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--faint);
+    border-left:1px solid var(--line-strong);padding-left:10px;
+  }
+  .nav-right{margin-left:auto;display:flex;align-items:center;gap:18px;}
+
+  /* ============================ PROGRESS ============================ */
+  .progress-wrap{
+    width:100%;
+    max-width:var(--content);margin:0 auto;
+    padding:22px 22px 0;
+  }
+  .progress-label{
+    display:flex;justify-content:space-between;
+    font-family:var(--mono);font-size:11.5px;font-weight:500;
+    letter-spacing:.06em;text-transform:uppercase;
+    color:var(--faint);
+    margin-bottom:10px;
+  }
+  .progress-label .pct{color:var(--accent);font-weight:600;}
+  .progress-track{
+    height:3px;background:var(--line);border-radius:99px;overflow:hidden;
+  }
+  .progress-fill{
+    height:100%;background:var(--accent);border-radius:99px;
+    transition:width .5s cubic-bezier(.22,.61,.36,1);width:0%;
+  }
+
+  /* ============================ MAIN ============================ */
+  main{flex:1;display:flex;flex-direction:column;}
+  .screen{display:none;}
+  .screen.active{display:block;animation:fadeSlide .35s ease forwards;}
+  @keyframes fadeSlide{
+    from{opacity:0;transform:translateY(8px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+
+  /* ============================ WELCOME ============================ */
+  .welcome{
+    max-width:var(--content);margin:0 auto;
+    padding:88px 22px 60px;
+    text-align:center;
+  }
+  .welcome .eyebrow{justify-content:center;margin-bottom:28px;}
+  .welcome h1{
+    font-family:var(--serif);font-weight:500;
+    font-size:clamp(36px,5.4vw,56px);
+    line-height:1.05;letter-spacing:-.02em;
+    color:var(--ink);
+    margin-bottom:24px;
+    text-wrap:balance;
+  }
+  .welcome .dek{
+    font-size:clamp(17px,2vw,19px);
+    color:var(--soft);line-height:1.55;
+    max-width:36em;margin:0 auto 36px;
+    text-wrap:pretty;
+  }
+  .welcome .dek strong{color:var(--ink);font-weight:600;}
+  .welcome .pill-row{margin-bottom:40px;}
+  .welcome .btn{padding:20px 36px;font-size:17px;}
+  .welcome .note{
+    margin-top:22px;
+    font-family:var(--mono);font-size:12px;
+    color:var(--faint);letter-spacing:.02em;
+    max-width:32em;margin-left:auto;margin-right:auto;
+    line-height:1.55;
+  }
+  .welcome .note::before{content:"// ";color:var(--accent);}
+
+  /* ============================ QUESTION ============================ */
+  .q-wrap{
+    max-width:var(--content);margin:0 auto;
+    padding:48px 22px 80px;
+  }
+  .q-num{
+    font-family:var(--mono);font-size:11.5px;font-weight:600;
+    letter-spacing:.08em;text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:14px;
+  }
+  .q-num::before{content:"// ";opacity:.7;}
+  .q-title{
+    font-family:var(--serif);font-weight:500;
+    font-size:clamp(26px,3.8vw,36px);
+    line-height:1.15;letter-spacing:-.012em;
+    color:var(--ink);
+    margin-bottom:12px;
+    text-wrap:balance;
+  }
+  .q-sub{
+    font-size:15.5px;color:var(--soft);
+    line-height:1.55;margin-bottom:32px;
+  }
+
+  .options{display:grid;gap:10px;}
+  .opt{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--r-md);
+    padding:18px 20px;
+    display:flex;align-items:center;gap:16px;
+    cursor:pointer;
+    transition:border-color .15s, background .15s, transform .12s;
+    text-align:left;
+  }
+  .opt:hover{border-color:var(--line-strong);transform:translateY(-1px);}
+  .opt.selected{
+    border-color:var(--accent);
+    background:var(--accent-tint);
+  }
+  .opt-letter{
+    width:30px;height:30px;border-radius:50%;
+    background:var(--bg);
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:12px;font-weight:600;
+    color:var(--faint);
+    flex-shrink:0;
+    transition:all .15s;
+  }
+  .opt.selected .opt-letter{
+    background:var(--accent);color:#fff;border-color:var(--accent);
+  }
+  .opt-text{
+    font-size:15.5px;color:var(--ink);font-weight:500;
+    line-height:1.4;
+  }
+
+  /* Frase / insight box (callout dark style) */
+  .frase-wrap{
+    margin-top:24px;
+    max-height:0;overflow:hidden;opacity:0;
+    transition:max-height .5s ease, opacity .35s ease, margin .35s ease;
+  }
+  .frase-wrap.visible{max-height:400px;opacity:1;}
+  .frase{
+    background:var(--ink);
+    border-left:3px solid var(--accent);
+    border-radius:0 var(--r-md) var(--r-md) 0;
+    padding:24px 26px;
+  }
+  .frase-lbl{
+    font-family:var(--mono);font-size:11px;font-weight:600;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--accent);
+    margin-bottom:10px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .frase-lbl::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);}
+  .frase-text{
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    color:#fff;font-size:18px;line-height:1.45;
+    text-wrap:pretty;
+  }
+
+  .btn-next-q{
+    margin-top:24px;
+    opacity:0;pointer-events:none;
+    transition:opacity .3s ease, background .15s, transform .12s;
+  }
+  .btn-next-q.visible{opacity:1;pointer-events:all;}
+
+  /* ============================ CAPTURE ============================ */
+  .capture-wrap{
+    max-width:var(--content);margin:0 auto;
+    padding:60px 22px 80px;
+  }
+  .capture-wrap .eyebrow{margin-bottom:18px;}
+  .capture-title{
+    font-family:var(--serif);font-weight:500;
+    font-size:clamp(28px,4.2vw,40px);
+    line-height:1.12;letter-spacing:-.016em;
+    color:var(--ink);
+    margin-bottom:12px;
+    text-wrap:balance;
+  }
+  .capture-title em{font-style:italic;color:var(--accent);}
+  .capture-sub{
+    font-size:16.5px;color:var(--soft);line-height:1.55;
+    margin-bottom:32px;
+  }
+
+  /* Score preview — dark callout */
+  .score-preview{
+    background:var(--ink);
+    border-radius:var(--r);
+    padding:28px 26px;
+    margin-bottom:38px;
+  }
+  .score-preview .eyebrow{
+    color:#9A938C;margin-bottom:22px;
+  }
+  .score-areas{
+    display:grid;grid-template-columns:1fr 1fr;gap:14px;
+  }
+  .score-area{
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:var(--r-md);
+    padding:16px 18px;
+  }
+  .score-area-name{
+    font-family:var(--mono);font-size:10.5px;font-weight:600;
+    letter-spacing:.08em;text-transform:uppercase;
+    color:#9A938C;margin-bottom:10px;
+  }
+  .score-area-dots{display:flex;gap:5px;margin-bottom:10px;}
+  .score-dot{
+    width:18px;height:6px;border-radius:99px;
+    background:rgba(255,255,255,.1);
+  }
+  .score-dot.filled{background:var(--accent);}
+  .score-area-label{
+    font-family:var(--serif);font-style:italic;
+    color:#fff;font-size:15px;font-weight:500;
+  }
+
+  .cta-h{
+    font-family:var(--serif);font-weight:500;
+    font-size:clamp(22px,3vw,28px);
+    line-height:1.18;letter-spacing:-.01em;
+    color:var(--ink);
+    margin:0 0 16px;
+    text-wrap:balance;
+  }
+  .cta-h em{font-style:italic;color:var(--accent);}
+
+  .promise-box{
+    background:var(--accent-tint);
+    border:1px solid #F6D9C9;
+    border-radius:var(--r-md);
+    padding:18px 22px;
+    margin-bottom:28px;
+    font-size:15.5px;line-height:1.5;
+    color:var(--ink);
+  }
+  .promise-box .lock{color:var(--accent);margin-right:6px;}
+  .promise-box strong{font-weight:700;color:var(--accent-muted);}
+
+  /* Form */
+  .form-group{margin-bottom:16px;}
+  .form-label{
+    display:block;
+    font-family:var(--mono);font-size:11px;font-weight:600;
+    letter-spacing:.08em;text-transform:uppercase;
+    color:var(--faint);
+    margin-bottom:8px;
+  }
+  .form-input{
+    width:100%;
+    background:var(--surface);
+    border:1px solid var(--line-strong);
+    border-radius:var(--r-md);
+    padding:14px 16px;
+    font-family:var(--sans);font-size:16px;font-weight:500;
+    color:var(--ink);
+    outline:none;
+    transition:border-color .15s, box-shadow .15s;
+  }
+  .form-input::placeholder{color:var(--faint);font-weight:400;}
+  .form-input:focus{
+    border-color:var(--accent);
+    box-shadow:0 0 0 3px rgba(255,90,31,.12);
+  }
+  .form-promise{
+    margin-top:22px;
+    display:flex;flex-direction:column;gap:10px;
+  }
+  .form-consent{
+    display:flex;align-items:flex-start;gap:10px;
+    margin:8px 0 18px;
+    font-size:13.5px;color:var(--soft);line-height:1.5;
+    cursor:pointer;
+  }
+  .form-consent input{
+    flex-shrink:0;margin-top:3px;
+    width:16px;height:16px;
+    accent-color:var(--accent);
+    cursor:pointer;
+  }
+  .acm-honeypot{position:absolute;left:-5000px;}
+  .acm-iframe{display:none;}
+  .promise-item{
+    display:flex;align-items:flex-start;gap:10px;
+    font-size:13.5px;color:var(--soft);line-height:1.5;
+  }
+  .promise-item .ic{
+    color:var(--accent);flex-shrink:0;
+    font-family:var(--mono);font-size:12px;font-weight:600;
+    margin-top:1px;
+  }
+
+  /* ============================ THANK YOU ============================ */
+  .ty-wrap{
+    max-width:var(--content);margin:0 auto;
+    padding:80px 22px 60px;
+    text-align:center;
+  }
+  .ty-wrap .eyebrow{justify-content:center;margin-bottom:24px;}
+  .ty-check{
+    width:64px;height:64px;border-radius:50%;
+    background:var(--accent-tint);color:var(--accent);
+    display:flex;align-items:center;justify-content:center;
+    margin:0 auto 26px;
+    font-size:32px;line-height:1;
+    border:1px solid #F6D9C9;
+  }
+  .ty-title{
+    font-family:var(--serif);font-weight:500;
+    font-size:clamp(30px,4.6vw,44px);
+    line-height:1.1;letter-spacing:-.016em;
+    color:var(--ink);margin-bottom:14px;
+    text-wrap:balance;
+  }
+  .ty-title em{font-style:italic;color:var(--accent);}
+  .ty-sub{
+    font-size:17px;color:var(--soft);
+    line-height:1.55;max-width:30em;margin:0 auto 44px;
+    text-wrap:pretty;
+  }
+  .ty-steps{
+    display:grid;gap:14px;
+    max-width:480px;margin:0 auto 48px;
+    text-align:left;
+  }
+  .ty-step{
+    display:flex;gap:16px;align-items:flex-start;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--r-md);
+    padding:18px 20px;
+  }
+  .ty-step-num{
+    flex-shrink:0;
+    font-family:var(--mono);font-size:11.5px;font-weight:600;
+    letter-spacing:.06em;color:var(--accent);
+    padding-top:3px;
+    min-width:28px;
+  }
+  .ty-step-text{
+    font-size:15px;line-height:1.55;color:var(--soft);
+  }
+  .ty-step-text strong{color:var(--ink);font-weight:600;}
+
+  .ty-cta-block{
+    background:var(--ink);
+    border-radius:var(--r);
+    padding:32px 28px;
+    margin-top:8px;
+    text-align:center;
+  }
+  .ty-cta-block .eyebrow{
+    color:var(--accent);margin-bottom:14px;justify-content:center;
+  }
+  .ty-cta-block h3{
+    font-family:var(--serif);font-weight:500;
+    font-size:clamp(22px,3vw,28px);
+    line-height:1.2;letter-spacing:-.01em;
+    color:#fff;margin-bottom:10px;
+  }
+  .ty-cta-block h3 em{font-style:italic;color:var(--accent);}
+  .ty-cta-block p{
+    color:#C7BFB7;font-size:15px;line-height:1.55;
+    margin-bottom:22px;max-width:30em;margin-left:auto;margin-right:auto;
+  }
+  .ty-cta-block .btn{width:100%;max-width:360px;}
+
+  /* ============================ FOOTER ============================ */
+  footer.foot{
+    background:var(--bg);
+    border-top:1px solid var(--line);
+    padding:28px 0;
+    margin-top:auto;
+  }
+  .foot-in{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:18px;flex-wrap:wrap;
+  }
+  .foot-meta{
+    font-family:var(--mono);font-size:11.5px;
+    color:var(--faint);letter-spacing:.02em;
+  }
+
+  /* ============================ RESPONSIVE ============================ */
+  @media(max-width:640px){
+    .nav-in{height:58px;}
+    .brand .tag{display:none;}
+    .welcome{padding:56px 22px 48px;}
+    .q-wrap{padding:36px 22px 60px;}
+    .capture-wrap{padding:44px 22px 60px;}
+    .ty-wrap{padding:56px 22px 48px;}
+    .score-areas{grid-template-columns:1fr;}
+    .score-preview{padding:22px 20px;}
+    .opt{padding:16px 18px;gap:14px;}
+    .opt-text{font-size:15px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- =================== NAV =================== -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/">
+      <span>Jonatan<b>.</b></span>
+      <span class="tag">/test</span>
+    </a>
+  </div>
+</header>
+
+<!-- =================== PROGRESS (only during questions) =================== -->
+<div class="progress-wrap" id="progress-wrap" style="display:none">
+  <div class="progress-label">
+    <span id="progress-text">01 / 10</span>
+    <span class="pct" id="progress-pct">10%</span>
+  </div>
+  <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+</div>
+
+<main>
+
+<!-- =================== WELCOME =================== -->
+<section id="s-welcome" class="screen active">
+  <div class="welcome">
+    <div class="eyebrow">Diagnóstico gratuito · 3 minutos</div>
+    <h1>Test del <em>Empresario Exponencial</em></h1>
+    <p class="dek">
+      10 preguntas. 3 minutos. Mide <strong>cuánto depende tu negocio de ti</strong> en cada área —
+      Marketing, Ventas, Servicio y Operaciones — y descubre el primer paso para que crezca
+      sin que tú metas más horas.
+    </p>
+    <div class="pill-row">
+      <span class="pill cat">10 preguntas</span>
+      <span class="pill">Sin registro para empezar</span>
+      <span class="pill">100% gratis</span>
+    </div>
+    <button class="btn btn-primary" onclick="startQuiz()" style="margin-top:36px;">
+      Empezar el test <span class="arrow">→</span>
+    </button>
+    <p class="note">Al terminar el test, recibes por email el manual completo para subir de nivel.</p>
+  </div>
+</section>
+
+<!-- =================== QUESTION =================== -->
+<section id="s-question" class="screen">
+  <div class="q-wrap">
+    <div class="q-num" id="q-num">Pregunta 01 de 10</div>
+    <h2 class="q-title" id="q-title"></h2>
+    <p class="q-sub" id="q-sub"></p>
+    <div class="options" id="q-options"></div>
+
+    <div class="frase-wrap" id="frase-wrap">
+      <div class="frase">
+        <div class="frase-lbl" id="frase-label"></div>
+        <p class="frase-text" id="frase-text"></p>
+      </div>
+    </div>
+
+    <button class="btn btn-primary btn-block btn-next-q" id="btn-next-q" onclick="nextQuestion()">
+      Siguiente <span class="arrow">→</span>
+    </button>
+  </div>
+</section>
+
+<!-- =================== CAPTURE =================== -->
+<section id="s-capture" class="screen">
+  <div class="capture-wrap">
+    <div class="eyebrow">Resultado</div>
+    <h2 class="capture-title">Tu diagnóstico está <em>listo</em>.</h2>
+    <p class="capture-sub">Esto es lo que hemos detectado en cada área de tu negocio:</p>
+
+    <div class="score-preview">
+      <div class="eyebrow">Tu puntuación por área</div>
+      <div class="score-areas" id="score-areas"></div>
+    </div>
+
+    <h3 class="cta-h">¿Quieres saber cómo <em>subir al siguiente nivel</em>?</h3>
+
+    <div class="promise-box">
+      <span class="lock">🔒</span>
+      <strong>El manual del Empresario Exponencial:</strong> qué significa cada nivel,
+      los 30 activos digitales que separan al Nivel 1 del Nivel 4 y cómo construir
+      tu primera palanca — te llega por email en cuanto rellenes el formulario.
+    </div>
+
+    <form id="acm-form"
+          action="https://acumbamail.com/newform/subscribe/FGoAPLkT2C2N1Dw4kOwsFX7b4MhT1VDL1GwerFCP8tP0ry/63356/?iframe=1"
+          method="post"
+          target="acm_result_63356"
+          onsubmit="return submitForm(event);">
+      <div class="form-group">
+        <label class="form-label" for="inp-name">Tu nombre</label>
+        <input class="form-input" id="inp-name" name="char_01" type="text" maxlength="128" placeholder="¿Cómo te llamas?" autocomplete="given-name">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="inp-email">Tu email</label>
+        <input class="form-input" id="inp-email" name="email_1" type="email" placeholder="tu@email.com" autocomplete="email" required>
+      </div>
+
+      <label class="form-consent" for="inp-consent">
+        <input id="inp-consent" name="boolean_1" type="checkbox" required>
+        <span>Sí, quédate con mi email para enviarme el manual y consejos prácticos para hacer crecer mi negocio.</span>
+      </label>
+
+      <!-- Anti-spam honeypot fields (no tocar) -->
+      <input type="text" name="a1438494c" tabindex="-1" value="" class="acm-honeypot" aria-hidden="true" autocomplete="off">
+      <input type="email" name="b1438494c" tabindex="-1" value="" class="acm-honeypot" aria-hidden="true" autocomplete="off">
+      <input type="checkbox" name="c1438494c" tabindex="-1" class="acm-honeypot" aria-hidden="true" autocomplete="off">
+
+      <button type="submit" class="btn btn-primary btn-block">
+        Recibir el manual completo <span class="arrow">→</span>
+      </button>
+    </form>
+
+    <iframe class="acm-iframe" name="acm_result_63356" title="Resultado de la suscripción" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
+    <div class="form-promise">
+      <div class="promise-item"><span class="ic">→</span> El manual llega a tu email en minutos.</div>
+      <div class="promise-item"><span class="ic">→</span> En los próximos días recibirás claves prácticas para subir de nivel en cada área.</div>
+      <div class="promise-item"><span class="ic">→</span> Sin spam. Te das de baja cuando quieras.</div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== THANK YOU =================== -->
+<section id="s-thankyou" class="screen">
+  <div class="ty-wrap">
+    <div class="eyebrow">Suscripción confirmada</div>
+    <div class="ty-check">✓</div>
+    <h2 class="ty-title">Listo, <em id="ty-name">amigo</em>. Te espera dentro.</h2>
+    <p class="ty-sub">
+      Tu manual ya tiene casa. Lo puedes abrir ahora mismo — y en paralelo te llega
+      a tu email para que lo tengas siempre a mano.
+    </p>
+
+    <a class="btn btn-primary" href="/recursos/guia-activos-digitales" style="padding:18px 32px;font-size:17px;margin-bottom:48px;">
+      Abrir el manual ahora <span class="arrow">→</span>
+    </a>
+
+    <div class="ty-steps">
+      <div class="ty-step">
+        <div class="ty-step-num">01</div>
+        <div class="ty-step-text"><strong>El manual completo</strong> — con los 4 niveles, los 30 activos digitales y los primeros pasos — te llega a tu email en los próximos minutos. Si no lo ves, asomáte al spam o a la pestaña de promociones.</div>
+      </div>
+      <div class="ty-step">
+        <div class="ty-step-num">02</div>
+        <div class="ty-step-text"><strong>En los próximos días</strong> te iré mandando claves prácticas — ejemplos reales, errores típicos y los siguientes pasos — para que sepas exactamente cómo subir de nivel en cada área de tu negocio.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- =================== FOOTER =================== -->
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="brand" href="/">
+      <span>Jonatan<b>.</b></span>
+      <span class="tag">IA para negocios</span>
+    </a>
+    <span class="foot-meta">© 2026 Jonatan Domínguez · jonatand.com</span>
+  </div>
+</footer>
+
+<script>
+const QUESTIONS = [
+  {
+    title: "Cuando un cliente nuevo te contacta, ¿qué pasa?",
+    sub: "Piensa en el último que llegó.",
+    opts: [
+      "Lo gestiono desde el principio",
+      "Mi equipo hace el primer contacto pero yo cierro",
+      "Mi equipo lo gestiona sin mí",
+      "Un sistema lo capta, filtra y solo me avisa cuando quiere comprar"
+    ],
+    label: "Adivina",
+    frase: "Si una empresa resuelve un problema en 4 horas y otra en 4 días, qué empresa va a dejar de tener clientes en los próximos meses.",
+    scores: [1,2,3,4],
+    area: "ventas"
+  },
+  {
+    title: "Si mañana coges una semana de vacaciones sin móvil, ¿qué pasa con tu negocio?",
+    sub: "Sé honesto.",
+    opts: [
+      "Se para. Mis clientes me necesitan a mí directamente",
+      "La rutina tira pero los problemas me esperan al volver",
+      "Funciona, aunque sin mí algunas cosas se ralentizan",
+      "Funciona igual."
+    ],
+    label: "Punto de vista",
+    frase: "Un cliente no quiere saber cuánto tardaste. Solo si su problema desapareció.",
+    scores: [1,2,3,4],
+    area: "operaciones"
+  },
+  {
+    title: "¿Cuánto tardas en responder a un cliente nuevo que te escribe?",
+    sub: "El tiempo de respuesta es ventaja competitiva. O desventaja.",
+    opts: [
+      "Cuando puedo, a veces tarda días",
+      "El mismo día, normalmente",
+      "En pocas horas, tenemos protocolo",
+      "En menos de 5 minutos, lo gestiona un sistema"
+    ],
+    label: "¿Sabías que?",
+    frase: "Un estudio del MIT demostró que responder a un posible cliente en menos de 5 minutos multiplica por 21 las probabilidades de que acabe contratando. El tiempo de respuesta promedio de las empresas es 47 horas.",
+    scores: [1,2,3,4],
+    area: "marketing"
+  },
+  {
+    title: "¿Cómo creas presupuestos o propuestas para clientes nuevos?",
+    sub: "",
+    opts: [
+      "Los hago yo desde cero cada vez",
+      "Tengo una plantilla pero la personalizo manualmente siempre",
+      "Mi equipo puede hacerlos",
+      "Un sistema genera el borrador y yo solo reviso"
+    ],
+    label: "Te has fijado que…",
+    frase: "Mientras las grandes empresas cobran extra por entregar más rápido, las pequeñas creen que cuantas más horas meten, más pueden facturar.",
+    scores: [1,2,3,4],
+    area: "ventas"
+  },
+  {
+    title: "¿Qué pasa cuando un cliente tiene una duda fuera de lo habitual?",
+    sub: "Lo que no está en el guion, ¿dónde aterriza?",
+    opts: [
+      "Me llaman o escriben a mí directamente, siempre",
+      "Mi equipo lo intenta pero acaba en mi mesa",
+      "Hay criterios claros, mi equipo resuelve la mayoría",
+      "Un sistema gestiona el soporte y a mí solo me llega lo crítico"
+    ],
+    label: "Piénsalo",
+    frase: "El profesional que resuelve tu problema en 15 minutos vale más que el que tarda 3 días.",
+    scores: [1,2,3,4],
+    area: "servicio"
+  },
+  {
+    title: "¿Cómo entregas tu servicio a los clientes?",
+    sub: "El proceso real, no el ideal.",
+    opts: [
+      "Cada entrega es diferente, según el cliente",
+      "Tengo una forma de hacerlo pero no está documentada",
+      "Hay un proceso claro que mi equipo puede seguir",
+      "Está automatizado, el sistema gestiona la entrega"
+    ],
+    label: "Piénsalo",
+    frase: "Cuanto antes entregas, más clientes puedes meter en el mismo mes. La velocidad de entrega no es un detalle operativo. Es un modelo de negocio.",
+    scores: [1,2,3,4],
+    area: "servicio"
+  },
+  {
+    title: "¿Usas inteligencia artificial en tu negocio ahora mismo?",
+    sub: "No lo que te gustaría usar. Lo que realmente haces.",
+    opts: [
+      "No, no la uso",
+      "Sí, ChatGPT o similar, pero de forma puntual cuando me acuerdo",
+      "Sí, la uso a diario para tareas concretas",
+      "Sí, tengo sistemas montados que funcionan solos"
+    ],
+    label: "Reflexión",
+    frase: "A dos servicios iguales, un cliente contratará el más barato. Un negocio que funciona solo puede ofrecer lo mismo a un precio ridículamente más bajo. Y ganar más margen.",
+    scores: [1,2,3,4],
+    area: "operaciones"
+  },
+  {
+    title: "¿Cuántas horas a la semana dedicas a tareas manuales de oficina?",
+    sub: "Emails, hojas de cálculo, presentaciones, propuestas, informes…",
+    opts: [
+      "Más de 15 horas",
+      "Entre 7 y 15 horas",
+      "Entre 3 y 7 horas",
+      "Menos de 3 horas"
+    ],
+    label: "Piénsalo",
+    frase: "El mercado no premia el esfuerzo. Premia que el problema desaparezca. Cada hora que pasas haciendo lo que un sistema podría hacer, es una hora que no estás construyendo lo que solo tú puedes construir.",
+    scores: [1,2,3,4],
+    area: "operaciones"
+  },
+  {
+    title: "Si mañana te entraran el doble de clientes, ¿qué pasaría?",
+    sub: "",
+    opts: [
+      "No podría atenderlos. Ya voy al límite",
+      "Podría con algunos más pero habría que contratar",
+      "El equipo aguantaría, aunque con esfuerzo",
+      "El sistema lo absorbería sin que yo tuviera que hacer nada diferente"
+    ],
+    label: "Piénsalo",
+    frase: "De la misma forma que no existe un negocio sin teléfono o sin internet, pronto no existirá un negocio sin IA. No es una ventaja competitiva. Son los nuevos cimientos para mantenerse abierto.",
+    scores: [1,2,3,4],
+    area: "marketing"
+  },
+  {
+    title: "¿Qué describe mejor tu situación a día de hoy?",
+    sub: "",
+    opts: [
+      "Trabajo mucho y el negocio no termina de crecer",
+      "El negocio tira pero yo soy imprescindible para todo",
+      "Tengo equipo pero sigo en la parte operativa",
+      "Tengo sistemas, y el día a día no me necesita"
+    ],
+    label: "Piénsalo",
+    frase: "Entregar resultados en el menor tiempo posible es lo que cambia un negocio de categoría.",
+    scores: [1,2,3,4],
+    area: "operaciones"
+  }
+];
+
+const AREAS = ['marketing','ventas','servicio','operaciones'];
+const AREA_LABELS = {
+  marketing:'Marketing', ventas:'Ventas',
+  servicio:'Servicio', operaciones:'Operaciones'
+};
+const LEVEL_NAMES = ['','Manual','Documentado','Delegado','Automatizado'];
+
+const TOTAL = QUESTIONS.length;
+let current = 0;
+let selectedIdx = null;
+let areaScores = { marketing:[], ventas:[], servicio:[], operaciones:[] };
+
+function pad(n){return String(n).padStart(2,'0');}
+
+function startQuiz(){
+  showScreen('s-question');
+  document.getElementById('progress-wrap').style.display='block';
+  renderQuestion(0);
+}
+
+function renderQuestion(idx){
+  current = idx;
+  selectedIdx = null;
+  const q = QUESTIONS[idx];
+
+  document.getElementById('q-num').textContent = `Pregunta ${pad(idx+1)} de ${pad(TOTAL)}`;
+  document.getElementById('q-title').textContent = q.title;
+  document.getElementById('q-sub').textContent = q.sub || '';
+  document.getElementById('q-sub').style.display = q.sub ? 'block' : 'none';
+
+  const container = document.getElementById('q-options');
+  container.innerHTML = '';
+  ['A','B','C','D'].forEach((letter,i)=>{
+    const div = document.createElement('button');
+    div.type = 'button';
+    div.className = 'opt';
+    div.innerHTML = `<span class="opt-letter">${letter}</span><span class="opt-text">${q.opts[i]}</span>`;
+    div.onclick = ()=>selectOption(i);
+    container.appendChild(div);
+  });
+
+  const fraseWrap = document.getElementById('frase-wrap');
+  fraseWrap.classList.remove('visible');
+  document.getElementById('frase-label').textContent = '';
+  document.getElementById('frase-text').textContent = '';
+
+  const btn = document.getElementById('btn-next-q');
+  btn.classList.remove('visible');
+  btn.innerHTML = (idx === TOTAL - 1)
+    ? 'Ver mi diagnóstico <span class="arrow">→</span>'
+    : 'Siguiente <span class="arrow">→</span>';
+
+  updateProgress(idx + 1);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function selectOption(i){
+  selectedIdx = i;
+  document.querySelectorAll('.opt').forEach((el, idx)=>{
+    el.classList.toggle('selected', idx === i);
+  });
+  const q = QUESTIONS[current];
+  document.getElementById('frase-label').textContent = q.label;
+  document.getElementById('frase-text').textContent = q.frase;
+  document.getElementById('frase-wrap').classList.add('visible');
+  document.getElementById('btn-next-q').classList.add('visible');
+}
+
+function nextQuestion(){
+  if (selectedIdx === null) return;
+  const q = QUESTIONS[current];
+  areaScores[q.area].push(q.scores[selectedIdx]);
+
+  if (current < TOTAL - 1){
+    renderQuestion(current + 1);
+  } else {
+    document.getElementById('progress-wrap').style.display = 'none';
+    buildScorePreview();
+    showScreen('s-capture');
+  }
+}
+
+function avg(arr){
+  if (!arr.length) return 1;
+  return Math.round(arr.reduce((a,b)=>a+b,0)/arr.length);
+}
+
+function buildScorePreview(){
+  const container = document.getElementById('score-areas');
+  container.innerHTML = '';
+  AREAS.forEach(area=>{
+    const nivel = avg(areaScores[area]);
+    const dots = [1,2,3,4].map(i =>
+      `<div class="score-dot ${i <= nivel ? 'filled' : ''}"></div>`
+    ).join('');
+    container.innerHTML += `
+      <div class="score-area">
+        <div class="score-area-name">${AREA_LABELS[area]}</div>
+        <div class="score-area-dots">${dots}</div>
+        <div class="score-area-label">Nivel ${nivel} · ${LEVEL_NAMES[nivel]}</div>
+      </div>
+    `;
+  });
+}
+
+function submitForm(ev){
+  if (ev) ev.preventDefault();
+  const form = document.getElementById('acm-form');
+  const name = document.getElementById('inp-name').value.trim();
+  const email = document.getElementById('inp-email').value.trim();
+  const consent = document.getElementById('inp-consent').checked;
+  if (!name){ alert('Por favor escribe tu nombre.'); return false; }
+  if (!email || !email.includes('@')){ alert('Por favor pon un email válido.'); return false; }
+  if (!consent){ alert('Necesito tu permiso para enviarte el manual y los emails.'); return false; }
+
+  // Submit to Acumbamail (lands in the hidden iframe, page stays put)
+  form.submit();
+
+  document.getElementById('ty-name').textContent = name.split(' ')[0];
+  showScreen('s-thankyou');
+  return false;
+}
+
+function showScreen(id){
+  ['s-welcome','s-question','s-capture','s-thankyou'].forEach(s=>{
+    document.getElementById(s).classList.remove('active');
+  });
+  document.getElementById(id).classList.add('active');
+  // Progress bar only visible during questions
+  const showProgress = (id === 's-question');
+  document.getElementById('progress-wrap').style.display = showProgress ? 'block' : 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateProgress(n){
+  const pct = Math.round((n / TOTAL) * 100);
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-text').textContent = `${pad(n)} / ${pad(TOTAL)}`;
+  document.getElementById('progress-pct').textContent = pct + '%';
+}
+</script>
+</body>
+</html>
